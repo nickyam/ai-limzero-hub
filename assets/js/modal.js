@@ -40,11 +40,19 @@
         el("modal").classList.add("hidden");
         return;
       }
+      // 点中卡片内的真实链接（标题/详情/分类/官方领取）就交给浏览器正常跳转
+      if (e.target.closest("a[href]")) return;
       var card = e.target.closest(".card");
       if (card && card.dataset.slug) open(card.dataset.slug);
     });
     document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape") el("modal").classList.add("hidden");
+      var m = el("modal");
+      if (e.key === "Escape" && m) { m.classList.add("hidden"); }
+      // 键盘可达：聚焦卡片时按 Enter / 空格打开弹窗
+      if ((e.key === "Enter" || e.key === " ") && e.target.classList && e.target.classList.contains("card")) {
+        e.preventDefault();
+        if (e.target.dataset.slug) open(e.target.dataset.slug);
+      }
     });
   });
 })();

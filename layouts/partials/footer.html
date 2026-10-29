@@ -1,6 +1,19 @@
 <footer class="site-footer">
   <div class="container">
-    <p><a href="/disclaimer/">免责声明</a> · Powered by Limzero</p>
+    <nav class="footer-nav" aria-label="分类导航">
+      {{ $seen := slice }}
+      {{ range site.Data.resources }}
+        {{ if not (in $seen .type) }}
+          {{ $seen = $seen | append .type }}
+          <a href="/categories/{{ partial "cat-slug.html" .type }}/">{{ .type }}</a>
+        {{ end }}
+      {{ end }}
+      <span class="sep">·</span>
+      <a href="/submit/">提交指引</a>
+      <a href="/about/">关于</a>
+      <a href="/disclaimer/">免责声明</a>
+    </nav>
+    <p>Powered by Limzero</p>
     <p class="disclaimer-short">{{ site.Params.disclaimerShort }}</p>
   </div>
 </footer>

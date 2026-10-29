@@ -7,6 +7,16 @@
 
 <section class="stats" id="stats" aria-live="polite"><!-- filters.js 填充 --></section>
 
+<nav class="cat-bar" aria-label="按分类浏览">
+  {{ $seen := slice }}
+  {{ range site.Data.resources }}
+    {{ if not (in $seen .type) }}
+      {{ $seen = $seen | append .type }}
+      <a class="cat-chip" href="/categories/{{ partial "cat-slug.html" .type }}/">{{ .type }}</a>
+    {{ end }}
+  {{ end }}
+</nav>
+
 <section class="toolbar">
   <div id="search"></div>
   <div class="filters">

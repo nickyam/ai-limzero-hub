@@ -17,5 +17,27 @@
         localStorage.setItem(KEY, next);
       };
     }
+
+    // 导航栏分类下拉（无 JS 也可用：首屏 CSS 默认展开于 :focus-within 之外的降级在 baseof 里无必要，
+    // 因为分类页同时出现在页脚，纯 JS 失效时仍有入口）
+    var toggle = document.querySelector(".nav-dropdown-toggle");
+    var menu = document.querySelector(".nav-dropdown-menu");
+    if (toggle && menu) {
+      toggle.addEventListener("click", function (e) {
+        e.stopPropagation();
+        var open = menu.classList.toggle("open");
+        toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      });
+      document.addEventListener("click", function () {
+        menu.classList.remove("open");
+        toggle.setAttribute("aria-expanded", "false");
+      });
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") {
+          menu.classList.remove("open");
+          toggle.setAttribute("aria-expanded", "false");
+        }
+      });
+    }
   });
 })();

@@ -28,5 +28,30 @@
     <a class="btn primary" href="{{ .Params.official_url }}" target="_blank" rel="noopener noreferrer">官方领取 ↗</a>
     <a class="btn ghost" href="{{ .Params.rule_url }}" target="_blank" rel="noopener noreferrer">官方规则 ↗</a>
   </div>
+
+  {{/* 同类资源：为详情页提供站内横向入口，避免成为孤岛页 */}}
+  {{ $cur := .Params.slug }}
+  {{ $type := .Params.resource_type }}
+  {{ $siblings := slice }}
+  {{ range site.Data.resources }}
+    {{ if and (eq .type $type) (ne .slug $cur) }}
+      {{ $siblings = $siblings | append . }}
+    {{ end }}
+  {{ end }}
+  {{ with $siblings }}
+    <section class="related">
+      <h2>同类资源</h2>
+      <ul class="related-list">
+        {{ range . }}
+          <li>
+            <a href="/resources/{{ .slug }}/">{{ .name }}</a>
+            <span class="related-meta">{{ .free_type }}</span>
+            <span class="badge verify status-{{ .status }}">{{ .verify_status }}</span>
+          </li>
+        {{ end }}
+      </ul>
+      <p class="related-more"><a href="/categories/{{ partial "cat-slug.html" $type }}/">查看全部「{{ $type }}」→</a></p>
+    </section>
+  {{ end }}
 </article>
 {{ end }}

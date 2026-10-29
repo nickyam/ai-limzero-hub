@@ -2,16 +2,18 @@
 """凌零集 · 资源页生成器（仅构建期使用，非运行时后端）
 
 从 data/resources.yaml 生成：
-  - content/resources/<slug>.md      每资源一详情页
-  - content/categories/<type>/_index.md  每分类一页
+  - content/resources/<slug>.md            每资源一详情页
+  - content/categories/<type>/_index.md    每分类一页
 
-重跑幂等：会清空旧的 content/resources 与 content/categories 再重建。
+幂等且**增量**：
+  - 内容未变的文件不重写（保留 mtime，避免无意义的删除/重建）
+  - 只删除数据里已不存在的孤儿页（资源下架时自动清理）
+
 注意：Hugo 保留 front matter 中的 `type` 作为内容类型，会干扰模板查找，
 因此本脚本把数据字段 `type` 映射为 front matter 的 `resource_type`。
 """
 import os
 import re
-import shutil
 import yaml
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -36,6 +38,7 @@ FIELD_MAP = {
     "verify_time": "verify_time",
     "remark": "remark",
     "status": "status",
+    "slug": "slug",
 }
 
 
@@ -86,44 +89,82 @@ def build_front_matter(item: dict) -> str:
     return "\n".join(lines)
 
 
-def clear_dir(d: str):
-    if not os.path.isdir(d):
-        return
-    for name in os.listdir(d):
-        p = os.path.join(d, name)
+def write_if_changed(path: str, content: str) -> bool:
+    """内容相同则跳过写入，返回是否真的写了。"""
+    if os.path.isfile(path):
+        try:
+            with open(path, encoding="utf-8") as f:
+                if f.read() == content:
+                    return False
+        except OSError:
+            pass
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(content)
+    return True
+
+
+def prune(dir_path: str, keep: set) -> int:
+    """删除目录下不在 keep 里的文件 / 子目录。返回删除数量。"""
+    if not os.path.isdir(dir_path):
+        return 0
+    removed = 0
+    for name in os.listdir(dir_path):
+        if name in keep:
+            continue
+        p = os.path.join(dir_path, name)
         if os.path.isdir(p):
-            shutil.rmtree(p)
+            for root, _dirs, files in os.walk(p, topdown=False):
+                for fn in files:
+                    os.remove(os.path.join(root, fn))
+                    removed += 1
+                os.rmdir(root)
         else:
             os.remove(p)
+            removed += 1
+    return removed
 
 
 def main():
     items = load_items()
-    clear_dir(RES_DIR)
-    clear_dir(CAT_DIR)
     os.makedirs(RES_DIR, exist_ok=True)
     os.makedirs(CAT_DIR, exist_ok=True)
 
     types = {}
+    written = 0
+    keep_res = set()
     for it in items:
         slug = it.get("slug") or slugify(it.get("name", "item"))
         it["slug"] = slug
-        with open(os.path.join(RES_DIR, f"{slug}.md"), "w", encoding="utf-8") as f:
-            f.write(build_front_matter(it))
+        fname = f"{slug}.md"
+        keep_res.add(fname)
+        if write_if_changed(os.path.join(RES_DIR, fname), build_front_matter(it)):
+            written += 1
         t = it.get("type", "未分类")
         types[t] = slugify(t)
 
+    keep_cat = set()
     for t, tslug in types.items():
-        d = os.path.join(CAT_DIR, tslug)
-        os.makedirs(d, exist_ok=True)
-        with open(os.path.join(d, "_index.md"), "w", encoding="utf-8") as f:
-            f.write("---\n")
-            f.write(f'title: "{t}"\n')
-            f.write("layout: category\n")
-            f.write(f'category: "{t}"\n')
-            f.write("---\n")
+        keep_cat.add(tslug)
+        body = (
+            "---\n"
+            f'title: "{t}"\n'
+            "layout: category\n"
+            f'category: "{t}"\n'
+            "---\n"
+        )
+        write_if_changed(os.path.join(CAT_DIR, tslug, "_index.md"), body)
 
-    print(f"[gen] 生成 {len(items)} 个资源详情页，{len(types)} 个分类页")
+    # 清理数据里已移除的孤儿页（增量：只有下架时才删）
+    pruned = prune(RES_DIR, keep_res) + prune(CAT_DIR, keep_cat)
+
+    if written or pruned:
+        print(
+            f"[gen] {len(items)} 个资源、{len(types)} 个分类"
+            f"（更新 {written} 个，清理 {pruned} 个孤儿文件）"
+        )
+    else:
+        print(f"[gen] {len(items)} 个资源、{len(types)} 个分类（无变化）")
 
 
 if __name__ == "__main__":

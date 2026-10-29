@@ -1,0 +1,11 @@
+{{- /*
+  与 scripts/gen_resources.py 的 slugify() 保持一致，用于生成分类目录名。
+  Python 侧规则：lower → 空白转 - → 仅保留 a-z0-9 中文 连字符 → 去首尾 - → 空则 item
+  改动任一侧都必须同步另一侧，否则分类链接会 404。
+*/ -}}
+{{- $s := . | default "" | string | lower -}}
+{{- $s = replaceRE `\s+` "-" $s -}}
+{{- $s = replaceRE `[^a-z0-9\p{Han}-]` "" $s -}}
+{{- $s = strings.Trim $s "-" -}}
+{{- if eq $s "" }}{{ $s = "item" }}{{ end -}}
+{{- $s -}}

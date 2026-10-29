@@ -1,14 +1,17 @@
 {{ $direct := in .access_note "国内可直连" }}
+{{ $href := printf "/resources/%s/" .slug }}
 <article class="card status-{{ .status }}" data-slug="{{ .slug }}" data-type="{{ .type }}"
   data-status="{{ .status }}" data-realname="{{ .need_realname }}" data-openai="{{ .openai_compatible }}"
   data-direct="{{ if $direct }}true{{ else }}false{{ end }}" tabindex="0" role="button"
   aria-label="查看 {{ .name }} 详情">
   <div class="card-head">
-    <h3 class="card-title">{{ .name }}{{ with .model_name }}<span class="model"> · {{ . }}</span>{{ end }}</h3>
+    <h3 class="card-title">
+      <a class="card-title-link" href="{{ $href }}">{{ .name }}</a>{{ with .model_name }}<span class="model"> · {{ . }}</span>{{ end }}
+    </h3>
     <span class="badge verify">{{ .verify_status }}</span>
   </div>
   <div class="card-meta">
-    <span class="tag type">{{ .type }}</span>
+    <span class="tag type"><a href="/categories/{{ partial "cat-slug.html" .type }}/">{{ .type }}</a></span>
     <span class="tag free">{{ .free_type }}</span>
   </div>
   <p class="card-quota">{{ .quota }}</p>
@@ -19,6 +22,6 @@
   <div class="card-actions">
     <a class="btn primary" href="{{ .official_url }}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">官方领取 ↗</a>
     <a class="btn ghost" href="{{ .rule_url }}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">规则 ↗</a>
-    <span class="btn link" data-detail>详情</span>
+    <a class="btn link" href="{{ $href }}">详情 →</a>
   </div>
 </article>
