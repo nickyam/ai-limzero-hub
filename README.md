@@ -31,6 +31,7 @@ ai-limzero-hub/
 │   └── js/{theme,filters,modal}.js
 ├── static/                     # robots.txt、favicon.svg
 ├── scripts/
+│   ├── dev.py                  # ★ 本地开发服务器（生成+构建+索引+自动刷新）
 │   ├── gen_resources.py        # YAML → content/resources + categories（构建期）
 │   └── check_urls.py           # 链接失效检测报告（只读）
 ├── .github/workflows/build.yml # 构建 + Pagefind 索引
@@ -42,13 +43,36 @@ ai-limzero-hub/
 
 ## 本地预览
 
+开发阶段**只需一条命令**，改文件保存即自动重建 + 浏览器自动刷新：
+
 ```bash
-pip install pyyaml
-python3 scripts/gen_resources.py     # 由 YAML 生成资源页
-hugo server -D                        # 本地预览 http://localhost:1313
+pip install pyyaml            # 首次
+python3 scripts/dev.py        # http://localhost:1313
 ```
 
-> 搜索框依赖 `public/pagefind/`，需先 `hugo` 构建 + `npx pagefind --site public` 才会有索引；`hugo server` 实时预览时搜索框可暂时无结果，属正常。
+脚本每轮自动执行：`gen_resources.py` → `hugo --minify` → `pagefind --site public` → 版本号 +1（页面轮询后自动刷新）。单次约 **3 秒**。
+
+可选参数：
+
+```bash
+python3 scripts/dev.py --port 8080     # 换端口
+python3 scripts/dev.py --no-open       # 不自动开浏览器
+python3 scripts/dev.py --no-search     # 跳过 Pagefind，再快 1.5s（搜索框无结果）
+```
+
+> **为什么不用 `hugo server`？**
+> Pagefind 是「对构建产物做后处理」的索引器，索引写在 `public/pagefind/`；`hugo server` 在内存渲染、不落盘，所以搜索框在 `hugo server` 下永远是空的。`dev.py` 走真实产物路径，**本地与线上的搜索、详情页、404 完全一致**。
+>
+> 首次运行会自动 `npm install pagefind` 到 `node_modules/`（已 gitignore）；之后每轮索引从 16 秒降到 1.5 秒。
+
+**发布前**建议本地跑一次完整校验：
+
+```bash
+python3 scripts/gen_resources.py
+hugo --minify --baseURL https://ai.limzero.com/
+npx -y pagefind@1.3.0 --site public --force-language zh
+python3 scripts/check_urls.py
+```
 
 ---
 

@@ -11,3 +11,7 @@
 # Python 缓存
 __pycache__/
 *.pyc
+
+# 本地 Pagefind 二进制（scripts/dev.py 自动安装）
+node_modules/
+package-lock.json
