@@ -2,22 +2,25 @@
 """凌零集 · 本地开发服务器（零第三方依赖）
 
 为什么不用 `hugo server`？
-  Pagefind 是「后构建」索引器，索引写在 public/pagefind/，
-  hugo server 在内存里渲染、不产出该目录，所以搜索框在 hugo server 下永远是空的。
-  本脚本改为走「真实构建产物」路线：build → pagefind → 静态托管 public/，
-  于是本地搜索、详情页、404 与线上完全一致。
+  hugo server 在内存里渲染、不写磁盘，而且本站的搜索是「前端基于内嵌 JSON 的纯静态检索」，
+  资源数据由 scripts/gen_resources.py 从 YAML 生成，hugo server 不会自动跑生成器，
+  导致详情页缺失、搜索无数据。
+  本脚本改为走「真实构建产物」路线：生成 → hugo --minify → 静态托管 public/，
+  于是本地筛选、搜索、详情页、404 与线上完全一致。
 
 每次保存自动执行：
   1) scripts/gen_resources.py   YAML → content/resources + content/categories
   2) hugo --minify              → public/
-  3) pagefind --site public     → public/pagefind/
-  4) 浏览器自动刷新（轮询 /__ver 版本号）
+  3) 浏览器自动刷新（轮询 /__ver 版本号）
+
+搜索说明：
+  首页搜索框为「纯客户端静态检索」——直接对页面内嵌的 #resource-data JSON 做名称/模型/标签
+  匹配并就地筛选卡片，不依赖任何后端或外部索引服务（比 Pagefind 更适合「单页卡片列表」场景）。
 
 用法：
   python3 scripts/dev.py                 # http://localhost:1313
   python3 scripts/dev.py --port 8080
   python3 scripts/dev.py --no-open       # 不自动开浏览器
-  python3 scripts/dev.py --no-search     # 跳过 Pagefind（更快，搜索框无结果）
 """
 import argparse
 import functools
@@ -117,7 +120,7 @@ def run_step(title, cmd):
     return True
 
 
-def build(port, with_search=True):
+def build(port):
     log("── 构建 ──")
     ok = run_step("生成资源页", [sys.executable, "scripts/gen_resources.py"])
     if not ok:
@@ -129,51 +132,6 @@ def build(port, with_search=True):
     )
     if not ok:
         return False
-    if with_search:
-        cmd = pagefind_cmd()
-        if not cmd:
-            log("  ! 未找到 Pagefind，跳过索引（搜索框将无结果）")
-        else:
-            ok = run_step("Pagefind 索引", cmd)
-            if not ok:
-                log("  ! Pagefind 失败，站点其余功能不受影响")
-    return True
-
-
-PAGEFIND_VERSION = "1.3.0"
-
-
-def pagefind_cmd():
-    """优先用项目本地二进制（约 1.5s）；没有则退回 npx（首次约 16s）。"""
-    local = os.path.join(ROOT, "node_modules", ".bin", "pagefind")
-    if os.path.isfile(local):
-        return [local, "--site", "public", "--force-language", "zh"]
-    npx = shutil.which("npx")
-    if not npx:
-        return None
-    return [npx, "--yes", f"pagefind@{PAGEFIND_VERSION}",
-            "--site", "public", "--force-language", "zh"]
-
-
-def ensure_pagefind():
-    """本地没有 Pagefind 时安一次（之后每轮索引从 16s 降到 1.5s）。"""
-    local = os.path.join(ROOT, "node_modules", ".bin", "pagefind")
-    if os.path.isfile(local):
-        return True
-    npm = shutil.which("npm")
-    if not npm:
-        log("  ! 未找到 npm，将用 npx 现场拉取（每轮索引较慢）")
-        return False
-    log(f"首次安装 Pagefind {PAGEFIND_VERSION}（一次性，约 10s）…")
-    r = subprocess.run(
-        [npm, "install", "--no-save", "--no-audit", "--no-fund",
-         f"pagefind@{PAGEFIND_VERSION}"],
-        cwd=ROOT, capture_output=True, text=True,
-    )
-    if r.returncode != 0:
-        log("  ! 安装失败，将用 npx 兜底")
-        return False
-    log("  ✓ Pagefind 就绪（后续索引约 1.5s）")
     return True
 
 
@@ -214,8 +172,7 @@ class DevHandler(http.server.SimpleHTTPRequestHandler):
 
     def end_headers(self):
         # 静态资源不缓存，避免改了 CSS/JS 却看到旧版本
-        if not self.path.startswith("/pagefind/"):
-            self.send_header("Cache-Control", "no-store")
+        self.send_header("Cache-Control", "no-store")
         super().end_headers()
 
     def log_message(self, fmt, *args):
@@ -226,7 +183,6 @@ def main():
     ap = argparse.ArgumentParser(description="凌零集本地开发服务器")
     ap.add_argument("--port", type=int, default=1313)
     ap.add_argument("--no-open", action="store_true", help="不自动打开浏览器")
-    ap.add_argument("--no-search", action="store_true", help="跳过 Pagefind 索引")
     args = ap.parse_args()
 
     if not shutil.which("hugo"):
@@ -239,10 +195,7 @@ def main():
         log("✗ 缺少 PyYAML，请先执行：pip install pyyaml")
         sys.exit(1)
 
-    if not args.no_search:
-        ensure_pagefind()
-
-    if not build(args.port, with_search=not args.no_search):
+    if not build(args.port):
         log("\n首次构建失败，已中止。修好上面的报错后重跑即可。")
         sys.exit(1)
 
@@ -273,7 +226,7 @@ def main():
                 continue
             log(f"检测到改动：{changed_files(prev, cur)}")
             prev = cur
-            if build(args.port, with_search=not args.no_search):
+            if build(args.port):
                 STATE["ver"] += 1
                 log(f"→ 已刷新 {url}\n")
     except KeyboardInterrupt:

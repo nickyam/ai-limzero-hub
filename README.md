@@ -2,7 +2,7 @@
 
 面向国内开发者的**免费 AI 开发资源导航站**：可实测的免费大模型 API、免费 Token 额度、免费云服务器、免费托管与向量库、TTS / OCR 等配套资源。
 
-- 纯静态：Hugo 构建 + Pagefind 静态全文搜索 + YAML 数据文件
+- 纯静态：Hugo 构建 + 前端内嵌 JSON 的纯静态检索（无后端、无索引服务）+ YAML 数据文件
 - GitHub Actions 自动构建（仅出 `public/` 产物，不含部署）
 - 无任何后端 / 数据库 / 用户系统 / 第三方统计
 - 仅展示官方原生免费资源，不做 API 中转、Token 分发、账号池
@@ -34,7 +34,7 @@ ai-limzero-hub/
 │   ├── dev.py                  # ★ 本地开发服务器（生成+构建+索引+自动刷新）
 │   ├── gen_resources.py        # YAML → content/resources + categories（构建期）
 │   └── check_urls.py           # 链接失效检测报告（只读）
-├── .github/workflows/build.yml # 构建 + Pagefind 索引
+├── .github/workflows/build.yml # 构建并产出 public/ 产物
 ├── nginx/ai.limzero.com.conf   # Nginx 参考配置
 └── README.md
 ```
@@ -50,27 +50,23 @@ pip install pyyaml            # 首次
 python3 scripts/dev.py        # http://localhost:1313
 ```
 
-脚本每轮自动执行：`gen_resources.py` → `hugo --minify` → `pagefind --site public` → 版本号 +1（页面轮询后自动刷新）。单次约 **3 秒**。
+脚本每轮自动执行：`gen_resources.py` → `hugo --minify` → 版本号 +1（页面轮询后自动刷新）。单次约 **1.5 秒**。
 
 可选参数：
 
 ```bash
 python3 scripts/dev.py --port 8080     # 换端口
 python3 scripts/dev.py --no-open       # 不自动开浏览器
-python3 scripts/dev.py --no-search     # 跳过 Pagefind，再快 1.5s（搜索框无结果）
 ```
 
 > **为什么不用 `hugo server`？**
-> Pagefind 是「对构建产物做后处理」的索引器，索引写在 `public/pagefind/`；`hugo server` 在内存渲染、不落盘，所以搜索框在 `hugo server` 下永远是空的。`dev.py` 走真实产物路径，**本地与线上的搜索、详情页、404 完全一致**。
->
-> 首次运行会自动 `npm install pagefind` 到 `node_modules/`（已 gitignore）；之后每轮索引从 16 秒降到 1.5 秒。
+> 本站搜索是「前端基于内嵌 JSON 的纯静态检索」，资源数据由 `gen_resources.py` 从 YAML 生成；`hugo server` 不会自动跑生成器，导致详情页缺失、搜索无数据。`dev.py` 走真实产物路径，**本地搜索、筛选、详情页、404 与线上完全一致**。
 
 **发布前**建议本地跑一次完整校验：
 
 ```bash
 python3 scripts/gen_resources.py
 hugo --minify --baseURL https://ai.limzero.com/
-npx -y pagefind@1.3.0 --site public --force-language zh
 python3 scripts/check_urls.py
 ```
 

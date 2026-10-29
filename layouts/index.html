@@ -25,14 +25,18 @@
     <label>OpenAI 兼容<select id="f-openai"></select></label>
     <label>国内直连<select id="f-direct"></select></label>
   </div>
-  <div id="search" class="toolbar-search"></div>
+  <div class="toolbar-search">
+    <input id="search-input" type="search" placeholder="搜索名称 / 模型 / 标签…" autocomplete="off" aria-label="搜索资源">
+  </div>
 </section>
 
-<section class="resource-list" id="resource-list" data-pagefind-body>
+<section class="resource-list" id="resource-list">
   {{ range site.Data.resources }}
     {{ partial "resource-card.html" . }}
   {{ end }}
 </section>
+
+<p id="no-results" class="no-results" hidden>没有匹配的资源，试试调整筛选或关键词。</p>
 
 <div id="modal" class="modal hidden" aria-hidden="true">
   <div class="modal-backdrop" data-close></div>
@@ -60,12 +64,5 @@
     "tags" .tags
     "status" .status ) }}
 {{ end }}
-<script id="resource-data" type="application/json">{{ $data | jsonify }}</script>
-<script>
-  window.addEventListener("DOMContentLoaded", function () {
-    if (window.PagefindUI) {
-      new PagefindUI({ element: "#search", showSubResults: true, showImages: false });
-    }
-  });
-</script>
+<script id="resource-data" type="application/json">{{ $data | jsonify | safeJS }}</script>
 {{ end }}
