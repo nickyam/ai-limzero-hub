@@ -1,0 +1,61 @@
+{{ define "main" }}
+<section class="hero">
+  <h1 class="site-title">{{ site.Params.siteName }}</h1>
+  <p class="site-en">{{ site.Params.siteEn }}</p>
+  <p class="slogan">{{ site.Params.slogan }}</p>
+</section>
+
+<section class="stats" id="stats" aria-live="polite"><!-- filters.js 填充 --></section>
+
+<section class="toolbar">
+  <div id="search"></div>
+  <div class="filters">
+    <label>分类<select id="f-type"></select></label>
+    <label>核验状态<select id="f-status"></select></label>
+    <label>是否实名<select id="f-realname"></select></label>
+    <label>OpenAI 兼容<select id="f-openai"></select></label>
+    <label>国内直连<select id="f-direct"></select></label>
+  </div>
+</section>
+
+<section class="resource-list" id="resource-list" data-pagefind-body>
+  {{ range site.Data.resources }}
+    {{ partial "resource-card.html" . }}
+  {{ end }}
+</section>
+
+<div id="modal" class="modal hidden" aria-hidden="true">
+  <div class="modal-backdrop" data-close></div>
+  <div class="modal-card" id="modal-card" role="dialog" aria-modal="true"></div>
+</div>
+
+{{ $data := slice }}
+{{ range site.Data.resources }}
+  {{ $data = $data | append (dict
+    "slug" (.slug | default (replace .name " " "-"))
+    "name" .name
+    "type" .type
+    "model_name" .model_name
+    "free_type" .free_type
+    "quota" .quota
+    "validity" .validity
+    "need_realname" .need_realname
+    "openai_compatible" .openai_compatible
+    "access_note" .access_note
+    "official_url" .official_url
+    "rule_url" .rule_url
+    "verify_status" .verify_status
+    "verify_time" .verify_time
+    "remark" .remark
+    "tags" .tags
+    "status" .status ) }}
+{{ end }}
+<script id="resource-data" type="application/json">{{ $data | jsonify }}</script>
+<script>
+  window.addEventListener("DOMContentLoaded", function () {
+    if (window.PagefindUI) {
+      new PagefindUI({ element: "#search", showSubResults: true, showImages: false });
+    }
+  });
+</script>
+{{ end }}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ if .IsHome }}{{ site.Params.siteName }} | {{ site.Params.siteEn }}{{ else }}{{ .Title }} | {{ site.Params.siteName }}{{ end }}</title>
+  <meta name="description" content="{{ site.Params.slogan }}">
+  <meta property="og:title" content="{{ site.Params.siteName }}">
+  <meta property="og:description" content="{{ site.Params.slogan }}">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  {{ $css := resources.Get "css/main.css" | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $css.RelPermalink }}">
+  {{ if .IsHome }}<link href="/pagefind/pagefind-ui.css" rel="stylesheet">{{ end }}
+</head>
+<body>
+  {{ partial "header.html" . }}
+  <main class="container">
+    {{ block "main" . }}{{ end }}
+  </main>
+  {{ partial "footer.html" . }}
+
+  <script src="{{ (resources.Get "js/theme.js" | minify | fingerprint).RelPermalink }}" defer></script>
+  {{ if .IsHome }}
+  <script src="/pagefind/pagefind-ui.js"></script>
+  <script src="{{ (resources.Get "js/filters.js" | minify | fingerprint).RelPermalink }}" defer></script>
+  <script src="{{ (resources.Get "js/modal.js" | minify | fingerprint).RelPermalink }}" defer></script>
+  {{ end }}
+</body>
+</html>

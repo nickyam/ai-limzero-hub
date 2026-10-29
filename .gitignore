@@ -1,0 +1,13 @@
+# 构建产物
+/public/
+
+# 由 scripts/gen_resources.py 生成，非手工编辑（单一来源是 data/resources.yaml）
+/content/resources/
+/content/categories/
+
+# Hugo 构建锁
+.hugo_build.lock
+
+# Python 缓存
+__pycache__/
+*.pyc

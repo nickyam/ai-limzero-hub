@@ -1,0 +1,32 @@
+{{ define "main" }}
+<article class="detail">
+  <nav class="breadcrumb">
+    <a href="/">首页</a> / <span>{{ .Params.resource_type }}</span> / <span>{{ .Params.title }}</span>
+  </nav>
+  <h1>{{ .Params.title }}{{ with .Params.model_name }}<span class="model"> · {{ . }}</span>{{ end }}</h1>
+  <span class="badge verify status-{{ .Params.status }}">{{ .Params.verify_status }}</span>
+
+  <dl class="fields">
+    <dt>分类</dt><dd>{{ .Params.resource_type }}</dd>
+    <dt>模型名称</dt><dd>{{ .Params.model_name | default "—" }}</dd>
+    <dt>免费类型</dt><dd>{{ .Params.free_type }}</dd>
+    <dt>额度说明</dt><dd>{{ .Params.quota }}</dd>
+    <dt>有效期</dt><dd>{{ .Params.validity | default "—" }}</dd>
+    <dt>是否实名</dt><dd>{{ .Params.need_realname }}</dd>
+    <dt>OpenAI 兼容</dt><dd>{{ .Params.openai_compatible }}</dd>
+    <dt>访问备注</dt><dd>{{ .Params.access_note }}</dd>
+    <dt>核验状态</dt><dd>{{ .Params.verify_status }}（{{ .Params.verify_time }}）</dd>
+    <dt>标签</dt><dd>{{ range .Params.tags }}<span class="tag">{{ . }}</span>{{ end }}</dd>
+  </dl>
+
+  <div class="remark">
+    <h2>避坑备注</h2>
+    <p>{{ .Params.remark | default "暂无" }}</p>
+  </div>
+
+  <div class="detail-actions">
+    <a class="btn primary" href="{{ .Params.official_url }}" target="_blank" rel="noopener noreferrer">官方领取 ↗</a>
+    <a class="btn ghost" href="{{ .Params.rule_url }}" target="_blank" rel="noopener noreferrer">官方规则 ↗</a>
+  </div>
+</article>
+{{ end }}

@@ -1,0 +1,13 @@
+{{ define "main" }}
+<section class="hero small">
+  <h1 class="site-title">{{ .Title }}</h1>
+  <p class="slogan">{{ site.Params.slogan }}</p>
+  <p class="back"><a href="/">← 返回首页</a></p>
+</section>
+
+<section class="resource-list" data-pagefind-body>
+  {{ range where site.Data.resources "type" .Params.category }}
+    {{ partial "resource-card.html" . }}
+  {{ end }}
+</section>
+{{ end }}

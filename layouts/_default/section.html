@@ -1,0 +1,25 @@
+{{ define "main" }}
+<section class="hero small">
+  <h1 class="site-title">{{ .Title }}</h1>
+  <p class="slogan">{{ site.Params.slogan }}</p>
+</section>
+<section class="resource-list" data-pagefind-body>
+  {{ range .Pages }}
+    {{ partial "resource-card.html" (dict
+      "slug" .Params.slug
+      "name" .Title
+      "type" .Params.resource_type
+      "model_name" .Params.model_name
+      "free_type" .Params.free_type
+      "quota" .Params.quota
+      "access_note" .Params.access_note
+      "need_realname" .Params.need_realname
+      "openai_compatible" .Params.openai_compatible
+      "verify_status" .Params.verify_status
+      "status" .Params.status
+      "tags" .Params.tags
+      "official_url" .Params.official_url
+      "rule_url" .Params.rule_url) }}
+  {{ end }}
+</section>
+{{ end }}
