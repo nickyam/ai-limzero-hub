@@ -18,29 +18,32 @@
     var data = parseData(raw.textContent);
     if (!data.length) return;
 
-    // 统计面板
-    var s = { verified: 0, pending: 0, expired: 0 };
-    data.forEach(function (d) { if (s[d.status] != null) s[d.status]++; });
-    el("stats").innerHTML =
-      '<div class="stat"><b>' + data.length + '</b><span>有效资源</span></div>' +
-      '<div class="stat warn"><b>' + s.pending + '</b><span>待复核</span></div>' +
-      '<div class="stat off"><b>' + s.expired + '</b><span>已失效</span></div>';
+    // 统计面板（页面保留 #stats 时才渲染，否则跳过，避免报错）
+    var stEl = el("stats");
+    if (stEl) {
+      var s = { verified: 0, pending: 0, expired: 0 };
+      data.forEach(function (d) { if (s[d.status] != null) s[d.status]++; });
+      stEl.innerHTML =
+        '<div class="stat"><b>' + data.length + '</b><span>有效资源</span></div>' +
+        '<div class="stat warn"><b>' + s.pending + '</b><span>待复核</span></div>' +
+        '<div class="stat off"><b>' + s.expired + '</b><span>已失效</span></div>';
+    }
 
     // 填充筛选项
-    function fill(id, vals) {
+    function fill(id, label, vals) {
       var sel = el(id);
-      sel.innerHTML = '<option value="">全部</option>';
+      sel.innerHTML = '<option value="">' + label + '</option>';
       uniq(vals).forEach(function (v) {
         var o = document.createElement("option");
         o.value = v; o.textContent = v;
         sel.appendChild(o);
       });
     }
-    fill("f-type", data.map(function (d) { return d.type; }));
-    fill("f-status", data.map(function (d) { return d.status; }));
-    fill("f-realname", data.map(function (d) { return d.need_realname; }));
-    fill("f-openai", data.map(function (d) { return d.openai_compatible; }));
-    fill("f-direct", data.map(function (d) { return d.access_note.indexOf("国内可直连") >= 0 ? "是" : "否"; }));
+    fill("f-type", "分类", data.map(function (d) { return d.type; }));
+    fill("f-status", "核验状态", data.map(function (d) { return d.status; }));
+    fill("f-realname", "是否实名", data.map(function (d) { return d.need_realname; }));
+    fill("f-openai", "OpenAI 兼容", data.map(function (d) { return d.openai_compatible; }));
+    fill("f-direct", "国内直连", data.map(function (d) { return d.access_note.indexOf("国内可直连") >= 0 ? "是" : "否"; }));
 
     // 当前筛选 + 搜索状态
     var state = { type: "", status: "", realname: "", openai: "", direct: "", q: "" };

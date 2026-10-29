@@ -10,7 +10,6 @@ disableKinds = ["taxonomy"]
   siteName = "凌零集"
   siteEn = "Limzero AI Hub"
   slogan = "免费大模型API · Token额度 · AI算力与托管资源导航"
-  disclaimerShort = "本站仅为第三方信息导航聚合，不提供算力、不中转API、不售卖token、不担保服务可用性。"
 
 [markup]
   [markup.goldmark]

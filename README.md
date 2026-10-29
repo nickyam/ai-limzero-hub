@@ -21,8 +21,9 @@ ai-limzero-hub/
 ├── content/
 │   ├── _index.md               # 首页
 │   ├── submit.md               # 提交指引
-│   ├── disclaimer.md           # 免责声明
 │   ├── about.md                # 关于
+│   ├── disclaimer.md           # 免责声明
+│   ├── privacy.md              # 隐私政策
 │   ├── resources/              # 由脚本生成（gitignore，勿手改）
 │   └── categories/             # 由脚本生成（gitignore，勿手改）
 ├── layouts/                    # 模板（baseof / 首页 / 分类 / 详情 / 卡片 / 头尾）

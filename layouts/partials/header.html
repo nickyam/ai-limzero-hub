@@ -1,23 +1,8 @@
 <header class="site-header">
   <nav class="nav container">
-    <a class="brand" href="/">{{ site.Params.siteName }}</a>
+    <a class="brand" href="/">{{ site.Params.siteName }}<span class="brand-en">{{ site.Params.siteEn }}</span></a>
     <div class="nav-links">
-      <a href="/">首页</a>
-      <div class="nav-dropdown">
-        <button class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">分类 ▾</button>
-        <ul class="nav-dropdown-menu">
-          {{ $seen := slice }}
-          {{ range site.Data.resources }}
-            {{ if not (in $seen .type) }}
-              {{ $seen = $seen | append .type }}
-              <li><a href="/categories/{{ partial "cat-slug.html" .type }}/">{{ .type }}</a></li>
-            {{ end }}
-          {{ end }}
-        </ul>
-      </div>
-      <a href="/submit/">提交指引</a>
       <a href="/about/">关于</a>
-      <a href="/disclaimer/">免责声明</a>
       <button id="theme-toggle" aria-label="切换浅色/深色">🌓</button>
     </div>
   </nav>

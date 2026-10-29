@@ -5,7 +5,7 @@
   <p class="slogan">{{ site.Params.slogan }}</p>
 </section>
 
-<section class="stats" id="stats" aria-live="polite"><!-- filters.js 填充 --></section>
+<section class="stats" id="stats" aria-live="polite"></section>
 
 <nav class="cat-bar" aria-label="按分类浏览">
   {{ $seen := slice }}
@@ -19,11 +19,11 @@
 
 <section class="toolbar">
   <div class="filters">
-    <label>分类<select id="f-type"></select></label>
-    <label>核验状态<select id="f-status"></select></label>
-    <label>是否实名<select id="f-realname"></select></label>
-    <label>OpenAI 兼容<select id="f-openai"></select></label>
-    <label>国内直连<select id="f-direct"></select></label>
+    <select id="f-type" aria-label="分类" required></select>
+    <select id="f-status" aria-label="核验状态" required></select>
+    <select id="f-realname" aria-label="是否实名" required></select>
+    <select id="f-openai" aria-label="OpenAI 兼容" required></select>
+    <select id="f-direct" aria-label="国内直连" required></select>
   </div>
   <div class="toolbar-search">
     <input id="search-input" type="search" placeholder="搜索名称 / 模型 / 标签…" autocomplete="off" aria-label="搜索资源">
