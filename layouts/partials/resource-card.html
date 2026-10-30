@@ -1,8 +1,15 @@
 {{ $direct := in .access_note "国内可直连" }}
 {{ $href := printf "/resources/%s/" .slug }}
+{{ $name := .name | default "" }}
+{{ $model := .model_name | default "" }}
+{{ $type := .type | default "" }}
+{{ $remark := .remark | default "" }}
+{{ $tags := .tags | default slice }}
+{{ $search := printf "%s %s %s %s %s" $name $model $type (delimit $tags " ") $remark | replaceRE "[\"&<>]" "" }}
 <article class="card status-{{ .status }}" data-slug="{{ .slug }}" data-type="{{ .type }}"
   data-status="{{ .status }}" data-realname="{{ .need_realname }}" data-openai="{{ .openai_compatible }}"
-  data-direct="{{ if $direct }}true{{ else }}false{{ end }}" tabindex="0" role="button"
+  data-direct="{{ if $direct }}true{{ else }}false{{ end }}" data-free="{{ .free_type }}"
+  data-search="{{ $search }}" tabindex="0" role="button"
   aria-label="查看 {{ .name }} 详情">
   <div class="card-head">
     <h3 class="card-title">
