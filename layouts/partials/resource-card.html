@@ -8,7 +8,6 @@
     <h3 class="card-title">
       <a class="card-title-link" href="{{ $href }}">{{ .name }}</a>{{ with .model_name }}<span class="model"> · {{ . }}</span>{{ end }}
     </h3>
-    <span class="badge verify">{{ .verify_status }}</span>
   </div>
   <div class="card-meta">
     <span class="tag type"><a href="/categories/{{ partial "cat-slug.html" .type }}/">{{ .type }}</a></span>

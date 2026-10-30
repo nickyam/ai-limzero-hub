@@ -21,12 +21,16 @@
     // 统计面板（页面保留 #stats 时才渲染，否则跳过，避免报错）
     var stEl = el("stats");
     if (stEl) {
-      var s = { verified: 0, pending: 0, expired: 0 };
-      data.forEach(function (d) { if (s[d.status] != null) s[d.status]++; });
+      var types = {};
+      var direct = 0;
+      data.forEach(function (d) {
+        types[d.type] = 1;
+        if ((d.access_note || "").indexOf("国内可直连") >= 0) direct++;
+      });
       stEl.innerHTML =
         '<div class="stat"><b>' + data.length + '</b><span>有效资源</span></div>' +
-        '<div class="stat warn"><b>' + s.pending + '</b><span>待复核</span></div>' +
-        '<div class="stat off"><b>' + s.expired + '</b><span>已失效</span></div>';
+        '<div class="stat"><b>' + Object.keys(types).length + '</b><span>覆盖分类</span></div>' +
+        '<div class="stat"><b>' + direct + '</b><span>国内可直连</span></div>';
     }
 
     // 填充筛选项
@@ -40,16 +44,15 @@
       });
     }
     fill("f-type", "分类", data.map(function (d) { return d.type; }));
-    fill("f-status", "核验状态", data.map(function (d) { return d.status; }));
     fill("f-realname", "是否实名", data.map(function (d) { return d.need_realname; }));
     fill("f-openai", "OpenAI 兼容", data.map(function (d) { return d.openai_compatible; }));
     fill("f-direct", "国内直连", data.map(function (d) { return d.access_note.indexOf("国内可直连") >= 0 ? "是" : "否"; }));
 
     // 当前筛选 + 搜索状态
-    var state = { type: "", status: "", realname: "", openai: "", direct: "", q: "" };
+    var state = { type: "", realname: "", openai: "", direct: "", q: "" };
 
     var fmap = {
-      "f-type": "type", "f-status": "status", "f-realname": "realname",
+      "f-type": "type", "f-realname": "realname",
       "f-openai": "openai", "f-direct": "direct"
     };
     Object.keys(fmap).forEach(function (id) {
@@ -78,7 +81,6 @@
       document.querySelectorAll("#resource-list .card").forEach(function (c) {
         var ok = true;
         if (state.type && c.dataset.type !== state.type) ok = false;
-        if (state.status && c.dataset.status !== state.status) ok = false;
         if (state.realname && c.dataset.realname !== state.realname) ok = false;
         if (state.openai && c.dataset.openai !== state.openai) ok = false;
         if (state.direct) {

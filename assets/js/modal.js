@@ -16,11 +16,10 @@
     el("modal-card").innerHTML =
       '<button class="modal-close" data-close aria-label="关闭">×</button>' +
       "<h2>" + esc(d.name) + (d.model_name ? ' <span class="model">· ' + esc(d.model_name) + "</span>" : "") + "</h2>" +
-      '<span class="badge verify status-' + esc(d.status) + '">' + esc(d.verify_status) + "</span>" +
       '<dl class="fields">' +
       row("分类", d.type) + row("免费类型", d.free_type) + row("额度说明", d.quota) +
-      row("有效期", d.validity) + row("是否实名", d.need_realname) + row("OpenAI 兼容", d.openai_compatible) +
-      row("访问备注", d.access_note) + row("核验", d.verify_status + "（" + d.verify_time + "）") +
+      row("有效期", d.validity) +       row("是否实名", d.need_realname) + row("OpenAI 兼容", d.openai_compatible) +
+      row("访问备注", d.access_note) +
       "</dl>" +
       '<p class="remark"><b>避坑备注：</b>' + esc(d.remark) + "</p>" +
       '<div class="card-tags">' + tags + "</div>" +
