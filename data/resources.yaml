@@ -19,7 +19,7 @@
   rule_url: "https://open.bigmodel.cn/pricing"
   verify_status: "⏳待复核"
   verify_time: "2026-10-30"
-  remark: "永久免费模型有速率限制（约 30 并发）；体验额度注意有效期，到期可能清零。来源参考：尼古斯公众号《不花钱用 AI》2026-10 核实。"
+  remark: "永久免费模型有速率限制（约 30 并发）；体验额度注意有效期，到期可能清零。"
   status: "pending"
   tags: ["国内可访问", "OpenAI兼容", "永久免费"]
 
@@ -37,7 +37,7 @@
   rule_url: "https://help.aliyun.com/zh/model-studio/"
   verify_status: "⏳待复核"
   verify_time: "2026-10-30"
-  remark: "免费额度 90 天到期即消失、不结转；需阿里云账号实名；免费与付费资源共用账户，注意区分避免误扣费。来源参考：尼古斯公众号《不花钱用 AI》2026-10 核实。"
+  remark: "免费额度 90 天到期即消失、不结转；需阿里云账号实名；免费与付费资源共用账户，注意区分避免误扣费。"
   status: "pending"
   tags: ["国内可访问", "需实名"]
 
@@ -55,7 +55,7 @@
   rule_url: "https://docs.siliconflow.cn/"
   verify_status: "⏳待复核"
   verify_time: "2026-10-30"
-  remark: "免费档约 5-10 QPS，超频报错；模型 ID 为「组织/模型名」格式需从列表复制完整 ID；额度不结转。来源参考：尼古斯公众号《不花钱用 AI》2026-10 核实。"
+  remark: "免费档约 5-10 QPS，超频报错；模型 ID 为「组织/模型名」格式需从列表复制完整 ID；额度不结转。"
   status: "pending"
   tags: ["国内可访问", "OpenAI兼容", "永久免费"]
 
@@ -73,7 +73,7 @@
   rule_url: "https://www.volcengine.com/docs/ark"
   verify_status: "⏳待复核"
   verify_time: "2026-10-30"
-  remark: "需火山引擎账号实名；免费档多限 lite 系列；每日 200 万为按天重置，新人 50 万为一次性。来源参考：尼古斯公众号《不花钱用 AI》2026-10 核实。"
+  remark: "需火山引擎账号实名；免费档多限 lite 系列；每日 200 万为按天重置，新人 50 万为一次性。"
   status: "pending"
   tags: ["国内可访问", "需实名", "每日免费"]
 
@@ -181,7 +181,7 @@
   rule_url: "https://modelscope.cn/docs"
   verify_status: "⏳待复核"
   verify_time: "2026-10-30"
-  remark: "用阿里云账号登录；免费算力 Notebook 长期闲置会被回收，重要文件用持久化空间或推 Git。来源参考：尼古斯公众号《不花钱用 AI》2026-10 核实。"
+  remark: "用阿里云账号登录；免费算力 Notebook 长期闲置会被回收，重要文件用持久化空间或推 Git。"
   status: "pending"
   tags: ["国内可访问", "每日免费", "免费算力"]
 
@@ -199,7 +199,7 @@
   rule_url: "https://cloud.baidu.com/doc/WENXINWORKSHOP/"
   verify_status: "⏳待复核"
   verify_time: "2026-10-30"
-  remark: "需百度智能云实名；ERNIE-Speed-8K 为永久免费且并发最大方（QPS=50）。来源参考：尼古斯公众号《不花钱用 AI》2026-10 核实。"
+  remark: "需百度智能云实名；ERNIE-Speed-8K 为永久免费且并发最大方（QPS=50）。"
   status: "pending"
   tags: ["国内可访问", "需实名", "永久免费", "OpenAI兼容"]
 
@@ -217,7 +217,7 @@
   rule_url: "https://ai.google.dev/gemini-api/docs/rate-limits"
   verify_status: "⏳待复核"
   verify_time: "2026-10-30"
-  remark: "无需信用卡，Google 账号 60 秒领 API Key；多模态能力极强（图/音/视频）；免费档速率受限。OpenAI 兼容需使用专用端点（generativelanguage.googleapis.com/v1beta/openai）。需自备海外网络环境。来源参考：尼古斯公众号《不花钱用 AI》2026-10 核实；2026 多家聚合站核对。"
+  remark: "无需信用卡，Google 账号 60 秒领 API Key；多模态能力极强（图/音/视频）；免费档速率受限。OpenAI 兼容需使用专用端点（generativelanguage.googleapis.com/v1beta/openai）。需自备海外网络环境。"
   status: "pending"
   tags: ["海外服务", "需科学上网", "多模态", "每日免费"]
 
@@ -235,7 +235,7 @@
   rule_url: "https://openrouter.ai/collections/free-models"
   verify_status: "⏳待复核"
   verify_time: "2026-10-30"
-  remark: "单一 API Key + OpenAI 兼容端点聚合 500+ 模型；免费模型随厂商贡献变动（2026-10 实测 25+ 个，公众号核时仅 7 个）；$10 一次性充值仅解锁每日上限、不扣免费模型费用。需自备海外网络环境。来源参考：尼古斯公众号《不花钱用 AI》2026-10 核实；2026 多家聚合站核对。"
+  remark: "单一 API Key + OpenAI 兼容端点聚合 500+ 模型；免费模型随厂商贡献变动（2026-10 实测 25+ 个，较早期仅 7 个）；$10 一次性充值仅解锁每日上限、不扣免费模型费用。需自备海外网络环境。"
   status: "pending"
   tags: ["海外服务", "需科学上网", "OpenAI兼容", "永久免费", "多模型聚合"]
 
@@ -253,7 +253,7 @@
   rule_url: "https://discovery.intern-ai.org.cn/token-plan/home"
   verify_status: "⏳待复核"
   verify_time: "2026-10-30"
-  remark: "微信扫码即登录、免邮箱/绑卡；同时支持 OpenAI 与 Anthropic 双协议（base: https://discovery-api.intern-ai.org.cn），可直连 Cherry Studio / Claude Code 等；1M 上下文；墨点按月清零、不结转，领了就用。测试期政策，额度随时可能调整，尽早领取。来源参考：微信公众号 2026-10 文《每月白送 5 亿 token，这次是国家队出手》（书生·端砚 墨点计划实测）。"
+  remark: "微信扫码即登录、免邮箱/绑卡；同时支持 OpenAI 与 Anthropic 双协议（base: https://discovery-api.intern-ai.org.cn），可直连 Cherry Studio / Claude Code 等；1M 上下文；墨点按月清零、不结转，领了就用。测试期政策，额度随时可能调整，尽早领取。"
   status: "pending"
   tags: ["国内可访问", "无需实名", "每月免费", "OpenAI兼容", "国家队", "双协议"]
 
