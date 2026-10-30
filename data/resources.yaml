@@ -462,3 +462,708 @@
   remark: "实名认证后自动发放，个人/企业额度不同；按接口单独发放，当月未用完不结转。"
   status: "pending"
   tags: ["国内可访问", "需实名", "每月免费"]
+
+# ============ 新增（脚本追加，来源见 source_id）============
+
+- name: Oracle Cloud Always Free
+  slug: oracle-always-free
+  type: 云服务器·容器
+  model_name: ""
+  free_type: 永久免费
+  quota: ARM Ampere A1 共 4 OCPU + 24 GB 内存（可拆成最多 4 台）、另 2 台 AMD x86 微实例（各 1/8 OCPU + 1 GB）、200 GB 块存储、10 TB/月出网流量，具体以官网为准
+  validity: 永久（Always Free，非试用）
+  need_realname: 是
+  openai_compatible: 否
+  access_note: 国内可直连（控制台可访问，实例在境外，延迟较高）
+  official_url: "https://www.oracle.com/cloud/free/"
+  rule_url: "https://docs.oracle.com/en-us/iaas/Content/FreeTier/freetier_topic-Always_Free_Resources.htm"
+  verify_status: ⏳待复核
+  verify_time: 2026-10-30
+  remark: "免费额度天花板：4 核 24G 在付费市场要 80–100 美元/月。三大坑：①热门区域长期 Out of capacity，抢机器要靠刷；②CPU 长期低于 10% 利用率可能被停机；③风控会无预警封号且难以申诉，别把唯一副本放这里。注册需实体 Visa/Mastercard 验证（预授权约 $1 后退回），注册时关代理、用手机热点，保证 IP / 发卡国 / 账单地址三者一致。"
+  status: pending
+  source_id: vendor-infra
+  tags: [永久免费, 海外服务, 需实名, 大内存, 高风险回收]
+
+- name: 阿里云 函数计算 FC
+  slug: aliyun-fc
+  type: 云服务器·容器
+  model_name: ""
+  free_type: 每月重置
+  quota: 每月免费额度（约 100 万次调用 + 40 万 GB·秒算力，含公网流量若干 GB），具体数值以官网为准
+  validity: 每月重置
+  need_realname: 是
+  openai_compatible: 否
+  access_note: 国内可直连
+  official_url: "https://www.aliyun.com/product/fc"
+  rule_url: "https://help.aliyun.com/zh/fc/product-overview/billing-overview"
+  verify_status: ⏳待复核
+  verify_time: 2026-10-30
+  remark: Serverless 形态，不用管服务器；免费额度按月发放、不结转。适合定时任务、轻量 API、Webhook 转发。冷启动比容器方案慢，重计算场景不合适。需实名。
+  status: pending
+  source_id: vendor-cn-cloud
+  tags: [国内可访问, 需实名, 每月免费, Serverless]
+
+- name: 腾讯云 云函数 SCF
+  slug: tencent-scf
+  type: 云服务器·容器
+  model_name: ""
+  free_type: 每月重置
+  quota: 每月免费额度（约 100 万次调用 + 40 万 GB·秒资源使用量），具体数值以官网为准
+  validity: 每月重置
+  need_realname: 是
+  openai_compatible: 否
+  access_note: 国内可直连
+  official_url: "https://cloud.tencent.com/product/scf"
+  rule_url: "https://cloud.tencent.com/document/product/583/12282"
+  verify_status: ⏳待复核
+  verify_time: 2026-10-30
+  remark: 同阿里云 FC，Serverless 按调用计费、免费额度月度重置。与微信生态（公众号/小程序回调）打通最省事。需实名。
+  status: pending
+  source_id: vendor-cn-cloud
+  tags: [国内可访问, 需实名, 每月免费, Serverless]
+
+- name: 腾讯云 EdgeOne Pages
+  slug: tencent-edgeone-pages
+  type: 静态托管
+  model_name: ""
+  free_type: 永久免费
+  quota: 免费版支持静态站点托管 + 全球边缘加速 + 自动 HTTPS，含一定额度的构建次数与流量，具体额度以官网为准
+  validity: 长期（免费版）
+  need_realname: 是
+  openai_compatible: 否
+  access_note: 国内可直连（国内节点需备案；境外节点免备案）
+  official_url: "https://edgeone.ai/zh/products/pages"
+  rule_url: "https://edgeone.ai/document"
+  verify_status: ⏳待复核
+  verify_time: 2026-10-30
+  remark: Cloudflare Pages 的国内替代：腾讯自家边缘节点，大陆访问比 CF Pages 稳。注意「国内加速」需要域名已备案，未备案只能用境外节点（速度退化为普通海外站）。需腾讯云实名。
+  status: pending
+  source_id: vendor-cn-cloud
+  tags: [国内可访问, 需实名, 永久免费, 边缘加速]
+
+- name: Netlify
+  slug: netlify
+  type: 静态托管
+  model_name: ""
+  free_type: 永久免费
+  quota: 免费版 100 GB / 月带宽、300 分钟构建、12.5 万次函数调用/月，无商业用途限制，具体额度以官网为准
+  validity: 长期（Free）
+  need_realname: 否
+  openai_compatible: 否
+  access_note: 需要特殊网络（境外服务，大陆访问不稳定）
+  official_url: "https://www.netlify.com/"
+  rule_url: "https://www.netlify.com/pricing/"
+  verify_status: ⏳待复核
+  verify_time: 2026-10-30
+  remark: 与 Vercel 最大差别：免费版明确允许商业用途（挂广告、做 Affiliate 都行），Vercel Hobby 禁止商用。构建分钟数 300 容易在频繁推送时用完。
+  status: pending
+  source_id: vendor-infra
+  tags: [海外服务, 需科学上网, 永久免费, 可商用]
+
+- name: Deno Deploy
+  slug: deno-deploy
+  type: 静态托管
+  model_name: ""
+  free_type: 永久免费
+  quota: 免费版每月 100 万次请求、100 GB 出网流量、内置 KV 存储，具体额度以官网为准
+  validity: 长期（Free）
+  need_realname: 否
+  openai_compatible: 否
+  access_note: 需要特殊网络（境外服务，大陆访问不稳定）
+  official_url: "https://deno.com/deploy"
+  rule_url: "https://docs.deno.com/deploy/"
+  verify_status: ⏳待复核
+  verify_time: 2026-10-30
+  remark: 边缘运行 TypeScript/JavaScript，冷启动接近 0，静态资源 + 动态接口一个平台搞定。生态比 CF Workers 小，但不需要学 Wrangler，部署体验更简洁。
+  status: pending
+  source_id: vendor-infra
+  tags: [海外服务, 需科学上网, 永久免费, 边缘计算]
+
+- name: Render
+  slug: render
+  type: 静态托管
+  model_name: ""
+  free_type: 永久免费
+  quota: 静态站点免费且不限带宽；免费 Web Service 每月 750 小时，闲置 15 分钟自动休眠，具体额度以官网为准
+  validity: 长期（Free）
+  need_realname: 否
+  openai_compatible: 否
+  access_note: 需要特殊网络（境外服务，大陆访问不稳定）
+  official_url: "https://render.com/"
+  rule_url: "https://render.com/docs/free"
+  verify_status: ⏳待复核
+  verify_time: 2026-10-30
+  remark: 免费 Web Service 会休眠，冷启动 30 秒以上，只适合演示不适合线上服务。静态站点部分体验不错、带宽不限。数据库免费档 90 天后过期，别放生产数据。
+  status: pending
+  source_id: vendor-infra
+  tags: [海外服务, 需科学上网, 永久免费, 会休眠]
+
+- name: Cloudflare R2
+  slug: cloudflare-r2
+  type: 存储·CDN
+  model_name: ""
+  free_type: 永久免费
+  quota: 每月 10 GB 存储、100 万次 A 类操作（写）、1000 万次 B 类操作（读），出网流量完全免费，具体额度以官网为准
+  validity: 长期（每月重置）
+  need_realname: 否
+  openai_compatible: 否
+  access_note: 需要特殊网络（Cloudflare 在大陆访问不稳定）
+  official_url: "https://www.cloudflare.com/developer-platform/r2/"
+  rule_url: "https://developers.cloudflare.com/r2/pricing/"
+  verify_status: ⏳待复核
+  verify_time: 2026-10-30
+  remark: 核心卖点：出网流量零费用（S3 每 TB 约 $90，R2 为 0），做图床/文件分发最省钱。兼容 S3 API，现有代码改个 endpoint 即可。需先在控制台手动启用 R2 才会计费生效。10 GB 大约放 2 万张压缩图。
+  status: pending
+  source_id: vendor-infra
+  tags: [海外服务, 需科学上网, 永久免费, 零出网费, S3兼容]
+
+- name: Backblaze B2
+  slug: backblaze-b2
+  type: 存储·CDN
+  model_name: ""
+  free_type: 永久免费
+  quota: 前 10 GB 存储免费，每天 1 GB 下载流量免费（与 Cloudflare 合作时经 CF 出网不计费），具体额度以官网为准
+  validity: 长期
+  need_realname: 否
+  openai_compatible: 否
+  access_note: 需要特殊网络（境外服务，大陆访问不稳定）
+  official_url: "https://www.backblaze.com/cloud-storage"
+  rule_url: "https://www.backblaze.com/cloud-storage/pricing"
+  verify_status: ⏳待复核
+  verify_time: 2026-10-30
+  remark: S3 兼容的老牌低价对象存储，1 GB/天的免费下载量适合小流量站点。与 Cloudflare 有 Bandwidth Alliance 合作，经 CF 回源出网免费，是 R2 之外的低成本备选。
+  status: pending
+  source_id: vendor-infra
+  tags: [海外服务, 需科学上网, 永久免费, S3兼容]
+
+- name: Supabase
+  slug: supabase
+  type: 后端·数据库
+  model_name: ""
+  free_type: 永久免费
+  quota: 免费版 500 MB Postgres 数据库、1 GB 文件存储、5 万月活用户认证、2 个活跃项目，API 请求不限量，具体额度以官网为准
+  validity: 长期（Free）
+  need_realname: 否
+  openai_compatible: 否
+  access_note: 需要特殊网络（境外服务，大陆访问不稳定）
+  official_url: "https://supabase.com/"
+  rule_url: "https://supabase.com/pricing"
+  verify_status: ⏳待复核
+  verify_time: 2026-10-30
+  remark: 开源 Firebase 替代：Postgres + Auth + Storage + 实时订阅 + Edge Functions 一套齐全。最大坑：免费项目 7 天无访问会被暂停（数据不丢，一键唤醒），做演示给别人看很尴尬。存储超 500 MB 会变只读。
+  status: pending
+  source_id: vendor-infra
+  tags: [海外服务, 需科学上网, 永久免费, Postgres, 含认证]
+
+- name: Neon
+  slug: neon
+  type: 后端·数据库
+  model_name: ""
+  free_type: 永久免费
+  quota: 免费版 100 个项目 × 每项目 0.5 GB 存储、每项目每月 100 CU-hours 算力，支持分支（branching），具体额度以官网为准
+  validity: 长期（Free）
+  need_realname: 否
+  openai_compatible: 否
+  access_note: 需要特殊网络（境外服务，大陆访问不稳定）
+  official_url: "https://neon.com/"
+  rule_url: "https://neon.com/pricing"
+  verify_status: ⏳待复核
+  verify_time: 2026-10-30
+  remark: Serverless Postgres，算力 5 分钟空闲即缩到 0，不收费也无「暂停」限制（比 Supabase 宽松）。冷启动约 500 ms。数据库分支功能对多环境开发极友好。与 Vercel/Next.js 集成最顺。
+  status: pending
+  source_id: vendor-infra
+  tags: [海外服务, 需科学上网, 永久免费, Postgres, 支持分支]
+
+- name: Turso
+  slug: turso
+  type: 后端·数据库
+  model_name: ""
+  free_type: 永久免费
+  quota: 免费版 5 GB 总存储、每月 5 亿行读 + 1000 万行写、最多 100 个数据库，具体额度以官网为准
+  validity: 长期（Free）
+  need_realname: 否
+  openai_compatible: 否
+  access_note: 需要特殊网络（境外服务，大陆访问不稳定）
+  official_url: "https://turso.tech/"
+  rule_url: "https://docs.turso.tech/"
+  verify_status: ⏳待复核
+  verify_time: 2026-10-30
+  remark: libSQL（SQLite 分支），按「行」计量而非按请求，5 GB 存储是免费档里最宽松的一档。适合「一租户一库」的多租户结构。10 天不活跃会被归档。
+  status: pending
+  source_id: vendor-infra
+  tags: [海外服务, 需科学上网, 永久免费, SQLite, 多租户]
+
+- name: Upstash
+  slug: upstash
+  type: 后端·数据库
+  model_name: ""
+  free_type: 永久免费
+  quota: Redis 免费版每月 50 万次命令、256 MB 存储；另有 QStash（消息队列）免费额度，具体以官网为准
+  validity: 长期（Free）
+  need_realname: 否
+  openai_compatible: 否
+  access_note: 需要特殊网络（境外服务，大陆访问不稳定）
+  official_url: "https://upstash.com/"
+  rule_url: "https://upstash.com/pricing"
+  verify_status: ⏳待复核
+  verify_time: 2026-10-30
+  remark: 按请求计费的 Serverless Redis，免费版限 1 个数据库、50 万命令/月，做缓存和限流够用。QStash 的定时任务/消息队列免费额度比自建 cron 省事，与 Vercel 集成一键完成。
+  status: pending
+  source_id: vendor-infra
+  tags: [海外服务, 需科学上网, 永久免费, Redis, Serverless]
+
+- name: MongoDB Atlas
+  slug: mongodb-atlas
+  type: 后端·数据库
+  model_name: ""
+  free_type: 永久免费
+  quota: M0 共享集群 512 MB 存储，永久免费，可在 AWS / Azure / GCP 三云任选区域，具体以官网为准
+  validity: 长期（M0）
+  need_realname: 否
+  openai_compatible: 否
+  access_note: 需要特殊网络（境外服务，大陆访问不稳定）
+  official_url: "https://www.mongodb.com/products/platform/atlas-database"
+  rule_url: "https://www.mongodb.com/docs/atlas/reference/free-shared-limitations/"
+  verify_status: ⏳待复核
+  verify_time: 2026-10-30
+  remark: 免费档唯一的成熟托管 MongoDB，512 MB 跑 CRUD 原型够用。共享集群有噪声邻居问题，超过 100 ops/秒会被限流。30 天不活跃会被暂停。
+  status: pending
+  source_id: vendor-infra
+  tags: [海外服务, 需科学上网, 永久免费, MongoDB]
+
+- name: Cloudflare Vectorize
+  slug: cloudflare-vectorize
+  type: 向量数据库
+  model_name: ""
+  free_type: 每月重置
+  quota: 免费档每月 5000 万次向量维度查询、1000 万维存储（按 dimension 计），具体额度以官网为准
+  validity: 每月重置
+  need_realname: 否
+  openai_compatible: 否
+  access_note: 需要特殊网络（Cloudflare 在大陆访问不稳定）
+  official_url: "https://developers.cloudflare.com/vectorize/"
+  rule_url: "https://developers.cloudflare.com/vectorize/platform/pricing/"
+  verify_status: ⏳待复核
+  verify_time: 2026-10-30
+  remark: 与 Workers AI 配套做 RAG 最短路径：生成 embedding + 存向量 + 检索全在 CF 边缘完成，不用自己搭库。计量单位是「维度」不是「向量条数」，算额度时注意换算。
+  status: pending
+  source_id: vendor-infra
+  tags: [海外服务, 需科学上网, 每月免费, RAG检索, 边缘计算]
+
+- name: Qdrant Cloud
+  slug: qdrant-cloud
+  type: 向量数据库
+  model_name: ""
+  free_type: 永久免费
+  quota: 免费版 1 GB 集群存储、支持多 collection，具体额度以官网为准
+  validity: 长期（Free）
+  need_realname: 否
+  openai_compatible: 否
+  access_note: 需要特殊网络（境外服务，大陆访问不稳定）
+  official_url: "https://cloud.qdrant.io/"
+  rule_url: "https://qdrant.tech/documentation/cloud/"
+  verify_status: ⏳待复核
+  verify_time: 2026-10-30
+  remark: 开源向量库的商业托管版，1 GB 免费额度在同类里偏大方，且支持完整 API（不是阉割版）。开源版可自托管，从免费云迁到自建很方便。
+  status: pending
+  source_id: vendor-infra
+  tags: [海外服务, 需科学上网, 永久免费, 开源可自托管]
+
+- name: 腾讯云 文字识别 OCR
+  slug: tencent-ocr
+  type: AI推理工具
+  model_name: 通用印刷体 / 卡证 / 票据 / 表格识别
+  free_type: 每月重置
+  quota: 每月 1000 次免费调用（通用文字识别、卡证、票据等基础接口共享同一资源包，每月 1 号发放、当月有效），具体以官网为准
+  validity: 每月重置、月底清零
+  need_realname: 是
+  openai_compatible: 否
+  access_note: 国内可直连
+  official_url: "https://cloud.tencent.com/product/ocr"
+  rule_url: "https://cloud.tencent.com/document/product/866/17619"
+  verify_status: ⏳待复核
+  verify_time: 2026-10-30
+  remark: 与百度 OCR 同档（都是 1000 次/月），差别在于腾讯的多个基础接口共享同一份额度，接口开得多也不会叠加。账号 1 年不用 OCR 会暂停发放，重新使用两分钟内自动恢复。部分高阶接口（发票核验、多模态文档抽取）首次开通另送独立额度。
+  status: pending
+  source_id: vendor-cn-cloud
+  tags: [国内可访问, 需实名, 每月免费]
+
+- name: Pollinations.AI
+  slug: pollinations-ai
+  type: AI推理工具
+  model_name: FLUX / Turbo 等文生图模型
+  free_type: 永久免费
+  quota: 提供免费图像生成 API，无需注册、无需 API Key，直接 GET 一个 URL 就能出图，具体限速以官网为准
+  validity: 长期（开源项目）
+  need_realname: 否
+  openai_compatible: 否
+  access_note: 需要特殊网络（境外服务，大陆访问不稳定）
+  official_url: "https://pollinations.ai/"
+  rule_url: "https://github.com/pollinations/pollinations"
+  verify_status: ⏳待复核
+  verify_time: 2026-10-30
+  remark: 最省事的免费生图：把 prompt 拼进 URL 就返回图片，适合做 demo、占位图、批量生成。开源可自建。免费公共实例有速率限制且不保证可用性，正式产品不要依赖。
+  status: pending
+  source_id: vendor-global-llm
+  tags: [海外服务, 需科学上网, 永久免费, 文生图, 无Key]
+
+- name: ElevenLabs
+  slug: elevenlabs
+  type: AI推理工具
+  model_name: Eleven Multilingual v2 / Turbo / Flash
+  free_type: 每月重置
+  quota: 免费版每月约 1 万字符 TTS 额度（约 10 分钟语音），需署名、非商用，具体以官网为准
+  validity: 每月重置
+  need_realname: 否
+  openai_compatible: 否
+  access_note: 需要特殊网络（境外服务，大陆不可直连）
+  official_url: "https://elevenlabs.io/"
+  rule_url: "https://elevenlabs.io/pricing"
+  verify_status: ⏳待复核
+  verify_time: 2026-10-30
+  remark: 音色自然度仍是第一梯队，中文效果也不错。免费档硬性要求「注明来源 + 非商用」，商用必须付费，否则违反条款。1 万字符大约 10 分钟音频，做 Demo 够、做长内容不够。
+  status: pending
+  source_id: vendor-global-llm
+  tags: [海外服务, 需科学上网, 每月免费, 语音合成, 非商用]
+
+- name: Replicate
+  slug: replicate
+  type: AI推理工具
+  model_name: FLUX / SDXL / Whisper / Llama 等数千个开源模型
+  free_type: 新用户一次性
+  quota: 新账号赠送试用额度（部分渠道报 $500，实际以官网注册页为准），按秒计费消耗，具体以官网为准
+  validity: 额度有效期以官网为准
+  need_realname: 否
+  openai_compatible: 否
+  access_note: 需要特殊网络（境外服务，大陆不可直连）
+  official_url: "https://replicate.com/"
+  rule_url: "https://replicate.com/pricing"
+  verify_status: ⏳待复核
+  verify_time: 2026-10-30
+  remark: 上千个开源模型一站式跑（生图/语音/视频/微调都有），按运行秒数计费，用 cog 打包自有模型。第三方站点对赠送额度的说法差别很大（$500 / 小额），注册前先看官网实际数字，不要按传说额度做预算。
+  status: pending
+  source_id: vendor-global-llm
+  tags: [海外服务, 需科学上网, 试用额度, 多模型]
+
+- name: Hugging Face Inference
+  slug: huggingface-inference
+  type: AI推理工具
+  model_name: Llama / Qwen / Mistral / Whisper / Stable Diffusion 等
+  free_type: 每月重置
+  quota: 免费账号每月少量推理额度（约 $0.10 等值 credits）；Inference API 另有速率受限的免费试用，具体以官网为准
+  validity: 每月重置
+  need_realname: 否
+  openai_compatible: 是
+  access_note: 国内可直连（huggingface.co 大陆访问不稳定，镜像站 hf-mirror.com 可下载模型）
+  official_url: "https://huggingface.co/"
+  rule_url: "https://huggingface.co/docs/inference-providers/pricing"
+  verify_status: ⏳待复核
+  verify_time: 2026-10-30
+  remark: 免费额度很小（$0.10/月级别），真正价值不在免费推理而在「模型 + Space + 数据集」的生态：可以直接跑别人的 Space 做验证，再决定自己部署。模型下载建议用 hf-mirror.com 镜像。
+  status: pending
+  source_id: vendor-global-llm
+  tags: [国内可访问, 每月免费, 模型社区, 额度很小]
+
+- name: Groq Cloud
+  slug: groq-cloud
+  type: 大模型API
+  model_name: GPT-OSS-120B / 20B、Qwen3.8-27B、Whisper、Orpheus TTS
+  free_type: 每日重置
+  quota: 免费档按模型限速：主流量本模型 30 RPM / 1000 次/天 / 8000 tokens/分钟 / 20 万 tokens/天；Whisper 20 RPM、2000 次/天（7200 音频秒/小时）；Orpheus TTS 10 RPM、100 次/天，具体数值以官网为准
+  validity: 长期（免费档不消耗金额，只受速率限制）
+  need_realname: 否
+  openai_compatible: 是
+  access_note: 需要特殊网络（境外服务，大陆不可直连，需自备网络环境）
+  official_url: "https://console.groq.com/"
+  rule_url: "https://console.groq.com/docs/rate-limits"
+  verify_status: ⏳待复核
+  verify_time: 2026-10-30
+  remark: 免费档不需要信用卡；限速按「组织」而非按 key 计算，多开 key 不叠加额度。8K tokens/分钟的 TPM 通常比请求数更早触顶。Llama 系列已于 2026-08 移出免费档。以 LPU 推理速度著称（数百 tokens/秒）。
+  status: pending
+  source_id: vendor-global-llm
+  tags: [海外服务, 需科学上网, OpenAI兼容, 每日免费, 极速推理]
+
+- name: Cerebras Cloud
+  slug: cerebras-cloud
+  type: 大模型API
+  model_name: GPT-OSS-120B、Qwen3-235B、Llama 3.3 70B 等开源模型
+  free_type: 每日重置
+  quota: 免费档每日约 100 万 tokens、并发/速率按模型限制（约 5–30 RPM），具体数值以官网为准
+  validity: 长期（免费档）
+  need_realname: 否
+  openai_compatible: 是
+  access_note: 需要特殊网络（境外服务，大陆不可直连）
+  official_url: "https://cloud.cerebras.ai/"
+  rule_url: "https://inference-docs.cerebras.ai/support/rate-limits"
+  verify_status: ⏳待复核
+  verify_time: 2026-10-30
+  remark: 晶圆级芯片推理，速度是免费档里最快的之一；每日 100 万 tokens 对个人实验很够用。无需信用卡。第三方站点报的 RPM 数字不一致（5 与 30 都有），以控制台账单页为准。
+  status: pending
+  source_id: vendor-global-llm
+  tags: [海外服务, 需科学上网, OpenAI兼容, 每日免费]
+
+- name: Mistral La Plateforme
+  slug: mistral-platform
+  type: 大模型API
+  model_name: Mistral Large 3 / Small 3.1 / Ministral、Codestral
+  free_type: 永久免费
+  quota: Experiment 免费档：全部模型可调，限速约 1 请求/秒、每月约 10 亿 tokens 上限，具体数值以官网为准
+  validity: 长期（Experiment 档）
+  need_realname: 否
+  openai_compatible: 是
+  access_note: 需要特殊网络（法国服务，大陆不可直连）
+  official_url: "https://console.mistral.ai/"
+  rule_url: "https://docs.mistral.ai/getting-started/models/"
+  verify_status: ⏳待复核
+  verify_time: 2026-10-30
+  remark: Experiment 档需接受「数据可用于训练」条款，商用或涉密数据不要用这一档。Codestral 对代码补全友好；模型权重在 Hugging Face 可下载，可本地部署。
+  status: pending
+  source_id: vendor-global-llm
+  tags: [海外服务, 需科学上网, OpenAI兼容, 永久免费]
+
+- name: Cohere
+  slug: cohere
+  type: 大模型API
+  model_name: Command A / Command R+ / Embed / Rerank
+  free_type: 每月重置
+  quota: Trial key 免费：约 20 RPM、每月 1000 次调用，覆盖 Chat / Embed / Rerank，具体数值以官网为准
+  validity: 每月重置
+  need_realname: 否
+  openai_compatible: 否
+  access_note: 需要特殊网络（境外服务，大陆不可直连）
+  official_url: "https://dashboard.cohere.com/"
+  rule_url: "https://docs.cohere.com/docs/rate-limits"
+  verify_status: ⏳待复核
+  verify_time: 2026-10-30
+  remark: Trial key 明确标注「仅限非商业用途」，上线产品前需换成 Production key。Rerank 是同类免费档里少见的强项，做 RAG 检索重排很实用。不兼容 OpenAI 协议，需用官方 SDK。
+  status: pending
+  source_id: vendor-global-llm
+  tags: [海外服务, 需科学上网, 每月免费, RAG检索]
+
+- name: GitHub Models
+  slug: github-models
+  type: 大模型API
+  model_name: GPT-4o / GPT-4.1、Llama 3.3 70B、DeepSeek-R1、Phi 等
+  free_type: 每日重置
+  quota: 免费档按模型限速（约 10–15 RPM、50–150 次/天），可用 GitHub 账号直接调用多家模型，具体数值以官网为准
+  validity: 长期（免费档）
+  need_realname: 否
+  openai_compatible: 是
+  access_note: 国内可直连（GitHub 访问速度偶发不稳）
+  official_url: "https://docs.github.com/en/github-models/quickstart"
+  rule_url: "https://docs.github.com/en/github-models/about-github-models"
+  verify_status: ⏳待复核
+  verify_time: 2026-10-30
+  remark: 最大优势：用现成的 GitHub 账号 + Personal Access Token 就能调 GPT / Llama / DeepSeek，不必单独注册各家平台。限速偏紧，适合做原型验证和对比评测，不适合跑量。
+  status: pending
+  source_id: vendor-global-llm
+  tags: [国内可访问, OpenAI兼容, 每日免费, 多模型聚合]
+
+- name: NVIDIA NIM
+  slug: nvidia-nim
+  type: 大模型API
+  model_name: Llama 3.3 70B、Mistral Large、Qwen3 235B、Nemotron 等
+  free_type: 每月重置
+  quota: 个人开发者免费 1000 credits（约可调用 4000 次推理请求，按模型大小折算），另有每分钟约 40 RPM 限制，具体数值以官网为准
+  validity: credits 有效期以官网为准
+  need_realname: 否
+  openai_compatible: 是
+  access_note: 需要特殊网络（境外服务，大陆不可直连）
+  official_url: "https://build.nvidia.com/"
+  rule_url: "https://docs.api.nvidia.com/nim/"
+  verify_status: ⏳待复核
+  verify_time: 2026-10-30
+  remark: 按 credits 计费而非按天重置，大模型消耗更快；NIM 的价值在于同一套 OpenAI 兼容接口能切到很多开源模型，适合横向对比。
+  status: pending
+  source_id: vendor-global-llm
+  tags: [海外服务, 需科学上网, OpenAI兼容, 多模型聚合]
+
+- name: Cloudflare Workers AI
+  slug: cloudflare-workers-ai
+  type: 大模型API
+  model_name: Llama 3.3 70B、QwQ 32B、Mistral、Whisper、FLUX 生图等
+  free_type: 每日重置
+  quota: "免费档每天 10,000 neurons（AI 计算单位）额度，文本/语音/图像模型共用，具体折算以官网为准"
+  validity: "每日 00:00 UTC 重置"
+  need_realname: 否
+  openai_compatible: 否
+  access_note: 需要特殊网络（Cloudflare 在大陆访问不稳定）
+  official_url: "https://developers.cloudflare.com/workers-ai/"
+  rule_url: "https://developers.cloudflare.com/workers-ai/platform/pricing/"
+  verify_status: ⏳待复核
+  verify_time: 2026-10-30
+  remark: 按 neuron 计量，文本模型消耗慢、生图/语音消耗快。必须部署在 Worker 里调用（无独立公网端点），适合已经用 CF 全家桶的项目。若已在 CF 上托管站点，这是零成本接入 AI 的最短路径。
+  status: pending
+  source_id: vendor-global-llm
+  tags: [海外服务, 需科学上网, 每日免费, 边缘计算]
+
+- name: 讯飞星火 Spark Lite
+  slug: xfyun-spark-lite
+  type: 大模型API
+  model_name: Spark Lite / Spark Pro / Spark Max
+  free_type: 永久免费
+  quota: Spark Lite 永久免费、不限 token 总量（有 QPS 限制）；新用户另有 Spark Pro/Max 若干万 tokens 体验包，具体数值以官网为准
+  validity: Lite 长期；体验包以官网为准
+  need_realname: 是
+  openai_compatible: 否
+  access_note: 国内可直连
+  official_url: "https://xinghuo.xfyun.cn/sparkapi"
+  rule_url: "https://www.xfyun.cn/doc/spark/Web.html"
+  verify_status: ⏳待复核
+  verify_time: 2026-10-30
+  remark: Lite 免费但限 QPS，高并发需付费升档；不支持 OpenAI 协议，要用讯飞自己的 WebSocket / HTTP 接口，接入成本比 OpenAI 兼容平台高。需实名。
+  status: pending
+  source_id: vendor-cn-llm
+  tags: [国内可访问, 需实名, 永久免费]
+
+- name: 国家超算互联网
+  slug: scnet-ai
+  type: 大模型API
+  model_name: DeepSeek-V4-Flash 等国产开源模型
+  free_type: 限时免费
+  quota: DeepSeek-V4-Flash 邀测期最高赠送 6000 万 tokens（90 天有效），具体数值与活动状态以官网为准
+  validity: 活动期 / 90 天
+  need_realname: 是
+  openai_compatible: 是
+  access_note: 国内可直连
+  official_url: "https://www.scnet.cn/"
+  rule_url: "https://www.scnet.cn/ui/mall/"
+  verify_status: ⏳待复核
+  verify_time: 2026-10-30
+  remark: 国家队算力平台，额度给得大方但属邀测活动、随时可能结束或调整；需实名。适合短期大用量实验，不适合长期依赖。
+  status: pending
+  source_id: vendor-cn-llm
+  tags: [国内可访问, 需实名, 限时活动, 国家队]
+
+- name: 通义灵码（Qoder CN）
+  slug: tongyi-lingma
+  type: AI编程助手
+  model_name: 通义千问 Qwen 系列
+  free_type: 永久免费
+  quota: 个人基础版免费、不限次数（功能较 Pro 受限，如部分智能体/企业知识库不可用），具体权益以官网为准
+  validity: 长期（个人版）
+  need_realname: 是
+  openai_compatible: 否
+  access_note: 国内可直连
+  official_url: "https://lingma.aliyun.com/"
+  rule_url: "https://help.aliyun.com/zh/lingma/"
+  verify_status: ⏳待复核
+  verify_time: 2026-10-30
+  remark: VS Code / JetBrains 双插件，Java / Go 场景优化好，国内市占率最高。正在品牌升级为 Qoder CN，看到两个名字是同一产品。需阿里云账号实名。
+  status: pending
+  source_id: vendor-cn-llm
+  tags: [国内可访问, 需实名, 永久免费, IDE插件]
+
+- name: 腾讯云 CodeBuddy
+  slug: tencent-codebuddy
+  type: AI编程助手
+  model_name: 混元 / DeepSeek / Claude 等多模型可切
+  free_type: 每月重置
+  quota: 个人体验版每月 500 credits（有频率限制），Pro 版 58 元/月含 2000 credits，具体数值以官网为准
+  validity: 每月重置
+  need_realname: 是
+  openai_compatible: 否
+  access_note: 国内可直连
+  official_url: "https://copilot.tencent.com/"
+  rule_url: "https://cloud.tencent.com/document/product/1749"
+  verify_status: ⏳待复核
+  verify_time: 2026-10-30
+  remark: 最大特色是与微信开发者工具深度集成，小程序原生语法生成准；SPEC 规范驱动模式对团队协作友好。支持多模型切换是国产工具里少见的。500 credits 跑重度 Agent 会比较快见底。
+  status: pending
+  source_id: vendor-cn-llm
+  tags: [国内可访问, 需实名, 每月免费, 小程序开发]
+
+- name: Trae（字节跳动）
+  slug: trae-ide
+  type: AI编程助手
+  model_name: Doubao、DeepSeek（国内版）；Claude、GPT-4o（国际版）
+  free_type: 永久免费
+  quota: 国内版个人完全免费、每月约 1000 万 tokens，无功能阉割；国际版 $12/月起，具体以官网为准
+  validity: 长期（国内版）
+  need_realname: 否
+  openai_compatible: 否
+  access_note: 国内可直连（国内版）
+  official_url: "https://www.trae.cn/"
+  rule_url: "https://docs.trae.ai/"
+  verify_status: ⏳待复核
+  verify_time: 2026-10-30
+  remark: 基于 VS Code 架构的 AI 原生 IDE，Builder（生成整个项目）/ SOLO（全自动开发）两种模式，是国内免费档里 Agent 能力最强的之一。有 JetBrains 插件版（Ctrl+U 唤起），不换 IDE 也能用。注意国内版与国际版是两套模型和计价。
+  status: pending
+  source_id: vendor-cn-llm
+  tags: [国内可访问, 永久免费, AI原生IDE, Agent]
+
+- name: 文心快码 Comate（百度）
+  slug: baidu-comate
+  type: AI编程助手
+  model_name: 文心大模型 ERNIE + Zulu 智能体
+  free_type: 永久免费
+  quota: 个人版免费、不限次数（专业版 59 元/月起），具体权益以官网为准
+  validity: 长期（个人版）
+  need_realname: 是
+  openai_compatible: 否
+  access_note: 国内可直连
+  official_url: "https://comate.baidu.com/"
+  rule_url: "https://comate.baidu.com/zh/pricing"
+  verify_status: ⏳待复核
+  verify_time: 2026-10-30
+  remark: C++ 生成质量在国内工具中口碑较好，政企/金融场景支持私有化部署（个人版用不到）。不支持自选模型，绑定文心系。需百度账号实名。
+  status: pending
+  source_id: vendor-cn-llm
+  tags: [国内可访问, 需实名, 永久免费, IDE插件]
+
+- name: CodeGeeX（智谱 AI）
+  slug: codegeex
+  type: AI编程助手
+  model_name: CodeGeeX-4（自研 130 亿参数）
+  free_type: 永久免费
+  quota: 个人版完全免费且为全功能（非阉割版），支持 300+ 编程语言；开源版可本地部署、无调用限制，具体以官网为准
+  validity: 长期
+  need_realname: 否
+  openai_compatible: 否
+  access_note: 国内可直连
+  official_url: "https://codegeex.cn/"
+  rule_url: "https://codegeex.cn/docs"
+  verify_status: ⏳待复核
+  verify_time: 2026-10-30
+  remark: 少见的「免费版即全功能 + 完全开源可私有化」组合，数据敏感或有内网要求的团队首选。代码翻译、自动注释、代码审查齐全。能力上限不如 Trae/通义灵码，但可控性最强。
+  status: pending
+  source_id: vendor-cn-llm
+  tags: [国内可访问, 永久免费, 开源, 可私有化部署]
+
+- name: 华为云 CodeArts Snap
+  slug: huawei-codearts-snap
+  type: AI编程助手
+  model_name: 盘古 + 华为云 CodeArts 系列模型
+  free_type: 永久免费
+  quota: 个人体验版免费（功能与额度受限），专业版/企业版按席位收费，具体权益以官网为准
+  validity: 长期（体验版）
+  need_realname: 是
+  openai_compatible: 否
+  access_note: 国内可直连
+  official_url: "https://www.huaweicloud.com/product/codearts.html"
+  rule_url: "https://support.huaweicloud.com/productdesc-codeartssnap/codeartsdoer_pd_0001.html"
+  verify_status: ⏳待复核
+  verify_time: 2026-10-30
+  remark: 对 Java / C++ / 鸿蒙（ArkTS）开发优化明显，DevOps 一体化程度高。项目本来就在华为云上的话最省事，否则优势不明显。需华为云实名。
+  status: pending
+  source_id: vendor-cn-llm
+  tags: [国内可访问, 需实名, 永久免费, IDE插件]
+
+- name: 讯飞 iFlyCode
+  slug: xfyun-iflycode
+  type: AI编程助手
+  model_name: 星火大模型
+  free_type: 永久免费
+  quota: 个人版免费（有调用次数/频率限制），企业版按席位收费，具体权益以官网为准
+  validity: 长期（个人版）
+  need_realname: 是
+  openai_compatible: 否
+  access_note: 国内可直连
+  official_url: "https://www.xfyun.cn/services/iflycode"
+  rule_url: "https://www.xfyun.cn/doc/spark/Web.html"
+  verify_status: ⏳待复核
+  verify_time: 2026-10-30
+  remark: 卖点是对中文指令的理解，中文注释/需求描述转代码相对顺手。生态和插件完善度不如通义灵码、Trae，属备选。需实名。
+  status: pending
+  source_id: vendor-cn-llm
+  tags: [国内可访问, 需实名, 永久免费, IDE插件]

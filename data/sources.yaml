@@ -1,0 +1,143 @@
+# 凌零集 · 信源台账（流水线第①关的输入）
+#
+# 为什么单独建这个文件：
+#   上一版 25 条资源全部来自同一个中文公众号，信源单一 → 数量上不去、时效性差。
+#   把信源本身当成数据来管，才能持续扩充，而不是每次从零开始搜。
+#
+# 三层结构：
+#   pool    开源聚合池：量大省力，但混着中转/账号池/纯试用，必须过滤
+#   vendor  厂商官方：权威、命中定位，但需逐个找
+#   cn      中文内容源：贴合国内 + 天然带「国内可直连」判断，但时效波动，需核验
+#
+# 字段：
+#   id        唯一标识（脚本 --source 用）
+#   layer     pool / vendor / cn
+#   kind      awesome-md（markdown 列表）| html-links（普通网页）
+#   url       抓取地址（awesome-md 填 raw 地址，别填网页）
+#   enabled   是否参与 discover.py 自动扫描
+#   trust     high / medium / low —— 决定候选进人工复核的优先级
+#   note      备注：怎么用、坑在哪
+
+sources:
+  # ============ 层一：开源聚合池 ============
+  - id: free-for-dev
+    name: "free-for.dev"
+    layer: pool
+    kind: awesome-md
+    url: https://raw.githubusercontent.com/ripienaar/free-for-dev/master/README.md
+    enabled: true
+    trust: medium
+    note: >
+      最大的开发者免费额度列表（1600+ 贡献者）。重点是 Generative AI / APIs, Data and ML /
+      Major Cloud Providers 三节。坑：大量非官方中转（如 onomeo、Gonka Broker 这类聚合 key）、
+      纯试用而非免费档、以及国内连不上的服务，全部要人工否掉。
+
+  - id: awesome-ai-tools
+    name: "awesome-ai-tools"
+    layer: pool
+    kind: awesome-md
+    url: https://raw.githubusercontent.com/mahseema/awesome-ai-tools/main/README.md
+    enabled: false
+    trust: low
+    note: DeepSeek 类 API 清单。多为商业 API，免费额度要逐个查，性价比一般，先不开。
+
+  - id: public-apis
+    name: "public-apis"
+    layer: pool
+    kind: awesome-md
+    url: https://raw.githubusercontent.com/public-apis/public-apis/master/README.md
+    enabled: true
+    trust: medium
+    note: >
+      公开 API 大全，含 Machine Learning 分类。适合捞「免费 OCR / 翻译 / 语音」类工具型 API。
+      坑：很多免费 key 有严格商用限制，需读各项目 Auth/HTTPS 标记。
+
+  # ============ 层二：厂商官方（人工维护为主）============
+  # 说明：厂商定价页多为 JS 动态渲染 + 登录墙，脚本抓取收益低，故 enabled: false，
+  #       按「人工盯 + AI 抓单页」的方式补，登记在此仅作清单防止遗漏。
+
+  - id: vendor-cn-cloud
+    name: "国内云免费入口"
+    layer: vendor
+    kind: html-links
+    url: https://free.aliyun.com/
+    enabled: false
+    trust: high
+    note: 阿里云免费试用总入口。同类：腾讯云 cloud.tencent.com/act/free、华为云 activity.huaweicloud.com/free。
+
+  - id: vendor-cn-llm
+    name: "国内大模型定价页"
+    layer: vendor
+    kind: html-links
+    url: https://open.bigmodel.cn/pricing
+    enabled: false
+    trust: high
+    note: >
+      国内大模型平台定价页合集，逐个看：智谱 open.bigmodel.cn/pricing、
+      百炼 help.aliyun.com/zh/model-studio/models、硅基流动 siliconflow.cn/pricing、
+      火山方舟 volcengine.com/docs/82379、Kimi platform.moonshot.cn、
+      MiniMax platform.minimaxi.com、阶跃 platform.stepfun.com、百川 platform.baichuan-ai.com、
+      讯飞星火 xinghuo.xfyun.cn、商汤 sensecore、零一万物 platform.lingyiwanwu.com。
+
+  - id: vendor-global-llm
+    name: "海外大模型免费档"
+    layer: vendor
+    kind: html-links
+    url: https://ai.google.dev/gemini-api/docs/rate-limits
+    enabled: false
+    trust: high
+    note: >
+      海外大模型免费档：Google Gemini rate limits、Groq console.groq.com/docs/rate-limits、
+      Mistral console.mistral.ai、Cohere dashboard.cohere.com、Cerebras cloud.cerebras.ai、
+      Together together.ai/pricing、HuggingFace Inference。多数需海外网络，收录时标「需要特殊网络」。
+
+  - id: vendor-infra
+    name: "海外基础设施免费档"
+    layer: vendor
+    kind: html-links
+    url: https://www.cloudflare.com/plans/
+    enabled: false
+    trust: high
+    note: >
+      基础设施免费档：Cloudflare（Pages/Workers/R2/D1）、Supabase、Neon、Turso、
+      Upstash、Railway、Render、Fly.io、Koyeb、Deno Deploy、Netlify。
+
+  # ============ 层三：中文内容源 ============
+  - id: cn-wechat-nigusi
+    name: "尼古斯·不花钱用AI"
+    layer: cn
+    kind: html-links
+    url: https://mp.weixin.qq.com/s/ag-CVbnGq9DzUpg7Mj0hsQ
+    enabled: false
+    trust: high
+    note: >
+      尼古斯《不花钱用 AI》系列 —— 现有 25 条的主力来源。优点：已按国内可用性筛过一遍，
+      额度数字相对可靠。缺点：更新频率低、覆盖品类窄（几乎只有大模型 API）。
+      用法：新文发布时手动加一条，或直接人工读后往 inbox 写条目。
+
+  - id: cn-juejin
+    name: "掘金·AI"
+    layer: cn
+    kind: html-links
+    url: https://juejin.cn/tag/AI
+    enabled: false
+    trust: medium
+    note: 掘金 AI 标签。适合捞「某某平台免费额度实测」类文章，但需回到官网核对数字，不可直接采信。
+
+  - id: cn-zhihu
+    name: "知乎·免费API"
+    layer: cn
+    kind: html-links
+    url: https://www.zhihu.com/topic/19551275/hot
+    enabled: false
+    trust: low
+    note: 知乎「免费 API」盘点。反爬严格、数字常有错，仅作线索，必须官网复核。
+
+  - id: cn-v2ex
+    name: "V2EX·分享"
+    layer: cn
+    kind: html-links
+    url: https://www.v2ex.com/go/create
+    enabled: false
+    trust: medium
+    note: V2EX 分享节点。厂商发新免费额度时社区反应最快，适合发现「新上线，官网还没被收录」的东西。

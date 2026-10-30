@@ -122,6 +122,10 @@ def run_step(title, cmd):
 
 def build(port):
     log("── 构建 ──")
+    ok = run_step("校验资源数据", [sys.executable, "scripts/validate.py", "--quiet"])
+    if not ok:
+        log("    （数据不合规，已跳过本轮构建；修好 data/resources.yaml 后自动重试）")
+        return False
     ok = run_step("生成资源页", [sys.executable, "scripts/gen_resources.py"])
     if not ok:
         return False

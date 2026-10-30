@@ -17,7 +17,9 @@
 ai-limzero-hub/
 ├── config.toml                 # Hugo 配置（baseURL、站点名、Slogan）
 ├── data/
-│   └── resources.yaml          # ★ 全部资源条目（唯一来源，编辑这里）
+│   ├── resources.yaml          # ★ 全部资源条目（唯一来源，编辑这里）
+│   └── sources.yaml            # 信源台账（扩充资源时的候选池，三层结构）
+├── inbox/                      # 待入库条目暂存区（candidates.json + 人工结构化 yaml）
 ├── content/
 │   ├── _index.md               # 首页
 │   ├── submit.md               # 提交指引
@@ -32,8 +34,11 @@ ai-limzero-hub/
 │   └── js/{theme,filters,modal}.js
 ├── static/                     # robots.txt、favicon.svg
 ├── scripts/
-│   ├── dev.py                  # ★ 本地开发服务器（生成+构建+索引+自动刷新）
+│   ├── dev.py                  # ★ 本地开发服务器（校验+生成+构建+自动刷新）
+│   ├── validate.py             # ★ 数据校验闸门（字段/枚举/slug 查重/域名查重）
 │   ├── gen_resources.py        # YAML → content/resources + categories（构建期）
+│   ├── discover.py             # 候选发现：扫 sources.yaml → inbox/candidates.json
+│   ├── ingest.py               # 入库：inbox/*.yaml 校验后追加进 resources.yaml
 │   └── check_urls.py           # 链接失效检测报告（只读）
 ├── .github/workflows/build.yml # 构建并产出 public/ 产物
 ├── nginx/ai.limzero.com.conf   # Nginx 参考配置
@@ -75,32 +80,101 @@ python3 scripts/check_urls.py
 
 ## 新增 / 修改资源
 
-1. 打开 `data/resources.yaml`，按下方字段追加一条；
-2. 跑 `python3 scripts/check_urls.py` 确认链接有效；
-3. 跑 `python3 scripts/gen_resources.py` 重新生成页面（CI 会自动跑）；
-4. 提交到 `main` 分支，GitHub Actions 自动构建。
+1. 打开 `data/resources.yaml`，按下方字段追加一条（或走上面的流水线，批量入库）；
+2. 跑 `python3 scripts/validate.py` 确认字段与 slug 合规；
+3. 跑 `python3 scripts/check_urls.py` 确认链接有效；
+4. 跑 `python3 scripts/gen_resources.py` 重新生成页面（CI 会自动跑）；
+5. 提交到 `main` 分支，GitHub Actions 自动构建（构建前会再跑一次校验，不过则失败）。
 
 **字段规范**（每条资源）：
 
 | 字段 | 说明 |
 |---|---|
 | `name` | 平台名称 |
-| `type` | 分类：大模型API / 云服务器·容器 / 静态托管 / 向量数据库 / AI推理工具 |
-| `slug` | URL 片段，建议英文，缺省按名称生成 |
+| `type` | 分类：大模型API / AI编程助手 / AI推理工具 / 云服务器·容器 / 静态托管 / 存储·CDN / 后端·数据库 / 向量数据库 |
+| `slug` | URL 片段，英文小写+中划线，全局唯一（重复会让详情页互相覆盖） |
 | `model_name` | 模型名称（非大模型留空） |
-| `free_type` | 新用户一次性 / 每日重置 / 每月重置 / 永久免费 / 学生专属 |
+| `free_type` | 新用户一次性 / 每日重置 / 每月重置 / 永久免费 / 学生专属 / 限时免费 |
 | `quota` | 额度说明（token 数量、输入/输出是否分开） |
 | `validity` | 有效期 |
 | `need_realname` | 是否实名（是/否） |
 | `openai_compatible` | 是否兼容 OpenAI 接口（是/否） |
-| `access_note` | 访问备注（**必须标注**「国内可直连」或「需要特殊网络」） |
+| `access_note` | 访问备注（**必须标注**「国内可直连」或「需要特殊网络」，首页筛选依赖此字段） |
 | `official_url` | 官方领取地址 |
 | `rule_url` | 官方规则说明链接 |
 | `verify_status` | ✅已实测 / ⏳待复核 / ❌已失效 |
-| `verify_time` | 最近核验日期 |
-| `remark` | 避坑备注（到期是否自动扣费、额度不结转、地域限制等） |
+| `verify_time` | 最近核验日期（YYYY-MM-DD） |
+| `remark` | 避坑备注（到期是否自动扣费、额度不结转、休眠/回收规则、地域限制等） |
 | `status` | 机器字段：`verified` / `pending` / `expired`（需与 verify_status 同步） |
+| `source_id` | 可选：来源信源 id（对应 `data/sources.yaml`），便于溯源 |
 | `tags` | 标签数组，如 `["国内可访问","免费商用"]` |
+
+---
+
+## 扩充资源：四段流水线
+
+条目从几十条涨到上百条后，手工维护会崩。所以扩充走固定四段，每段一个脚本，**任何一段都能单独跑**：
+
+```
+① 发现            ② 结构化            ③ 校验              ④ 入库
+discover.py  →   人工/AI 写 yaml  →  validate.py   →   ingest.py
+候选清单          inbox/*.yaml        闸门（失败即停）    追加进主库
+```
+
+### ① 候选发现
+
+信源登记在 `data/sources.yaml`，分三层：**开源聚合池**（量大但混杂）、**厂商官方**（权威但需逐个找）、**中文内容源**（贴合国内但需核验）。
+
+```bash
+python3 scripts/discover.py --list                  # 看信源台账
+python3 scripts/discover.py                         # 扫所有 enabled 的信源
+python3 scripts/discover.py --source free-for-dev --section "Generative AI"
+```
+
+输出 `inbox/candidates.json`，每条带 `section / name / url / host / desc / suspect_dup`（是否疑似已收录）。
+
+> ⚠️ 发现**只负责找**，不做判断、不写主库。聚合池里混着大量非官方中转、账号池、纯试用，必须人工过滤——这是本站「只收官方原生资源」的底线。
+
+### ② 结构化
+
+从候选里挑出真正要收的，写成 `inbox/<批次>.yaml`。格式与 `resources.yaml` 单个条目完全一致，额外多一个 `source_id`（指向 `sources.yaml` 的 id，用于溯源）。
+
+一个文件可放多条（顶层是列表），也可以只放一条。
+
+### ③ 校验（闸门）
+
+`scripts/validate.py` 是整条流水线的守门人，同时挂在 **CI 构建前** 和 **dev.py 每轮重建前**，不通过就中止：
+
+| 检查项 | 级别 |
+|---|---|
+| 必填字段缺失（16 个字段） | ERROR |
+| `slug` 格式不合规 / 重复（详情页会互相覆盖） | ERROR |
+| `free_type` / `need_realname` / `openai_compatible` 枚举非法 | ERROR |
+| `access_note` 未声明「国内可直连 / 需要特殊网络」 | ERROR |
+| URL 非 http(s) 或解析不出域名 | ERROR |
+| `verify_status` 与 `status` 不同步 | ERROR |
+| `quota` 过短或含 TODO 占位符 | ERROR |
+| 名称重复、同域名多条目（可能是重复收录） | WARN |
+| 未知分类（可能是错别字） | WARN |
+
+```bash
+python3 scripts/validate.py              # 人类可读
+python3 scripts/validate.py --quiet      # 只报错（CI / dev.py 用）
+python3 scripts/validate.py --strict     # WARN 也算失败
+```
+
+### ④ 入库
+
+```bash
+python3 scripts/ingest.py --dry-run      # 先看会追加什么
+python3 scripts/ingest.py                # 追加进 data/resources.yaml
+python3 scripts/validate.py && hugo --minify --baseURL https://ai.limzero.com/
+python3 scripts/check_urls.py            # 新链接有效性
+```
+
+`ingest.py` 只做**追加**，不重排、不改动已有条目和注释。校验不过的条目整体跳过、不写文件。
+
+入库并确认无误后，把 `inbox/` 里对应的 yaml 删掉（或移走归档）——它是暂存区，不是历史库。
 
 ---
 
