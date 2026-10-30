@@ -1,7 +1,7 @@
 {{ define "main" }}
 <article class="detail">
   <nav class="breadcrumb">
-    <a href="/">首页</a> / <span>{{ .Params.resource_type }}</span> / <span>{{ .Params.title }}</span>
+    <a href="/">首页</a> / <a href="/categories/{{ partial "cat-slug.html" .Params.resource_type }}/">{{ .Params.resource_type }}</a> / <span>{{ .Params.title }}</span>
   </nav>
   <h1>{{ .Params.title }}{{ with .Params.model_name }}<span class="model"> · {{ . }}</span>{{ end }}</h1>
 

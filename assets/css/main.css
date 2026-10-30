@@ -233,7 +233,9 @@ main { flex: 1 0 auto; width: 100%; }
 .related-more a:hover { text-decoration: underline; }
 
 /* Detail & page */
-.breadcrumb { font-size: 13px; color: var(--muted); margin-bottom: 8px; }
+.breadcrumb { font-size: 13px; color: var(--muted); margin: 28px 0 12px; }
+.breadcrumb a { color: var(--accent); text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
 .detail .model { font-weight: 400; color: var(--muted); font-size: 18px; }
 .page { max-width: 720px; margin: 0 auto; padding: 36px 0 12px; }
 .page > h1 { text-align: center; font-size: 28px; font-weight: 700; letter-spacing: .5px; margin: 0 0 30px; }
