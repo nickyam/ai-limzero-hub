@@ -8,9 +8,9 @@
 - name: "智谱AI 开放平台"
   slug: "zhipu-bigmodel"
   type: "大模型API"
-  model_name: "GLM-4 / GLM-4-Flash"
+  model_name: "GLM-4-Flash / GLM-4.7-Flash"
   free_type: "永久免费"
-  quota: "新用户赠送体验额度；GLM-4-Flash / GLM-4.7-Flash 等模型提供永久免费额度（约 30 QPS），具体数值以官网为准"
+  quota: "新用户赠送 2000 万 tokens 体验额度；GLM-4-Flash / 4.7-Flash 提供永久免费额度（200K 上下文、约 30 并发），具体数值以官网为准"
   validity: "体验额度以官网为准；永久免费额度长期有效"
   need_realname: "否"
   openai_compatible: "是"
@@ -19,7 +19,7 @@
   rule_url: "https://open.bigmodel.cn/pricing"
   verify_status: "⏳待复核"
   verify_time: "2026-10-30"
-  remark: "永久免费模型有速率限制；体验额度注意有效期，到期可能清零。"
+  remark: "永久免费模型有速率限制（约 30 并发）；体验额度注意有效期，到期可能清零。来源参考：尼古斯公众号《不花钱用 AI》2026-10 核实。"
   status: "pending"
   tags: ["国内可访问", "OpenAI兼容", "永久免费"]
 
@@ -28,8 +28,8 @@
   type: "大模型API"
   model_name: "qwen-max / qwen-plus / qwen-long 等"
   free_type: "新用户一次性"
-  quota: "新用户约 70 个模型各送 100 万 tokens（90 天有效，非永久）；Qwen 全系可用，具体数值以官网为准"
-  validity: "90 天（到期清零，不结转）"
+  quota: "每个模型独立赠送 100 万 tokens（有效期约 3 个月 / 90 天，非永久）；通义千问全系、DeepSeek、Kimi、MiniMax、GLM 等模型最全，具体数值以官网为准"
+  validity: "约 3 个月（90 天）到期清零，不结转"
   need_realname: "是"
   openai_compatible: "是"
   access_note: "国内可直连"
@@ -37,7 +37,7 @@
   rule_url: "https://help.aliyun.com/zh/model-studio/"
   verify_status: "⏳待复核"
   verify_time: "2026-10-30"
-  remark: "免费额度 90 天到期即消失、不结转；需阿里云账号实名；免费与付费资源共用账户，注意区分避免误扣费。"
+  remark: "免费额度 90 天到期即消失、不结转；需阿里云账号实名；免费与付费资源共用账户，注意区分避免误扣费。来源参考：尼古斯公众号《不花钱用 AI》2026-10 核实。"
   status: "pending"
   tags: ["国内可访问", "需实名"]
 
@@ -46,7 +46,7 @@
   type: "大模型API"
   model_name: "DeepSeek / Qwen 等开源模型"
   free_type: "永久免费"
-  quota: "注册赠送约 2000 万 tokens（部分渠道实名送 ¥16）；DeepSeek / Qwen 等开源模型提供永久免费额度，具体数值以官网为准"
+  quota: "注册赠送约 2000 万 tokens；Qwen2.5-7B / GLM-4-9B / DeepSeek-V2-Lite 等 9B 以下开源模型永久免费（免费档约 5-10 QPS），具体数值以官网为准"
   validity: "赠送额度以官网为准；永久免费额度长期有效"
   need_realname: "否"
   openai_compatible: "是"
@@ -55,7 +55,7 @@
   rule_url: "https://docs.siliconflow.cn/"
   verify_status: "⏳待复核"
   verify_time: "2026-10-30"
-  remark: "永久免费模型有速率限制，高并发需付费；额度不结转。"
+  remark: "免费档约 5-10 QPS，超频报错；模型 ID 为「组织/模型名」格式需从列表复制完整 ID；额度不结转。来源参考：尼古斯公众号《不花钱用 AI》2026-10 核实。"
   status: "pending"
   tags: ["国内可访问", "OpenAI兼容", "永久免费"]
 
@@ -64,7 +64,7 @@
   type: "大模型API"
   model_name: "豆包 / GLM 等"
   free_type: "每日重置"
-  quota: "每日 200 万 tokens 永久免费重置；新用户每个模型额外赠送 50 万 tokens，具体数值以官网为准"
+  quota: "新用户开通模型服务自动领「安心体验」每模型 50 万 tokens；「协作奖励计划」每天最高送 200 万 tokens / 单模型（按天重置），具体数值以官网为准"
   validity: "每日重置长期有效；新人额度以官网为准"
   need_realname: "是"
   openai_compatible: "是"
@@ -73,7 +73,7 @@
   rule_url: "https://www.volcengine.com/docs/ark"
   verify_status: "⏳待复核"
   verify_time: "2026-10-30"
-  remark: "需火山引擎账号实名；每日 200 万为永久免费重置，新人 50 万为一次性。"
+  remark: "需火山引擎账号实名；免费档多限 lite 系列；每日 200 万为按天重置，新人 50 万为一次性。来源参考：尼古斯公众号《不花钱用 AI》2026-10 核实。"
   status: "pending"
   tags: ["国内可访问", "需实名", "每日免费"]
 
@@ -166,6 +166,42 @@
   remark: "¥10 额度速率限制 5 RPM；Step Plan 限时活动有截止日，留意官网。"
   status: "pending"
   tags: ["国内可访问", "OpenAI兼容"]
+
+- name: "魔搭 ModelScope"
+  slug: "modelscope"
+  type: "大模型API"
+  model_name: "通义千问 / DeepSeek / Stable Diffusion 等 17W+ 开源模型"
+  free_type: "每日重置"
+  quota: "API 推理每天 2000 次调用（单模型 500 次 / 日）；另赠免费算力：CPU 环境不限时长、GPU 送 36 小时，具体数值以官网为准"
+  validity: "API 每日重置；免费算力按活动发放"
+  need_realname: "否"
+  openai_compatible: "否"
+  access_note: "国内可直连（需阿里云账号登录）"
+  official_url: "https://modelscope.cn/"
+  rule_url: "https://modelscope.cn/docs"
+  verify_status: "⏳待复核"
+  verify_time: "2026-10-30"
+  remark: "用阿里云账号登录；免费算力 Notebook 长期闲置会被回收，重要文件用持久化空间或推 Git。来源参考：尼古斯公众号《不花钱用 AI》2026-10 核实。"
+  status: "pending"
+  tags: ["国内可访问", "每日免费", "免费算力"]
+
+- name: "百度千帆 ERNIE"
+  slug: "baidu-qianfan"
+  type: "大模型API"
+  model_name: "ERNIE 系列 / ERNIE-Speed-8K"
+  free_type: "永久免费"
+  quota: "ERNIE 系列每模型赠送 100 万 tokens（约 3 个月）；ERNIE-Speed-8K 永久免费且 QPS=50，具体数值以官网为准"
+  validity: "每模型 100 万 tokens 约 3 个月；ERNIE-Speed-8K 永久"
+  need_realname: "是"
+  openai_compatible: "是"
+  access_note: "国内可直连"
+  official_url: "https://qianfan.baidu.com/"
+  rule_url: "https://cloud.baidu.com/doc/WENXINWORKSHOP/"
+  verify_status: "⏳待复核"
+  verify_time: "2026-10-30"
+  remark: "需百度智能云实名；ERNIE-Speed-8K 为永久免费且并发最大方（QPS=50）。来源参考：尼古斯公众号《不花钱用 AI》2026-10 核实。"
+  status: "pending"
+  tags: ["国内可访问", "需实名", "永久免费", "OpenAI兼容"]
 
 # ============ 云服务器·容器 ============
 
