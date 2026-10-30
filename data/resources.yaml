@@ -203,6 +203,42 @@
   status: "pending"
   tags: ["国内可访问", "需实名", "永久免费", "OpenAI兼容"]
 
+- name: "Google AI Studio（Gemini）"
+  slug: "google-gemini"
+  type: "大模型API"
+  model_name: "Gemini 2.5 Flash / 2.5 Flash-Lite / 3 Flash"
+  free_type: "每日重置"
+  quota: "Gemini 2.5 Flash 免费档 30 RPM / 1440 RPD（每天 1440 次）；2.5 Flash-Lite 10 RPM / 20 RPD；Gemini 3 Flash 5 RPM / 20 RPD，具体数值以官网为准"
+  validity: "每日重置（按天）"
+  need_realname: "否"
+  openai_compatible: "是"
+  access_note: "需要特殊网络（Google 服务，大陆不可直连，需自备网络环境）"
+  official_url: "https://aistudio.google.com/"
+  rule_url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+  verify_status: "⏳待复核"
+  verify_time: "2026-10-30"
+  remark: "无需信用卡，Google 账号 60 秒领 API Key；多模态能力极强（图/音/视频）；免费档速率受限。OpenAI 兼容需使用专用端点（generativelanguage.googleapis.com/v1beta/openai）。需自备海外网络环境。来源参考：尼古斯公众号《不花钱用 AI》2026-10 核实；2026 多家聚合站核对。"
+  status: "pending"
+  tags: ["海外服务", "需科学上网", "多模态", "每日免费"]
+
+- name: "OpenRouter"
+  slug: "openrouter"
+  type: "大模型API"
+  model_name: "20+ 厂商免费模型（DeepSeek / Llama / Qwen / Gemini 等 :free）"
+  free_type: "永久免费"
+  quota: "免费模型 25+ 个（ID 以 :free 结尾，随厂商变动）；单 key 统一调用，免费档 20 RPM / 50 次每天（一次性充值 $10 后升至 1000 次/天），具体数值以官网为准"
+  validity: "长期（免费模型随厂商变动）"
+  need_realname: "否"
+  openai_compatible: "是"
+  access_note: "需要特殊网络（境外服务，大陆不可直连，需自备网络环境）"
+  official_url: "https://openrouter.ai/"
+  rule_url: "https://openrouter.ai/collections/free-models"
+  verify_status: "⏳待复核"
+  verify_time: "2026-10-30"
+  remark: "单一 API Key + OpenAI 兼容端点聚合 500+ 模型；免费模型随厂商贡献变动（2026-10 实测 25+ 个，公众号核时仅 7 个）；$10 一次性充值仅解锁每日上限、不扣免费模型费用。需自备海外网络环境。来源参考：尼古斯公众号《不花钱用 AI》2026-10 核实；2026 多家聚合站核对。"
+  status: "pending"
+  tags: ["海外服务", "需科学上网", "OpenAI兼容", "永久免费", "多模型聚合"]
+
 # ============ 云服务器·容器 ============
 
 - name: "阿里云 免费试用（ECS / 轻量）"
