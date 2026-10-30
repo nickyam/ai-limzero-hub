@@ -1,5 +1,8 @@
 {{ define "main" }}
 <section class="hero small">
+  <nav class="breadcrumb">
+    <a href="/">首页</a> / <span>{{ .Title }}</span>
+  </nav>
   <h1 class="site-title">{{ .Title }}</h1>
   <p class="slogan">{{ site.Params.slogan }}</p>
 </section>
