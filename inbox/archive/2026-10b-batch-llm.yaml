@@ -21,10 +21,7 @@ resources:
     access_note: 需要特殊网络（海外站点，国内需自备网络环境）
     official_url: https://www.together.ai/pricing
     rule_url: https://docs.together.ai/docs/quickstart
-    verify_status: ⏳待复核
-    verify_time: "2026-10-30"
     remark: 免费档限速很低（约 1 RPM），只够跑通接口和原型验证；赠金不结转，多账号刷额度会被风控。
-    status: pending
     tags: [开源模型, OpenAI兼容, 注册赠金]
     source_id: public-apis
 
@@ -40,10 +37,7 @@ resources:
     access_note: 需要特殊网络（海外服务）
     official_url: https://jina.ai
     rule_url: https://jina.ai/reader/
-    verify_status: ⏳待复核
-    verify_time: "2026-10-30"
     remark: 网页转 Markdown（Reader）是最实用的免 key 能力，抓取网页喂 RAG 很方便；Search 接口每次至少耗 1 万 tokens，1000 万赠额最多约 1000 次搜索。
-    status: pending
     tags: [向量嵌入, 网页转Markdown, 免Key可用]
     source_id: public-apis
 
@@ -59,10 +53,7 @@ resources:
     access_note: 需要特殊网络（海外服务）
     official_url: https://cloud.sambanova.ai/
     rule_url: https://docs.sambanova.ai/cloud/docs/get-started/quickstart
-    verify_status: ⏳待复核
-    verify_time: "2026-10-30"
     remark: 主打自研 RDU 芯片的高吞吐推理；赠金到期即失效，不会自动转免费档。
-    status: pending
     tags: [开源模型, OpenAI兼容, 注册赠金]
     source_id: free-for-dev
 
@@ -78,10 +69,7 @@ resources:
     access_note: 需要特殊网络（海外服务）
     official_url: https://www.baseten.co/
     rule_url: https://docs.baseten.co/quickstart
-    verify_status: ⏳待复核
-    verify_time: "2026-10-30"
     remark: 定位是「把开源模型部署成生产 API」，$30 更适合验证部署链路而非长期免费调用；按 GPU 时长计费，跑起来烧得快。
-    status: pending
     tags: [模型部署, 注册赠金]
     source_id: free-for-dev
 
@@ -97,10 +85,7 @@ resources:
     access_note: 需要特殊网络（欧洲服务商，国内需自备网络）
     official_url: https://studio.nebius.com/
     rule_url: https://docs.nebius.com/studio/inference/quickstart
-    verify_status: ⏳待复核
-    verify_time: "2026-10-30"
     remark: 额度很小，只够跑通链路；优势是欧盟合规与开源模型齐全，适合对数据出境有要求的项目做备选。
-    status: pending
     tags: [开源模型, 欧盟合规]
     source_id: free-for-dev
 
@@ -116,10 +101,7 @@ resources:
     access_note: 需要特殊网络（法国服务商）
     official_url: https://www.scaleway.com/en/generative-apis/
     rule_url: https://www.scaleway.com/en/docs/generative-apis/quickstart/
-    verify_status: ⏳待复核
-    verify_time: "2026-10-30"
     remark: 数据存放在巴黎，GDPR 合规；100 万 tokens 用 Qwen3 235B 大约够几十万字的往返对话。
-    status: pending
     tags: [开源模型, 欧盟合规, OpenAI兼容]
     source_id: free-for-dev
 
@@ -135,10 +117,7 @@ resources:
     access_note: 需要特殊网络（海外服务）
     official_url: https://predibase.com/
     rule_url: https://docs.predibase.com/
-    verify_status: ⏳待复核
-    verify_time: "2026-10-30"
     remark: 主打 LoRA 微调，$25 适合做一次小模型微调验证；30 天硬期限，别攒着不用。
-    status: pending
     tags: [模型微调, 注册赠金]
     source_id: free-for-dev
 
@@ -154,10 +133,7 @@ resources:
     access_note: 需要特殊网络（海外服务）
     official_url: https://kluster.ai/
     rule_url: https://docs.kluster.ai/get-started/quickstart/
-    verify_status: ⏳待复核
-    verify_time: "2026-10-30"
     remark: 批量推理有折扣，适合跑离线任务（批处理打分、数据集生成）而不是实时对话。
-    status: pending
     tags: [批量推理, 开源模型]
     source_id: free-for-dev
 
@@ -173,10 +149,7 @@ resources:
     access_note: 需要特殊网络（海外服务）
     official_url: https://morphllm.com/
     rule_url: https://docs.morphllm.com/
-    verify_status: ⏳待复核
-    verify_time: "2026-10-30"
     remark: 专做「代码 diff 应用」这类高频小任务，速度是卖点；每月重置比一次性赠金更适合长期跑 Agent 工具链。
-    status: pending
     tags: [代码模型, 每月重置, OpenAI兼容]
     source_id: free-for-dev
 
@@ -192,10 +165,7 @@ resources:
     access_note: 需要特殊网络（海外服务）
     official_url: https://portal.nousresearch.com/
     rule_url: https://docs.nousresearch.com/
-    verify_status: ⏳待复核
-    verify_time: "2026-10-30"
     remark: 真正「永久免费档」而非试用赠金，50 RPM 在免费档里算宽裕；模型偏研究向，中文能力一般。
-    status: pending
     tags: [永久免费, 开源模型, 免信用卡]
     source_id: free-for-dev
 
@@ -211,10 +181,7 @@ resources:
     access_note: 需要特殊网络（海外服务）
     official_url: https://inference.net/
     rule_url: https://docs.inference.net/
-    verify_status: ⏳待复核
-    verify_time: "2026-10-30"
     remark: 相对小众，稳定性与长期经营存疑，仅作备选；注册前先确认额度是否仍发放。
-    status: pending
     tags: [开源模型, 注册赠金]
     source_id: free-for-dev
 
@@ -230,10 +197,7 @@ resources:
     access_note: 需要特殊网络（海外服务）
     official_url: https://www.reka.ai/
     rule_url: https://docs.reka.ai/
-    verify_status: ⏳待复核
-    verify_time: "2026-10-30"
     remark: 视频/图像理解是差异点；每月 $10 循环在免费档里少见，但要留意逐年下调额度的先例。
-    status: pending
     tags: [多模态, 每月重置]
     source_id: free-for-dev
 
@@ -249,10 +213,7 @@ resources:
     access_note: 需要特殊网络（海外服务）
     official_url: https://fireworks.ai/
     rule_url: https://docs.fireworks.ai/getting-started/quickstart
-    verify_status: ⏳待复核
-    verify_time: "2026-10-30"
     remark: 赠额从早期 $50 一路降到 $1，缩水明显，别按老攻略估算；优势是推理延迟低、支持微调部署。
-    status: pending
     tags: [开源模型, 低延迟]
     source_id: free-for-dev
 
@@ -268,10 +229,7 @@ resources:
     access_note: 需要特殊网络（海外服务）
     official_url: https://studio.ai21.com/
     rule_url: https://docs.ai21.com/
-    verify_status: ⏳待复核
-    verify_time: "2026-10-30"
     remark: Jamba 是 SSM-Transformer 混合架构，长上下文表现不错；免费额度只够评估，不适合长期用。
-    status: pending
     tags: [长上下文, 注册赠金]
     source_id: free-for-dev
 
@@ -288,9 +246,6 @@ resources:
     access_note: 需要特殊网络（海外服务）
     official_url: https://www.voyageai.com/
     rule_url: https://docs.voyageai.com/docs/pricing
-    verify_status: ⏳待复核
-    verify_time: "2026-10-30"
     remark: 2 亿 tokens 在嵌入类免费额度里属于顶格，够把几万篇文档灌进 RAG；已被 MongoDB 收购，长期政策需留意。
-    status: pending
     tags: [向量嵌入, 海量赠送, 检索重排]
     source_id: free-for-dev

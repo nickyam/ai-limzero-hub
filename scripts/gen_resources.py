@@ -34,10 +34,7 @@ FIELD_MAP = {
     "access_note": "access_note",
     "official_url": "official_url",
     "rule_url": "rule_url",
-    "verify_status": "verify_status",
-    "verify_time": "verify_time",
     "remark": "remark",
-    "status": "status",
     "slug": "slug",
 }
 

@@ -19,10 +19,7 @@ resources:
     access_note: "需要特殊网络（海外服务，国内访问需稳定国际网络）"
     official_url: "https://cursor.com/"
     rule_url: "https://cursor.com/pricing"
-    verify_status: "⏳待复核"
-    verify_time: "2026-10-30"
     remark: "免费档 50 次 Premium 请求用完后降级为慢速；重度使用建议轮换其他工具。品牌与计费可能随收购调整，具体以官网实时为准。"
-    status: "pending"
     tags: ["代码补全", "每月重置", "海外服务"]
     source_id: "free-for-dev"
 
@@ -38,10 +35,7 @@ resources:
     access_note: "需要特殊网络（海外服务）"
     official_url: "https://windsurf.com/"
     rule_url: "https://windsurf.com/pricing"
-    verify_status: "⏳待复核"
-    verify_time: "2026-10-30"
     remark: "原 Codeium 衍生；Tab 补全永久不限量是其最大卖点，多文件 Cascade 智能体限每月 25 次。已被 OpenAI 收购，留意官网变动。"
-    status: "pending"
     tags: ["代码补全", "多文件智能体", "海外服务"]
     source_id: "free-for-dev"
 
@@ -57,10 +51,7 @@ resources:
     access_note: "国内可直连（字节出品，国内服务器低延迟）"
     official_url: "https://www.marscode.cn/"
     rule_url: "https://www.marscode.cn/"
-    verify_status: "⏳待复核"
-    verify_time: "2026-10-30"
     remark: "国产免费首选，中文理解与国内框架支持好；高级能力与企业版收费，个人版长期免费。复杂冷门语言与 Copilot 仍有差距。"
-    status: "pending"
     tags: ["国产免费", "国内可访问", "云端IDE"]
     source_id: "cn-juejin"
 
@@ -76,10 +67,7 @@ resources:
     access_note: "需要特殊网络（Google 服务）"
     official_url: "https://codeassist.google/"
     rule_url: "https://cloud.google.com/code-assist"
-    verify_status: "⏳待复核"
-    verify_time: "2026-10-30"
     remark: "海外免费额度天花板级别，算法/底层代码生成强；国内访问稳定性依赖网络。个人版免费，团队版按席位收费。"
-    status: "pending"
     tags: ["Google", "每日重置", "海外服务"]
     source_id: "free-for-dev"
 
@@ -95,10 +83,7 @@ resources:
     access_note: "国内可直连（工具本地运行，需自备 API Key，可接国内大模型）"
     official_url: "https://continue.dev/"
     rule_url: "https://docs.continue.dev/"
-    verify_status: "⏳待复核"
-    verify_time: "2026-10-30"
     remark: "开源可自托管，数据留在本地；适合对隐私与可审计有要求的团队。本身不含免费模型额度，需自备 Key。"
-    status: "pending"
     tags: ["开源", "本地运行", "自托管"]
     source_id: "cn-juejin"
 
@@ -114,10 +99,7 @@ resources:
     access_note: "国内可直连（工具本地运行，需自备 API Key，可接国内大模型）"
     official_url: "https://cline.bot/"
     rule_url: "https://docs.cline.bot/"
-    verify_status: "⏳待复核"
-    verify_time: "2026-10-30"
     remark: "终端派自主规划 Agent，能读写文件、跑命令；免费指的是工具本身，模型调用走你自己的 Key 与额度。"
-    status: "pending"
     tags: ["开源", "Agent", "本地运行"]
     source_id: "cn-juejin"
 
@@ -133,10 +115,7 @@ resources:
     access_note: "国内可直连（工具本地运行，需自备 API Key，可接国内大模型）"
     official_url: "https://aider.chat/"
     rule_url: "https://aider.chat/docs/"
-    verify_status: "⏳待复核"
-    verify_time: "2026-10-30"
     remark: "老牌终端 Agent，对 Git 工作流友好；免费仅指工具，模型费用自理。适合命令行重度用户。"
-    status: "pending"
     tags: ["开源", "终端Agent", "Git"]
     source_id: "cn-juejin"
 
@@ -152,9 +131,6 @@ resources:
     access_note: "国内可直连（工具本地运行，需自备 API Key，可接国内大模型）"
     official_url: "https://roocode.com/"
     rule_url: "https://docs.roocode.com/"
-    verify_status: "⏳待复核"
-    verify_time: "2026-10-30"
     remark: "Cline 社区分支，Mode 分工更细、可玩性高；免费指工具本身，模型额度自理。"
-    status: "pending"
     tags: ["开源", "Agent", "本地运行"]
     source_id: "cn-juejin"

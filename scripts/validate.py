@@ -33,13 +33,11 @@ DATA = os.path.join(ROOT, "data", "resources.yaml")
 REQUIRED = [
     "name", "slug", "type", "free_type", "quota", "validity",
     "need_realname", "openai_compatible", "access_note",
-    "official_url", "rule_url", "verify_status", "verify_time",
-    "remark", "status", "tags",
+    "official_url", "rule_url", "remark", "tags",
 ]
 
 FREE_TYPES = {"新用户一次性", "每日重置", "每月重置", "永久免费", "学生专属", "限时免费"}
 YN = {"是", "否"}
-VERIFY_MAP = {"✅已实测": "verified", "⏳待复核": "pending", "❌已失效": "expired"}
 
 # 已知分类（新增分类会 WARN，提醒你是主动决策而不是手滑写错字）
 KNOWN_TYPES = {
@@ -123,31 +121,19 @@ def check_item(it: dict, idx: int, rep: Report) -> None:
         elif not norm_url_host(u):
             rep.err(where, f"{k} 无法解析出域名：{u}")
 
-    # 6) verify_status 与 status 必须同步
-    vs, st = it.get("verify_status"), it.get("status")
-    if vs in VERIFY_MAP and st and st != VERIFY_MAP[vs]:
-        rep.err(where, f"verify_status `{vs}` 与 status `{st}` 不一致（应为 {VERIFY_MAP[vs]}）")
-    if vs and vs not in VERIFY_MAP:
-        rep.err(where, f"verify_status `{vs}` 不在 {list(VERIFY_MAP)}")
-
-    # 7) verify_time 格式
-    vt = str(it.get("verify_time") or "")
-    if vt and not re.match(r"^\d{4}-\d{2}-\d{2}$", vt):
-        rep.err(where, f"verify_time `{vt}` 应为 YYYY-MM-DD")
-
-    # 8) 额度不能是占位符
+    # 6) 额度不能是占位符
     q = (it.get("quota") or "").strip()
     if q and len(q) < 8:
         rep.err(where, f"quota 过短，疑似占位符：`{q}`")
     if q and re.search(r"(TODO|TBD|待填|xxx|XXX)", q):
         rep.err(where, "quota 含占位符文本")
 
-    # 9) tags
+    # 7) tags
     tags = it.get("tags")
     if tags is not None and not isinstance(tags, list):
         rep.err(where, "tags 必须是数组")
 
-    # 10) 分类
+    # 8) 分类
     t = (it.get("type") or "").strip()
     if t and t not in KNOWN_TYPES:
         rep.warn(where, f"新分类 `{t}`（确认是有意新增，否则可能是错别字）")

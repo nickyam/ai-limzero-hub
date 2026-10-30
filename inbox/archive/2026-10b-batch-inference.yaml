@@ -17,10 +17,7 @@ resources:
     access_note: 需要特殊网络（海外服务）
     official_url: https://deepgram.com/
     rule_url: https://developers.deepgram.com/docs/models-languages-overview
-    verify_status: ⏳待复核
-    verify_time: "2026-10-30"
     remark: 语音类里最实在的额度，$200 足够把整个 STT 链路验证完；免费账号每分钟只能新建 5 路流式连接。
-    status: pending
     tags: [语音识别, 语音合成, 海量赠送]
     source_id: public-apis
 
@@ -36,10 +33,7 @@ resources:
     access_note: 需要特殊网络（海外服务）
     official_url: https://www.assemblyai.com/
     rule_url: https://www.assemblyai.com/docs
-    verify_status: ⏳待复核
-    verify_time: "2026-10-30"
     remark: 说话人分离（diarization）和情感分析开箱可用；立体声按双声道计费，成本翻倍，提前降混成单声道。
-    status: pending
     tags: [语音识别, 说话人分离]
     source_id: public-apis
 
@@ -55,10 +49,7 @@ resources:
     access_note: 需要特殊网络（Google Cloud 需海外网络与结算账号）
     official_url: https://cloud.google.com/text-to-speech
     rule_url: https://cloud.google.com/text-to-speech/pricing
-    verify_status: ⏳待复核
-    verify_time: "2026-10-30"
     remark: 免费额度在各大厂 TTS 里最宽，但必须绑卡开通结算，超额会自动扣费；务必先设预算告警。
-    status: pending
     tags: [语音合成, 大厂免费档, 需绑卡]
     source_id: public-apis
 
@@ -74,10 +65,7 @@ resources:
     access_note: 需要特殊网络（Azure 国际版需海外网络；Azure 中国区为独立运营、定价不同）
     official_url: https://azure.microsoft.com/en-us/products/ai-services/ai-speech
     rule_url: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/speech-services/
-    verify_status: ⏳待复核
-    verify_time: "2026-10-30"
     remark: 50 万字符/月是「持续免费」而非总量赠额，做长期小流量播报很合适；F0 层不支持批量转写。
-    status: pending
     tags: [语音合成, 语音识别, 每月重置]
     source_id: public-apis
 
@@ -93,10 +81,7 @@ resources:
     access_note: 需要特殊网络（IBM Cloud 海外区域）
     official_url: https://www.ibm.com/products/text-to-speech
     rule_url: https://cloud.ibm.com/docs/text-to-speech
-    verify_status: ⏳待复核
-    verify_time: "2026-10-30"
     remark: 1 万字符约 10 分钟音频，只够试音；真正价值是支持私有化部署（Cloud Pak for Data），合规场景少见的选项。
-    status: pending
     tags: [语音合成, 可私有化部署]
     source_id: public-apis
 
@@ -112,10 +97,7 @@ resources:
     access_note: 国内可直连（实测可访问，偶有波动）
     official_url: https://ocr.space/ocrapi
     rule_url: https://ocr.space/ocrapi/freekey
-    verify_status: ⏳待复核
-    verify_time: "2026-10-30"
     remark: 每月 2.5 万次是 OCR 类免费额度里的天花板，支持 200+ 语言与表格识别；免费档单个 PDF 只能 3 页，长文档要客户端先拆分。
-    status: pending
     tags: [OCR, 表格识别, 每月重置]
     source_id: public-apis
 
@@ -131,10 +113,7 @@ resources:
     access_note: 需要特殊网络（海外服务）
     official_url: https://www.clarifai.com/
     rule_url: https://docs.clarifai.com/
-    verify_status: ⏳待复核
-    verify_time: "2026-10-30"
     remark: 1,000 次操作/月只够 Demo；优势是同一套 API 覆盖图像分类、检测、嵌入与生成，换模型不用重写。
-    status: pending
     tags: [图像识别, 内容审核]
     source_id: public-apis
 
@@ -150,10 +129,7 @@ resources:
     access_note: 需要特殊网络（海外服务）
     official_url: https://imagga.com/
     rule_url: https://docs.imagga.com/
-    verify_status: ⏳待复核
-    verify_time: "2026-10-30"
     remark: 每月 100 次太紧，只够验证接口是否通；真要跑量必须上付费档，别指望免费层。
-    status: pending
     tags: [图像打标, 视觉搜索]
     source_id: public-apis
 
@@ -169,10 +145,7 @@ resources:
     access_note: 国内可直连（自托管部署后无网络限制）
     official_url: https://libretranslate.com/
     rule_url: https://github.com/LibreTranslate/LibreTranslate
-    verify_status: ⏳待复核
-    verify_time: "2026-10-30"
     remark: 唯一「彻底不看额度」的翻译方案——自己 Docker 起一个，文本不出内网；代价是质量不如谷歌/DeepL，小语种尤其明显。
-    status: pending
     tags: [翻译, 开源自托管, 可离线]
     source_id: public-apis
 
@@ -188,10 +161,7 @@ resources:
     access_note: 需要特殊网络（海外服务）
     official_url: https://detectlanguage.com/
     rule_url: https://detectlanguage.com/documentation
-    verify_status: ⏳待复核
-    verify_time: "2026-10-30"
     remark: 单一能力工具，只做语言识别；如果只是判中英文，本地用 fastText 更省事。
-    status: pending
     tags: [语言检测, 文本处理]
     source_id: public-apis
 
@@ -207,10 +177,7 @@ resources:
     access_note: 需要特殊网络（海外服务）
     official_url: https://deepai.org/
     rule_url: https://deepai.org/docs
-    verify_status: ⏳待复核
-    verify_time: "2026-10-30"
     remark: 老牌小厂，模型偏旧但接口简单；仅适合快速验证想法，不建议业务依赖。
-    status: pending
     tags: [文生图, 图像处理]
     source_id: public-apis
 
@@ -226,10 +193,7 @@ resources:
     access_note: 需要特殊网络（海外服务）
     official_url: https://cloudmersive.com/
     rule_url: https://api.cloudmersive.com/docs/
-    verify_status: ⏳待复核
-    verify_time: "2026-10-30"
     remark: 一个 key 覆盖几百个杂项接口（病毒扫描、格式转换、人脸识别），当工具箱用；每个接口单价不同，免费额度消耗速度不一。
-    status: pending
     tags: [图像识别, 文档转换, API超市]
     source_id: public-apis
 
@@ -245,10 +209,7 @@ resources:
     access_note: 需要特殊网络（海外服务）
     official_url: https://eidosspeech.xyz/
     rule_url: https://eidosspeech.xyz/
-    verify_status: ⏳待复核
-    verify_time: "2026-10-30"
     remark: 小团队项目，官网未公开明确字符上限，属于「声称免费但要自己试」的类型；收录仅为品类补充，稳定性自行评估。
-    status: pending
     tags: [语音合成, 多语言]
     source_id: public-apis
 
@@ -264,10 +225,7 @@ resources:
     access_note: 需要特殊网络（海外服务）
     official_url: https://kavel.readthedocs.io/
     rule_url: https://kavel.readthedocs.io/
-    verify_status: ⏳待复核
-    verify_time: "2026-10-30"
     remark: 「完全不用注册」在文生图里少见，适合快速做原型；但无 SLA、随时可能限流或关停，不要放进生产链路。
-    status: pending
     tags: [文生图, 免注册, 免Key]
     source_id: public-apis
 
@@ -283,9 +241,6 @@ resources:
     access_note: 需要特殊网络（海外服务）
     official_url: https://products.wolframalpha.com/api
     rule_url: https://products.wolframalpha.com/api/pricing
-    verify_status: ⏳待复核
-    verify_time: "2026-10-30"
     remark: 给 LLM 补「可验证的数学/单位换算/事实计算」能力最省事的接口；非商业限制要看清，商用需单独谈。
-    status: pending
     tags: [计算引擎, 数学, 非商业免费]
     source_id: public-apis

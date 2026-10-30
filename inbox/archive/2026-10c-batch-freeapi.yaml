@@ -19,10 +19,7 @@ resources:
     access_note: "需要特殊网络（海外服务）"
     official_url: "https://quickchart.io/"
     rule_url: "https://quickchart.io/documentation/"
-    verify_status: "⏳待复核"
-    verify_time: "2026-10-30"
     remark: "把 Chart.js 配置渲染成 PNG/SVG，适合邮件/PDF/报表嵌图；免费公共端点限速，量大可自托管。国内访问需网络。"
-    status: "pending"
     tags: ["图表API", "二维码", "海外服务"]
     source_id: "free-for-dev"
 
@@ -38,10 +35,7 @@ resources:
     access_note: "需要特殊网络（海外服务）"
     official_url: "https://disease.sh/"
     rule_url: "https://github.com/disease-sh/api"
-    verify_status: "⏳待复核"
-    verify_time: "2026-10-30"
     remark: "聚合 WHO/JHU 等公开数据的健康统计 API，免 Key 直连；数据随上游更新。适合看板/数据新闻。国内访问需网络。"
-    status: "pending"
     tags: ["健康数据", "免Key", "海外服务"]
     source_id: "public-apis"
 
@@ -57,10 +51,7 @@ resources:
     access_note: "需要特殊网络（海外服务，APILayer 旗下）"
     official_url: "https://exchangerate.host/"
     rule_url: "https://exchangerate.host/"
-    verify_status: "⏳待复核"
-    verify_time: "2026-10-30"
     remark: "曾经无限免 Key，现已改为每月 100 次免费 + 需 Key；做汇率换算小工具够用，量大会快速触顶。国内访问需网络。"
-    status: "pending"
     tags: ["汇率API", "每月重置", "海外服务"]
     source_id: "public-apis"
 
@@ -76,10 +67,7 @@ resources:
     access_note: "需要特殊网络（海外服务）"
     official_url: "https://www.bigdatacloud.com/"
     rule_url: "https://www.bigdatacloud.com/pricing"
-    verify_status: "⏳待复核"
-    verify_time: "2026-10-30"
     remark: "IP 地理定位精度高、每日公开基准测试；免费档 1 万次/月够中小项目。国内访问需网络。"
-    status: "pending"
     tags: ["IP地理定位", "反地理编码", "海外服务"]
     source_id: "public-apis"
 
@@ -95,10 +83,7 @@ resources:
     access_note: "需要特殊网络（海外服务）"
     official_url: "https://resend.com/"
     rule_url: "https://resend.com/pricing"
-    verify_status: "⏳待复核"
-    verify_time: "2026-10-30"
     remark: "开发者向邮件服务，React Email 体验好；免费 3k/月够开发/低量生产。国内发信需网络且注意送达率。"
-    status: "pending"
     tags: ["邮件API", "事务邮件", "海外服务"]
     source_id: "free-for-dev"
 
@@ -114,10 +99,7 @@ resources:
     access_note: "需要特殊网络（海外服务）"
     official_url: "https://ipinfo.io/"
     rule_url: "https://ipinfo.io/pricing"
-    verify_status: "⏳待复核"
-    verify_time: "2026-10-30"
     remark: "IP 数据事实标准之一，免费 5 万次/月额度大；VPN/代理检测等高级字段需付费。国内访问需网络。"
-    status: "pending"
     tags: ["IP地理", "VPN检测", "海外服务"]
     source_id: "public-apis"
 
@@ -133,10 +115,7 @@ resources:
     access_note: "需要特殊网络（海外服务）"
     official_url: "https://hasura.io/"
     rule_url: "https://hasura.io/pricing/"
-    verify_status: "⏳待复核"
-    verify_time: "2026-10-30"
     remark: "对接数据库自动生成 GraphQL/REST API，省掉手写 resolver；免费档 3 项目 + 300 万请求/月够原型。亦可自托管。国内访问需网络。"
-    status: "pending"
     tags: ["GraphQL", "BaaS", "海外服务"]
     source_id: "free-for-dev"
 
@@ -152,10 +131,7 @@ resources:
     access_note: "需要特殊网络（海外服务）"
     official_url: "https://composio.dev/"
     rule_url: "https://composio.dev/pricing"
-    verify_status: "⏳待复核"
-    verify_time: "2026-10-30"
     remark: "给 AI Agent 接 Gmail/Slack/GitHub 等外部工具的统一鉴权层；免费档额度官网不同页面口径不一致，接入前以官网实时为准。国内访问需网络。"
-    status: "pending"
     tags: ["Agent工具", "MCP", "海外服务"]
     source_id: "free-for-dev"
 
@@ -171,9 +147,6 @@ resources:
     access_note: "国内可直连（公开 API，国内可访问）"
     official_url: "https://open-meteo.com/"
     rule_url: "https://open-meteo.com/en/docs"
-    verify_status: "⏳待复核"
-    verify_time: "2026-10-30"
     remark: "免 Key 天气 API 标杆，非商用免费、额度大方；商用需订阅。适合天气看板/小程序。国内可直连。"
-    status: "pending"
     tags: ["天气API", "免Key", "国内可访问"]
     source_id: "public-apis"

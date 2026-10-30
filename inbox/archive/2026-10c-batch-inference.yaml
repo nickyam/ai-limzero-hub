@@ -18,10 +18,7 @@ resources:
     access_note: "需要特殊网络（海外服务）"
     official_url: "https://suno.com/"
     rule_url: "https://suno.com/subscribe"
-    verify_status: "⏳待复核"
-    verify_time: "2026-10-30"
     remark: "当前最热门的 AI 写歌工具；免费档生成可在线听与分享，下载与商用需付费。国内访问需稳定网络。"
-    status: "pending"
     tags: ["AI音乐", "每日重置", "海外服务"]
     source_id: "free-for-dev"
 
@@ -37,10 +34,7 @@ resources:
     access_note: "国内可直连（快手出品，国内服务器）"
     official_url: "https://klingai.com/"
     rule_url: "https://klingai.com/"
-    verify_status: "⏳待复核"
-    verify_time: "2026-10-30"
     remark: "国产视频生成第一梯队，免费档额度在同类里偏大；需登录账号，部分高级功能需实名。长视频与去水印需付费。"
-    status: "pending"
     tags: ["AI视频", "国产免费", "国内可访问"]
     source_id: "cn-juejin"
 
@@ -56,10 +50,7 @@ resources:
     access_note: "国内可直连（阿里云百炼）"
     official_url: "https://tongyi.aliyun.com/wanxiang"
     rule_url: "https://help.aliyun.com/zh/model-studio/"
-    verify_status: "⏳待复核"
-    verify_time: "2026-10-30"
     remark: "与「阿里云百炼」同一平台的不同模型族，本条目专指万相图像/视频生成能力；免费额度 90 天到期不结转，需阿里云实名。"
-    status: "pending"
     tags: ["图像生成", "视频生成", "国内可访问"]
     source_id: "cn-juejin"
 
@@ -75,10 +66,7 @@ resources:
     access_note: "需要特殊网络（海外服务）"
     official_url: "https://udio.com/"
     rule_url: "https://udio.com/about"
-    verify_status: "⏳待复核"
-    verify_time: "2026-10-30"
     remark: "Suno 的主要竞品，人声与编曲质量高；免费档限制较多，商用需付费。国内访问需稳定网络。"
-    status: "pending"
     tags: ["AI音乐", "每日重置", "海外服务"]
     source_id: "free-for-dev"
 
@@ -94,10 +82,7 @@ resources:
     access_note: "需要特殊网络（海外服务）"
     official_url: "https://ideogram.ai/"
     rule_url: "https://ideogram.ai/subscription"
-    verify_status: "⏳待复核"
-    verify_time: "2026-10-30"
     remark: "以「图中文字渲染」见长，海报/封面场景好用；免费档默认公开画廊，商用需付费。国内访问需网络。"
-    status: "pending"
     tags: ["图像生成", "文字渲染", "海外服务"]
     source_id: "free-for-dev"
 
@@ -113,10 +98,7 @@ resources:
     access_note: "需要特殊网络（海外服务）"
     official_url: "https://www.recraft.ai/"
     rule_url: "https://www.recraft.ai/pricing"
-    verify_status: "⏳待复核"
-    verify_time: "2026-10-30"
     remark: "强项是图标/插画/矢量（SVG）生成，设计向；免费档额度口径官网变动频繁，以官网实时为准。"
-    status: "pending"
     tags: ["图像生成", "矢量设计", "海外服务"]
     source_id: "free-for-dev"
 
@@ -132,10 +114,7 @@ resources:
     access_note: "需要特殊网络（海外服务）"
     official_url: "https://leonardo.ai/"
     rule_url: "https://leonardo.ai/pricing"
-    verify_status: "⏳待复核"
-    verify_time: "2026-10-30"
     remark: "模型库丰富、出图质量高，免费档每日 150 tokens 够轻量使用；2026-12 起原 Remove.bg API 能力并入其 API，相关集成可关注。"
-    status: "pending"
     tags: ["图像生成", "视频生成", "海外服务"]
     source_id: "free-for-dev"
 
@@ -151,10 +130,7 @@ resources:
     access_note: "需要特殊网络（海外服务）"
     official_url: "https://lumalabs.ai/dream-machine"
     rule_url: "https://lumalabs.ai/pricing"
-    verify_status: "⏳待复核"
-    verify_time: "2026-10-30"
     remark: "运镜与真实感强，免费档每月额度较小；长视频与高分辨率需付费。国内访问需网络。"
-    status: "pending"
     tags: ["AI视频", "每月重置", "海外服务"]
     source_id: "free-for-dev"
 
@@ -170,10 +146,7 @@ resources:
     access_note: "需要特殊网络（海外服务）"
     official_url: "https://pixverse.ai/"
     rule_url: "https://pixverse.ai/"
-    verify_status: "⏳待复核"
-    verify_time: "2026-10-30"
     remark: "模板化特效（如动物变身）出圈，免费档可做轻量短视频；去水印与高清需付费。国内访问需网络。（定价页路径变动，rule_url 暂指官网首页，以官网为准）"
-    status: "pending"
     tags: ["AI视频", "每日重置", "海外服务"]
     source_id: "free-for-dev"
 
@@ -189,10 +162,7 @@ resources:
     access_note: "需要特殊网络（海外服务）"
     official_url: "https://runwayml.com/"
     rule_url: "https://runwayml.com/pricing"
-    verify_status: "⏳待复核"
-    verify_time: "2026-10-30"
     remark: "影视级视频生成标杆，免费档为一次性额度而非月重置，用完即止；后续需订阅。国内访问需网络。"
-    status: "pending"
     tags: ["AI视频", "一次性额度", "海外服务"]
     source_id: "free-for-dev"
 
@@ -208,10 +178,7 @@ resources:
     access_note: "需要特殊网络（海外服务）"
     official_url: "https://www.krea.ai/"
     rule_url: "https://www.krea.ai/pricing"
-    verify_status: "⏳待复核"
-    verify_time: "2026-10-30"
     remark: "实时生成与编辑体验好，免费档仅图像、无水印但无商用授权；视频与 LoRA 训练需付费。国内访问需网络。"
-    status: "pending"
     tags: ["图像生成", "图像编辑", "海外服务"]
     source_id: "free-for-dev"
 
@@ -227,10 +194,7 @@ resources:
     access_note: "国内可直连（昆仑天工出品，有 mureka.cn 国内站）"
     official_url: "https://www.mureka.ai/"
     rule_url: "https://www.mureka.ai/subscribe"
-    verify_status: "⏳待复核"
-    verify_time: "2026-10-30"
     remark: "昆仑天工（昆仑万维）出品，中文人声尚可；免费档只能在线试听、不能下载与商用，Pro 起才开放下载与商用授权。"
-    status: "pending"
     tags: ["AI音乐", "国产免费", "国内可访问"]
     source_id: "cn-juejin"
 
@@ -246,9 +210,6 @@ resources:
     access_note: "需要特殊网络（海外服务）"
     official_url: "https://pika.art/"
     rule_url: "https://pika.art/subscribe"
-    verify_status: "⏳待复核"
-    verify_time: "2026-10-30"
     remark: "早期出圈的 AI 视频工具，免费档额度较小、带水印；高清与去水印需订阅。国内访问需网络。"
-    status: "pending"
     tags: ["AI视频", "每日重置", "海外服务"]
     source_id: "free-for-dev"

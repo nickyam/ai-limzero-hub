@@ -18,10 +18,7 @@ resources:
     access_note: "需要特殊网络（海外服务）"
     official_url: "https://huggingface.co/spaces"
     rule_url: "https://huggingface.co/pricing"
-    verify_status: "⏳待复核"
-    verify_time: "2026-10-30"
     remark: "托管 AI Demo 的事实标准，CPU Basic 不限量、Static 全免；GPU 与 Docker 高级需求需付费。国内访问需网络。"
-    status: "pending"
     tags: ["AI应用托管", "Gradio", "海外服务"]
     source_id: "free-for-dev"
 
@@ -37,10 +34,7 @@ resources:
     access_note: "国内可直连（Cloudflare 节点国内可访问）"
     official_url: "https://workers.cloudflare.com/"
     rule_url: "https://workers.cloudflare.com/pricing"
-    verify_status: "⏳待复核"
-    verify_time: "2026-10-30"
     remark: "边缘函数，延迟低、国内可直连；免费 10 万请求/天覆盖绝大多数轻量接口。注意与「Cloudflare Workers AI」（推理）是不同产品。"
-    status: "pending"
     tags: ["边缘计算", "Serverless", "国内可访问"]
     source_id: "free-for-dev"
 
@@ -56,9 +50,6 @@ resources:
     access_note: "需要特殊网络（海外服务）"
     official_url: "https://northflank.com/"
     rule_url: "https://northflank.com/pricing"
-    verify_status: "⏳待复核"
-    verify_time: "2026-10-30"
     remark: "一站式托管（容器/数据库/Job），免费 Sandbox 额度尚可；但建资源需绑卡，介意者慎选。国内访问需网络。"
-    status: "pending"
     tags: ["容器托管", "数据库托管", "海外服务"]
     source_id: "free-for-dev"

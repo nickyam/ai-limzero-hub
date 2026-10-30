@@ -59,8 +59,9 @@ jobs:
       - name: Generate resource pages from YAML
         run: python3 scripts/gen_resources.py
 
+      # --cleanDestinationDir：清空 public/ 后重建，避免旧指纹产物（css/js）累积
       - name: Build static site
-        run: hugo --minify --baseURL https://ai.limzero.com/
+        run: hugo --minify --cleanDestinationDir --baseURL https://ai.limzero.com/
 
       # 产物仅供人工抽查留存，不会自动部署到服务器
       - name: Upload artifact (for inspection only, not deployed)

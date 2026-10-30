@@ -6,8 +6,8 @@
 {{ $remark := .remark | default "" }}
 {{ $tags := .tags | default slice }}
 {{ $search := printf "%s %s %s %s %s" $name $model $type (delimit $tags " ") $remark | replaceRE "[\"&<>]" "" }}
-<article class="card status-{{ .status }}" data-slug="{{ .slug }}" data-type="{{ .type }}"
-  data-status="{{ .status }}" data-realname="{{ .need_realname }}" data-openai="{{ .openai_compatible }}"
+<article class="card" data-slug="{{ .slug }}" data-type="{{ .type }}"
+  data-realname="{{ .need_realname }}" data-openai="{{ .openai_compatible }}"
   data-direct="{{ if $direct }}true{{ else }}false{{ end }}" data-free="{{ .free_type }}"
   data-search="{{ $search }}" tabindex="0" role="button"
   aria-label="查看 {{ .name }} 详情">

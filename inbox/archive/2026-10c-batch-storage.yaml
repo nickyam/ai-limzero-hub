@@ -19,10 +19,7 @@ resources:
     access_note: "需要特殊网络（海外服务）"
     official_url: "https://cloudinary.com/"
     rule_url: "https://cloudinary.com/pricing"
-    verify_status: "⏳待复核"
-    verify_time: "2026-10-30"
     remark: "媒体处理老牌，URL 参数即转即裁即水印；免费 25 credits 对小图床够用。国内访问需网络。"
-    status: "pending"
     tags: ["图片处理", "视频处理", "海外服务"]
     source_id: "free-for-dev"
 
@@ -38,10 +35,7 @@ resources:
     access_note: "需要特殊网络（海外服务）"
     official_url: "https://imagekit.io/"
     rule_url: "https://imagekit.io/docs"
-    verify_status: "⏳待复核"
-    verify_time: "2026-10-30"
     remark: "实时图片优化 + CDN，永久免费档比多数图床大方；自带 URL 变换。国内访问需网络。"
-    status: "pending"
     tags: ["图片优化", "CDN", "海外服务"]
     source_id: "free-for-dev"
 
@@ -57,10 +51,7 @@ resources:
     access_note: "需要特殊网络（海外服务）"
     official_url: "https://pinata.cloud/"
     rule_url: "https://pinata.cloud/pricing"
-    verify_status: "⏳待复核"
-    verify_time: "2026-10-30"
     remark: "IPFS 固定（Pinning）主流服务，适合去中心化存储/ NFT 元数据；免费档额度有限。国内访问需网络。"
-    status: "pending"
     tags: ["IPFS", "去中心化存储", "海外服务"]
     source_id: "free-for-dev"
 
@@ -76,10 +67,7 @@ resources:
     access_note: "需要特殊网络（海外服务）"
     official_url: "https://www.gumlet.com/"
     rule_url: "https://www.gumlet.com/pricing/"
-    verify_status: "⏳待复核"
-    verify_time: "2026-10-30"
     remark: "视频托管 + 自适应流式，免费用来看少量课程/产品视频够用；存储按分钟计。国内访问需网络。"
-    status: "pending"
     tags: ["视频托管", "流媒体", "海外服务"]
     source_id: "free-for-dev"
 
@@ -95,9 +83,6 @@ resources:
     access_note: "国内可直连（国内老牌云厂商，访问快）"
     official_url: "https://www.qiniu.com/products/kodo"
     rule_url: "https://developer.qiniu.com/af/manual/12968/freequota"
-    verify_status: "⏳待复核"
-    verify_time: "2026-10-30"
     remark: "个人博客/图床首选国内方案，每月 10GB 存储 + 10GB 流量长期白嫖；需完成实名认证后自动到账。超出按量计费。"
-    status: "pending"
     tags: ["对象存储", "国内可访问", "图床"]
     source_id: "cn-juejin"

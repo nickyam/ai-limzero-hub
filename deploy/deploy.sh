@@ -50,8 +50,8 @@ if [ "${1:-}" != "--sync-only" ]; then
   log "生成资源页（scripts/gen_resources.py）..."
   python3 "${REPO_ROOT}/scripts/gen_resources.py"
 
-  log "Hugo 构建..."
-  (cd "${REPO_ROOT}" && hugo --minify --baseURL "https://${DOMAIN}/")
+  log "Hugo 构建（--cleanDestinationDir 清空目标目录，避免旧指纹产物累积）..."
+  (cd "${REPO_ROOT}" && hugo --minify --cleanDestinationDir --baseURL "https://${DOMAIN}/")
 
   [ -f "${PUBLIC_DIR}/index.html" ] || die "构建产物缺失：${PUBLIC_DIR}/index.html"
   log "构建完成：$(find "${PUBLIC_DIR}" -name '*.html' | wc -l | tr -d ' ') 个 HTML"

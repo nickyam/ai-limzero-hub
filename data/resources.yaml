@@ -1,7 +1,6 @@
 # 凌零集资源数据（唯一来源）。新增/修改资源只需编辑本文件后重跑生成器。
-# 字段说明见 README。verify_status 与 status 需同步：✅已实测=verified，⏳待复核=pending，❌已失效=expired
+# 字段说明见 README。
 # 注意：以下额度数字均来自联网检索的厂商公开规则，具体以各厂商官网实时规则为准，请在发布前逐条点击 official_url / rule_url 复核。
-# 本批条目均为 ⏳待复核，尚未人工实测。
 
 # ============ 大模型API ============
 
@@ -17,10 +16,7 @@
   access_note: "国内可直连"
   official_url: "https://open.bigmodel.cn/"
   rule_url: "https://open.bigmodel.cn/pricing"
-  verify_status: "⏳待复核"
-  verify_time: "2026-10-30"
   remark: "永久免费模型有速率限制（约 30 并发）；体验额度注意有效期，到期可能清零。"
-  status: "pending"
   tags: ["国内可访问", "OpenAI兼容", "永久免费"]
 
 - name: "阿里云百炼 DashScope"
@@ -35,10 +31,7 @@
   access_note: "国内可直连"
   official_url: "https://bailian.console.aliyun.com/"
   rule_url: "https://help.aliyun.com/zh/model-studio/"
-  verify_status: "⏳待复核"
-  verify_time: "2026-10-30"
   remark: "免费额度 90 天到期即消失、不结转；需阿里云账号实名；免费与付费资源共用账户，注意区分避免误扣费。"
-  status: "pending"
   tags: ["国内可访问", "需实名"]
 
 - name: "硅基流动 SiliconFlow"
@@ -53,10 +46,7 @@
   access_note: "国内可直连"
   official_url: "https://cloud.siliconflow.cn/"
   rule_url: "https://docs.siliconflow.cn/"
-  verify_status: "⏳待复核"
-  verify_time: "2026-10-30"
   remark: "免费档约 5-10 QPS，超频报错；模型 ID 为「组织/模型名」格式需从列表复制完整 ID；额度不结转。"
-  status: "pending"
   tags: ["国内可访问", "OpenAI兼容", "永久免费"]
 
 - name: "火山方舟 Ark（豆包）"
@@ -71,10 +61,7 @@
   access_note: "国内可直连"
   official_url: "https://www.volcengine.com/product/ark"
   rule_url: "https://www.volcengine.com/docs/ark"
-  verify_status: "⏳待复核"
-  verify_time: "2026-10-30"
   remark: "需火山引擎账号实名；免费档多限 lite 系列；每日 200 万为按天重置，新人 50 万为一次性。"
-  status: "pending"
   tags: ["国内可访问", "需实名", "每日免费"]
 
 - name: "腾讯云混元 Hunyuan"
@@ -89,10 +76,7 @@
   access_note: "国内可直连"
   official_url: "https://cloud.tencent.com/product/hunyuan"
   rule_url: "https://cloud.tencent.com/document/product/1729"
-  verify_status: "⏳待复核"
-  verify_time: "2026-10-30"
   remark: "需腾讯云实名；额度与云账号绑定。"
-  status: "pending"
   tags: ["国内可访问", "需实名"]
 
 - name: "DeepSeek 深度求索"
@@ -107,10 +91,7 @@
   access_note: "国内可直连"
   official_url: "https://platform.deepseek.com/"
   rule_url: "https://api-docs.deepseek.com/"
-  verify_status: "⏳待复核"
-  verify_time: "2026-10-30"
   remark: "平台注册即送体验额度，无需实名；按量付费价格极低，适合低成本试错。"
-  status: "pending"
   tags: ["国内可访问", "OpenAI兼容"]
 
 - name: "Kimi 开放平台（Moonshot）"
@@ -125,10 +106,7 @@
   access_note: "国内可直连"
   official_url: "https://platform.moonshot.cn/"
   rule_url: "https://www.kimi.com/zh-cn/help/kimi-api/api-free-trial"
-  verify_status: "⏳待复核"
-  verify_time: "2026-10-30"
   remark: "代金券用完自动转充值余额扣费，余额为 0 时返回 403；代金券不可用于部分新模型（如 Kimi K3）。"
-  status: "pending"
   tags: ["国内可访问", "需实名", "OpenAI兼容"]
 
 - name: "MiniMax 开放平台"
@@ -143,10 +121,7 @@
   access_note: "国内可直连"
   official_url: "https://platform.minimax.io/"
   rule_url: "https://platform.minimax.io/docs"
-  verify_status: "⏳待复核"
-  verify_time: "2026-10-30"
   remark: "国内可直连；语音合成 API 另有免费额度；具体实名要求以官网为准。"
-  status: "pending"
   tags: ["国内可访问", "OpenAI兼容"]
 
 - name: "阶跃星辰 StepFun"
@@ -161,10 +136,7 @@
   access_note: "国内可直连"
   official_url: "https://platform.stepfun.com/"
   rule_url: "https://platform.stepfun.com/docs"
-  verify_status: "⏳待复核"
-  verify_time: "2026-10-30"
   remark: "¥10 额度速率限制 5 RPM；Step Plan 限时活动有截止日，留意官网。"
-  status: "pending"
   tags: ["国内可访问", "OpenAI兼容"]
 
 - name: "魔搭 ModelScope"
@@ -179,10 +151,7 @@
   access_note: "国内可直连（需阿里云账号登录）"
   official_url: "https://modelscope.cn/"
   rule_url: "https://modelscope.cn/docs"
-  verify_status: "⏳待复核"
-  verify_time: "2026-10-30"
   remark: "用阿里云账号登录；免费算力 Notebook 长期闲置会被回收，重要文件用持久化空间或推 Git。"
-  status: "pending"
   tags: ["国内可访问", "每日免费", "免费算力"]
 
 - name: "百度千帆 ERNIE"
@@ -197,10 +166,7 @@
   access_note: "国内可直连"
   official_url: "https://qianfan.baidu.com/"
   rule_url: "https://cloud.baidu.com/doc/WENXINWORKSHOP/"
-  verify_status: "⏳待复核"
-  verify_time: "2026-10-30"
   remark: "需百度智能云实名；ERNIE-Speed-8K 为永久免费且并发最大方（QPS=50）。"
-  status: "pending"
   tags: ["国内可访问", "需实名", "永久免费", "OpenAI兼容"]
 
 - name: "Google AI Studio（Gemini）"
@@ -215,10 +181,7 @@
   access_note: "需要特殊网络（Google 服务，大陆不可直连，需自备网络环境）"
   official_url: "https://aistudio.google.com/"
   rule_url: "https://ai.google.dev/gemini-api/docs/rate-limits"
-  verify_status: "⏳待复核"
-  verify_time: "2026-10-30"
   remark: "无需信用卡，Google 账号 60 秒领 API Key；多模态能力极强（图/音/视频）；免费档速率受限。OpenAI 兼容需使用专用端点（generativelanguage.googleapis.com/v1beta/openai）。需自备海外网络环境。"
-  status: "pending"
   tags: ["海外服务", "需科学上网", "多模态", "每日免费"]
 
 - name: "OpenRouter"
@@ -233,10 +196,7 @@
   access_note: "需要特殊网络（境外服务，大陆不可直连，需自备网络环境）"
   official_url: "https://openrouter.ai/"
   rule_url: "https://openrouter.ai/collections/free-models"
-  verify_status: "⏳待复核"
-  verify_time: "2026-10-30"
   remark: "单一 API Key + OpenAI 兼容端点聚合 500+ 模型；免费模型随厂商贡献变动（2026-10 实测 25+ 个，较早期仅 7 个）；$10 一次性充值仅解锁每日上限、不扣免费模型费用。需自备海外网络环境。"
-  status: "pending"
   tags: ["海外服务", "需科学上网", "OpenAI兼容", "永久免费", "多模型聚合"]
 
 - name: "书生·端砚 Token Plan（上海人工智能实验室）"
@@ -251,10 +211,7 @@
   access_note: "国内可直连"
   official_url: "https://discovery.intern-ai.org.cn/"
   rule_url: "https://discovery.intern-ai.org.cn/token-plan/home"
-  verify_status: "⏳待复核"
-  verify_time: "2026-10-30"
   remark: "微信扫码即登录、免邮箱/绑卡；同时支持 OpenAI 与 Anthropic 双协议（base: https://discovery-api.intern-ai.org.cn），可直连 Cherry Studio / Claude Code 等；1M 上下文；墨点按月清零、不结转，领了就用。测试期政策，额度随时可能调整，尽早领取。"
-  status: "pending"
   tags: ["国内可访问", "无需实名", "每月免费", "OpenAI兼容", "国家队", "双协议"]
 
 # ============ 云服务器·容器 ============
@@ -271,10 +228,7 @@
   access_note: "国内可直连"
   official_url: "https://free.aliyun.com/"
   rule_url: "https://www.aliyun.com/product/ecs"
-  verify_status: "⏳待复核"
-  verify_time: "2026-10-30"
   remark: "试用到期未释放可能自动转按量付费，务必到期前释放或设余额预警；需实名。"
-  status: "pending"
   tags: ["国内可访问", "需实名", "学生专属"]
 
 - name: "腾讯云 轻量应用服务器 Lighthouse"
@@ -289,10 +243,7 @@
   access_note: "国内可直连"
   official_url: "https://cloud.tencent.com/product/lighthouse"
   rule_url: "https://cloud.tencent.com/act/free"
-  verify_status: "⏳待复核"
-  verify_time: "2026-10-30"
   remark: "仅限从未购买过 Lighthouse 的产品首单；每日名额有限先到先得；到期前需付费续费否则释放。"
-  status: "pending"
   tags: ["国内可访问", "需实名"]
 
 - name: "腾讯云 Cloud Studio"
@@ -307,10 +258,7 @@
   access_note: "国内可直连"
   official_url: "https://cloudstudio.net/"
   rule_url: "https://cloud.tencent.com/document/product/1039"
-  verify_status: "⏳待复核"
-  verify_time: "2026-10-30"
   remark: "免费版算力有限，长时间运行可能休眠；需腾讯云实名。"
-  status: "pending"
   tags: ["国内可访问", "需实名", "永久免费"]
 
 # ============ 静态托管 ============
@@ -327,10 +275,7 @@
   access_note: "需要特殊网络（Cloudflare 在大陆访问不稳定）"
   official_url: "https://pages.cloudflare.com/"
   rule_url: "https://developers.cloudflare.com/pages/"
-  verify_status: "⏳待复核"
-  verify_time: "2026-10-30"
   remark: "大陆访问常不稳定，国内开发者建议自备网络环境；免费版无 SLA。"
-  status: "pending"
   tags: ["永久免费", "全球CDN"]
 
 - name: "Vercel"
@@ -345,10 +290,7 @@
   access_note: "需要特殊网络（境外服务，大陆访问不稳定）"
   official_url: "https://vercel.com/"
   rule_url: "https://vercel.com/docs"
-  verify_status: "⏳待复核"
-  verify_time: "2026-10-30"
   remark: "Hobby 版仅限非商业用途；大陆访问需特殊网络。"
-  status: "pending"
   tags: ["永久免费", "全球CDN"]
 
 - name: "GitHub Pages"
@@ -363,10 +305,7 @@
   access_note: "国内可直连（访问速度偶发不稳）"
   official_url: "https://pages.github.com/"
   rule_url: "https://docs.github.com/en/pages"
-  verify_status: "⏳待复核"
-  verify_time: "2026-10-30"
   remark: "仅限静态站点；绑定自定义域名需自行配置；访问速度偶发不稳。"
-  status: "pending"
   tags: ["永久免费"]
 
 # ============ 向量数据库 ============
@@ -383,10 +322,7 @@
   access_note: "国内可直连"
   official_url: "https://cloud.tencent.com/product/vdb"
   rule_url: "https://cloud.tencent.com/document/product/1709"
-  verify_status: "⏳待复核"
-  verify_time: "2026-10-30"
   remark: "免费版规格有限，超规格需付费；需腾讯云实名。"
-  status: "pending"
   tags: ["国内可访问", "需实名", "永久免费"]
 
 - name: "Zilliz Cloud"
@@ -401,10 +337,7 @@
   access_note: "需要特殊网络（境外服务）"
   official_url: "https://cloud.zilliz.com/"
   rule_url: "https://zilliz.com/doc"
-  verify_status: "⏳待复核"
-  verify_time: "2026-10-30"
   remark: "Free 版有资源上限；大陆访问需特殊网络。"
-  status: "pending"
   tags: ["永久免费", "全球CDN"]
 
 - name: "Pinecone"
@@ -419,10 +352,7 @@
   access_note: "需要特殊网络（境外服务）"
   official_url: "https://app.pinecone.io/"
   rule_url: "https://docs.pinecone.io/"
-  verify_status: "⏳待复核"
-  verify_time: "2026-10-30"
   remark: "Starter 版有存储/用量上限；大陆访问需特殊网络。"
-  status: "pending"
   tags: ["永久免费"]
 
 # ============ AI推理工具 ============
@@ -439,10 +369,7 @@
   access_note: "国内可直连"
   official_url: "https://www.volcengine.com/product/tts"
   rule_url: "https://www.volcengine.com/docs/tts"
-  verify_status: "⏳待复核"
-  verify_time: "2026-10-30"
   remark: "试用额度用尽后按量计费；注意调用频率限制；具体实名要求以官网为准。"
-  status: "pending"
   tags: ["国内可访问"]
 
 - name: "百度智能云 文字识别 OCR"
@@ -457,10 +384,7 @@
   access_note: "国内可直连"
   official_url: "https://cloud.baidu.com/product/ocr"
   rule_url: "https://cloud.baidu.com/ai_free.html"
-  verify_status: "⏳待复核"
-  verify_time: "2026-10-30"
   remark: "实名认证后自动发放，个人/企业额度不同；按接口单独发放，当月未用完不结转。"
-  status: "pending"
   tags: ["国内可访问", "需实名", "每月免费"]
 
 # ============ 新增（脚本追加，来源见 source_id）============
@@ -477,10 +401,7 @@
   access_note: 国内可直连（控制台可访问，实例在境外，延迟较高）
   official_url: "https://www.oracle.com/cloud/free/"
   rule_url: "https://docs.oracle.com/en-us/iaas/Content/FreeTier/freetier_topic-Always_Free_Resources.htm"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: "免费额度天花板：4 核 24G 在付费市场要 80–100 美元/月。三大坑：①热门区域长期 Out of capacity，抢机器要靠刷；②CPU 长期低于 10% 利用率可能被停机；③风控会无预警封号且难以申诉，别把唯一副本放这里。注册需实体 Visa/Mastercard 验证（预授权约 $1 后退回），注册时关代理、用手机热点，保证 IP / 发卡国 / 账单地址三者一致。"
-  status: pending
   source_id: vendor-infra
   tags: [永久免费, 海外服务, 需实名, 大内存, 高风险回收]
 
@@ -496,10 +417,7 @@
   access_note: 国内可直连
   official_url: "https://www.aliyun.com/product/fc"
   rule_url: "https://help.aliyun.com/zh/fc/product-overview/billing-overview"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: Serverless 形态，不用管服务器；免费额度按月发放、不结转。适合定时任务、轻量 API、Webhook 转发。冷启动比容器方案慢，重计算场景不合适。需实名。
-  status: pending
   source_id: vendor-cn-cloud
   tags: [国内可访问, 需实名, 每月免费, Serverless]
 
@@ -515,10 +433,7 @@
   access_note: 国内可直连
   official_url: "https://cloud.tencent.com/product/scf"
   rule_url: "https://cloud.tencent.com/document/product/583/12282"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 同阿里云 FC，Serverless 按调用计费、免费额度月度重置。与微信生态（公众号/小程序回调）打通最省事。需实名。
-  status: pending
   source_id: vendor-cn-cloud
   tags: [国内可访问, 需实名, 每月免费, Serverless]
 
@@ -534,10 +449,7 @@
   access_note: 国内可直连（国内节点需备案；境外节点免备案）
   official_url: "https://edgeone.ai/zh/products/pages"
   rule_url: "https://edgeone.ai/document"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: Cloudflare Pages 的国内替代：腾讯自家边缘节点，大陆访问比 CF Pages 稳。注意「国内加速」需要域名已备案，未备案只能用境外节点（速度退化为普通海外站）。需腾讯云实名。
-  status: pending
   source_id: vendor-cn-cloud
   tags: [国内可访问, 需实名, 永久免费, 边缘加速]
 
@@ -553,10 +465,7 @@
   access_note: 需要特殊网络（境外服务，大陆访问不稳定）
   official_url: "https://www.netlify.com/"
   rule_url: "https://www.netlify.com/pricing/"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 与 Vercel 最大差别：免费版明确允许商业用途（挂广告、做 Affiliate 都行），Vercel Hobby 禁止商用。构建分钟数 300 容易在频繁推送时用完。
-  status: pending
   source_id: vendor-infra
   tags: [海外服务, 需科学上网, 永久免费, 可商用]
 
@@ -572,10 +481,7 @@
   access_note: 需要特殊网络（境外服务，大陆访问不稳定）
   official_url: "https://deno.com/deploy"
   rule_url: "https://docs.deno.com/deploy/"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 边缘运行 TypeScript/JavaScript，冷启动接近 0，静态资源 + 动态接口一个平台搞定。生态比 CF Workers 小，但不需要学 Wrangler，部署体验更简洁。
-  status: pending
   source_id: vendor-infra
   tags: [海外服务, 需科学上网, 永久免费, 边缘计算]
 
@@ -591,10 +497,7 @@
   access_note: 需要特殊网络（境外服务，大陆访问不稳定）
   official_url: "https://render.com/"
   rule_url: "https://render.com/docs/free"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 免费 Web Service 会休眠，冷启动 30 秒以上，只适合演示不适合线上服务。静态站点部分体验不错、带宽不限。数据库免费档 90 天后过期，别放生产数据。
-  status: pending
   source_id: vendor-infra
   tags: [海外服务, 需科学上网, 永久免费, 会休眠]
 
@@ -610,10 +513,7 @@
   access_note: 需要特殊网络（Cloudflare 在大陆访问不稳定）
   official_url: "https://www.cloudflare.com/developer-platform/r2/"
   rule_url: "https://developers.cloudflare.com/r2/pricing/"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 核心卖点：出网流量零费用（S3 每 TB 约 $90，R2 为 0），做图床/文件分发最省钱。兼容 S3 API，现有代码改个 endpoint 即可。需先在控制台手动启用 R2 才会计费生效。10 GB 大约放 2 万张压缩图。
-  status: pending
   source_id: vendor-infra
   tags: [海外服务, 需科学上网, 永久免费, 零出网费, S3兼容]
 
@@ -629,10 +529,7 @@
   access_note: 需要特殊网络（境外服务，大陆访问不稳定）
   official_url: "https://www.backblaze.com/cloud-storage"
   rule_url: "https://www.backblaze.com/cloud-storage/pricing"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: S3 兼容的老牌低价对象存储，1 GB/天的免费下载量适合小流量站点。与 Cloudflare 有 Bandwidth Alliance 合作，经 CF 回源出网免费，是 R2 之外的低成本备选。
-  status: pending
   source_id: vendor-infra
   tags: [海外服务, 需科学上网, 永久免费, S3兼容]
 
@@ -648,10 +545,7 @@
   access_note: 需要特殊网络（境外服务，大陆访问不稳定）
   official_url: "https://supabase.com/"
   rule_url: "https://supabase.com/pricing"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 开源 Firebase 替代：Postgres + Auth + Storage + 实时订阅 + Edge Functions 一套齐全。最大坑：免费项目 7 天无访问会被暂停（数据不丢，一键唤醒），做演示给别人看很尴尬。存储超 500 MB 会变只读。
-  status: pending
   source_id: vendor-infra
   tags: [海外服务, 需科学上网, 永久免费, Postgres, 含认证]
 
@@ -667,10 +561,7 @@
   access_note: 需要特殊网络（境外服务，大陆访问不稳定）
   official_url: "https://neon.com/"
   rule_url: "https://neon.com/pricing"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: Serverless Postgres，算力 5 分钟空闲即缩到 0，不收费也无「暂停」限制（比 Supabase 宽松）。冷启动约 500 ms。数据库分支功能对多环境开发极友好。与 Vercel/Next.js 集成最顺。
-  status: pending
   source_id: vendor-infra
   tags: [海外服务, 需科学上网, 永久免费, Postgres, 支持分支]
 
@@ -686,10 +577,7 @@
   access_note: 需要特殊网络（境外服务，大陆访问不稳定）
   official_url: "https://turso.tech/"
   rule_url: "https://docs.turso.tech/"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: libSQL（SQLite 分支），按「行」计量而非按请求，5 GB 存储是免费档里最宽松的一档。适合「一租户一库」的多租户结构。10 天不活跃会被归档。
-  status: pending
   source_id: vendor-infra
   tags: [海外服务, 需科学上网, 永久免费, SQLite, 多租户]
 
@@ -705,10 +593,7 @@
   access_note: 需要特殊网络（境外服务，大陆访问不稳定）
   official_url: "https://upstash.com/"
   rule_url: "https://upstash.com/pricing"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 按请求计费的 Serverless Redis，免费版限 1 个数据库、50 万命令/月，做缓存和限流够用。QStash 的定时任务/消息队列免费额度比自建 cron 省事，与 Vercel 集成一键完成。
-  status: pending
   source_id: vendor-infra
   tags: [海外服务, 需科学上网, 永久免费, Redis, Serverless]
 
@@ -724,10 +609,7 @@
   access_note: 需要特殊网络（境外服务，大陆访问不稳定）
   official_url: "https://www.mongodb.com/products/platform/atlas-database"
   rule_url: "https://www.mongodb.com/docs/atlas/reference/free-shared-limitations/"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 免费档唯一的成熟托管 MongoDB，512 MB 跑 CRUD 原型够用。共享集群有噪声邻居问题，超过 100 ops/秒会被限流。30 天不活跃会被暂停。
-  status: pending
   source_id: vendor-infra
   tags: [海外服务, 需科学上网, 永久免费, MongoDB]
 
@@ -743,10 +625,7 @@
   access_note: 需要特殊网络（Cloudflare 在大陆访问不稳定）
   official_url: "https://developers.cloudflare.com/vectorize/"
   rule_url: "https://developers.cloudflare.com/vectorize/platform/pricing/"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 与 Workers AI 配套做 RAG 最短路径：生成 embedding + 存向量 + 检索全在 CF 边缘完成，不用自己搭库。计量单位是「维度」不是「向量条数」，算额度时注意换算。
-  status: pending
   source_id: vendor-infra
   tags: [海外服务, 需科学上网, 每月免费, RAG检索, 边缘计算]
 
@@ -762,10 +641,7 @@
   access_note: 需要特殊网络（境外服务，大陆访问不稳定）
   official_url: "https://cloud.qdrant.io/"
   rule_url: "https://qdrant.tech/documentation/cloud/"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 开源向量库的商业托管版，1 GB 免费额度在同类里偏大方，且支持完整 API（不是阉割版）。开源版可自托管，从免费云迁到自建很方便。
-  status: pending
   source_id: vendor-infra
   tags: [海外服务, 需科学上网, 永久免费, 开源可自托管]
 
@@ -781,10 +657,7 @@
   access_note: 国内可直连
   official_url: "https://cloud.tencent.com/product/ocr"
   rule_url: "https://cloud.tencent.com/document/product/866/17619"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 与百度 OCR 同档（都是 1000 次/月），差别在于腾讯的多个基础接口共享同一份额度，接口开得多也不会叠加。账号 1 年不用 OCR 会暂停发放，重新使用两分钟内自动恢复。部分高阶接口（发票核验、多模态文档抽取）首次开通另送独立额度。
-  status: pending
   source_id: vendor-cn-cloud
   tags: [国内可访问, 需实名, 每月免费]
 
@@ -800,10 +673,7 @@
   access_note: 需要特殊网络（境外服务，大陆访问不稳定）
   official_url: "https://pollinations.ai/"
   rule_url: "https://github.com/pollinations/pollinations"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 最省事的免费生图：把 prompt 拼进 URL 就返回图片，适合做 demo、占位图、批量生成。开源可自建。免费公共实例有速率限制且不保证可用性，正式产品不要依赖。
-  status: pending
   source_id: vendor-global-llm
   tags: [海外服务, 需科学上网, 永久免费, 文生图, 无Key]
 
@@ -819,10 +689,7 @@
   access_note: 需要特殊网络（境外服务，大陆不可直连）
   official_url: "https://elevenlabs.io/"
   rule_url: "https://elevenlabs.io/pricing"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 音色自然度仍是第一梯队，中文效果也不错。免费档硬性要求「注明来源 + 非商用」，商用必须付费，否则违反条款。1 万字符大约 10 分钟音频，做 Demo 够、做长内容不够。
-  status: pending
   source_id: vendor-global-llm
   tags: [海外服务, 需科学上网, 每月免费, 语音合成, 非商用]
 
@@ -838,10 +705,7 @@
   access_note: 需要特殊网络（境外服务，大陆不可直连）
   official_url: "https://replicate.com/"
   rule_url: "https://replicate.com/pricing"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 上千个开源模型一站式跑（生图/语音/视频/微调都有），按运行秒数计费，用 cog 打包自有模型。第三方站点对赠送额度的说法差别很大（$500 / 小额），注册前先看官网实际数字，不要按传说额度做预算。
-  status: pending
   source_id: vendor-global-llm
   tags: [海外服务, 需科学上网, 试用额度, 多模型]
 
@@ -857,10 +721,7 @@
   access_note: 国内可直连（huggingface.co 大陆访问不稳定，镜像站 hf-mirror.com 可下载模型）
   official_url: "https://huggingface.co/"
   rule_url: "https://huggingface.co/docs/inference-providers/pricing"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 免费额度很小（$0.10/月级别），真正价值不在免费推理而在「模型 + Space + 数据集」的生态：可以直接跑别人的 Space 做验证，再决定自己部署。模型下载建议用 hf-mirror.com 镜像。
-  status: pending
   source_id: vendor-global-llm
   tags: [国内可访问, 每月免费, 模型社区, 额度很小]
 
@@ -876,10 +737,7 @@
   access_note: 需要特殊网络（境外服务，大陆不可直连，需自备网络环境）
   official_url: "https://console.groq.com/"
   rule_url: "https://console.groq.com/docs/rate-limits"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 免费档不需要信用卡；限速按「组织」而非按 key 计算，多开 key 不叠加额度。8K tokens/分钟的 TPM 通常比请求数更早触顶。Llama 系列已于 2026-08 移出免费档。以 LPU 推理速度著称（数百 tokens/秒）。
-  status: pending
   source_id: vendor-global-llm
   tags: [海外服务, 需科学上网, OpenAI兼容, 每日免费, 极速推理]
 
@@ -895,10 +753,7 @@
   access_note: 需要特殊网络（境外服务，大陆不可直连）
   official_url: "https://cloud.cerebras.ai/"
   rule_url: "https://inference-docs.cerebras.ai/support/rate-limits"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 晶圆级芯片推理，速度是免费档里最快的之一；每日 100 万 tokens 对个人实验很够用。无需信用卡。第三方站点报的 RPM 数字不一致（5 与 30 都有），以控制台账单页为准。
-  status: pending
   source_id: vendor-global-llm
   tags: [海外服务, 需科学上网, OpenAI兼容, 每日免费]
 
@@ -914,10 +769,7 @@
   access_note: 需要特殊网络（法国服务，大陆不可直连）
   official_url: "https://console.mistral.ai/"
   rule_url: "https://docs.mistral.ai/getting-started/models/"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: Experiment 档需接受「数据可用于训练」条款，商用或涉密数据不要用这一档。Codestral 对代码补全友好；模型权重在 Hugging Face 可下载，可本地部署。
-  status: pending
   source_id: vendor-global-llm
   tags: [海外服务, 需科学上网, OpenAI兼容, 永久免费]
 
@@ -933,10 +785,7 @@
   access_note: 需要特殊网络（境外服务，大陆不可直连）
   official_url: "https://dashboard.cohere.com/"
   rule_url: "https://docs.cohere.com/docs/rate-limits"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: Trial key 明确标注「仅限非商业用途」，上线产品前需换成 Production key。Rerank 是同类免费档里少见的强项，做 RAG 检索重排很实用。不兼容 OpenAI 协议，需用官方 SDK。
-  status: pending
   source_id: vendor-global-llm
   tags: [海外服务, 需科学上网, 每月免费, RAG检索]
 
@@ -952,10 +801,7 @@
   access_note: 国内可直连（GitHub 访问速度偶发不稳）
   official_url: "https://docs.github.com/en/github-models/quickstart"
   rule_url: "https://docs.github.com/en/github-models/about-github-models"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 最大优势：用现成的 GitHub 账号 + Personal Access Token 就能调 GPT / Llama / DeepSeek，不必单独注册各家平台。限速偏紧，适合做原型验证和对比评测，不适合跑量。
-  status: pending
   source_id: vendor-global-llm
   tags: [国内可访问, OpenAI兼容, 每日免费, 多模型聚合]
 
@@ -971,10 +817,7 @@
   access_note: 需要特殊网络（境外服务，大陆不可直连）
   official_url: "https://build.nvidia.com/"
   rule_url: "https://docs.api.nvidia.com/nim/"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 按 credits 计费而非按天重置，大模型消耗更快；NIM 的价值在于同一套 OpenAI 兼容接口能切到很多开源模型，适合横向对比。
-  status: pending
   source_id: vendor-global-llm
   tags: [海外服务, 需科学上网, OpenAI兼容, 多模型聚合]
 
@@ -990,10 +833,7 @@
   access_note: 需要特殊网络（Cloudflare 在大陆访问不稳定）
   official_url: "https://developers.cloudflare.com/workers-ai/"
   rule_url: "https://developers.cloudflare.com/workers-ai/platform/pricing/"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 按 neuron 计量，文本模型消耗慢、生图/语音消耗快。必须部署在 Worker 里调用（无独立公网端点），适合已经用 CF 全家桶的项目。若已在 CF 上托管站点，这是零成本接入 AI 的最短路径。
-  status: pending
   source_id: vendor-global-llm
   tags: [海外服务, 需科学上网, 每日免费, 边缘计算]
 
@@ -1009,10 +849,7 @@
   access_note: 国内可直连
   official_url: "https://xinghuo.xfyun.cn/sparkapi"
   rule_url: "https://www.xfyun.cn/doc/spark/Web.html"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: Lite 免费但限 QPS，高并发需付费升档；不支持 OpenAI 协议，要用讯飞自己的 WebSocket / HTTP 接口，接入成本比 OpenAI 兼容平台高。需实名。
-  status: pending
   source_id: vendor-cn-llm
   tags: [国内可访问, 需实名, 永久免费]
 
@@ -1028,10 +865,7 @@
   access_note: 国内可直连
   official_url: "https://www.scnet.cn/"
   rule_url: "https://www.scnet.cn/ui/mall/"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 国家队算力平台，额度给得大方但属邀测活动、随时可能结束或调整；需实名。适合短期大用量实验，不适合长期依赖。
-  status: pending
   source_id: vendor-cn-llm
   tags: [国内可访问, 需实名, 限时活动, 国家队]
 
@@ -1047,10 +881,7 @@
   access_note: 国内可直连
   official_url: "https://lingma.aliyun.com/"
   rule_url: "https://help.aliyun.com/zh/lingma/"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: VS Code / JetBrains 双插件，Java / Go 场景优化好，国内市占率最高。正在品牌升级为 Qoder CN，看到两个名字是同一产品。需阿里云账号实名。
-  status: pending
   source_id: vendor-cn-llm
   tags: [国内可访问, 需实名, 永久免费, IDE插件]
 
@@ -1066,10 +897,7 @@
   access_note: 国内可直连
   official_url: "https://copilot.tencent.com/"
   rule_url: "https://cloud.tencent.com/document/product/1749"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 最大特色是与微信开发者工具深度集成，小程序原生语法生成准；SPEC 规范驱动模式对团队协作友好。支持多模型切换是国产工具里少见的。500 credits 跑重度 Agent 会比较快见底。
-  status: pending
   source_id: vendor-cn-llm
   tags: [国内可访问, 需实名, 每月免费, 小程序开发]
 
@@ -1085,10 +913,7 @@
   access_note: 国内可直连（国内版）
   official_url: "https://www.trae.cn/"
   rule_url: "https://docs.trae.ai/"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 基于 VS Code 架构的 AI 原生 IDE，Builder（生成整个项目）/ SOLO（全自动开发）两种模式，是国内免费档里 Agent 能力最强的之一。有 JetBrains 插件版（Ctrl+U 唤起），不换 IDE 也能用。注意国内版与国际版是两套模型和计价。
-  status: pending
   source_id: vendor-cn-llm
   tags: [国内可访问, 永久免费, AI原生IDE, Agent]
 
@@ -1104,10 +929,7 @@
   access_note: 国内可直连
   official_url: "https://comate.baidu.com/"
   rule_url: "https://comate.baidu.com/zh/pricing"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: C++ 生成质量在国内工具中口碑较好，政企/金融场景支持私有化部署（个人版用不到）。不支持自选模型，绑定文心系。需百度账号实名。
-  status: pending
   source_id: vendor-cn-llm
   tags: [国内可访问, 需实名, 永久免费, IDE插件]
 
@@ -1123,10 +945,7 @@
   access_note: 国内可直连
   official_url: "https://codegeex.cn/"
   rule_url: "https://codegeex.cn/docs"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 少见的「免费版即全功能 + 完全开源可私有化」组合，数据敏感或有内网要求的团队首选。代码翻译、自动注释、代码审查齐全。能力上限不如 Trae/通义灵码，但可控性最强。
-  status: pending
   source_id: vendor-cn-llm
   tags: [国内可访问, 永久免费, 开源, 可私有化部署]
 
@@ -1142,10 +961,7 @@
   access_note: 国内可直连
   official_url: "https://www.huaweicloud.com/product/codearts.html"
   rule_url: "https://support.huaweicloud.com/productdesc-codeartssnap/codeartsdoer_pd_0001.html"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 对 Java / C++ / 鸿蒙（ArkTS）开发优化明显，DevOps 一体化程度高。项目本来就在华为云上的话最省事，否则优势不明显。需华为云实名。
-  status: pending
   source_id: vendor-cn-llm
   tags: [国内可访问, 需实名, 永久免费, IDE插件]
 
@@ -1161,10 +977,7 @@
   access_note: 国内可直连
   official_url: "https://www.xfyun.cn/services/iflycode"
   rule_url: "https://www.xfyun.cn/doc/spark/Web.html"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 卖点是对中文指令的理解，中文注释/需求描述转代码相对顺手。生态和插件完善度不如通义灵码、Trae，属备选。需实名。
-  status: pending
   source_id: vendor-cn-llm
   tags: [国内可访问, 需实名, 永久免费, IDE插件]
 
@@ -1182,10 +995,7 @@
   access_note: 需要特殊网络（GitHub 在国内可访问，但 Copilot 服务端需海外网络较稳）
   official_url: "https://github.com/features/copilot"
   rule_url: "https://docs.github.com/en/copilot/about-github-copilot/plans-for-github-copilot"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: "免费档不能自选模型，只有 Auto；2,000 次补全对活跃开发者约 4~10 个工作日用完。学生认证可免费用 Pro。"
-  status: pending
   source_id: public-apis
   tags: [代码补全, 每月重置, 学生免费]
 
@@ -1201,10 +1011,7 @@
   access_note: 需要特殊网络（免费模型走海外网关）
   official_url: "https://kilocode.ai/"
   rule_url: "https://kilocode.ai/docs"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: VS Code / JetBrains / CLI / 云端都能用；免费模型列表实时变动，今天能用的明天可能下架，适合尝鲜不适合当生产依赖。
-  status: pending
   source_id: cn-juejin
   tags: [开源Agent, 免Key, 多模型]
 
@@ -1220,10 +1027,7 @@
   access_note: 需要特殊网络（Zen 免费模型走海外网关）
   official_url: "https://opencode.ai/"
   rule_url: "https://opencode.ai/docs"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 终端派 Agent，开源可审计；免费模型池与 Kilo 类似，随官方调整。适合想全程在命令行里干活的人。
-  status: pending
   source_id: cn-juejin
   tags: [终端Agent, 开源, 免Key]
 
@@ -1239,10 +1043,7 @@
   access_note: 国内可直连（网页可直接访问，API 稳定性偶有波动）
   official_url: "https://cloudconvert.com/"
   rule_url: "https://cloudconvert.com/api/v2"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 文档/音视频/电子书转换里格式覆盖最全的一家；API 按「转换分钟」计费，免费 25 次是每天重置而非每月。
-  status: pending
   source_id: public-apis
   tags: [文件转换, 每日重置, 有API]
 
@@ -1258,10 +1059,7 @@
   access_note: 国内可直连（网页端长期可访问）
   official_url: "https://www.ilovepdf.com/"
   rule_url: "https://developer.ilovepdf.com/"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 每月 250 个文档对个人项目够用；PDF 转 Markdown 对喂 LLM 很实用，这是它相较同类的新增能力。
-  status: pending
   source_id: public-apis
   tags: [PDF处理, OCR, 每月重置]
 
@@ -1277,10 +1075,7 @@
   access_note: 国内可直连（api.pexels.com 可访问）
   official_url: "https://www.pexels.com/api/"
   rule_url: "https://help.pexels.com/hc/en-us/articles/47677890260761"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 完全免费且允许商用，是配图/占位图最省事的来源；官方明令禁止用 API 复刻 Pexels 自身功能（如做壁纸 App），注意合规。
-  status: pending
   source_id: public-apis
   tags: [免费图库, 可商用, 免署名]
 
@@ -1296,10 +1091,7 @@
   access_note: 国内可直连（实测可访问）
   official_url: "https://vector.express/"
   rule_url: "https://vector.express/"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 小众但实用：设计稿批量转格式不用装 Illustrator；无 SLA，别放在关键链路。
-  status: pending
   source_id: public-apis
   tags: [矢量转换, 免Key]
 
@@ -1315,10 +1107,7 @@
   access_note: 需要特殊网络（Cloud 版海外节点；亦可自托管）
   official_url: "https://appwrite.io/"
   rule_url: "https://appwrite.io/pricing"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 开源 BaaS（BSD-3），免费档额度在同业里偏大；超限后项目会被冻结而非自动扣费，这点比 Supabase 温和。可 Docker 自托管。
-  status: pending
   source_id: free-for-dev
   tags: [开源BaaS, 可自托管, 认证]
 
@@ -1334,10 +1123,7 @@
   access_note: 需要特殊网络（海外服务，可自托管）
   official_url: "https://www.convex.dev/"
   rule_url: "https://docs.convex.dev/"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 端到端 TypeScript、客户端可订阅查询，实时协作类应用省掉大量胶水代码；数据模型是自有文档库，迁出成本高于 Postgres 系。
-  status: pending
   source_id: free-for-dev
   tags: [实时数据库, TypeScript, 可自托管]
 
@@ -1353,10 +1139,7 @@
   access_note: 需要特殊网络（Firebase 控制台与后端需海外网络）
   official_url: "https://firebase.google.com/"
   rule_url: "https://firebase.google.com/docs/firestore/quotas"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: Spark 不含 Cloud Functions / Cloud Storage，这两项必须升 Blaze（绑卡）才能用，很多教程没讲清；超配额时该产品会被直接停到月底。
-  status: pending
   source_id: free-for-dev
   tags: [移动端后端, 实时同步, 需绑卡才完整]
 
@@ -1372,10 +1155,7 @@
   access_note: 需要特殊网络（海外服务）
   official_url: "https://railway.com/"
   rule_url: "https://docs.railway.com/reference/pricing"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 严格说已不是「永久免费」，$1/月只够跑一个极小服务；部署体验是同类最好，适合做 Demo，长期跑要转 $5/月 Hobby。
-  status: pending
   source_id: free-for-dev
   tags: [应用托管, 按量计费, 额度很小]
 
@@ -1391,10 +1171,7 @@
   access_note: 需要特殊网络（海外服务）
   official_url: "https://www.koyeb.com/"
   rule_url: "https://www.koyeb.com/docs"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 2026-02 起必须绑卡（$29 预授权冻结）才能开免费实例，注册默认落在 $29/月 Pro 上，务必自己切回免费；免费数据库只有 5 小时活跃时间。
-  status: pending
   source_id: free-for-dev
   tags: [容器托管, 需绑卡, 缩容到零]
 
@@ -1410,10 +1187,7 @@
   access_note: 国内可直连（节点含香港/新加坡，大陆访问较快）
   official_url: "https://zeabur.com/"
   rule_url: "https://zeabur.com/docs"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 同类里少见的「国内访问速度可用」选项，$5/月额度够跑一两个小服务；免费档不会休眠，比 Render 体验好。
-  status: pending
   source_id: free-for-dev
   tags: [容器托管, 每月重置, 国内速度快]
 
@@ -1429,10 +1203,7 @@
   access_note: 需要特殊网络（海外服务）
   official_url: "https://deepgram.com/"
   rule_url: "https://developers.deepgram.com/docs/models-languages-overview"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 语音类里最实在的额度，$200 足够把整个 STT 链路验证完；免费账号每分钟只能新建 5 路流式连接。
-  status: pending
   source_id: public-apis
   tags: [语音识别, 语音合成, 海量赠送]
 
@@ -1448,10 +1219,7 @@
   access_note: 需要特殊网络（海外服务）
   official_url: "https://www.assemblyai.com/"
   rule_url: "https://www.assemblyai.com/docs"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 说话人分离（diarization）和情感分析开箱可用；立体声按双声道计费，成本翻倍，提前降混成单声道。
-  status: pending
   source_id: public-apis
   tags: [语音识别, 说话人分离]
 
@@ -1467,10 +1235,7 @@
   access_note: 需要特殊网络（Google Cloud 需海外网络与结算账号）
   official_url: "https://cloud.google.com/text-to-speech"
   rule_url: "https://cloud.google.com/text-to-speech/pricing"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 免费额度在各大厂 TTS 里最宽，但必须绑卡开通结算，超额会自动扣费；务必先设预算告警。
-  status: pending
   source_id: public-apis
   tags: [语音合成, 大厂免费档, 需绑卡]
 
@@ -1486,10 +1251,7 @@
   access_note: 需要特殊网络（Azure 国际版需海外网络；Azure 中国区为独立运营、定价不同）
   official_url: "https://azure.microsoft.com/en-us/products/ai-services/ai-speech"
   rule_url: "https://azure.microsoft.com/en-us/pricing/details/cognitive-services/speech-services/"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 50 万字符/月是「持续免费」而非总量赠额，做长期小流量播报很合适；F0 层不支持批量转写。
-  status: pending
   source_id: public-apis
   tags: [语音合成, 语音识别, 每月重置]
 
@@ -1505,10 +1267,7 @@
   access_note: 需要特殊网络（IBM Cloud 海外区域）
   official_url: "https://www.ibm.com/products/text-to-speech"
   rule_url: "https://cloud.ibm.com/docs/text-to-speech"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 1 万字符约 10 分钟音频，只够试音；真正价值是支持私有化部署（Cloud Pak for Data），合规场景少见的选项。
-  status: pending
   source_id: public-apis
   tags: [语音合成, 可私有化部署]
 
@@ -1524,10 +1283,7 @@
   access_note: 国内可直连（实测可访问，偶有波动）
   official_url: "https://ocr.space/ocrapi"
   rule_url: "https://ocr.space/ocrapi/freekey"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 每月 2.5 万次是 OCR 类免费额度里的天花板，支持 200+ 语言与表格识别；免费档单个 PDF 只能 3 页，长文档要客户端先拆分。
-  status: pending
   source_id: public-apis
   tags: [OCR, 表格识别, 每月重置]
 
@@ -1543,10 +1299,7 @@
   access_note: 需要特殊网络（海外服务）
   official_url: "https://www.clarifai.com/"
   rule_url: "https://docs.clarifai.com/"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: "1,000 次操作/月只够 Demo；优势是同一套 API 覆盖图像分类、检测、嵌入与生成，换模型不用重写。"
-  status: pending
   source_id: public-apis
   tags: [图像识别, 内容审核]
 
@@ -1562,10 +1315,7 @@
   access_note: 需要特殊网络（海外服务）
   official_url: "https://imagga.com/"
   rule_url: "https://docs.imagga.com/"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 每月 100 次太紧，只够验证接口是否通；真要跑量必须上付费档，别指望免费层。
-  status: pending
   source_id: public-apis
   tags: [图像打标, 视觉搜索]
 
@@ -1581,10 +1331,7 @@
   access_note: 国内可直连（自托管部署后无网络限制）
   official_url: "https://libretranslate.com/"
   rule_url: "https://github.com/LibreTranslate/LibreTranslate"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 唯一「彻底不看额度」的翻译方案——自己 Docker 起一个，文本不出内网；代价是质量不如谷歌/DeepL，小语种尤其明显。
-  status: pending
   source_id: public-apis
   tags: [翻译, 开源自托管, 可离线]
 
@@ -1600,10 +1347,7 @@
   access_note: 需要特殊网络（海外服务）
   official_url: "https://detectlanguage.com/"
   rule_url: "https://detectlanguage.com/documentation"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 单一能力工具，只做语言识别；如果只是判中英文，本地用 fastText 更省事。
-  status: pending
   source_id: public-apis
   tags: [语言检测, 文本处理]
 
@@ -1619,10 +1363,7 @@
   access_note: 需要特殊网络（海外服务）
   official_url: "https://deepai.org/"
   rule_url: "https://deepai.org/docs"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 老牌小厂，模型偏旧但接口简单；仅适合快速验证想法，不建议业务依赖。
-  status: pending
   source_id: public-apis
   tags: [文生图, 图像处理]
 
@@ -1638,10 +1379,7 @@
   access_note: 需要特殊网络（海外服务）
   official_url: "https://cloudmersive.com/"
   rule_url: "https://api.cloudmersive.com/docs/"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 一个 key 覆盖几百个杂项接口（病毒扫描、格式转换、人脸识别），当工具箱用；每个接口单价不同，免费额度消耗速度不一。
-  status: pending
   source_id: public-apis
   tags: [图像识别, 文档转换, API超市]
 
@@ -1657,10 +1395,7 @@
   access_note: 需要特殊网络（海外服务）
   official_url: "https://eidosspeech.xyz/"
   rule_url: "https://eidosspeech.xyz/"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 小团队项目，官网未公开明确字符上限，属于「声称免费但要自己试」的类型；收录仅为品类补充，稳定性自行评估。
-  status: pending
   source_id: public-apis
   tags: [语音合成, 多语言]
 
@@ -1676,10 +1411,7 @@
   access_note: 需要特殊网络（海外服务）
   official_url: "https://kavel.readthedocs.io/"
   rule_url: "https://kavel.readthedocs.io/"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 「完全不用注册」在文生图里少见，适合快速做原型；但无 SLA、随时可能限流或关停，不要放进生产链路。
-  status: pending
   source_id: public-apis
   tags: [文生图, 免注册, 免Key]
 
@@ -1695,10 +1427,7 @@
   access_note: 需要特殊网络（海外服务）
   official_url: "https://products.wolframalpha.com/api"
   rule_url: "https://products.wolframalpha.com/api/pricing"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 给 LLM 补「可验证的数学/单位换算/事实计算」能力最省事的接口；非商业限制要看清，商用需单独谈。
-  status: pending
   source_id: public-apis
   tags: [计算引擎, 数学, 非商业免费]
 
@@ -1714,10 +1443,7 @@
   access_note: 需要特殊网络（海外站点，国内需自备网络环境）
   official_url: "https://www.together.ai/pricing"
   rule_url: "https://docs.together.ai/docs/quickstart"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 免费档限速很低（约 1 RPM），只够跑通接口和原型验证；赠金不结转，多账号刷额度会被风控。
-  status: pending
   source_id: public-apis
   tags: [开源模型, OpenAI兼容, 注册赠金]
 
@@ -1733,10 +1459,7 @@
   access_note: 需要特殊网络（海外服务）
   official_url: "https://jina.ai"
   rule_url: "https://jina.ai/reader/"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 网页转 Markdown（Reader）是最实用的免 key 能力，抓取网页喂 RAG 很方便；Search 接口每次至少耗 1 万 tokens，1000 万赠额最多约 1000 次搜索。
-  status: pending
   source_id: public-apis
   tags: [向量嵌入, 网页转Markdown, 免Key可用]
 
@@ -1752,10 +1475,7 @@
   access_note: 需要特殊网络（海外服务）
   official_url: "https://cloud.sambanova.ai/"
   rule_url: "https://docs.sambanova.ai/cloud/docs/get-started/quickstart"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 主打自研 RDU 芯片的高吞吐推理；赠金到期即失效，不会自动转免费档。
-  status: pending
   source_id: free-for-dev
   tags: [开源模型, OpenAI兼容, 注册赠金]
 
@@ -1771,10 +1491,7 @@
   access_note: 需要特殊网络（海外服务）
   official_url: "https://www.baseten.co/"
   rule_url: "https://docs.baseten.co/quickstart"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 定位是「把开源模型部署成生产 API」，$30 更适合验证部署链路而非长期免费调用；按 GPU 时长计费，跑起来烧得快。
-  status: pending
   source_id: free-for-dev
   tags: [模型部署, 注册赠金]
 
@@ -1790,10 +1507,7 @@
   access_note: 需要特殊网络（欧洲服务商，国内需自备网络）
   official_url: "https://studio.nebius.com/"
   rule_url: "https://docs.nebius.com/studio/inference/quickstart"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 额度很小，只够跑通链路；优势是欧盟合规与开源模型齐全，适合对数据出境有要求的项目做备选。
-  status: pending
   source_id: free-for-dev
   tags: [开源模型, 欧盟合规]
 
@@ -1809,10 +1523,7 @@
   access_note: 需要特殊网络（法国服务商）
   official_url: "https://www.scaleway.com/en/generative-apis/"
   rule_url: "https://www.scaleway.com/en/docs/generative-apis/quickstart/"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 数据存放在巴黎，GDPR 合规；100 万 tokens 用 Qwen3 235B 大约够几十万字的往返对话。
-  status: pending
   source_id: free-for-dev
   tags: [开源模型, 欧盟合规, OpenAI兼容]
 
@@ -1828,10 +1539,7 @@
   access_note: 需要特殊网络（海外服务）
   official_url: "https://predibase.com/"
   rule_url: "https://docs.predibase.com/"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 主打 LoRA 微调，$25 适合做一次小模型微调验证；30 天硬期限，别攒着不用。
-  status: pending
   source_id: free-for-dev
   tags: [模型微调, 注册赠金]
 
@@ -1847,10 +1555,7 @@
   access_note: 需要特殊网络（海外服务）
   official_url: "https://kluster.ai/"
   rule_url: "https://docs.kluster.ai/get-started/quickstart/"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 批量推理有折扣，适合跑离线任务（批处理打分、数据集生成）而不是实时对话。
-  status: pending
   source_id: free-for-dev
   tags: [批量推理, 开源模型]
 
@@ -1866,10 +1571,7 @@
   access_note: 需要特殊网络（海外服务）
   official_url: "https://morphllm.com/"
   rule_url: "https://docs.morphllm.com/"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 专做「代码 diff 应用」这类高频小任务，速度是卖点；每月重置比一次性赠金更适合长期跑 Agent 工具链。
-  status: pending
   source_id: free-for-dev
   tags: [代码模型, 每月重置, OpenAI兼容]
 
@@ -1885,10 +1587,7 @@
   access_note: 需要特殊网络（海外服务）
   official_url: "https://portal.nousresearch.com/"
   rule_url: "https://docs.nousresearch.com/"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 真正「永久免费档」而非试用赠金，50 RPM 在免费档里算宽裕；模型偏研究向，中文能力一般。
-  status: pending
   source_id: free-for-dev
   tags: [永久免费, 开源模型, 免信用卡]
 
@@ -1904,10 +1603,7 @@
   access_note: 需要特殊网络（海外服务）
   official_url: "https://inference.net/"
   rule_url: "https://docs.inference.net/"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 相对小众，稳定性与长期经营存疑，仅作备选；注册前先确认额度是否仍发放。
-  status: pending
   source_id: free-for-dev
   tags: [开源模型, 注册赠金]
 
@@ -1923,10 +1619,7 @@
   access_note: 需要特殊网络（海外服务）
   official_url: "https://www.reka.ai/"
   rule_url: "https://docs.reka.ai/"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 视频/图像理解是差异点；每月 $10 循环在免费档里少见，但要留意逐年下调额度的先例。
-  status: pending
   source_id: free-for-dev
   tags: [多模态, 每月重置]
 
@@ -1942,10 +1635,7 @@
   access_note: 需要特殊网络（海外服务）
   official_url: "https://fireworks.ai/"
   rule_url: "https://docs.fireworks.ai/getting-started/quickstart"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 赠额从早期 $50 一路降到 $1，缩水明显，别按老攻略估算；优势是推理延迟低、支持微调部署。
-  status: pending
   source_id: free-for-dev
   tags: [开源模型, 低延迟]
 
@@ -1961,10 +1651,7 @@
   access_note: 需要特殊网络（海外服务）
   official_url: "https://studio.ai21.com/"
   rule_url: "https://docs.ai21.com/"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: Jamba 是 SSM-Transformer 混合架构，长上下文表现不错；免费额度只够评估，不适合长期用。
-  status: pending
   source_id: free-for-dev
   tags: [长上下文, 注册赠金]
 
@@ -1980,10 +1667,7 @@
   access_note: 需要特殊网络（海外服务）
   official_url: "https://www.voyageai.com/"
   rule_url: "https://docs.voyageai.com/docs/pricing"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 2 亿 tokens 在嵌入类免费额度里属于顶格，够把几万篇文档灌进 RAG；已被 MongoDB 收购，长期政策需留意。
-  status: pending
   source_id: free-for-dev
   tags: [向量嵌入, 海量赠送, 检索重排]
 
@@ -2001,10 +1685,7 @@
   access_note: 需要特殊网络（海外服务，国内访问需稳定国际网络）
   official_url: "https://cursor.com/"
   rule_url: "https://cursor.com/pricing"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 免费档 50 次 Premium 请求用完后降级为慢速；重度使用建议轮换其他工具。品牌与计费可能随收购调整，具体以官网实时为准。
-  status: pending
   source_id: free-for-dev
   tags: [代码补全, 每月重置, 海外服务]
 
@@ -2020,10 +1701,7 @@
   access_note: 需要特殊网络（海外服务）
   official_url: "https://windsurf.com/"
   rule_url: "https://windsurf.com/pricing"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 原 Codeium 衍生；Tab 补全永久不限量是其最大卖点，多文件 Cascade 智能体限每月 25 次。已被 OpenAI 收购，留意官网变动。
-  status: pending
   source_id: free-for-dev
   tags: [代码补全, 多文件智能体, 海外服务]
 
@@ -2039,10 +1717,7 @@
   access_note: 国内可直连（字节出品，国内服务器低延迟）
   official_url: "https://www.marscode.cn/"
   rule_url: "https://www.marscode.cn/"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 国产免费首选，中文理解与国内框架支持好；高级能力与企业版收费，个人版长期免费。复杂冷门语言与 Copilot 仍有差距。
-  status: pending
   source_id: cn-juejin
   tags: [国产免费, 国内可访问, 云端IDE]
 
@@ -2058,10 +1733,7 @@
   access_note: 需要特殊网络（Google 服务）
   official_url: "https://codeassist.google/"
   rule_url: "https://cloud.google.com/code-assist"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 海外免费额度天花板级别，算法/底层代码生成强；国内访问稳定性依赖网络。个人版免费，团队版按席位收费。
-  status: pending
   source_id: free-for-dev
   tags: [Google, 每日重置, 海外服务]
 
@@ -2077,10 +1749,7 @@
   access_note: 国内可直连（工具本地运行，需自备 API Key，可接国内大模型）
   official_url: "https://continue.dev/"
   rule_url: "https://docs.continue.dev/"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 开源可自托管，数据留在本地；适合对隐私与可审计有要求的团队。本身不含免费模型额度，需自备 Key。
-  status: pending
   source_id: cn-juejin
   tags: [开源, 本地运行, 自托管]
 
@@ -2096,10 +1765,7 @@
   access_note: 国内可直连（工具本地运行，需自备 API Key，可接国内大模型）
   official_url: "https://cline.bot/"
   rule_url: "https://docs.cline.bot/"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 终端派自主规划 Agent，能读写文件、跑命令；免费指的是工具本身，模型调用走你自己的 Key 与额度。
-  status: pending
   source_id: cn-juejin
   tags: [开源, Agent, 本地运行]
 
@@ -2115,10 +1781,7 @@
   access_note: 国内可直连（工具本地运行，需自备 API Key，可接国内大模型）
   official_url: "https://aider.chat/"
   rule_url: "https://aider.chat/docs/"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 老牌终端 Agent，对 Git 工作流友好；免费仅指工具，模型费用自理。适合命令行重度用户。
-  status: pending
   source_id: cn-juejin
   tags: [开源, 终端Agent, Git]
 
@@ -2134,10 +1797,7 @@
   access_note: 国内可直连（工具本地运行，需自备 API Key，可接国内大模型）
   official_url: "https://roocode.com/"
   rule_url: "https://docs.roocode.com/"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: Cline 社区分支，Mode 分工更细、可玩性高；免费指工具本身，模型额度自理。
-  status: pending
   source_id: cn-juejin
   tags: [开源, Agent, 本地运行]
 
@@ -2153,10 +1813,7 @@
   access_note: 需要特殊网络（海外服务）
   official_url: "https://huggingface.co/spaces"
   rule_url: "https://huggingface.co/pricing"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 托管 AI Demo 的事实标准，CPU Basic 不限量、Static 全免；GPU 与 Docker 高级需求需付费。国内访问需网络。
-  status: pending
   source_id: free-for-dev
   tags: [AI应用托管, Gradio, 海外服务]
 
@@ -2172,10 +1829,7 @@
   access_note: 国内可直连（Cloudflare 节点国内可访问）
   official_url: "https://workers.cloudflare.com/"
   rule_url: "https://workers.cloudflare.com/pricing"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 边缘函数，延迟低、国内可直连；免费 10 万请求/天覆盖绝大多数轻量接口。注意与「Cloudflare Workers AI」（推理）是不同产品。
-  status: pending
   source_id: free-for-dev
   tags: [边缘计算, Serverless, 国内可访问]
 
@@ -2191,10 +1845,7 @@
   access_note: 需要特殊网络（海外服务）
   official_url: "https://northflank.com/"
   rule_url: "https://northflank.com/pricing"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 一站式托管（容器/数据库/Job），免费 Sandbox 额度尚可；但建资源需绑卡，介意者慎选。国内访问需网络。
-  status: pending
   source_id: free-for-dev
   tags: [容器托管, 数据库托管, 海外服务]
 
@@ -2210,10 +1861,7 @@
   access_note: 需要特殊网络（海外服务）
   official_url: "https://www.cockroachlabs.com/"
   rule_url: "https://www.cockroachlabs.com/pricing/"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: PostgreSQL 协议兼容的分布式数据库，免费档够跑小应用；超出按 RU 计费。国内访问需网络。
-  status: pending
   source_id: free-for-dev
   tags: [PostgreSQL兼容, 分布式, 海外服务]
 
@@ -2229,10 +1877,7 @@
   access_note: 需要特殊网络（海外服务）
   official_url: "https://neo4j.com/cloud/aura/"
   rule_url: "https://neo4j.com/pricing/"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 图数据库事实标准，免费档适合学习与小规模关系图谱；闲置 72 小时暂停、30 天删除。国内访问需网络。
-  status: pending
   source_id: free-for-dev
   tags: [图数据库, Cypher, 海外服务]
 
@@ -2248,10 +1893,7 @@
   access_note: 需要特殊网络（海外服务）
   official_url: "https://aiven.io/"
   rule_url: "https://aiven.io/pricing"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 一家托管多种开源数据组件的平台，免费档额度在同业里偏大；Kafka 仅 3 天保留，注意数据时效。国内访问需网络。
-  status: pending
   source_id: free-for-dev
   tags: [托管数据库, Kafka, 海外服务]
 
@@ -2267,10 +1909,7 @@
   access_note: 需要特殊网络（海外服务）
   official_url: "https://www.influxdata.com/"
   rule_url: "https://www.influxdata.com/products/influxdb-cloud/"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 时序/指标场景首选；免费档是 $250 信用而非永久免，注意额度消耗。国内访问需网络。
-  status: pending
   source_id: free-for-dev
   tags: [时序数据库, 监控, 海外服务]
 
@@ -2286,10 +1925,7 @@
   access_note: 需要特殊网络（海外服务）
   official_url: "https://tinybird.co/"
   rule_url: "https://tinybird.co/pricing"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 把 SQL 直接发布成 API，适合实时分析/埋点；免费档 QPS 与日请求受限，生产需升级。国内访问需网络。
-  status: pending
   source_id: free-for-dev
   tags: [实时分析, SQL转API, 海外服务]
 
@@ -2305,10 +1941,7 @@
   access_note: 需要特殊网络（海外服务）
   official_url: "https://redis.io/cloud/"
   rule_url: "https://redis.io/cloud/pricing/"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 托管 Redis，免费档 30MB 适合缓存/会话等轻量场景；容量小，别当主存储。国内访问需网络。
-  status: pending
   source_id: free-for-dev
   tags: [内存数据库, 缓存, 海外服务]
 
@@ -2324,10 +1957,7 @@
   access_note: 需要特殊网络（海外服务）
   official_url: "https://www.pingcap.com/tidb-cloud/"
   rule_url: "https://www.pingcap.com/tidb-cloud-pricing/"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: MySQL 协议的分布式 HTAP 数据库，免费档适合学习与中小项目；列存适合分析。国内访问需网络。
-  status: pending
   source_id: free-for-dev
   tags: [MySQL兼容, HTAP, 海外服务]
 
@@ -2343,10 +1973,7 @@
   access_note: 需要特殊网络（海外服务）
   official_url: "https://quickchart.io/"
   rule_url: "https://quickchart.io/documentation/"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 把 Chart.js 配置渲染成 PNG/SVG，适合邮件/PDF/报表嵌图；免费公共端点限速，量大可自托管。国内访问需网络。
-  status: pending
   source_id: free-for-dev
   tags: [图表API, 二维码, 海外服务]
 
@@ -2362,10 +1989,7 @@
   access_note: 需要特殊网络（海外服务）
   official_url: "https://disease.sh/"
   rule_url: "https://github.com/disease-sh/api"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 聚合 WHO/JHU 等公开数据的健康统计 API，免 Key 直连；数据随上游更新。适合看板/数据新闻。国内访问需网络。
-  status: pending
   source_id: public-apis
   tags: [健康数据, 免Key, 海外服务]
 
@@ -2381,10 +2005,7 @@
   access_note: 需要特殊网络（海外服务，APILayer 旗下）
   official_url: "https://exchangerate.host/"
   rule_url: "https://exchangerate.host/"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 曾经无限免 Key，现已改为每月 100 次免费 + 需 Key；做汇率换算小工具够用，量大会快速触顶。国内访问需网络。
-  status: pending
   source_id: public-apis
   tags: [汇率API, 每月重置, 海外服务]
 
@@ -2400,10 +2021,7 @@
   access_note: 需要特殊网络（海外服务）
   official_url: "https://www.bigdatacloud.com/"
   rule_url: "https://www.bigdatacloud.com/pricing"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: IP 地理定位精度高、每日公开基准测试；免费档 1 万次/月够中小项目。国内访问需网络。
-  status: pending
   source_id: public-apis
   tags: [IP地理定位, 反地理编码, 海外服务]
 
@@ -2419,10 +2037,7 @@
   access_note: 需要特殊网络（海外服务）
   official_url: "https://resend.com/"
   rule_url: "https://resend.com/pricing"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 开发者向邮件服务，React Email 体验好；免费 3k/月够开发/低量生产。国内发信需网络且注意送达率。
-  status: pending
   source_id: free-for-dev
   tags: [邮件API, 事务邮件, 海外服务]
 
@@ -2438,10 +2053,7 @@
   access_note: 需要特殊网络（海外服务）
   official_url: "https://ipinfo.io/"
   rule_url: "https://ipinfo.io/pricing"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: IP 数据事实标准之一，免费 5 万次/月额度大；VPN/代理检测等高级字段需付费。国内访问需网络。
-  status: pending
   source_id: public-apis
   tags: [IP地理, VPN检测, 海外服务]
 
@@ -2457,10 +2069,7 @@
   access_note: 需要特殊网络（海外服务）
   official_url: "https://hasura.io/"
   rule_url: "https://hasura.io/pricing/"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 对接数据库自动生成 GraphQL/REST API，省掉手写 resolver；免费档 3 项目 + 300 万请求/月够原型。亦可自托管。国内访问需网络。
-  status: pending
   source_id: free-for-dev
   tags: [GraphQL, BaaS, 海外服务]
 
@@ -2476,10 +2085,7 @@
   access_note: 需要特殊网络（海外服务）
   official_url: "https://composio.dev/"
   rule_url: "https://composio.dev/pricing"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 给 AI Agent 接 Gmail/Slack/GitHub 等外部工具的统一鉴权层；免费档额度官网不同页面口径不一致，接入前以官网实时为准。国内访问需网络。
-  status: pending
   source_id: free-for-dev
   tags: [Agent工具, MCP, 海外服务]
 
@@ -2495,10 +2101,7 @@
   access_note: 国内可直连（公开 API，国内可访问）
   official_url: "https://open-meteo.com/"
   rule_url: "https://open-meteo.com/en/docs"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 免 Key 天气 API 标杆，非商用免费、额度大方；商用需订阅。适合天气看板/小程序。国内可直连。
-  status: pending
   source_id: public-apis
   tags: [天气API, 免Key, 国内可访问]
 
@@ -2514,10 +2117,7 @@
   access_note: 需要特殊网络（海外服务）
   official_url: "https://suno.com/"
   rule_url: "https://suno.com/subscribe"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 当前最热门的 AI 写歌工具；免费档生成可在线听与分享，下载与商用需付费。国内访问需稳定网络。
-  status: pending
   source_id: free-for-dev
   tags: [AI音乐, 每日重置, 海外服务]
 
@@ -2533,10 +2133,7 @@
   access_note: 国内可直连（快手出品，国内服务器）
   official_url: "https://klingai.com/"
   rule_url: "https://klingai.com/"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 国产视频生成第一梯队，免费档额度在同类里偏大；需登录账号，部分高级功能需实名。长视频与去水印需付费。
-  status: pending
   source_id: cn-juejin
   tags: [AI视频, 国产免费, 国内可访问]
 
@@ -2552,10 +2149,7 @@
   access_note: 国内可直连（阿里云百炼）
   official_url: "https://tongyi.aliyun.com/wanxiang"
   rule_url: "https://help.aliyun.com/zh/model-studio/"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 与「阿里云百炼」同一平台的不同模型族，本条目专指万相图像/视频生成能力；免费额度 90 天到期不结转，需阿里云实名。
-  status: pending
   source_id: cn-juejin
   tags: [图像生成, 视频生成, 国内可访问]
 
@@ -2571,10 +2165,7 @@
   access_note: 需要特殊网络（海外服务）
   official_url: "https://udio.com/"
   rule_url: "https://udio.com/about"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: Suno 的主要竞品，人声与编曲质量高；免费档限制较多，商用需付费。国内访问需稳定网络。
-  status: pending
   source_id: free-for-dev
   tags: [AI音乐, 每日重置, 海外服务]
 
@@ -2590,10 +2181,7 @@
   access_note: 需要特殊网络（海外服务）
   official_url: "https://ideogram.ai/"
   rule_url: "https://ideogram.ai/subscription"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 以「图中文字渲染」见长，海报/封面场景好用；免费档默认公开画廊，商用需付费。国内访问需网络。
-  status: pending
   source_id: free-for-dev
   tags: [图像生成, 文字渲染, 海外服务]
 
@@ -2609,10 +2197,7 @@
   access_note: 需要特殊网络（海外服务）
   official_url: "https://www.recraft.ai/"
   rule_url: "https://www.recraft.ai/pricing"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 强项是图标/插画/矢量（SVG）生成，设计向；免费档额度口径官网变动频繁，以官网实时为准。
-  status: pending
   source_id: free-for-dev
   tags: [图像生成, 矢量设计, 海外服务]
 
@@ -2628,10 +2213,7 @@
   access_note: 需要特殊网络（海外服务）
   official_url: "https://leonardo.ai/"
   rule_url: "https://leonardo.ai/pricing"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 模型库丰富、出图质量高，免费档每日 150 tokens 够轻量使用；2026-12 起原 Remove.bg API 能力并入其 API，相关集成可关注。
-  status: pending
   source_id: free-for-dev
   tags: [图像生成, 视频生成, 海外服务]
 
@@ -2647,10 +2229,7 @@
   access_note: 需要特殊网络（海外服务）
   official_url: "https://lumalabs.ai/dream-machine"
   rule_url: "https://lumalabs.ai/pricing"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 运镜与真实感强，免费档每月额度较小；长视频与高分辨率需付费。国内访问需网络。
-  status: pending
   source_id: free-for-dev
   tags: [AI视频, 每月重置, 海外服务]
 
@@ -2666,10 +2245,7 @@
   access_note: 需要特殊网络（海外服务）
   official_url: "https://pixverse.ai/"
   rule_url: "https://pixverse.ai/"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 模板化特效（如动物变身）出圈，免费档可做轻量短视频；去水印与高清需付费。国内访问需网络。（定价页路径变动，rule_url 暂指官网首页，以官网为准）
-  status: pending
   source_id: free-for-dev
   tags: [AI视频, 每日重置, 海外服务]
 
@@ -2685,10 +2261,7 @@
   access_note: 需要特殊网络（海外服务）
   official_url: "https://runwayml.com/"
   rule_url: "https://runwayml.com/pricing"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 影视级视频生成标杆，免费档为一次性额度而非月重置，用完即止；后续需订阅。国内访问需网络。
-  status: pending
   source_id: free-for-dev
   tags: [AI视频, 一次性额度, 海外服务]
 
@@ -2704,10 +2277,7 @@
   access_note: 需要特殊网络（海外服务）
   official_url: "https://www.krea.ai/"
   rule_url: "https://www.krea.ai/pricing"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 实时生成与编辑体验好，免费档仅图像、无水印但无商用授权；视频与 LoRA 训练需付费。国内访问需网络。
-  status: pending
   source_id: free-for-dev
   tags: [图像生成, 图像编辑, 海外服务]
 
@@ -2723,10 +2293,7 @@
   access_note: 国内可直连（昆仑天工出品，有 mureka.cn 国内站）
   official_url: "https://www.mureka.ai/"
   rule_url: "https://www.mureka.ai/subscribe"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 昆仑天工（昆仑万维）出品，中文人声尚可；免费档只能在线试听、不能下载与商用，Pro 起才开放下载与商用授权。
-  status: pending
   source_id: cn-juejin
   tags: [AI音乐, 国产免费, 国内可访问]
 
@@ -2742,10 +2309,7 @@
   access_note: 需要特殊网络（海外服务）
   official_url: "https://pika.art/"
   rule_url: "https://pika.art/subscribe"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 早期出圈的 AI 视频工具，免费档额度较小、带水印；高清与去水印需订阅。国内访问需网络。
-  status: pending
   source_id: free-for-dev
   tags: [AI视频, 每日重置, 海外服务]
 
@@ -2761,10 +2325,7 @@
   access_note: 需要特殊网络（海外服务）
   official_url: "https://cloudinary.com/"
   rule_url: "https://cloudinary.com/pricing"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 媒体处理老牌，URL 参数即转即裁即水印；免费 25 credits 对小图床够用。国内访问需网络。
-  status: pending
   source_id: free-for-dev
   tags: [图片处理, 视频处理, 海外服务]
 
@@ -2780,10 +2341,7 @@
   access_note: 需要特殊网络（海外服务）
   official_url: "https://imagekit.io/"
   rule_url: "https://imagekit.io/docs"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 实时图片优化 + CDN，永久免费档比多数图床大方；自带 URL 变换。国内访问需网络。
-  status: pending
   source_id: free-for-dev
   tags: [图片优化, CDN, 海外服务]
 
@@ -2799,10 +2357,7 @@
   access_note: 需要特殊网络（海外服务）
   official_url: "https://pinata.cloud/"
   rule_url: "https://pinata.cloud/pricing"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: IPFS 固定（Pinning）主流服务，适合去中心化存储/ NFT 元数据；免费档额度有限。国内访问需网络。
-  status: pending
   source_id: free-for-dev
   tags: [IPFS, 去中心化存储, 海外服务]
 
@@ -2818,10 +2373,7 @@
   access_note: 需要特殊网络（海外服务）
   official_url: "https://www.gumlet.com/"
   rule_url: "https://www.gumlet.com/pricing/"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 视频托管 + 自适应流式，免费用来看少量课程/产品视频够用；存储按分钟计。国内访问需网络。
-  status: pending
   source_id: free-for-dev
   tags: [视频托管, 流媒体, 海外服务]
 
@@ -2837,9 +2389,6 @@
   access_note: 国内可直连（国内老牌云厂商，访问快）
   official_url: "https://www.qiniu.com/products/kodo"
   rule_url: "https://developer.qiniu.com/af/manual/12968/freequota"
-  verify_status: ⏳待复核
-  verify_time: 2026-10-30
   remark: 个人博客/图床首选国内方案，每月 10GB 存储 + 10GB 流量长期白嫖；需完成实名认证后自动到账。超出按量计费。
-  status: pending
   source_id: cn-juejin
   tags: [对象存储, 国内可访问, 图床]

@@ -17,10 +17,7 @@ resources:
     access_note: "需要特殊网络（海外服务）"
     official_url: "https://www.cockroachlabs.com/"
     rule_url: "https://www.cockroachlabs.com/pricing/"
-    verify_status: "⏳待复核"
-    verify_time: "2026-10-30"
     remark: "PostgreSQL 协议兼容的分布式数据库，免费档够跑小应用；超出按 RU 计费。国内访问需网络。"
-    status: "pending"
     tags: ["PostgreSQL兼容", "分布式", "海外服务"]
     source_id: "free-for-dev"
 
@@ -36,10 +33,7 @@ resources:
     access_note: "需要特殊网络（海外服务）"
     official_url: "https://neo4j.com/cloud/aura/"
     rule_url: "https://neo4j.com/pricing/"
-    verify_status: "⏳待复核"
-    verify_time: "2026-10-30"
     remark: "图数据库事实标准，免费档适合学习与小规模关系图谱；闲置 72 小时暂停、30 天删除。国内访问需网络。"
-    status: "pending"
     tags: ["图数据库", "Cypher", "海外服务"]
     source_id: "free-for-dev"
 
@@ -55,10 +49,7 @@ resources:
     access_note: "需要特殊网络（海外服务）"
     official_url: "https://aiven.io/"
     rule_url: "https://aiven.io/pricing"
-    verify_status: "⏳待复核"
-    verify_time: "2026-10-30"
     remark: "一家托管多种开源数据组件的平台，免费档额度在同业里偏大；Kafka 仅 3 天保留，注意数据时效。国内访问需网络。"
-    status: "pending"
     tags: ["托管数据库", "Kafka", "海外服务"]
     source_id: "free-for-dev"
 
@@ -74,10 +65,7 @@ resources:
     access_note: "需要特殊网络（海外服务）"
     official_url: "https://www.influxdata.com/"
     rule_url: "https://www.influxdata.com/products/influxdb-cloud/"
-    verify_status: "⏳待复核"
-    verify_time: "2026-10-30"
     remark: "时序/指标场景首选；免费档是 $250 信用而非永久免，注意额度消耗。国内访问需网络。"
-    status: "pending"
     tags: ["时序数据库", "监控", "海外服务"]
     source_id: "free-for-dev"
 
@@ -93,10 +81,7 @@ resources:
     access_note: "需要特殊网络（海外服务）"
     official_url: "https://tinybird.co/"
     rule_url: "https://tinybird.co/pricing"
-    verify_status: "⏳待复核"
-    verify_time: "2026-10-30"
     remark: "把 SQL 直接发布成 API，适合实时分析/埋点；免费档 QPS 与日请求受限，生产需升级。国内访问需网络。"
-    status: "pending"
     tags: ["实时分析", "SQL转API", "海外服务"]
     source_id: "free-for-dev"
 
@@ -112,10 +97,7 @@ resources:
     access_note: "需要特殊网络（海外服务）"
     official_url: "https://redis.io/cloud/"
     rule_url: "https://redis.io/cloud/pricing/"
-    verify_status: "⏳待复核"
-    verify_time: "2026-10-30"
     remark: "托管 Redis，免费档 30MB 适合缓存/会话等轻量场景；容量小，别当主存储。国内访问需网络。"
-    status: "pending"
     tags: ["内存数据库", "缓存", "海外服务"]
     source_id: "free-for-dev"
 
@@ -131,9 +113,6 @@ resources:
     access_note: "需要特殊网络（海外服务）"
     official_url: "https://www.pingcap.com/tidb-cloud/"
     rule_url: "https://www.pingcap.com/tidb-cloud-pricing/"
-    verify_status: "⏳待复核"
-    verify_time: "2026-10-30"
     remark: "MySQL 协议的分布式 HTAP 数据库，免费档适合学习与中小项目；列存适合分析。国内访问需网络。"
-    status: "pending"
     tags: ["MySQL兼容", "HTAP", "海外服务"]
     source_id: "free-for-dev"

@@ -191,10 +191,7 @@ rsync -az --delete --delete-excluded \
 | `access_note` | 访问备注（**必须标注**「国内可直连」或「需要特殊网络」，首页筛选依赖此字段） |
 | `official_url` | 官方领取地址 |
 | `rule_url` | 官方规则说明链接 |
-| `verify_status` | ✅已实测 / ⏳待复核 / ❌已失效 |
-| `verify_time` | 最近核验日期（YYYY-MM-DD） |
 | `remark` | 避坑备注（到期是否自动扣费、额度不结转、休眠/回收规则、地域限制等） |
-| `status` | 机器字段：`verified` / `pending` / `expired`（需与 verify_status 同步） |
 | `source_id` | 可选：来源信源 id（对应 `data/sources.yaml`），便于溯源 |
 | `tags` | 标签数组，如 `["国内可访问","免费商用"]` |
 
@@ -236,12 +233,11 @@ python3 scripts/discover.py --source free-for-dev --section "Generative AI"
 
 | 检查项 | 级别 |
 |---|---|
-| 必填字段缺失（16 个字段） | ERROR |
+| 必填字段缺失（13 个字段） | ERROR |
 | `slug` 格式不合规 / 重复（详情页会互相覆盖） | ERROR |
 | `free_type` / `need_realname` / `openai_compatible` 枚举非法 | ERROR |
 | `access_note` 未声明「国内可直连 / 需要特殊网络」 | ERROR |
 | URL 非 http(s) 或解析不出域名 | ERROR |
-| `verify_status` 与 `status` 不同步 | ERROR |
 | `quota` 过短或含 TODO 占位符 | ERROR |
 | 名称重复、同域名多条目（可能是重复收录） | WARN |
 | 未知分类（可能是错别字） | WARN |
@@ -267,9 +263,9 @@ python3 scripts/check_urls.py            # 新链接有效性
 
 ---
 
-## 更新核验状态
+## 下架失效资源
 
-直接改 `data/resources.yaml` 中对应条目的 `verify_status` 与 `status`、`verify_time`，重新构建即可。失效条目建议把 `status` 改为 `expired`，卡片会变灰并降低排序权重。
+免费层政策随时会变，厂商砍掉额度时需要把对应条目从 `data/resources.yaml` 中删除，重新构建即可下线。
 
 定期巡检链接：
 
