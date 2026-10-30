@@ -1,5 +1,28 @@
 name: build
 
+# ============================================================
+# 本 workflow 的定位（重要，勿误读）
+#
+#   ✅ 它做两件事：
+#      1. 数据闸门：跑 scripts/validate.py，字段/枚举/slug 查重不过则本次
+#         提交直接红 —— 坏数据无法进 main，也进不了线上。
+#      2. 产物留存：构建 public/ 并存为 artifact（保留 7 天），供人工抽查。
+#
+#   ❌ 它【不参与部署】：
+#      线上 ai.limzero.com 的产物来自【本地构建 + rsync 直传阿里云 ECS】
+#      （见 deploy/deploy.sh），与本 workflow 无关。
+#      本 workflow 产出的 artifact 不会被自动推送到服务器，
+#      推了也不会自动上线 —— 线上更新只由本地执行 deploy/deploy.sh 触发。
+#
+#   为什么这样分工：
+#      本地 → ECS 一条命令 3 秒完成；绕道 GitHub 海外机房再回国内，
+#      链路长、失败点多，且需要把服务器凭据托管到云端，得不偿失。
+#      GitHub 在本项目里的角色是「保险箱（版本备份）+ 数据体检 CI」。
+#
+#   ⚠️ 注意：Actions 有 2~3 小时排队延迟，所以它不能作为"是否已上线"的判据；
+#      线上状态请直接访问 https://ai.limzero.com 或查服务器站点目录。
+# ============================================================
+
 on:
   push:
     branches: [main]
@@ -23,6 +46,7 @@ jobs:
       - name: Install PyYAML
         run: pip install pyyaml
 
+      # 数据闸门：ERROR > 0 即 exit 1，中止本次构建（坏数据不许进 main）
       - name: Validate resource data
         run: python3 scripts/validate.py
 
@@ -38,7 +62,8 @@ jobs:
       - name: Build static site
         run: hugo --minify --baseURL https://ai.limzero.com/
 
-      - name: Upload artifact
+      # 产物仅供人工抽查留存，不会自动部署到服务器
+      - name: Upload artifact (for inspection only, not deployed)
         uses: actions/upload-artifact@v4
         with:
           name: public

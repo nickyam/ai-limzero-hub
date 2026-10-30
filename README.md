@@ -3,11 +3,43 @@
 面向国内开发者的**免费 AI 开发资源导航站**：可实测的免费大模型 API、免费 Token 额度、免费云服务器、免费托管与向量库、TTS / OCR 等配套资源。
 
 - 纯静态：Hugo 构建 + 前端内嵌 JSON 的纯静态检索（无后端、无索引服务）+ YAML 数据文件
-- GitHub Actions 自动构建（仅出 `public/` 产物，不含部署）
+- **部署链路：本地构建 → rsync 直传阿里云 ECS**，不经 GitHub（GitHub 只做代码备份 + 数据校验 CI）
 - 无任何后端 / 数据库 / 用户系统 / 第三方统计
 - 仅展示官方原生免费资源，不做 API 中转、Token 分发、账号池
 
 > 本站仅为第三方信息导航聚合，详见页脚「免责声明」。
+
+---
+
+## 架构与发布链路
+
+```
+data/resources.yaml                   ← 唯一数据源（手工/流水线维护）
+        ↓  scripts/gen_resources.py
+content/resources/ + content/categories/   （构建期生成，不入库）
+        ↓  hugo --minify
+public/                               ← 构建产物（不入库）
+        ↓  rsync -e "ssh -i ~/.ssh/id_aliyun"
+阿里云 ECS  /opt/1panel/apps/openresty/openresty/www/sites/ai.limzero.com/index/
+        ↓  OpenResty 容器
+https://ai.limzero.com
+```
+
+**发布 = 一条命令**（在本地跑，3 秒）：
+
+```bash
+bash deploy/deploy.sh
+```
+
+### GitHub 在本项目里的角色
+
+| 角色 | 说明 |
+|---|---|
+| **保险箱** | 版本历史与备份。150 条核实的额度数据是本站最值钱的资产，务必定期 push |
+| **数据体检 CI** | `build.yml` 每次 push 跑 `validate.py`，坏数据进不了 main |
+| ~~部署通道~~ | **不参与**。Actions 只出 `public/` artifact 供人工抽查，不会推送到服务器 |
+
+为什么不走 Actions 自动部署：本地直传 3 秒完成；绕道 GitHub 海外机房再回国内，链路长、失败点多，还得把服务器凭据托管到云端。Actions 另有 2~3 小时排队延迟，**不能作为"是否已上线"的判据**。
 
 ---
 
@@ -113,6 +145,25 @@ bash deploy/deploy.sh --sync-only  # 产物已构建，只同步
 
 改完 vhost 后 reload OpenResty 容器使其生效。
 
+### 手动 rsync 等价写法
+
+日常用 `deploy/deploy.sh` 即可，下列是等价的裸命令（**要点在参数，漏一个就报错**）：
+
+```bash
+# 在本地执行，产物已由 hugo --minify 构建到 public/
+rsync -az --delete --delete-excluded \
+  -e "ssh -i ~/.ssh/id_aliyun -o StrictHostKeyChecking=no" \
+  --exclude '.git/' --exclude '.github/' --exclude 'scripts/' \
+  --exclude 'deploy/' --exclude 'data/' --exclude 'layouts/' \
+  --exclude 'content/' --exclude 'assets/' --exclude 'README.md' \
+  ./public/ \
+  root@121.40.250.144:/opt/1panel/apps/openresty/openresty/www/sites/ai.limzero.com/index/
+```
+
+- **rsync 必须显式带 `-e "ssh -i ~/.ssh/id_aliyun"`** —— `ssh` 命令带 `-i` 不代表 rsync 会带上，漏了直接 `Permission denied (publickey)`
+- **必须 `--delete-excluded`** —— 否则被 `--exclude` 的旧文件不会被清理，开发文件会残留在站点目录
+- ⚠️ **不需要**在 Actions 里加 `appleboy/ssh-action` 做自动部署 —— 本仓库默认不走那条路，理由见「架构与发布链路」
+
 ---
 
 ## 新增 / 修改资源
@@ -120,8 +171,9 @@ bash deploy/deploy.sh --sync-only  # 产物已构建，只同步
 1. 打开 `data/resources.yaml`，按下方字段追加一条（或走上面的流水线，批量入库）；
 2. 跑 `python3 scripts/validate.py` 确认字段与 slug 合规；
 3. 跑 `python3 scripts/check_urls.py` 确认链接有效；
-4. 跑 `python3 scripts/gen_resources.py` 重新生成页面（CI 会自动跑）；
-5. 提交到 `main` 分支，GitHub Actions 自动构建（构建前会再跑一次校验，不过则失败）。
+4. 跑 `python3 scripts/gen_resources.py` 重新生成页面；
+5. 跑 `bash deploy/deploy.sh` 发布到线上（本地构建 + rsync 直传 ECS）；
+6. 提交到 `main` 分支做版本备份（CI 会再跑一次校验，不过则红——但**不影响线上**，线上产物来自第 5 步）。
 
 **字段规范**（每条资源）：
 
@@ -226,26 +278,6 @@ python3 scripts/check_urls.py --timeout 20 --delay 0.5
 ```
 
 脚本只输出报告、不修改 YAML；404/410 判为失效，403/429/超时/WAF 拦截判为「需人工确认」（避免误杀）。
-
----
-
-## 部署到阿里云（手动 rsync）
-
-CI 构建完成后，到 Actions 页面下载 `public` 产物，解压后同步到 ECS：
-
-```bash
-# 在本地执行（SSH 密钥已配置）
-rsync -avz --delete \
-  --exclude='.git' \
-  ./public/ \
-  root@121.40.250.144:/opt/1panel/apps/openresty/openresty/www/sites/ai.limzero.com/index/
-```
-
-要点：
-- 站点目录沿用 ECS 约定：`.../sites/ai.limzero.com/index`（不是 `html`）
-- 阿里云 80 端口被合规拦截，**只走 HTTPS**；证书用 DNS-01（acme.sh）签发
-- 参考配置见 `nginx/ai.limzero.com.conf`，改完 `openresty -s reload`
-- 若需「push 即自动部署」，可在 Actions 增加 `appleboy/ssh-action` 步骤（需托管 SSH 私钥 secret），本仓库默认不启用
 
 ---
 
