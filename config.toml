@@ -11,6 +11,12 @@ disableKinds = ["taxonomy"]
   siteEn = "Limzero AI Hub"
   slogan = "免费大模型API · Token额度 · AI算力与托管资源导航"
 
+# Google AdSense（Auto Ads 自动投放）
+# 站点需在 AdSense 后台添加 ai.limzero.com 并通过审核、开启 Auto Ads 后广告才展示
+[params.adsense]
+  enabled = true
+  client = "ca-pub-7114121088728794"
+
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]
