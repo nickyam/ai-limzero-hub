@@ -239,6 +239,24 @@
   status: "pending"
   tags: ["海外服务", "需科学上网", "OpenAI兼容", "永久免费", "多模型聚合"]
 
+- name: "书生·端砚 Token Plan（上海人工智能实验室）"
+  slug: "intern-tokenplan"
+  type: "大模型API"
+  model_name: "DeepSeek-V4-Flash / GLM-5.3 / Kimi-K2.6 / MiniMax-M3 / Qwen3.8 / 书生-S2 等"
+  free_type: "每月重置"
+  quota: "测试期每位用户每月赠送 10 墨点；1 墨点上限约抵 5000 万 tokens（以 DeepSeek-V4-Flash 缓存命中输入价反推），理想情况每月约 5 亿 token；书生-S2 / Agents-A1 / Atria-Dawn-Preview 三款标注『限时免费』、不扣墨点，具体数值以官网为准"
+  validity: "按月清零（不累积、不结转），每月自动续"
+  need_realname: "否"
+  openai_compatible: "是"
+  access_note: "国内可直连"
+  official_url: "https://discovery.intern-ai.org.cn/"
+  rule_url: "https://discovery.intern-ai.org.cn/token-plan/home"
+  verify_status: "⏳待复核"
+  verify_time: "2026-10-30"
+  remark: "微信扫码即登录、免邮箱/绑卡；同时支持 OpenAI 与 Anthropic 双协议（base: https://discovery-api.intern-ai.org.cn），可直连 Cherry Studio / Claude Code 等；1M 上下文；墨点按月清零、不结转，领了就用。测试期政策，额度随时可能调整，尽早领取。来源参考：微信公众号 2026-10 文《每月白送 5 亿 token，这次是国家队出手》（书生·端砚 墨点计划实测）。"
+  status: "pending"
+  tags: ["国内可访问", "无需实名", "每月免费", "OpenAI兼容", "国家队", "双协议"]
+
 # ============ 云服务器·容器 ============
 
 - name: "阿里云 免费试用（ECS / 轻量）"
