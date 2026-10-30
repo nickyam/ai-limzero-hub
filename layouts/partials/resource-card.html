@@ -13,8 +13,10 @@
     <span class="tag type"><a href="/categories/{{ partial "cat-slug.html" .type }}/">{{ .type }}</a></span>
     <span class="tag free">{{ .free_type }}</span>
   </div>
-  <p class="card-quota">{{ .quota }}</p>
-  <a class="card-more" href="{{ $href }}">详情 →</a>
+  <div class="card-quota-row">
+    <p class="card-quota">{{ .quota }}</p>
+    <a class="card-more" href="{{ $href }}">详情 →</a>
+  </div>
   <p class="card-access">🌐 {{ .access_note }}</p>
   <div class="card-tags">
     {{ range .tags }}<span class="tag">{{ . }}</span>{{ end }}
