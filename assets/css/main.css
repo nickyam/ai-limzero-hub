@@ -47,7 +47,47 @@ main { flex: 1 0 auto; width: 100%; }
 .brand-en { font-size: 12px; font-weight: 500; letter-spacing: 1px; color: var(--muted); margin-left: 6px; text-transform: uppercase; }
 .nav-links { display: flex; gap: 18px; align-items: center; font-size: 14px; }
 .nav-links a:hover { color: var(--accent); }
-#theme-toggle { background: none; border: 1px solid var(--border); border-radius: 8px; cursor: pointer; padding: 4px 9px; font-size: 14px; color: var(--fg); }
+/* 胶囊式明暗切换（太阳/月亮 + 选中侧白色浮起圆底） */
+.theme-switch {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 54px;
+  height: 28px;
+  padding: 0 6px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: #e9ebee;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: background .2s ease;
+}
+[data-theme="dark"] .theme-switch { background: #2a2f38; }
+.theme-switch__thumb {
+  position: absolute;
+  top: 50%;
+  left: 3px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 1px 3px rgba(0,0,0,.22);
+  transform: translateY(-50%);
+  transition: transform .22s ease;
+}
+.theme-switch[data-active="dark"] .theme-switch__thumb { transform: translate(24px, -50%); }
+.theme-switch__icon {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  transition: color .2s ease;
+}
+.theme-switch[data-active="light"] .theme-switch__icon--sun { color: var(--fg); }
+.theme-switch[data-active="dark"] .theme-switch__icon--moon { color: var(--fg); }
 
 /* Nav dropdown */
 .nav-dropdown { position: relative; }

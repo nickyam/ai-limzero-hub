@@ -1,11 +1,20 @@
 (function () {
   var KEY = "limzero-theme";
-  function apply(t) { document.documentElement.setAttribute("data-theme", t); }
+  function apply(t) {
+    document.documentElement.setAttribute("data-theme", t);
+    var sw = document.getElementById("theme-toggle");
+    if (sw) {
+      sw.setAttribute("data-active", t);
+      sw.setAttribute("aria-pressed", t === "dark" ? "true" : "false");
+    }
+  }
   var saved = localStorage.getItem(KEY);
   if (saved) {
     apply(saved);
   } else if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
     apply("dark");
+  } else {
+    apply("light");
   }
   document.addEventListener("DOMContentLoaded", function () {
     var btn = document.getElementById("theme-toggle");
