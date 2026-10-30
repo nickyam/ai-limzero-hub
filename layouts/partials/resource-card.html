@@ -22,7 +22,6 @@
   </div>
   <div class="card-quota-row">
     <p class="card-quota">{{ .quota }}</p>
-    <a class="card-more" href="{{ $href }}">详情 →</a>
   </div>
   <p class="card-access">🌐 {{ .access_note }}</p>
   <div class="card-tags">
@@ -31,6 +30,6 @@
   <div class="card-actions">
     <a class="btn primary" href="{{ .official_url }}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">官方领取 ↗</a>
     <a class="btn ghost" href="{{ .rule_url }}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">规则 ↗</a>
+    <a class="btn link" href="{{ $href }}" onclick="event.stopPropagation()">详情 →</a>
   </div>
-  <div class="card-expand" aria-hidden="true">展开全部信息 ⌄</div>
 </article>
