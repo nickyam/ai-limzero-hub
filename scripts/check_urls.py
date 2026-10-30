@@ -15,6 +15,7 @@ import os
 import sys
 import time
 import yaml
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from urllib.request import Request, urlopen
 from urllib.error import HTTPError, URLError
 
@@ -42,7 +43,8 @@ def main():
     p = argparse.ArgumentParser()
     p.add_argument("--data", default=default_data)
     p.add_argument("--timeout", type=int, default=15)
-    p.add_argument("--delay", type=float, default=1.0)
+    p.add_argument("--delay", type=float, default=0.3, help="每个请求前的节奏间隔（秒），仅在串行时严格生效")
+    p.add_argument("--workers", type=int, default=4, help="并发请求数")
     args = p.parse_args()
 
     with open(args.data, encoding="utf-8") as f:
@@ -51,18 +53,32 @@ def main():
         data = data.get("resources", [])
     data = data or []
 
-    rows = []
+    tasks = []
     for it in data:
         for key in ("official_url", "rule_url"):
             u = it.get(key)
-            if not u:
-                continue
-            try:
-                code, verdict = check(u, args.timeout)
-            except Exception:
-                code, verdict = None, "manual"
-            rows.append((it.get("name", ""), key, u, code, verdict))
+            if u:
+                tasks.append((it, key, u))
+
+    def worker(item):
+        it, key, u = item
+        if args.delay:
             time.sleep(args.delay)
+        try:
+            code, verdict = check(u, args.timeout)
+        except Exception:
+            code, verdict = None, "manual"
+        return (it.get("name", ""), key, u, code, verdict)
+
+    results = {}
+    with ThreadPoolExecutor(max_workers=max(1, args.workers)) as ex:
+        futs = {ex.submit(worker, t): t for t in tasks}
+        for fut in as_completed(futs):
+            r = fut.result()
+            if r:
+                results[(r[1], r[2])] = r  # key = (字段名, url)
+    # 按原始顺序还原（官方链接在前、规则链接在后）
+    rows = [results[(key, u)] for (_, key, u) in tasks if (key, u) in results]
 
     dead = [r for r in rows if r[4] == "dead"]
     manual = [r for r in rows if r[4] == "manual"]

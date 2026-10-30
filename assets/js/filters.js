@@ -46,7 +46,7 @@
     fill("f-type", "分类", data.map(function (d) { return d.type; }));
     fill("f-realname", "是否实名", data.map(function (d) { return d.need_realname; }));
     fill("f-openai", "OpenAI 兼容", data.map(function (d) { return d.openai_compatible; }));
-    fill("f-direct", "国内直连", data.map(function (d) { return d.access_note.indexOf("国内可直连") >= 0 ? "是" : "否"; }));
+    fill("f-direct", "国内直连", data.map(function (d) { return (d.access_note || "").indexOf("国内可直连") >= 0 ? "是" : "否"; }));
 
     // 当前筛选 + 搜索状态
     var state = { type: "", realname: "", openai: "", direct: "", q: "" };

@@ -3,7 +3,7 @@
   <h1 class="site-title">{{ .Title }}</h1>
   <p class="slogan">{{ site.Params.slogan }}</p>
 </section>
-<section class="resource-list" data-pagefind-body>
+<section class="resource-list">
   {{ range .Pages }}
     {{ partial "resource-card.html" (dict
       "slug" .Params.slug

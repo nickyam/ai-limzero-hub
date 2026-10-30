@@ -5,7 +5,7 @@
   <p class="back"><a href="/">← 返回首页</a></p>
 </section>
 
-<section class="resource-list" data-pagefind-body>
+<section class="resource-list">
   {{ range where site.Data.resources "type" .Params.category }}
     {{ partial "resource-card.html" . }}
   {{ end }}
