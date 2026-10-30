@@ -14,6 +14,7 @@
     <span class="tag free">{{ .free_type }}</span>
   </div>
   <p class="card-quota">{{ .quota }}</p>
+  <a class="card-more" href="{{ $href }}">详情 →</a>
   <p class="card-access">🌐 {{ .access_note }}</p>
   <div class="card-tags">
     {{ range .tags }}<span class="tag">{{ . }}</span>{{ end }}
@@ -21,6 +22,5 @@
   <div class="card-actions">
     <a class="btn primary" href="{{ .official_url }}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">官方领取 ↗</a>
     <a class="btn ghost" href="{{ .rule_url }}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">规则 ↗</a>
-    <a class="btn link" href="{{ $href }}">详情 →</a>
   </div>
 </article>
