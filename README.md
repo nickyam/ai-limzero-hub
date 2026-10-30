@@ -41,7 +41,8 @@ ai-limzero-hub/
 │   ├── ingest.py               # 入库：inbox/*.yaml 校验后追加进 resources.yaml
 │   └── check_urls.py           # 链接失效检测报告（只读）
 ├── .github/workflows/build.yml # 构建并产出 public/ 产物
-├── nginx/ai.limzero.com.conf   # Nginx 参考配置
+├── deploy/deploy.sh            # ★ 部署：本地构建 + rsync 同步到阿里云 ECS
+├── nginx/ai.limzero.com.conf   # Nginx vhost 参考配置（容器内路径）
 └── README.md
 ```
 
@@ -75,6 +76,42 @@ python3 scripts/gen_resources.py
 hugo --minify --baseURL https://ai.limzero.com/
 python3 scripts/check_urls.py
 ```
+
+---
+
+## 部署到阿里云 ECS（ai.limzero.com）
+
+站点为纯静态，服务器端只做「文件托管 + HTTPS」，**不需要任何后端运行时**。
+
+### 一次性准备
+
+| 项 | 说明 |
+|---|---|
+| 1Panel 建站 | 「网站 → 创建 → 静态网站」，主域名与**代号**都填 `ai.limzero.com`（代号决定目录落到 `.../sites/ai.limzero.com/index`，注意是 `index` 不是 `html`） |
+| DNS 解析 | 阿里云万网（dns17/18.hichina.com）添加 A 记录 `ai.limzero.com` → ECS 公网 IP |
+| 证书 | **只能 DNS-01**。备案 ECS 的 80 端口明文被透明劫持，HTTP-01 签发必然失败 |
+
+### 日常发布
+
+```bash
+bash deploy/deploy.sh              # 校验 → 生成 → Hugo 构建 → rsync 同步 → 线上校验
+bash deploy/deploy.sh --sync-only  # 产物已构建，只同步
+```
+
+脚本用 `rsync --delete-excluded` 把 `public/` 同步到服务器站点目录，**并排除** `.git/` `.github/` `scripts/` `deploy/` `data/` `layouts/` 等开发文件——源码与部署脚本不上公网。
+
+### vhost 路径陷阱
+
+`nginx/ai.limzero.com.conf` 由**容器内**的 OpenResty 读取，`root` 必须写容器内路径：
+
+```
+容器内：/www/sites/ai.limzero.com/index
+宿主机：/opt/1panel/apps/openresty/openresty/www/sites/ai.limzero.com/index
+```
+
+宿主机 `.../www` 挂载为容器内 `/www`。写成宿主机路径会导致**全站 404**。
+
+改完 vhost 后 reload OpenResty 容器使其生效。
 
 ---
 
