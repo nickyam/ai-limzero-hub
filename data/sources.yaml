@@ -44,13 +44,15 @@ sources:
   - id: public-apis
     name: "public-apis"
     layer: pool
-    kind: awesome-md
+    kind: md-table
     url: https://raw.githubusercontent.com/public-apis/public-apis/master/README.md
     enabled: true
     trust: medium
     note: >
-      公开 API 大全，含 Machine Learning 分类。适合捞「免费 OCR / 翻译 / 语音」类工具型 API。
-      坑：很多免费 key 有严格商用限制，需读各项目 Auth/HTTPS 标记。
+      公开 API 大全（README 是 Markdown 表格，kind 必须用 md-table）。主要看
+      Machine Learning / Text Analysis / Documents & Productivity / Photography 四节。
+      坑：混着大量 OpenAI 中转站与 Token 分发（onomeo、Requesty、TokenRoute、AnswerLine），
+      这些按本站立场必须否掉；另有不少小作坊 API 稳定性差，只作线索不作定论。
 
   # ============ 层二：厂商官方（人工维护为主）============
   # 说明：厂商定价页多为 JS 动态渲染 + 登录墙，脚本抓取收益低，故 enabled: false，

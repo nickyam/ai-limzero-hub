@@ -1,0 +1,296 @@
+# 批次：2026-10b · 大模型 API + 向量数据库（第二轮扩充，public-apis 信源）
+#
+# 筛选标准（与 README 一致）：
+#   只收「厂商官方原生免费资源」——排除一切 OpenAI 中转/Token 分发（onomeo、Requesty、
+#   TokenRoute、AnswerLine 这类 public-apis 里混着的聚合站，一律不要）。
+#   额度数字全部来自厂商官网或公开核对站，标注「以官网为准」。
+#
+# 来源标记 source_id: public-apis / free-for-dev
+
+resources:
+  # ===== 大模型 API：官方免费档 / 注册赠金 =====
+  - name: Together AI
+    slug: together-ai
+    type: 大模型API
+    model_name: Llama 3.3 / DeepSeek V3 / Qwen
+    free_type: 新用户一次性
+    quota: "注册赠送约 $5 试用额度（部分活动期 $25），可调用 Llama 3.3 70B、DeepSeek V3、Qwen3 等 200+ 开源模型；额度用完转按量付费（以官网为准）"
+    validity: 赠金通常 14 天内有效，过期作废
+    need_realname: 否
+    openai_compatible: 是
+    access_note: 需要特殊网络（海外站点，国内需自备网络环境）
+    official_url: https://www.together.ai/pricing
+    rule_url: https://docs.together.ai/docs/quickstart
+    verify_status: ⏳待复核
+    verify_time: "2026-10-30"
+    remark: 免费档限速很低（约 1 RPM），只够跑通接口和原型验证；赠金不结转，多账号刷额度会被风控。
+    status: pending
+    tags: [开源模型, OpenAI兼容, 注册赠金]
+    source_id: public-apis
+
+  - name: Jina AI
+    slug: jina-ai
+    type: 大模型API
+    model_name: jina-embeddings-v5 / jina-reranker-v3 / Reader
+    free_type: 新用户一次性
+    quota: "每个新 API Key 赠 1000 万 tokens，通用于 Embeddings / Reranker / Reader / Classifier；Reader（r.jina.ai）不带 key 也能免费用，每次调用另有 20~500 RPM 限制（以官网为准）"
+    validity: 一次性赠额，用完不补充
+    need_realname: 否
+    openai_compatible: 是
+    access_note: 需要特殊网络（海外服务）
+    official_url: https://jina.ai
+    rule_url: https://jina.ai/reader/
+    verify_status: ⏳待复核
+    verify_time: "2026-10-30"
+    remark: 网页转 Markdown（Reader）是最实用的免 key 能力，抓取网页喂 RAG 很方便；Search 接口每次至少耗 1 万 tokens，1000 万赠额最多约 1000 次搜索。
+    status: pending
+    tags: [向量嵌入, 网页转Markdown, 免Key可用]
+    source_id: public-apis
+
+  - name: SambaNova Cloud
+    slug: sambanova-cloud
+    type: 大模型API
+    model_name: DeepSeek / Llama 系列
+    free_type: 新用户一次性
+    quota: "注册赠送约 $5 试用额度，可调用 DeepSeek、Llama 等开源模型，无需信用卡（以官网为准）"
+    validity: 赠金约 3 个月有效
+    need_realname: 否
+    openai_compatible: 是
+    access_note: 需要特殊网络（海外服务）
+    official_url: https://cloud.sambanova.ai/
+    rule_url: https://docs.sambanova.ai/cloud/docs/get-started/quickstart
+    verify_status: ⏳待复核
+    verify_time: "2026-10-30"
+    remark: 主打自研 RDU 芯片的高吞吐推理；赠金到期即失效，不会自动转免费档。
+    status: pending
+    tags: [开源模型, OpenAI兼容, 注册赠金]
+    source_id: free-for-dev
+
+  - name: Baseten
+    slug: baseten
+    type: 大模型API
+    model_name: 开源模型托管 / 自定义部署
+    free_type: 新用户一次性
+    quota: "注册赠送约 $30 试用额度，可用于模型推理与专用部署（以官网为准）"
+    validity: 赠金未明确有效期，用完为止
+    need_realname: 否
+    openai_compatible: 是
+    access_note: 需要特殊网络（海外服务）
+    official_url: https://www.baseten.co/
+    rule_url: https://docs.baseten.co/quickstart
+    verify_status: ⏳待复核
+    verify_time: "2026-10-30"
+    remark: 定位是「把开源模型部署成生产 API」，$30 更适合验证部署链路而非长期免费调用；按 GPU 时长计费，跑起来烧得快。
+    status: pending
+    tags: [模型部署, 注册赠金]
+    source_id: free-for-dev
+
+  - name: Nebius AI Studio
+    slug: nebius-ai-studio
+    type: 大模型API
+    model_name: Llama / Qwen / DeepSeek 等开源模型
+    free_type: 新用户一次性
+    quota: "注册赠送约 $1 试用额度用于接口测试（以官网为准）"
+    validity: 赠金用完为止
+    need_realname: 否
+    openai_compatible: 是
+    access_note: 需要特殊网络（欧洲服务商，国内需自备网络）
+    official_url: https://studio.nebius.com/
+    rule_url: https://docs.nebius.com/studio/inference/quickstart
+    verify_status: ⏳待复核
+    verify_time: "2026-10-30"
+    remark: 额度很小，只够跑通链路；优势是欧盟合规与开源模型齐全，适合对数据出境有要求的项目做备选。
+    status: pending
+    tags: [开源模型, 欧盟合规]
+    source_id: free-for-dev
+
+  - name: Scaleway Generative APIs
+    slug: scaleway-generative-apis
+    type: 大模型API
+    model_name: Llama 70B / Qwen3 235B 等
+    free_type: 新用户一次性
+    quota: "新账号赠 100 万免费 tokens，可调用 Llama、Qwen3 235B 等开源模型（以官网为准）"
+    validity: 赠额用完为止
+    need_realname: 否
+    openai_compatible: 是
+    access_note: 需要特殊网络（法国服务商）
+    official_url: https://www.scaleway.com/en/generative-apis/
+    rule_url: https://www.scaleway.com/en/docs/generative-apis/quickstart/
+    verify_status: ⏳待复核
+    verify_time: "2026-10-30"
+    remark: 数据存放在巴黎，GDPR 合规；100 万 tokens 用 Qwen3 235B 大约够几十万字的往返对话。
+    status: pending
+    tags: [开源模型, 欧盟合规, OpenAI兼容]
+    source_id: free-for-dev
+
+  - name: Predibase
+    slug: predibase
+    type: 大模型API
+    model_name: 开源模型微调 / 推理
+    free_type: 新用户一次性
+    quota: "注册赠送约 $25 试用额度，30 天内有效，可用于模型微调与推理（以官网为准）"
+    validity: 30 天
+    need_realname: 否
+    openai_compatible: 是
+    access_note: 需要特殊网络（海外服务）
+    official_url: https://predibase.com/
+    rule_url: https://docs.predibase.com/
+    verify_status: ⏳待复核
+    verify_time: "2026-10-30"
+    remark: 主打 LoRA 微调，$25 适合做一次小模型微调验证；30 天硬期限，别攒着不用。
+    status: pending
+    tags: [模型微调, 注册赠金]
+    source_id: free-for-dev
+
+  - name: Kluster AI
+    slug: kluster-ai
+    type: 大模型API
+    model_name: DeepSeek R1 / Llama 4 / Qwen3 235B
+    free_type: 新用户一次性
+    quota: "注册赠送约 $5 试用额度，可跑 DeepSeek R1、Llama 4 Maverick/Scout、Qwen3 235B 等（以官网为准）"
+    validity: 赠金用完为止
+    need_realname: 否
+    openai_compatible: 是
+    access_note: 需要特殊网络（海外服务）
+    official_url: https://kluster.ai/
+    rule_url: https://docs.kluster.ai/get-started/quickstart/
+    verify_status: ⏳待复核
+    verify_time: "2026-10-30"
+    remark: 批量推理有折扣，适合跑离线任务（批处理打分、数据集生成）而不是实时对话。
+    status: pending
+    tags: [批量推理, 开源模型]
+    source_id: free-for-dev
+
+  - name: Morph LLM
+    slug: morph-llm
+    type: 大模型API
+    model_name: 快速代码编辑模型
+    free_type: 每月重置
+    quota: "免费档每月 25 万 credits，$0 起用，无需信用卡（以官网为准）"
+    validity: 每月重置
+    need_realname: 否
+    openai_compatible: 是
+    access_note: 需要特殊网络（海外服务）
+    official_url: https://morphllm.com/
+    rule_url: https://docs.morphllm.com/
+    verify_status: ⏳待复核
+    verify_time: "2026-10-30"
+    remark: 专做「代码 diff 应用」这类高频小任务，速度是卖点；每月重置比一次性赠金更适合长期跑 Agent 工具链。
+    status: pending
+    tags: [代码模型, 每月重置, OpenAI兼容]
+    source_id: free-for-dev
+
+  - name: Nous Research Portal
+    slug: nous-research-portal
+    type: 大模型API
+    model_name: Hermes 系列
+    free_type: 永久免费
+    quota: "免费层 50 RPM / 500,000 TPM，无需信用卡，可调用 Hermes 系列开源模型（以官网为准）"
+    validity: 长期有效
+    need_realname: 否
+    openai_compatible: 是
+    access_note: 需要特殊网络（海外服务）
+    official_url: https://portal.nousresearch.com/
+    rule_url: https://docs.nousresearch.com/
+    verify_status: ⏳待复核
+    verify_time: "2026-10-30"
+    remark: 真正「永久免费档」而非试用赠金，50 RPM 在免费档里算宽裕；模型偏研究向，中文能力一般。
+    status: pending
+    tags: [永久免费, 开源模型, 免信用卡]
+    source_id: free-for-dev
+
+  - name: Inference.net
+    slug: inference-net
+    type: 大模型API
+    model_name: Llama / Qwen 等开源模型
+    free_type: 新用户一次性
+    quota: "注册赠送约 $25 试用额度，另设研究资助申请（以官网为准）"
+    validity: 赠金用完为止
+    need_realname: 否
+    openai_compatible: 是
+    access_note: 需要特殊网络（海外服务）
+    official_url: https://inference.net/
+    rule_url: https://docs.inference.net/
+    verify_status: ⏳待复核
+    verify_time: "2026-10-30"
+    remark: 相对小众，稳定性与长期经营存疑，仅作备选；注册前先确认额度是否仍发放。
+    status: pending
+    tags: [开源模型, 注册赠金]
+    source_id: free-for-dev
+
+  - name: Reka AI
+    slug: reka-ai
+    type: 大模型API
+    model_name: Reka Core / Flash / Edge
+    free_type: 每月重置
+    quota: "免费层每月约 $10 额度循环发放，可调用 Reka 自研多模态模型（以官网为准）"
+    validity: 每月重置，不结转
+    need_realname: 否
+    openai_compatible: 是
+    access_note: 需要特殊网络（海外服务）
+    official_url: https://www.reka.ai/
+    rule_url: https://docs.reka.ai/
+    verify_status: ⏳待复核
+    verify_time: "2026-10-30"
+    remark: 视频/图像理解是差异点；每月 $10 循环在免费档里少见，但要留意逐年下调额度的先例。
+    status: pending
+    tags: [多模态, 每月重置]
+    source_id: free-for-dev
+
+  - name: Fireworks AI
+    slug: fireworks-ai
+    type: 大模型API
+    model_name: Llama / DeepSeek / Qwen 等
+    free_type: 新用户一次性
+    quota: "注册赠送约 $1 试用额度，可调用平台全部开源模型（以官网为准）"
+    validity: 赠金用完为止
+    need_realname: 否
+    openai_compatible: 是
+    access_note: 需要特殊网络（海外服务）
+    official_url: https://fireworks.ai/
+    rule_url: https://docs.fireworks.ai/getting-started/quickstart
+    verify_status: ⏳待复核
+    verify_time: "2026-10-30"
+    remark: 赠额从早期 $50 一路降到 $1，缩水明显，别按老攻略估算；优势是推理延迟低、支持微调部署。
+    status: pending
+    tags: [开源模型, 低延迟]
+    source_id: free-for-dev
+
+  - name: AI21 Studio
+    slug: ai21-studio
+    type: 大模型API
+    model_name: Jamba 系列
+    free_type: 新用户一次性
+    quota: "注册赠送约 $10 试用额度，约 3 个月有效，可调用 Jamba 系列模型（以官网为准）"
+    validity: 约 3 个月
+    need_realname: 否
+    openai_compatible: 是
+    access_note: 需要特殊网络（海外服务）
+    official_url: https://studio.ai21.com/
+    rule_url: https://docs.ai21.com/
+    verify_status: ⏳待复核
+    verify_time: "2026-10-30"
+    remark: Jamba 是 SSM-Transformer 混合架构，长上下文表现不错；免费额度只够评估，不适合长期用。
+    status: pending
+    tags: [长上下文, 注册赠金]
+    source_id: free-for-dev
+
+  # ===== 向量数据库 / 嵌入 =====
+  - name: Voyage AI
+    slug: voyage-ai
+    type: 向量数据库
+    model_name: voyage-4 / voyage-4-large / voyage-4-lite
+    free_type: 新用户一次性
+    quota: "新用户赠 2 亿免费 tokens，用于 Embeddings 与 Reranking；超出后按量计费（voyage-4-lite 约 $0.02/百万 tokens，以官网为准）"
+    validity: 赠额用完为止
+    need_realname: 否
+    openai_compatible: 是
+    access_note: 需要特殊网络（海外服务）
+    official_url: https://www.voyageai.com/
+    rule_url: https://docs.voyageai.com/docs/pricing
+    verify_status: ⏳待复核
+    verify_time: "2026-10-30"
+    remark: 2 亿 tokens 在嵌入类免费额度里属于顶格，够把几万篇文档灌进 RAG；已被 MongoDB 收购，长期政策需留意。
+    status: pending
+    tags: [向量嵌入, 海量赠送, 检索重排]
+    source_id: free-for-dev

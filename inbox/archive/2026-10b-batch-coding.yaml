@@ -1,0 +1,259 @@
+# 批次：2026-10b · 编程助手 + 通用免费 API + 后端托管
+#
+# 编程助手这块 2026 变动极大，入库前逐条核过官网：
+#   - Gemini CLI 已于 2026-06-18 并入 Antigravity CLI，免费档改为「每周限额且不公布数字」
+#   - Amazon Q Developer 自 2026-05-15 起停止接受新用户注册
+#   这两条按实际情况如实标注，不做美化。
+
+resources:
+  # ===== AI 编程助手 =====
+  - name: GitHub Copilot Free
+    slug: github-copilot-free
+    type: AI编程助手
+    model_name: 自动选择（含 GPT / Claude 系列）
+    free_type: 每月重置
+    quota: "免费档每月 2,000 次代码补全 + 50 次对话请求，模型由 GitHub 自动选择（以官网为准）"
+    validity: 每月重置
+    need_realname: 是
+    openai_compatible: 否
+    access_note: 需要特殊网络（GitHub 在国内可访问，但 Copilot 服务端需海外网络较稳）
+    official_url: https://github.com/features/copilot
+    rule_url: https://docs.github.com/en/copilot/about-github-copilot/plans-for-github-copilot
+    verify_status: ⏳待复核
+    verify_time: "2026-10-30"
+    remark: 免费档不能自选模型，只有 Auto；2,000 次补全对活跃开发者约 4~10 个工作日用完。学生认证可免费用 Pro。
+    status: pending
+    tags: [代码补全, 每月重置, 学生免费]
+    source_id: public-apis
+
+  - name: Kilo Code
+    slug: kilo-code
+    type: AI编程助手
+    model_name: 免费路由池（Nemotron / MiniMax / 混元等）
+    free_type: 永久免费
+    quota: "内置 Auto Free 路由，自动把请求转到当前可用的免费模型，无需自备 API Key、无需信用卡（以官网为准）"
+    validity: 长期有效，免费模型池随官方调整
+    need_realname: 否
+    openai_compatible: 否
+    access_note: 需要特殊网络（免费模型走海外网关）
+    official_url: https://kilocode.ai/
+    rule_url: https://kilocode.ai/docs
+    verify_status: ⏳待复核
+    verify_time: "2026-10-30"
+    remark: VS Code / JetBrains / CLI / 云端都能用；免费模型列表实时变动，今天能用的明天可能下架，适合尝鲜不适合当生产依赖。
+    status: pending
+    tags: [开源Agent, 免Key, 多模型]
+    source_id: cn-juejin
+
+  - name: OpenCode
+    slug: opencode
+    type: AI编程助手
+    model_name: OpenCode Zen 免费模型池
+    free_type: 永久免费
+    quota: "开源终端 Agent，自带 Zen 免费模型（DeepSeek Flash、MiMo、Nemotron 等），装完即可用、无需 API Key（以官网为准）"
+    validity: 长期有效
+    need_realname: 否
+    openai_compatible: 否
+    access_note: 需要特殊网络（Zen 免费模型走海外网关）
+    official_url: https://opencode.ai/
+    rule_url: https://opencode.ai/docs
+    verify_status: ⏳待复核
+    verify_time: "2026-10-30"
+    remark: 终端派 Agent，开源可审计；免费模型池与 Kilo 类似，随官方调整。适合想全程在命令行里干活的人。
+    status: pending
+    tags: [终端Agent, 开源, 免Key]
+    source_id: cn-juejin
+
+  # ===== 通用免费 API（文档/媒体/工具）=====
+  - name: CloudConvert
+    slug: cloudconvert
+    type: 免费API
+    model_name: 文件格式转换（200+ 格式）
+    free_type: 每日重置
+    quota: "免费档每天 25 次转换，单文件最大 1 GB，支持 200+ 格式与 REST API（以官网为准）"
+    validity: 每日重置
+    need_realname: 否
+    openai_compatible: 否
+    access_note: 国内可直连（网页可直接访问，API 稳定性偶有波动）
+    official_url: https://cloudconvert.com/
+    rule_url: https://cloudconvert.com/api/v2
+    verify_status: ⏳待复核
+    verify_time: "2026-10-30"
+    remark: 文档/音视频/电子书转换里格式覆盖最全的一家；API 按「转换分钟」计费，免费 25 次是每天重置而非每月。
+    status: pending
+    tags: [文件转换, 每日重置, 有API]
+    source_id: public-apis
+
+  - name: iLovePDF API
+    slug: ilovepdf-api
+    type: 免费API
+    model_name: PDF 处理（合并/拆分/OCR/转换）
+    free_type: 每月重置
+    quota: "免费档每月 250 个文档，支持合并、拆分、压缩、Office 互转与 OCR（以官网为准）"
+    validity: 每月重置
+    need_realname: 否
+    openai_compatible: 否
+    access_note: 国内可直连（网页端长期可访问）
+    official_url: https://www.ilovepdf.com/
+    rule_url: https://developer.ilovepdf.com/
+    verify_status: ⏳待复核
+    verify_time: "2026-10-30"
+    remark: 每月 250 个文档对个人项目够用；PDF 转 Markdown 对喂 LLM 很实用，这是它相较同类的新增能力。
+    status: pending
+    tags: [PDF处理, OCR, 每月重置]
+    source_id: public-apis
+
+  - name: Pexels API
+    slug: pexels-api
+    type: 免费API
+    model_name: 免费图库（照片 + 视频）
+    free_type: 永久免费
+    quota: "免费 API Key 默认每小时 200 次、每月 20,000 次请求，可商用免署名；在应用内标注来源可申请提额（以官网为准）"
+    validity: 长期有效
+    need_realname: 否
+    openai_compatible: 否
+    access_note: 国内可直连（api.pexels.com 可访问）
+    official_url: https://www.pexels.com/api/
+    rule_url: https://help.pexels.com/hc/en-us/articles/47677890260761
+    verify_status: ⏳待复核
+    verify_time: "2026-10-30"
+    remark: 完全免费且允许商用，是配图/占位图最省事的来源；官方明令禁止用 API 复刻 Pexels 自身功能（如做壁纸 App），注意合规。
+    status: pending
+    tags: [免费图库, 可商用, 免署名]
+    source_id: public-apis
+
+  - name: Vector Express
+    slug: vector-express
+    type: 免费API
+    model_name: 矢量图格式转换
+    free_type: 永久免费
+    quota: "免 API Key 即可调用矢量文件转换接口（SVG/EPS/PDF/AI 等互转），无公开调用上限（以官网为准）"
+    validity: 长期有效
+    need_realname: 否
+    openai_compatible: 否
+    access_note: 国内可直连（实测可访问）
+    official_url: https://vector.express/
+    rule_url: https://vector.express/
+    verify_status: ⏳待复核
+    verify_time: "2026-10-30"
+    remark: 小众但实用：设计稿批量转格式不用装 Illustrator；无 SLA，别放在关键链路。
+    status: pending
+    tags: [矢量转换, 免Key]
+    source_id: public-apis
+
+  # ===== 后端 / 托管 =====
+  - name: Appwrite Cloud
+    slug: appwrite-cloud
+    type: 后端·数据库
+    model_name: 数据库 / 认证 / 存储 / 函数
+    free_type: 永久免费
+    quota: "免费档含 5 GB 带宽、2 GB 存储、75 万次函数执行、75,000 MAU，1 个免费项目（以官网为准）"
+    validity: 长期有效
+    need_realname: 否
+    openai_compatible: 否
+    access_note: 需要特殊网络（Cloud 版海外节点；亦可自托管）
+    official_url: https://appwrite.io/
+    rule_url: https://appwrite.io/pricing
+    verify_status: ⏳待复核
+    verify_time: "2026-10-30"
+    remark: 开源 BaaS（BSD-3），免费档额度在同业里偏大；超限后项目会被冻结而非自动扣费，这点比 Supabase 温和。可 Docker 自托管。
+    status: pending
+    tags: [开源BaaS, 可自托管, 认证]
+    source_id: free-for-dev
+
+  - name: Convex
+    slug: convex
+    type: 后端·数据库
+    model_name: 响应式文档数据库 + TypeScript 函数
+    free_type: 每月重置
+    quota: "免费档每月 100 万次函数调用、0.5 GB 数据库存储，超出按 $2.20/百万次计费（以官网为准）"
+    validity: 每月重置
+    need_realname: 否
+    openai_compatible: 否
+    access_note: 需要特殊网络（海外服务，可自托管）
+    official_url: https://www.convex.dev/
+    rule_url: https://docs.convex.dev/
+    verify_status: ⏳待复核
+    verify_time: "2026-10-30"
+    remark: 端到端 TypeScript、客户端可订阅查询，实时协作类应用省掉大量胶水代码；数据模型是自有文档库，迁出成本高于 Postgres 系。
+    status: pending
+    tags: [实时数据库, TypeScript, 可自托管]
+    source_id: free-for-dev
+
+  - name: Firebase Spark
+    slug: firebase-spark
+    type: 后端·数据库
+    model_name: Firestore / Auth / Hosting
+    free_type: 每月重置
+    quota: "Spark 免费档：Firestore 1 GiB 存储、每天 5 万次读 / 2 万次写、认证 5 万 MAU、Hosting 10 GB 存储（以官网为准）"
+    validity: 每月重置
+    need_realname: 是
+    openai_compatible: 否
+    access_note: 需要特殊网络（Firebase 控制台与后端需海外网络）
+    official_url: https://firebase.google.com/
+    rule_url: https://firebase.google.com/docs/firestore/quotas
+    verify_status: ⏳待复核
+    verify_time: "2026-10-30"
+    remark: Spark 不含 Cloud Functions / Cloud Storage，这两项必须升 Blaze（绑卡）才能用，很多教程没讲清；超配额时该产品会被直接停到月底。
+    status: pending
+    tags: [移动端后端, 实时同步, 需绑卡才完整]
+    source_id: free-for-dev
+
+  - name: Railway
+    slug: railway
+    type: 云服务器·容器
+    model_name: 应用托管 / 托管数据库
+    free_type: 新用户一次性
+    quota: "新账号一次性 $5 额度（30 天），之后 Free 档每月赠 $1 不结转额度，限 1 项目 3 服务，每服务 0.5 GB 内存（以官网为准）"
+    validity: 首月 $5，之后每月 $1
+    need_realname: 否
+    openai_compatible: 否
+    access_note: 需要特殊网络（海外服务）
+    official_url: https://railway.com/
+    rule_url: https://docs.railway.com/reference/pricing
+    verify_status: ⏳待复核
+    verify_time: "2026-10-30"
+    remark: 严格说已不是「永久免费」，$1/月只够跑一个极小服务；部署体验是同类最好，适合做 Demo，长期跑要转 $5/月 Hobby。
+    status: pending
+    tags: [应用托管, 按量计费, 额度很小]
+    source_id: free-for-dev
+
+  - name: Koyeb
+    slug: koyeb
+    type: 云服务器·容器
+    model_name: 免费 Nano 实例
+    free_type: 永久免费
+    quota: "1 个免费 Web 服务（512 MB / 0.1 vCPU，法兰克福或华盛顿）+ 1 个免费数据库（1 GB，每月 5 小时活跃时间），闲置 1 小时后 scale-to-zero（以官网为准）"
+    validity: 长期有效
+    need_realname: 是
+    openai_compatible: 否
+    access_note: 需要特殊网络（海外服务）
+    official_url: https://www.koyeb.com/
+    rule_url: https://www.koyeb.com/docs
+    verify_status: ⏳待复核
+    verify_time: "2026-10-30"
+    remark: 2026-02 起必须绑卡（$29 预授权冻结）才能开免费实例，注册默认落在 $29/月 Pro 上，务必自己切回免费；免费数据库只有 5 小时活跃时间。
+    status: pending
+    tags: [容器托管, 需绑卡, 缩容到零]
+    source_id: free-for-dev
+
+  - name: Zeabur
+    slug: zeabur
+    type: 云服务器·容器
+    model_name: 应用托管（中国大陆访问友好）
+    free_type: 每月重置
+    quota: "免费开发者计划每月赠 $5 使用额度，超额停服不扣费，无需信用卡（以官网为准）"
+    validity: 每月重置
+    need_realname: 否
+    openai_compatible: 否
+    access_note: 国内可直连（节点含香港/新加坡，大陆访问较快）
+    official_url: https://zeabur.com/
+    rule_url: https://zeabur.com/docs
+    verify_status: ⏳待复核
+    verify_time: "2026-10-30"
+    remark: 同类里少见的「国内访问速度可用」选项，$5/月额度够跑一两个小服务；免费档不会休眠，比 Render 体验好。
+    status: pending
+    tags: [容器托管, 每月重置, 国内速度快]
+    source_id: free-for-dev
+
+# Render 已在「静态托管」分类收录（同一厂商不重复收录），其容器免费档写在该条目 remark 里。

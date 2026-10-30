@@ -12,6 +12,7 @@
 
 支持的信源类型：
   awesome-md   任意 Markdown 列表（free-for.dev / awesome-*），按 `* [名](url) - 描述` 解析
+  md-table     Markdown 表格（public-apis 之类），按 `| [名](url) | 描述 | Auth | ... |` 解析
   html-links   普通网页里抓 <a>（适合厂商定价页 / 汇总页）
 
 用法：
@@ -44,6 +45,10 @@ MD_LINK_RE = re.compile(
     r"^\s*[-*]\s*\[(?P<name>[^\]]+)\]\((?P<url>[^)\s]+)\)\s*[-–—:：]?\s*(?P<desc>.*)$"
 )
 SECTION_RE = re.compile(r"^(#{2,3})\s+(?P<title>.+?)\s*$")
+# Markdown 表格行：| [Name](url) | desc | Auth | HTTPS | CORS |
+MD_TABLE_RE = re.compile(
+    r"^\|\s*\[(?P<name>[^\]]+)\]\((?P<url>https?://[^)\s]+)\)\s*\|(?P<rest>.*)\|\s*$"
+)
 HTML_A_RE = re.compile(r'<a\b[^>]*href="(?P<url>https?://[^"]+)"[^>]*>(?P<text>[^<]{0,120})</a>', re.I)
 
 # 与其他资源站点/竞争列表的域名，不算「官方资源」
@@ -100,6 +105,37 @@ def parse_awesome_md(text: str, section_filter=None):
         url = m.group("url").strip()
         desc = re.sub(r"\[#opensource\]\([^)]*\)", "", m.group("desc") or "")
         desc = re.sub(r"\s+", " ", desc).strip(" -–—:：")
+        if not name or not url.startswith("http"):
+            continue
+        out.append((cur, name, url, desc))
+    return out
+
+
+def parse_md_table(text: str, section_filter=None):
+    """解析 markdown 表格（public-apis 风格），返回 [(section, name, url, desc)]
+
+    public-apis 的列是 `API | Description | Auth | HTTPS | CORS`，
+    这里把 Auth 一并塞进 desc（人判断是否是「免费档」很依赖它是 No 还是 apiKey）。
+    """
+    out, cur = [], ""
+    for line in text.splitlines():
+        m = SECTION_RE.match(line)
+        if m:
+            cur = m.group("title").strip()
+            continue
+        m = MD_TABLE_RE.match(line)
+        if not m:
+            continue
+        if section_filter and section_filter.lower() not in cur.lower():
+            continue
+        name = re.sub(r"[*_`]", "", m.group("name")).strip()
+        url = m.group("url").strip()
+        cells = [c.strip() for c in m.group("rest").split("|")]
+        desc = cells[0] if cells else ""
+        auth = cells[1].replace("`", "") if len(cells) > 1 else ""
+        if auth:
+            desc = f"{desc} (Auth: {auth})"
+        desc = re.sub(r"\s+", " ", desc).strip()
         if not name or not url.startswith("http"):
             continue
         out.append((cur, name, url, desc))
@@ -181,6 +217,7 @@ def main():
             print(f"       失败：{e}")
             continue
         rows = parse_awesome_md(text, args.section) if kind == "awesome-md" \
+            else parse_md_table(text, args.section) if kind == "md-table" \
             else parse_html_links(text, args.section)
 
         added = 0
