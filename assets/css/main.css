@@ -166,6 +166,9 @@ main { flex: 1 0 auto; width: 100%; }
 .btn.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
 .btn.ghost { background: var(--bg-soft); }
 .btn.link { color: var(--accent); border: none; cursor: pointer; padding: 6px 4px; }
+.card-expand { margin-top: 12px; text-align: center; font-size: 12px; color: var(--muted); letter-spacing: .5px; border-top: 1px dashed var(--border); padding-top: 8px; opacity: .75; transition: color .12s ease, opacity .12s ease; }
+.card:hover .card-expand { color: var(--accent); opacity: 1; }
+.card:focus-visible .card-expand { color: var(--accent); opacity: 1; }
 
 /* Modal */
 .modal { position: fixed; inset: 0; z-index: 50; display: flex; align-items: center; justify-content: center; padding: 20px; }
