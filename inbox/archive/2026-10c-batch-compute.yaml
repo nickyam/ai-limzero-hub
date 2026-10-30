@@ -1,0 +1,64 @@
+# 批次：2026-10c · 云 / 计算（边缘函数、AI 应用托管、容器）
+#
+# 说明：本批次 3 条。
+#   - Hugging Face Spaces、Northflank 为海外服务，需特殊网络。
+#   - Cloudflare Workers 边缘计算，国内可直连（注意与「Cloudflare Workers AI」推理产品区分）。
+#   - Fly.io 新组织已无免费档，跳过；Vercel / Render / Railway 等已在主库。
+
+resources:
+  - name: "Hugging Face Spaces"
+    slug: "huggingface-spaces"
+    type: "云服务器·容器"
+    model_name: "应用托管（Gradio / Docker / Static）"
+    free_type: "永久免费"
+    quota: "Free CPU Basic（2 vCPU 16 GB）不限量；ZeroGPU 每日 5 分钟；Static Spaces 全免费；Gradio/Docker 需付费计划（以官网为准）"
+    validity: "长期有效"
+    need_realname: "否"
+    openai_compatible: "否"
+    access_note: "需要特殊网络（海外服务）"
+    official_url: "https://huggingface.co/spaces"
+    rule_url: "https://huggingface.co/pricing"
+    verify_status: "⏳待复核"
+    verify_time: "2026-10-30"
+    remark: "托管 AI Demo 的事实标准，CPU Basic 不限量、Static 全免；GPU 与 Docker 高级需求需付费。国内访问需网络。"
+    status: "pending"
+    tags: ["AI应用托管", "Gradio", "海外服务"]
+    source_id: "free-for-dev"
+
+  - name: "Cloudflare Workers"
+    slug: "cloudflare-workers"
+    type: "云服务器·容器"
+    model_name: "边缘无服务器计算"
+    free_type: "永久免费"
+    quota: "免费档每日 10 万请求、单请求 10 ms CPU、128 MB 内存（以官网为准）"
+    validity: "长期有效"
+    need_realname: "否"
+    openai_compatible: "否"
+    access_note: "国内可直连（Cloudflare 节点国内可访问）"
+    official_url: "https://workers.cloudflare.com/"
+    rule_url: "https://workers.cloudflare.com/pricing"
+    verify_status: "⏳待复核"
+    verify_time: "2026-10-30"
+    remark: "边缘函数，延迟低、国内可直连；免费 10 万请求/天覆盖绝大多数轻量接口。注意与「Cloudflare Workers AI」（推理）是不同产品。"
+    status: "pending"
+    tags: ["边缘计算", "Serverless", "国内可访问"]
+    source_id: "free-for-dev"
+
+  - name: "Northflank Free"
+    slug: "northflank"
+    type: "云服务器·容器"
+    model_name: "应用 / 数据库托管"
+    free_type: "永久免费"
+    quota: "Free Sandbox：2 个服务、2 个任务、1 个数据库，资源上限约 $20/月；创建资源需绑定信用卡（以官网为准）"
+    validity: "长期有效"
+    need_realname: "否"
+    openai_compatible: "否"
+    access_note: "需要特殊网络（海外服务）"
+    official_url: "https://northflank.com/"
+    rule_url: "https://northflank.com/pricing"
+    verify_status: "⏳待复核"
+    verify_time: "2026-10-30"
+    remark: "一站式托管（容器/数据库/Job），免费 Sandbox 额度尚可；但建资源需绑卡，介意者慎选。国内访问需网络。"
+    status: "pending"
+    tags: ["容器托管", "数据库托管", "海外服务"]
+    source_id: "free-for-dev"
