@@ -2392,3 +2392,110 @@
   remark: 个人博客/图床首选国内方案，每月 10GB 存储 + 10GB 流量长期白嫖；需完成实名认证后自动到账。超出按量计费。
   source_id: cn-juejin
   tags: [对象存储, 国内可访问, 图床]
+
+# ============ 新增（脚本追加，来源见 source_id）============
+
+- name: Google Colab
+  slug: google-colab
+  type: 云服务器·容器
+  free_type: 永久免费
+  quota: 免费版提供 GPU/TPU（硬件类型随供需动态分配，常见为 T4，高峰可能排队，Google 不公布具体额度）；单次会话最长 12 小时，闲置即断线；CPU 运行时可用；集成 Google Drive（约 15GB 临时存储），无持久化。免费档长期有效，具体以官网实时规则为准。
+  validity: 免费档长期有效（GPU 可用量随平台负载波动，非固定上限）
+  need_realname: 否
+  openai_compatible: 否
+  access_note: 需要特殊网络
+  official_url: "https://colab.research.google.com/"
+  rule_url: "https://research.google.com/colaboratory/faq.html"
+  remark: 免费 GPU 不保证随时可用、闲置会断线、无持久化存储（需存到 Drive）；大模型训练建议 7B 以下或 QLoRA。Pro/Pro+ 为付费档。需 Google 账号登录。
+  source_id: free-for-dev
+  tags: [需要特殊网络, 免费GPU, 永久免费]
+
+- name: Kaggle
+  slug: kaggle
+  type: 云服务器·容器
+  free_type: 永久免费
+  quota: 免费 Notebook 每周 GPU 配额约 30 小时（P100 或双 T4），TPU v3-8 每周约 20 小时；CPU 会话 4 核 / 30GB RAM，GPU 会话 4 核 / 29GB RAM；单次会话 CPU/GPU 最长 12 小时、TPU 9 小时，/kaggle/working 约 20GB 自动保存盘。具体以官网实时规则为准。
+  validity: 免费档长期有效（GPU/TPU 配额按周重置，高峰可能排队）
+  need_realname: 否
+  openai_compatible: 否
+  access_note: 需要特殊网络
+  official_url: "https://www.kaggle.com/"
+  rule_url: "https://www.kaggle.com/docs/efficient-gpu-usage"
+  remark: 需手机号验证才能启用 GPU/TPU；内置数万公开数据集与竞赛生态；条款限制为个人非商业用途。运行深度学习/数据科学 Notebook 的可靠免费环境。
+  source_id: free-for-dev
+  tags: [需要特殊网络, 免费GPU, 永久免费]
+
+- name: Apify
+  slug: apify
+  type: 免费API
+  free_type: 每月重置
+  quota: 免费版每月赠送 $5 平台额度（无需信用卡，约数千次调用，视具体 Actor 计费；Web Fetch 类约 3333 次），含数千个现成 Actor、云存储、调度与 Webhook；超出按用量计费。具体以官网实时规则为准。
+  validity: 每月重置（额度不结转）
+  need_realname: 否
+  openai_compatible: 否
+  access_note: 国内可直连
+  official_url: "https://www.apify.com/"
+  rule_url: "https://apify.com/pricing"
+  remark: 网页抓取/自动化平台，适合 RAG 数据采集管线；重 Playwright 任务或长 URL 列表消耗额度较快。提供 MCP Server（mcp.apify.com）供 AI 智能体调用。
+  source_id: public-apis
+  tags: [国内可访问, 免费API, 每月重置]
+
+- name: Abstract API
+  slug: abstract-api
+  type: 免费API
+  free_type: 永久免费
+  quota: 免费档每月 100 次 API 请求（含邮箱验证、IP 地理定位、手机号验证等开发者 API 套件），速率限制 1 次/秒，无需信用卡、限非商业用途。具体以官网实时规则为准。
+  validity: 免费档长期有效
+  need_realname: 否
+  openai_compatible: 否
+  access_note: 国内可直连
+  official_url: "https://www.abstractapi.com"
+  rule_url: "https://www.abstractapi.com/pricing"
+  remark: 单一控制台聚合多个实用 API（邮箱/IP/电话/汇率等），文档友好、易集成；免费档仅 100 次/月、速率低，适合原型与测试，生产需升级付费档。
+  source_id: public-apis
+  tags: [国内可访问, 免费API, 永久免费]
+
+- name: APIVerve
+  slug: apiverve
+  type: 免费API
+  free_type: 永久免费
+  quota: 免费档每月 200 积分（覆盖 300+ API（官网现称 367+），多数调用 1 积分/次、个别如 IP 查询为 10 积分），速率限制 5 次/分钟，无需信用卡、需注明出处且限非商业用途。具体以官网实时规则为准。
+  validity: 免费档长期有效（积分按月重置不结转）
+  need_realname: 否
+  openai_compatible: 否
+  access_note: 国内可直连
+  official_url: "https://www.apiverve.com"
+  rule_url: "https://apiverve.com/pricing"
+  remark: 一个密钥调用 300+ 生产级 API（IP、邮箱、图像、翻译、截图、PDF 等）；免费档限非商业、需署名，并提供有限 MCP 接入。生产/商业用途需升级。
+  source_id: public-apis
+  tags: [国内可访问, 免费API, 永久免费]
+
+- name: APITemplate.io
+  slug: apitemplate-io
+  type: 免费API
+  free_type: 永久免费
+  quota: 免费档每月 50 张图片/PDF 生成额度、3 个模板，无需信用卡；支持 HTML/CSS 或通过可视化编辑器制作模板，REST API 与 Zapier/Make/n8n/Airtable 集成。具体以官网实时规则为准。
+  validity: 免费档长期有效
+  need_realname: 否
+  openai_compatible: 否
+  access_note: 国内可直连
+  official_url: "https://apitemplate.io"
+  rule_url: "https://apitemplate.io/pricing"
+  remark: 通过 JSON 数据 + 模板自动生成发票、报告、证书等 PDF/图片；免费档仅 3 模板、50 文件/月，量大利好需付费档。适合自动化文档生成场景。
+  source_id: public-apis
+  tags: [国内可访问, 免费API, 永久免费]
+
+- name: Amazon CloudFront
+  slug: cloudfront
+  type: 存储·CDN
+  free_type: 永久免费
+  quota: Always Free 永久免费档：每月 1TB 数据传出至互联网、1000 万次 HTTP/HTTPS 请求、200 万次 CloudFront Functions 调用、200 万次 KeyValueStore 读取、10 个 Distribution Tenant、免费 SSL 证书，全功能可用。具体以官网实时规则为准。
+  validity: 永久免费（AWS 账户注册即可用，不限期）
+  need_realname: 否
+  openai_compatible: 否
+  access_note: 国内可直连
+  official_url: "https://aws.amazon.com/cloudfront/"
+  rule_url: "https://aws.amazon.com/cloudfront/pricing/"
+  remark: AWS 全球 CDN/边缘加速，免费档覆盖绝大多数个人小站流量；注册需绑定信用卡与手机号验证（非国内实名）。超出免费额度按区域标准费率计费，建议设预算告警。
+  source_id: free-for-dev
+  tags: [国内可访问, 永久免费, CDN]
