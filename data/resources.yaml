@@ -810,15 +810,15 @@
   type: 大模型API
   model_name: Mistral Large 3 / Small 3.1 / Ministral、Codestral
   free_type: 永久免费
-  quota: Experiment 免费档：全部模型可调，限速约 1 请求/秒、每月约 10 亿 tokens 上限，具体数值以官网为准
-  validity: 长期（Experiment 档）
+  quota: 2026-11 起免费套餐不再提供 API 访问，须升级付费套餐（Pro 等）才能生成 API 密钥并调用；原 Experiment 免费档的限速额度已取消。
+  validity: 2026-11 起免费档停发 API，需付费套餐
   need_credit_card: "否"
   need_realname: 否
   openai_compatible: 是
   access_note: 需要特殊网络（法国服务，大陆不可直连）
   official_url: "https://console.mistral.ai/"
   rule_url: "https://docs.mistral.ai/getting-started/models/"
-  remark: Experiment 档需接受「数据可用于训练」条款，商用或涉密数据不要用这一档。Codestral 对代码补全友好；模型权重在 Hugging Face 可下载，可本地部署。
+  remark: "⚠️ 2026-11 起重大变更：免费套餐（Free plan）已不再发放 API 密钥，控制台「New key」按钮置灰，必须升级付费套餐才能激活 API 密钥并调用 API（官方提示：Your organization is on the Free plan. Upgrade to activate your API keys and access the full API）。Codestral 对代码补全友好；模型权重在 Hugging Face 可下载，可本地部署。"
   source_id: vendor-global-llm
   tags: [海外服务, 需科学上网, OpenAI兼容, 永久免费]
 
@@ -838,23 +838,6 @@
   remark: Trial key 明确标注「仅限非商业用途」，上线产品前需换成 Production key。Rerank 是同类免费档里少见的强项，做 RAG 检索重排很实用。不兼容 OpenAI 协议，需用官方 SDK。
   source_id: vendor-global-llm
   tags: [海外服务, 需科学上网, 每月免费, RAG检索]
-
-- name: GitHub Models
-  slug: github-models
-  type: 大模型API
-  model_name: GPT-4o / GPT-4.1、Llama 3.3 70B、DeepSeek-R1、Phi 等
-  free_type: 每日重置
-  quota: 免费档按模型限速（约 10–15 RPM、50–150 次/天），可用 GitHub 账号直接调用多家模型，具体数值以官网为准
-  validity: 长期（免费档）
-  need_credit_card: "否"
-  need_realname: 否
-  openai_compatible: 是
-  access_note: 国内可直连（GitHub 访问速度偶发不稳）
-  official_url: "https://docs.github.com/en/github-models/quickstart"
-  rule_url: "https://docs.github.com/en/github-models/about-github-models"
-  remark: 最大优势：用现成的 GitHub 账号 + Personal Access Token 就能调 GPT / Llama / DeepSeek，不必单独注册各家平台。限速偏紧，适合做原型验证和对比评测，不适合跑量。
-  source_id: vendor-global-llm
-  tags: [国内可访问, OpenAI兼容, 每日免费, 多模型聚合]
 
 - name: NVIDIA NIM
   slug: nvidia-nim
