@@ -2499,3 +2499,53 @@
   remark: AWS 全球 CDN/边缘加速，免费档覆盖绝大多数个人小站流量；注册需绑定信用卡与手机号验证（非国内实名）。超出免费额度按区域标准费率计费，建议设预算告警。
   source_id: free-for-dev
   tags: [国内可访问, 永久免费, CDN]
+
+# ============ 新增（脚本追加，来源见 source_id）============
+
+- name: Typhoon（SCB 10X）
+  slug: typhoon-scb10x
+  type: 大模型API
+  model_name: typhoon-v2.5-30b-a3b-instruct（泰语优化）、OCR、实时泰语 ASR
+  free_type: 永久免费
+  quota: 研究展示型 API，全部 Typhoon 模型 $0；限制 5 请求/秒、200 请求/分钟/模型，无需信用卡，具体数值以官网为准
+  validity: 长期（研究展示，无明确到期）
+  need_realname: 否
+  openai_compatible: 是
+  access_note: 需要特殊网络（海外服务，大陆不可直连）
+  official_url: "https://opentyphoon.ai/"
+  rule_url: "https://docs.opentyphoon.ai/en/faq/"
+  remark: 泰国 SCB 10X（汇商银行风投）训练，针对泰语优化（Qwen3-30B-A3B 的泰语微调），OpenAI 兼容端点 api.opentyphoon.ai/v1；免费档收集用量数据用于改进模型、官方声明不与第三方共享；生产场景建议转 Together AI。
+  source_id: vendor-global-llm
+  tags: [海外服务, 需科学上网, OpenAI兼容, 永久免费]
+
+- name: Z.ai（智谱全球版 GLM）
+  slug: zai-glm-global
+  type: 大模型API
+  model_name: glm-4.7-flash、glm-4.5-flash、glm-4.6v-flash（均长期免费）
+  free_type: 永久免费
+  quota: 三款 Flash 模型输入/输出均 $0（非试用额度、无到期、无月用量上限、无需信用卡）；限制为并发数（约 1 并发、~1 次/秒），具体数值以官网为准
+  validity: 长期（官方 Free 档，非促销）
+  need_realname: 否
+  openai_compatible: 是
+  access_note: 需要特殊网络（海外平台 api.z.ai，与国内 open.bigmodel.cn 账号体系独立）
+  official_url: "https://z.ai/model-api"
+  rule_url: "https://docs.z.ai/guides/overview/pricing"
+  remark: 智谱 AI 国际平台（与国内 bigmodel.cn 账号/密钥独立，无大陆手机号要求）；OpenAI 兼容端点 api.z.ai/api/paas/v4，也支持 Anthropic 兼容；glm-4.7-flash 约 200K 上下文、偏编程与 Agent；免费档数据不用于训练。
+  source_id: vendor-global-llm
+  tags: [海外服务, 需科学上网, OpenAI兼容, 永久免费, 多模态]
+
+- name: Ollama Cloud
+  slug: ollama-cloud
+  type: 大模型API
+  model_name: "免费档若干开源模型（Llama / Qwen / Gemma / DeepSeek 等 :cloud 后缀）"
+  free_type: 永久免费
+  quota: 云端免费档含若干开源模型、无需信用卡；限制为单并发 + 每 5 小时/每周会话额度（官方未公开具体数值），以官网为准
+  validity: 长期（Free 档）
+  need_realname: 否
+  openai_compatible: 是
+  access_note: 需要特殊网络（海外服务，大陆不可直连）
+  official_url: "https://ollama.com/cloud"
+  rule_url: "https://ollama.com/pricing"
+  remark: Ollama 官方云端托管，复用本地 Ollama API 格式（base url api.ollama.com），本地工具可无缝切云端；免费档模型数少、限额未公开、仅单并发，适合尝鲜与轻量调用，不适合高并发生产。
+  source_id: vendor-global-llm
+  tags: [海外服务, 需科学上网, OpenAI兼容, 本地可平替]
