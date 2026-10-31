@@ -30,6 +30,7 @@ FIELD_MAP = {
     "quota": "quota",
     "validity": "validity",
     "need_realname": "need_realname",
+    "need_credit_card": "need_credit_card",
     "openai_compatible": "openai_compatible",
     "access_note": "access_note",
     "official_url": "official_url",

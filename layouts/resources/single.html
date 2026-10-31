@@ -12,6 +12,7 @@
     <dt>额度说明</dt><dd>{{ .Params.quota }}</dd>
     <dt>有效期</dt><dd>{{ .Params.validity | default "—" }}</dd>
     <dt>是否实名</dt><dd>{{ .Params.need_realname }}</dd>
+    <dt>是否需要信用卡</dt><dd>{{ .Params.need_credit_card }}</dd>
     <dt>OpenAI 兼容</dt><dd>{{ .Params.openai_compatible }}</dd>
       <dt>访问备注</dt><dd>{{ .Params.access_note }}</dd>
       <dt>标签</dt><dd>{{ range .Params.tags }}<span class="tag">{{ . }}</span>{{ end }}</dd>

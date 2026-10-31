@@ -49,7 +49,7 @@ def _yaml_quote(v):
 def dump_item(it: dict) -> str:
     """把 dict 渲染成与 resources.yaml 现有风格一致的 YAML 块（保持注释可读性）。"""
     keys = ["name", "slug", "type", "model_name", "free_type", "quota", "validity",
-            "need_realname", "openai_compatible", "access_note", "official_url",
+            "need_realname", "need_credit_card", "openai_compatible", "access_note", "official_url",
             "rule_url", "remark", "source_id", "tags"]
     lines = []
     first = True

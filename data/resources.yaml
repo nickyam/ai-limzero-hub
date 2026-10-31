@@ -11,6 +11,7 @@
   free_type: "永久免费"
   quota: "新一代旗舰 GLM-5.3（推理 / 代码 / 智能体综合能力达开源模型 SOTA）已上线；新用户经邀请链接注册赠 2000 万 tokens 体验额度，GLM-4-Flash / 4.7-Flash 另有永久免费额度（200K 上下文、约 30 并发），具体数值以官网为准"
   validity: "体验额度以官网为准；永久免费额度长期有效"
+  need_credit_card: "否"
   need_realname: "否"
   openai_compatible: "是"
   access_note: "国内可直连"
@@ -26,6 +27,7 @@
   free_type: "新用户一次性"
   quota: "每个模型独立赠送 100 万 tokens（有效期约 3 个月 / 90 天，非永久）；通义千问全系、DeepSeek、Kimi、MiniMax、GLM 等模型最全，具体数值以官网为准"
   validity: "约 3 个月（90 天）到期清零，不结转"
+  need_credit_card: "否"
   need_realname: "是"
   openai_compatible: "是"
   access_note: "国内可直连"
@@ -41,6 +43,7 @@
   free_type: "永久免费"
   quota: "注册赠送约 2000 万 tokens；Qwen2.5-7B / GLM-4-9B / DeepSeek-V2-Lite 等 9B 以下开源模型永久免费（免费档约 5-10 QPS），具体数值以官网为准"
   validity: "赠送额度以官网为准；永久免费额度长期有效"
+  need_credit_card: "否"
   need_realname: "否"
   openai_compatible: "是"
   access_note: "国内可直连"
@@ -56,6 +59,7 @@
   free_type: "每日重置"
   quota: "新用户开通模型服务自动领「安心体验」每模型 50 万 tokens；「协作奖励计划」每天最高送 200 万 tokens / 单模型（按天重置），具体数值以官网为准"
   validity: "每日重置长期有效；新人额度以官网为准"
+  need_credit_card: "否"
   need_realname: "是"
   openai_compatible: "是"
   access_note: "国内可直连"
@@ -71,6 +75,7 @@
   free_type: "新用户一次性"
   quota: "新用户领取通用包 100 万 tokens + 100 万 embedding tokens（1 年有效）；Hunyuan-Lite 提供永久免费额度，具体数值以官网为准"
   validity: "通用包 1 年；Lite 永久"
+  need_credit_card: "否"
   need_realname: "是"
   openai_compatible: "是"
   access_note: "国内可直连"
@@ -86,6 +91,7 @@
   free_type: "新用户一次性"
   quota: "新注册账号赠送体验额度；V4-Flash 输入（cache miss）约 $0.15 / 1M tokens，价格极低，具体数值以官网为准"
   validity: "体验额度以官网为准"
+  need_credit_card: "否"
   need_realname: "否"
   openai_compatible: "是"
   access_note: "国内可直连"
@@ -101,6 +107,7 @@
   free_type: "新用户一次性"
   quota: "新用户赠送 ¥15 代金券（需国内手机号注册 + 实名认证，3 个月有效，用完返回 403），具体数值以官网为准"
   validity: "3 个月"
+  need_credit_card: "否"
   need_realname: "是"
   openai_compatible: "是"
   access_note: "国内可直连"
@@ -116,6 +123,7 @@
   free_type: "新用户一次性"
   quota: "新用户赠送 ¥15 体验额度（文本模型约 100 万 token）；语音合成 API 另有免费额度，具体数值以官网为准"
   validity: "以官网为准"
+  need_credit_card: "否"
   need_realname: "否"
   openai_compatible: "是"
   access_note: "国内可直连"
@@ -131,6 +139,7 @@
   free_type: "新用户一次性"
   quota: "新用户赠送 ¥10 API 体验额度（5 RPM）；另有 Step Plan 限时免费体验活动（活动期注册可领 15 天），具体数值以官网为准"
   validity: "体验额度以官网为准；活动期 15 天"
+  need_credit_card: "否"
   need_realname: "否"
   openai_compatible: "是"
   access_note: "国内可直连"
@@ -146,6 +155,7 @@
   free_type: "每日重置"
   quota: "API 推理每天 2000 次调用（单模型 500 次 / 日）；另赠免费算力：CPU 环境不限时长、GPU 送 36 小时，具体数值以官网为准"
   validity: "API 每日重置；免费算力按活动发放"
+  need_credit_card: "否"
   need_realname: "否"
   openai_compatible: "否"
   access_note: "国内可直连（需阿里云账号登录）"
@@ -161,6 +171,7 @@
   free_type: "永久免费"
   quota: "ERNIE 系列每模型赠送 100 万 tokens（约 3 个月）；ERNIE-Speed-8K 永久免费且 QPS=50，具体数值以官网为准"
   validity: "每模型 100 万 tokens 约 3 个月；ERNIE-Speed-8K 永久"
+  need_credit_card: "否"
   need_realname: "是"
   openai_compatible: "是"
   access_note: "国内可直连"
@@ -176,6 +187,7 @@
   free_type: "每日重置"
   quota: "Gemini 2.5 Flash 免费档 30 RPM / 1440 RPD（每天 1440 次）；2.5 Flash-Lite 10 RPM / 20 RPD；Gemini 3 Flash 5 RPM / 20 RPD，具体数值以官网为准"
   validity: "每日重置（按天）"
+  need_credit_card: "否"
   need_realname: "否"
   openai_compatible: "是"
   access_note: "需要特殊网络（Google 服务，大陆不可直连，需自备网络环境）"
@@ -191,6 +203,7 @@
   free_type: "永久免费"
   quota: "免费模型 25+ 个（ID 以 :free 结尾，随厂商变动）；单 key 统一调用，免费档 20 RPM / 50 次每天（一次性充值 $10 后升至 1000 次/天），具体数值以官网为准"
   validity: "长期（免费模型随厂商变动）"
+  need_credit_card: "否"
   need_realname: "否"
   openai_compatible: "是"
   access_note: "需要特殊网络（境外服务，大陆不可直连，需自备网络环境）"
@@ -206,6 +219,7 @@
   free_type: "每月重置"
   quota: "测试期每位用户每月赠送 10 墨点；1 墨点上限约抵 5000 万 tokens（以 DeepSeek-V4-Flash 缓存命中输入价反推），理想情况每月约 5 亿 token；书生-S2 / Agents-A1 / Atria-Dawn-Preview 三款标注『限时免费』、不扣墨点，具体数值以官网为准"
   validity: "按月清零（不累积、不结转），每月自动续"
+  need_credit_card: "否"
   need_realname: "否"
   openai_compatible: "是"
   access_note: "国内可直连"
@@ -223,6 +237,7 @@
   free_type: "新用户一次性"
   quota: "个人 300 元 / 3 个月、企业 660 元 / 3 个月试用额度；学生 300 元代金券（最长 12 个月），具体数值以官网为准"
   validity: "试用期内（个人/企业 3 个月，学生最长 12 个月）"
+  need_credit_card: "否"
   need_realname: "是"
   openai_compatible: "否"
   access_note: "国内可直连"
@@ -238,6 +253,7 @@
   free_type: "新用户一次性"
   quota: "个人新用户 2 核 2G / 3M / 40G SSD / 200G 流量，免费 1 个月（产品首单），具体配置以官网为准"
   validity: "1 个月（产品首单）"
+  need_credit_card: "否"
   need_realname: "是"
   openai_compatible: "否"
   access_note: "国内可直连"
@@ -253,6 +269,7 @@
   free_type: "永久免费"
   quota: "免费版 1 核 2GB 内存 / 4GB 磁盘；每月 50,000 分钟通用工作空间额度，具体数值以官网为准"
   validity: "长期（免费版）"
+  need_credit_card: "否"
   need_realname: "是"
   openai_compatible: "否"
   access_note: "国内可直连"
@@ -270,6 +287,7 @@
   free_type: "永久免费"
   quota: "无限站点、无限请求、自动 HTTPS、全球 CDN；免费版每月 500 次构建、100 个项目，具体额度以官网为准"
   validity: "长期"
+  need_credit_card: "否"
   need_realname: "否"
   openai_compatible: "否"
   access_note: "需要特殊网络（Cloudflare 在大陆访问不稳定）"
@@ -285,6 +303,7 @@
   free_type: "永久免费"
   quota: "Hobby 版 100 GB / 月带宽、自动 HTTPS、全球边缘网络（非商业用途），具体额度以官网为准"
   validity: "长期（Hobby）"
+  need_credit_card: "否"
   need_realname: "否"
   openai_compatible: "否"
   access_note: "需要特殊网络（境外服务，大陆访问不稳定）"
@@ -300,6 +319,7 @@
   free_type: "永久免费"
   quota: "静态站点托管，软限 100 GB / 月带宽、10 GB 仓库容量，具体额度以官网为准"
   validity: "长期"
+  need_credit_card: "否"
   need_realname: "否"
   openai_compatible: "否"
   access_note: "国内可直连（访问速度偶发不稳）"
@@ -317,6 +337,7 @@
   free_type: "永久免费"
   quota: "永久免费版 10 GB 存储 + 100 万次 / 月查询，具体额度以官网为准"
   validity: "长期（免费版）"
+  need_credit_card: "否"
   need_realname: "是"
   openai_compatible: "否"
   access_note: "国内可直连"
@@ -332,6 +353,7 @@
   free_type: "永久免费"
   quota: "Free 版 5 GB 存储 / 100 万向量 / 250 万 vCU 月 / 5 个 Collection，具体额度以官网为准"
   validity: "长期（Free）"
+  need_credit_card: "否"
   need_realname: "否"
   openai_compatible: "否"
   access_note: "需要特殊网络（境外服务）"
@@ -347,6 +369,7 @@
   free_type: "永久免费"
   quota: "Starter 版 2 GB 存储、2M WU + 1M RU / 月、500 万 embedding tokens，具体额度以官网为准"
   validity: "长期（Starter）"
+  need_credit_card: "否"
   need_realname: "否"
   openai_compatible: "否"
   access_note: "需要特殊网络（境外服务）"
@@ -364,6 +387,7 @@
   free_type: "新用户一次性"
   quota: "新用户赠送 20,000 字符免费额度（半年有效）；豆包语音合成 2.0 同档免费，具体数值以官网为准"
   validity: "半年"
+  need_credit_card: "否"
   need_realname: "否"
   openai_compatible: "否"
   access_note: "国内可直连"
@@ -379,6 +403,7 @@
   free_type: "每月重置"
   quota: "通用文字识别个人认证 1,000 次 / 月、企业认证 2,000 次 / 月（长期有效，按接口发放），具体数值以官网为准"
   validity: "每月重置、长期有效"
+  need_credit_card: "否"
   need_realname: "是"
   openai_compatible: "否"
   access_note: "国内可直连"
@@ -396,6 +421,7 @@
   free_type: 永久免费
   quota: ARM Ampere A1 共 4 OCPU + 24 GB 内存（可拆成最多 4 台）、另 2 台 AMD x86 微实例（各 1/8 OCPU + 1 GB）、200 GB 块存储、10 TB/月出网流量，具体以官网为准
   validity: 永久（Always Free，非试用）
+  need_credit_card: "是"
   need_realname: 是
   openai_compatible: 否
   access_note: 国内可直连（控制台可访问，实例在境外，延迟较高）
@@ -412,6 +438,7 @@
   free_type: 每月重置
   quota: 每月免费额度（约 100 万次调用 + 40 万 GB·秒算力，含公网流量若干 GB），具体数值以官网为准
   validity: 每月重置
+  need_credit_card: "否"
   need_realname: 是
   openai_compatible: 否
   access_note: 国内可直连
@@ -428,6 +455,7 @@
   free_type: 每月重置
   quota: 每月免费额度（约 100 万次调用 + 40 万 GB·秒资源使用量），具体数值以官网为准
   validity: 每月重置
+  need_credit_card: "否"
   need_realname: 是
   openai_compatible: 否
   access_note: 国内可直连
@@ -444,6 +472,7 @@
   free_type: 永久免费
   quota: 免费版支持静态站点托管 + 全球边缘加速 + 自动 HTTPS，含一定额度的构建次数与流量，具体额度以官网为准
   validity: 长期（免费版）
+  need_credit_card: "否"
   need_realname: 是
   openai_compatible: 否
   access_note: 国内可直连（国内节点需备案；境外节点免备案）
@@ -460,6 +489,7 @@
   free_type: 永久免费
   quota: 免费版 100 GB / 月带宽、300 分钟构建、12.5 万次函数调用/月，无商业用途限制，具体额度以官网为准
   validity: 长期（Free）
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 需要特殊网络（境外服务，大陆访问不稳定）
@@ -476,6 +506,7 @@
   free_type: 永久免费
   quota: 免费版每月 100 万次请求、100 GB 出网流量、内置 KV 存储，具体额度以官网为准
   validity: 长期（Free）
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 需要特殊网络（境外服务，大陆访问不稳定）
@@ -492,6 +523,7 @@
   free_type: 永久免费
   quota: 静态站点免费且不限带宽；免费 Web Service 每月 750 小时，闲置 15 分钟自动休眠，具体额度以官网为准
   validity: 长期（Free）
+  need_credit_card: "以官网为准"
   need_realname: 否
   openai_compatible: 否
   access_note: 需要特殊网络（境外服务，大陆访问不稳定）
@@ -508,6 +540,7 @@
   free_type: 永久免费
   quota: 每月 10 GB 存储、100 万次 A 类操作（写）、1000 万次 B 类操作（读），出网流量完全免费，具体额度以官网为准
   validity: 长期（每月重置）
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 需要特殊网络（Cloudflare 在大陆访问不稳定）
@@ -524,6 +557,7 @@
   free_type: 永久免费
   quota: 前 10 GB 存储免费，每天 1 GB 下载流量免费（与 Cloudflare 合作时经 CF 出网不计费），具体额度以官网为准
   validity: 长期
+  need_credit_card: "以官网为准"
   need_realname: 否
   openai_compatible: 否
   access_note: 需要特殊网络（境外服务，大陆访问不稳定）
@@ -540,6 +574,7 @@
   free_type: 永久免费
   quota: 免费版 500 MB Postgres 数据库、1 GB 文件存储、5 万月活用户认证、2 个活跃项目，API 请求不限量，具体额度以官网为准
   validity: 长期（Free）
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 需要特殊网络（境外服务，大陆访问不稳定）
@@ -556,6 +591,7 @@
   free_type: 永久免费
   quota: 免费版 100 个项目 × 每项目 0.5 GB 存储、每项目每月 100 CU-hours 算力，支持分支（branching），具体额度以官网为准
   validity: 长期（Free）
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 需要特殊网络（境外服务，大陆访问不稳定）
@@ -572,6 +608,7 @@
   free_type: 永久免费
   quota: 免费版 5 GB 总存储、每月 5 亿行读 + 1000 万行写、最多 100 个数据库，具体额度以官网为准
   validity: 长期（Free）
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 需要特殊网络（境外服务，大陆访问不稳定）
@@ -588,6 +625,7 @@
   free_type: 永久免费
   quota: Redis 免费版每月 50 万次命令、256 MB 存储；另有 QStash（消息队列）免费额度，具体以官网为准
   validity: 长期（Free）
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 需要特殊网络（境外服务，大陆访问不稳定）
@@ -604,6 +642,7 @@
   free_type: 永久免费
   quota: M0 共享集群 512 MB 存储，永久免费，可在 AWS / Azure / GCP 三云任选区域，具体以官网为准
   validity: 长期（M0）
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 需要特殊网络（境外服务，大陆访问不稳定）
@@ -620,6 +659,7 @@
   free_type: 每月重置
   quota: 免费档每月 5000 万次向量维度查询、1000 万维存储（按 dimension 计），具体额度以官网为准
   validity: 每月重置
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 需要特殊网络（Cloudflare 在大陆访问不稳定）
@@ -636,6 +676,7 @@
   free_type: 永久免费
   quota: 免费版 1 GB 集群存储、支持多 collection，具体额度以官网为准
   validity: 长期（Free）
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 需要特殊网络（境外服务，大陆访问不稳定）
@@ -652,6 +693,7 @@
   free_type: 每月重置
   quota: 每月 1000 次免费调用（通用文字识别、卡证、票据等基础接口共享同一资源包，每月 1 号发放、当月有效），具体以官网为准
   validity: 每月重置、月底清零
+  need_credit_card: "否"
   need_realname: 是
   openai_compatible: 否
   access_note: 国内可直连
@@ -668,6 +710,7 @@
   free_type: 永久免费
   quota: 提供免费图像生成 API，无需注册、无需 API Key，直接 GET 一个 URL 就能出图，具体限速以官网为准
   validity: 长期（开源项目）
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 需要特殊网络（境外服务，大陆访问不稳定）
@@ -684,6 +727,7 @@
   free_type: 每月重置
   quota: 免费版每月约 1 万字符 TTS 额度（约 10 分钟语音），需署名、非商用，具体以官网为准
   validity: 每月重置
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 需要特殊网络（境外服务，大陆不可直连）
@@ -700,6 +744,7 @@
   free_type: 新用户一次性
   quota: 新账号赠送试用额度（部分渠道报 $500，实际以官网注册页为准），按秒计费消耗，具体以官网为准
   validity: 额度有效期以官网为准
+  need_credit_card: "以官网为准"
   need_realname: 否
   openai_compatible: 否
   access_note: 需要特殊网络（境外服务，大陆不可直连）
@@ -716,6 +761,7 @@
   free_type: 每月重置
   quota: 免费账号每月少量推理额度（约 $0.10 等值 credits）；Inference API 另有速率受限的免费试用，具体以官网为准
   validity: 每月重置
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 是
   access_note: 国内可直连（huggingface.co 大陆访问不稳定，镜像站 hf-mirror.com 可下载模型）
@@ -732,6 +778,7 @@
   free_type: 每日重置
   quota: 免费档按模型限速：主流量本模型 30 RPM / 1000 次/天 / 8000 tokens/分钟 / 20 万 tokens/天；Whisper 20 RPM、2000 次/天（7200 音频秒/小时）；Orpheus TTS 10 RPM、100 次/天，具体数值以官网为准
   validity: 长期（免费档不消耗金额，只受速率限制）
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 是
   access_note: 需要特殊网络（境外服务，大陆不可直连，需自备网络环境）
@@ -748,6 +795,7 @@
   free_type: 每日重置
   quota: 免费档每日约 100 万 tokens、并发/速率按模型限制（约 5–30 RPM），具体数值以官网为准
   validity: 长期（免费档）
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 是
   access_note: 需要特殊网络（境外服务，大陆不可直连）
@@ -764,6 +812,7 @@
   free_type: 永久免费
   quota: Experiment 免费档：全部模型可调，限速约 1 请求/秒、每月约 10 亿 tokens 上限，具体数值以官网为准
   validity: 长期（Experiment 档）
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 是
   access_note: 需要特殊网络（法国服务，大陆不可直连）
@@ -780,6 +829,7 @@
   free_type: 每月重置
   quota: Trial key 免费：约 20 RPM、每月 1000 次调用，覆盖 Chat / Embed / Rerank，具体数值以官网为准
   validity: 每月重置
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 需要特殊网络（境外服务，大陆不可直连）
@@ -796,6 +846,7 @@
   free_type: 每日重置
   quota: 免费档按模型限速（约 10–15 RPM、50–150 次/天），可用 GitHub 账号直接调用多家模型，具体数值以官网为准
   validity: 长期（免费档）
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 是
   access_note: 国内可直连（GitHub 访问速度偶发不稳）
@@ -812,6 +863,7 @@
   free_type: 每月重置
   quota: 个人开发者免费 1000 credits（约可调用 4000 次推理请求，按模型大小折算），另有每分钟约 40 RPM 限制，具体数值以官网为准
   validity: credits 有效期以官网为准
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 是
   access_note: 需要特殊网络（境外服务，大陆不可直连）
@@ -828,6 +880,7 @@
   free_type: 每日重置
   quota: "免费档每天 10,000 neurons（AI 计算单位）额度，文本/语音/图像模型共用，具体折算以官网为准"
   validity: "每日 00:00 UTC 重置"
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 需要特殊网络（Cloudflare 在大陆访问不稳定）
@@ -844,6 +897,7 @@
   free_type: 永久免费
   quota: Spark Lite 永久免费、不限 token 总量（有 QPS 限制）；新用户另有 Spark Pro/Max 若干万 tokens 体验包，具体数值以官网为准
   validity: Lite 长期；体验包以官网为准
+  need_credit_card: "否"
   need_realname: 是
   openai_compatible: 否
   access_note: 国内可直连
@@ -860,6 +914,7 @@
   free_type: 限时免费
   quota: DeepSeek-V4-Flash 邀测期最高赠送 6000 万 tokens（90 天有效），具体数值与活动状态以官网为准
   validity: 活动期 / 90 天
+  need_credit_card: "否"
   need_realname: 是
   openai_compatible: 是
   access_note: 国内可直连
@@ -876,6 +931,7 @@
   free_type: 永久免费
   quota: 个人基础版免费、不限次数（功能较 Pro 受限，如部分智能体/企业知识库不可用），具体权益以官网为准
   validity: 长期（个人版）
+  need_credit_card: "否"
   need_realname: 是
   openai_compatible: 否
   access_note: 国内可直连
@@ -892,6 +948,7 @@
   free_type: 每月重置
   quota: 个人体验版每月 500 credits（有频率限制），Pro 版 58 元/月含 2000 credits，具体数值以官网为准
   validity: 每月重置
+  need_credit_card: "否"
   need_realname: 是
   openai_compatible: 否
   access_note: 国内可直连
@@ -908,6 +965,7 @@
   free_type: 永久免费
   quota: 国内版个人完全免费、每月约 1000 万 tokens，无功能阉割；国际版 $12/月起，具体以官网为准
   validity: 长期（国内版）
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 国内可直连（国内版）
@@ -924,6 +982,7 @@
   free_type: 永久免费
   quota: 个人版免费、不限次数（专业版 59 元/月起），具体权益以官网为准
   validity: 长期（个人版）
+  need_credit_card: "否"
   need_realname: 是
   openai_compatible: 否
   access_note: 国内可直连
@@ -940,6 +999,7 @@
   free_type: 永久免费
   quota: 个人版完全免费且为全功能（非阉割版），支持 300+ 编程语言；开源版可本地部署、无调用限制，具体以官网为准
   validity: 长期
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 国内可直连
@@ -956,6 +1016,7 @@
   free_type: 永久免费
   quota: 个人体验版免费（功能与额度受限），专业版/企业版按席位收费，具体权益以官网为准
   validity: 长期（体验版）
+  need_credit_card: "否"
   need_realname: 是
   openai_compatible: 否
   access_note: 国内可直连
@@ -972,6 +1033,7 @@
   free_type: 永久免费
   quota: 个人版免费（有调用次数/频率限制），企业版按席位收费，具体权益以官网为准
   validity: 长期（个人版）
+  need_credit_card: "否"
   need_realname: 是
   openai_compatible: 否
   access_note: 国内可直连
@@ -990,6 +1052,7 @@
   free_type: 每月重置
   quota: "免费档每月 2,000 次代码补全 + 50 次对话请求，模型由 GitHub 自动选择（以官网为准）"
   validity: 每月重置
+  need_credit_card: "否"
   need_realname: 是
   openai_compatible: 否
   access_note: 需要特殊网络（GitHub 在国内可访问，但 Copilot 服务端需海外网络较稳）
@@ -1006,6 +1069,7 @@
   free_type: 永久免费
   quota: 内置 Auto Free 路由，自动把请求转到当前可用的免费模型，无需自备 API Key、无需信用卡（以官网为准）
   validity: 长期有效，免费模型池随官方调整
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 需要特殊网络（免费模型走海外网关）
@@ -1022,6 +1086,7 @@
   free_type: 永久免费
   quota: 开源终端 Agent，自带 Zen 免费模型（DeepSeek Flash、MiMo、Nemotron 等），装完即可用、无需 API Key（以官网为准）
   validity: 长期有效
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 需要特殊网络（Zen 免费模型走海外网关）
@@ -1038,6 +1103,7 @@
   free_type: 每日重置
   quota: 免费档每天 25 次转换，单文件最大 1 GB，支持 200+ 格式与 REST API（以官网为准）
   validity: 每日重置
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 国内可直连（网页可直接访问，API 稳定性偶有波动）
@@ -1054,6 +1120,7 @@
   free_type: 每月重置
   quota: 免费档每月 250 个文档，支持合并、拆分、压缩、Office 互转与 OCR（以官网为准）
   validity: 每月重置
+  need_credit_card: "以官网为准"
   need_realname: 否
   openai_compatible: 否
   access_note: 国内可直连（网页端长期可访问）
@@ -1070,6 +1137,7 @@
   free_type: 永久免费
   quota: "免费 API Key 默认每小时 200 次、每月 20,000 次请求，可商用免署名；在应用内标注来源可申请提额（以官网为准）"
   validity: 长期有效
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 国内可直连（api.pexels.com 可访问）
@@ -1086,6 +1154,7 @@
   free_type: 永久免费
   quota: 免 API Key 即可调用矢量文件转换接口（SVG/EPS/PDF/AI 等互转），无公开调用上限（以官网为准）
   validity: 长期有效
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 国内可直连（实测可访问）
@@ -1102,6 +1171,7 @@
   free_type: 永久免费
   quota: "免费档含 5 GB 带宽、2 GB 存储、75 万次函数执行、75,000 MAU，1 个免费项目（以官网为准）"
   validity: 长期有效
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 需要特殊网络（Cloud 版海外节点；亦可自托管）
@@ -1118,6 +1188,7 @@
   free_type: 每月重置
   quota: 免费档每月 100 万次函数调用、0.5 GB 数据库存储，超出按 $2.20/百万次计费（以官网为准）
   validity: 每月重置
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 需要特殊网络（海外服务，可自托管）
@@ -1134,6 +1205,7 @@
   free_type: 每月重置
   quota: Spark 免费档：Firestore 1 GiB 存储、每天 5 万次读 / 2 万次写、认证 5 万 MAU、Hosting 10 GB 存储（以官网为准）
   validity: 每月重置
+  need_credit_card: "否"
   need_realname: 是
   openai_compatible: 否
   access_note: 需要特殊网络（Firebase 控制台与后端需海外网络）
@@ -1150,6 +1222,7 @@
   free_type: 新用户一次性
   quota: 新账号一次性 $5 额度（30 天），之后 Free 档每月赠 $1 不结转额度，限 1 项目 3 服务，每服务 0.5 GB 内存（以官网为准）
   validity: 首月 $5，之后每月 $1
+  need_credit_card: "以官网为准"
   need_realname: 否
   openai_compatible: 否
   access_note: 需要特殊网络（海外服务）
@@ -1166,6 +1239,7 @@
   free_type: 永久免费
   quota: 1 个免费 Web 服务（512 MB / 0.1 vCPU，法兰克福或华盛顿）+ 1 个免费数据库（1 GB，每月 5 小时活跃时间），闲置 1 小时后 scale-to-zero（以官网为准）
   validity: 长期有效
+  need_credit_card: "否"
   need_realname: 是
   openai_compatible: 否
   access_note: 需要特殊网络（海外服务）
@@ -1182,6 +1256,7 @@
   free_type: 每月重置
   quota: 免费开发者计划每月赠 $5 使用额度，超额停服不扣费，无需信用卡（以官网为准）
   validity: 每月重置
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 国内可直连（节点含香港/新加坡，大陆访问较快）
@@ -1198,6 +1273,7 @@
   free_type: 新用户一次性
   quota: 注册赠 $200 额度且不过期、无需信用卡；按 Nova 转写价折算约 4.6 万分钟语音转写，或约 660 万字符 TTS（以官网为准）
   validity: 不过期，用完为止
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 需要特殊网络（海外服务）
@@ -1214,6 +1290,7 @@
   free_type: 新用户一次性
   quota: 注册赠 $50 额度，无需信用卡；按 Universal-2 每小时 $0.15 折算约 330 小时转写（以官网为准）
   validity: 赠额用完为止
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 需要特殊网络（海外服务）
@@ -1230,6 +1307,7 @@
   free_type: 每月重置
   quota: 每月免费 400 万字符（Standard 与 WaveNet 各 400 万），Neural2 与 Chirp 3 HD 各 100 万字符；需先开通结算账号（以官网为准）
   validity: 每月重置
+  need_credit_card: "以官网为准"
   need_realname: 是
   openai_compatible: 否
   access_note: 需要特殊网络（Google Cloud 需海外网络与结算账号）
@@ -1246,6 +1324,7 @@
   free_type: 每月重置
   quota: F0 免费层每月 50 万字符神经网络语音合成，外加 5 小时实时语音转写（不支持批量转写，以官网为准）
   validity: 每月重置
+  need_credit_card: "否"
   need_realname: 是
   openai_compatible: 否
   access_note: 需要特殊网络（Azure 国际版需海外网络；Azure 中国区为独立运营、定价不同）
@@ -1262,6 +1341,7 @@
   free_type: 每月重置
   quota: Lite 免费层每月 1 万字符语音合成，超出按每千字符约 $0.02 计费（以官网为准）
   validity: 每月重置
+  need_credit_card: "以官网为准"
   need_realname: 是
   openai_compatible: 否
   access_note: 需要特殊网络（IBM Cloud 海外区域）
@@ -1278,6 +1358,7 @@
   free_type: 每月重置
   quota: "免费层每月 25,000 次请求（每 IP 每天 500 次），单文件 1 MB、PDF 最多 3 页；Engine 3 每月另限 1000 页（以官网为准）"
   validity: 每月重置
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 国内可直连（实测可访问，偶有波动）
@@ -1294,6 +1375,7 @@
   free_type: 每月重置
   quota: "Community 免费层每月 1,000 次操作、1 个应用，可用视觉/文本/生成类模型（以官网为准）"
   validity: 每月重置
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 需要特殊网络（海外服务）
@@ -1310,6 +1392,7 @@
   free_type: 每月重置
   quota: 免费层每月 100 次请求，用于图像自动打标、分类与视觉搜索（以官网为准）
   validity: 每月重置
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 需要特殊网络（海外服务）
@@ -1326,6 +1409,7 @@
   free_type: 永久免费
   quota: 开源自托管（AGPL-3.0）不限次数、可完全离线；公共实例当前需 API Key，官方托管 API 约 $29/月起（以官网为准）
   validity: 长期有效
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 国内可直连（自托管部署后无网络限制）
@@ -1342,6 +1426,7 @@
   free_type: 每月重置
   quota: "免费层每月 1,000 次语言检测请求，无需信用卡（以官网为准）"
   validity: 每月重置
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 需要特殊网络（海外服务）
@@ -1358,6 +1443,7 @@
   free_type: 新用户一次性
   quota: 注册赠送少量试用额度，可调用文生图、图像超分、文本生成等接口（以官网为准）
   validity: 赠额用完为止
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 是
   access_note: 需要特殊网络（海外服务）
@@ -1374,6 +1460,7 @@
   free_type: 每月重置
   quota: 免费层每月约 800 次 API 调用（含文档转换、图像识别、文本分析，以官网为准）
   validity: 每月重置
+  need_credit_card: "以官网为准"
   need_realname: 否
   openai_compatible: 否
   access_note: 需要特殊网络（海外服务）
@@ -1390,6 +1477,7 @@
   free_type: 每月重置
   quota: "免费层提供 1,200+ 神经语音、75+ 语言，具体字符额度以官网账户页为准（以官网为准）"
   validity: 每月重置
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 需要特殊网络（海外服务）
@@ -1406,6 +1494,7 @@
   free_type: 永久免费
   quota: 免 API Key、免注册即可调用图像生成与编辑接口（以官网为准）
   validity: 长期有效
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 需要特殊网络（海外服务）
@@ -1422,6 +1511,7 @@
   free_type: 每月重置
   quota: "非商业用途每月免费 2,000 次 API 调用，可在开发者门户自取 AppID（以官网为准）"
   validity: 每月重置
+  need_credit_card: "以官网为准"
   need_realname: 否
   openai_compatible: 否
   access_note: 需要特殊网络（海外服务）
@@ -1438,6 +1528,7 @@
   free_type: 新用户一次性
   quota: 注册赠送约 $5 试用额度（部分活动期 $25），可调用 Llama 3.3 70B、DeepSeek V3、Qwen3 等 200+ 开源模型；额度用完转按量付费（以官网为准）
   validity: 赠金通常 14 天内有效，过期作废
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 是
   access_note: 需要特殊网络（海外站点，国内需自备网络环境）
@@ -1454,6 +1545,7 @@
   free_type: 新用户一次性
   quota: 每个新 API Key 赠 1000 万 tokens，通用于 Embeddings / Reranker / Reader / Classifier；Reader（r.jina.ai）不带 key 也能免费用，每次调用另有 20~500 RPM 限制（以官网为准）
   validity: 一次性赠额，用完不补充
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 是
   access_note: 需要特殊网络（海外服务）
@@ -1470,6 +1562,7 @@
   free_type: 新用户一次性
   quota: 注册赠送约 $5 试用额度，可调用 DeepSeek、Llama 等开源模型，无需信用卡（以官网为准）
   validity: 赠金约 3 个月有效
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 是
   access_note: 需要特殊网络（海外服务）
@@ -1486,6 +1579,7 @@
   free_type: 新用户一次性
   quota: 注册赠送约 $30 试用额度，可用于模型推理与专用部署（以官网为准）
   validity: 赠金未明确有效期，用完为止
+  need_credit_card: "以官网为准"
   need_realname: 否
   openai_compatible: 是
   access_note: 需要特殊网络（海外服务）
@@ -1502,6 +1596,7 @@
   free_type: 新用户一次性
   quota: 注册赠送约 $1 试用额度用于接口测试（以官网为准）
   validity: 赠金用完为止
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 是
   access_note: 需要特殊网络（欧洲服务商，国内需自备网络）
@@ -1518,6 +1613,7 @@
   free_type: 新用户一次性
   quota: 新账号赠 100 万免费 tokens，可调用 Llama、Qwen3 235B 等开源模型（以官网为准）
   validity: 赠额用完为止
+  need_credit_card: "以官网为准"
   need_realname: 否
   openai_compatible: 是
   access_note: 需要特殊网络（法国服务商）
@@ -1534,6 +1630,7 @@
   free_type: 新用户一次性
   quota: 注册赠送约 $25 试用额度，30 天内有效，可用于模型微调与推理（以官网为准）
   validity: 30 天
+  need_credit_card: "以官网为准"
   need_realname: 否
   openai_compatible: 是
   access_note: 需要特殊网络（海外服务）
@@ -1550,6 +1647,7 @@
   free_type: 新用户一次性
   quota: 注册赠送约 $5 试用额度，可跑 DeepSeek R1、Llama 4 Maverick/Scout、Qwen3 235B 等（以官网为准）
   validity: 赠金用完为止
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 是
   access_note: 需要特殊网络（海外服务）
@@ -1566,6 +1664,7 @@
   free_type: 每月重置
   quota: 免费档每月 25 万 credits，$0 起用，无需信用卡（以官网为准）
   validity: 每月重置
+  need_credit_card: "以官网为准"
   need_realname: 否
   openai_compatible: 是
   access_note: 需要特殊网络（海外服务）
@@ -1582,6 +1681,7 @@
   free_type: 永久免费
   quota: "免费层 50 RPM / 500,000 TPM，无需信用卡，可调用 Hermes 系列开源模型（以官网为准）"
   validity: 长期有效
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 是
   access_note: 需要特殊网络（海外服务）
@@ -1598,6 +1698,7 @@
   free_type: 新用户一次性
   quota: 注册赠送约 $25 试用额度，另设研究资助申请（以官网为准）
   validity: 赠金用完为止
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 是
   access_note: 需要特殊网络（海外服务）
@@ -1614,6 +1715,7 @@
   free_type: 每月重置
   quota: 免费层每月约 $10 额度循环发放，可调用 Reka 自研多模态模型（以官网为准）
   validity: 每月重置，不结转
+  need_credit_card: "以官网为准"
   need_realname: 否
   openai_compatible: 是
   access_note: 需要特殊网络（海外服务）
@@ -1630,6 +1732,7 @@
   free_type: 新用户一次性
   quota: 注册赠送约 $1 试用额度，可调用平台全部开源模型（以官网为准）
   validity: 赠金用完为止
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 是
   access_note: 需要特殊网络（海外服务）
@@ -1646,6 +1749,7 @@
   free_type: 新用户一次性
   quota: 注册赠送约 $10 试用额度，约 3 个月有效，可调用 Jamba 系列模型（以官网为准）
   validity: 约 3 个月
+  need_credit_card: "以官网为准"
   need_realname: 否
   openai_compatible: 是
   access_note: 需要特殊网络（海外服务）
@@ -1662,6 +1766,7 @@
   free_type: 新用户一次性
   quota: 新用户赠 2 亿免费 tokens，用于 Embeddings 与 Reranking；超出后按量计费（voyage-4-lite 约 $0.02/百万 tokens，以官网为准）
   validity: 赠额用完为止
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 是
   access_note: 需要特殊网络（海外服务）
@@ -1680,6 +1785,7 @@
   free_type: 每月重置
   quota: "Hobby 免费档每月 2,000 次 Tab 补全 + 50 次慢速 Premium 请求，无需信用卡（以官网为准）"
   validity: 每月重置
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 需要特殊网络（海外服务，国内访问需稳定国际网络）
@@ -1696,6 +1802,7 @@
   free_type: 每月重置
   quota: 免费档每月 25 次 prompt credits + 无限 Tab 补全，无需信用卡（以官网为准）
   validity: 每月重置
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 需要特殊网络（海外服务）
@@ -1712,6 +1819,7 @@
   free_type: 永久免费
   quota: 个人用户完全免费（部分渠道称每月约 5000 次补全额度，以官网为准），云端 IDE + VS Code / JetBrains 插件双形态，支持 100+ 语言
   validity: 长期有效
+  need_credit_card: "否"
   need_realname: 是
   openai_compatible: 否
   access_note: 国内可直连（字节出品，国内服务器低延迟）
@@ -1728,6 +1836,7 @@
   free_type: 每日重置
   quota: "免费档每日约 6,000 次请求（月度近 18 万次），支持 VS Code / JetBrains 插件，需 Google 账号（以官网为准）"
   validity: 每日重置
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 需要特殊网络（Google 服务）
@@ -1744,6 +1853,7 @@
   free_type: 永久免费
   quota: 开源免费（AGPL），VS Code / JetBrains 插件，自带会话与上下文管理，需自备大模型 API Key（可接国内模型）
   validity: 长期有效
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 国内可直连（工具本地运行，需自备 API Key，可接国内大模型）
@@ -1760,6 +1870,7 @@
   free_type: 永久免费
   quota: 开源免费（Apache-2.0）VS Code Agent，支持终端/浏览器/文件编辑多模式，需自备大模型 API Key
   validity: 长期有效
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 国内可直连（工具本地运行，需自备 API Key，可接国内大模型）
@@ -1776,6 +1887,7 @@
   free_type: 永久免费
   quota: 开源免费（Apache-2.0）终端 AI 结对编程工具，直接在 Git 仓库里改代码，需自备大模型 API Key
   validity: 长期有效
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 国内可直连（工具本地运行，需自备 API Key，可接国内大模型）
@@ -1792,6 +1904,7 @@
   free_type: 永久免费
   quota: 开源免费（Apache-2.0）VS Code Agent，支持多 Mode（Code / Architect / Ask），可自定义模型与 Prompt，需自备 API Key
   validity: 长期有效
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 国内可直连（工具本地运行，需自备 API Key，可接国内大模型）
@@ -1808,6 +1921,7 @@
   free_type: 永久免费
   quota: Free CPU Basic（2 vCPU 16 GB）不限量；ZeroGPU 每日 5 分钟；Static Spaces 全免费；Gradio/Docker 需付费计划（以官网为准）
   validity: 长期有效
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 需要特殊网络（海外服务）
@@ -1824,6 +1938,7 @@
   free_type: 永久免费
   quota: 免费档每日 10 万请求、单请求 10 ms CPU、128 MB 内存（以官网为准）
   validity: 长期有效
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 国内可直连（Cloudflare 节点国内可访问）
@@ -1840,6 +1955,7 @@
   free_type: 永久免费
   quota: Free Sandbox：2 个服务、2 个任务、1 个数据库，资源上限约 $20/月；创建资源需绑定信用卡（以官网为准）
   validity: 长期有效
+  need_credit_card: "以官网为准"
   need_realname: 否
   openai_compatible: 否
   access_note: 需要特殊网络（海外服务）
@@ -1856,6 +1972,7 @@
   free_type: 永久免费
   quota: Basic serverless $0：每月 50M RU + 10 GiB 存储，支持 scale-to-zero（以官网为准）
   validity: 长期有效
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 需要特殊网络（海外服务）
@@ -1872,6 +1989,7 @@
   free_type: 永久免费
   quota: Free 档 1 个数据库，最多 200k 节点 / 400k 关系，无需信用卡（以官网为准）
   validity: 长期有效
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 需要特殊网络（海外服务）
@@ -1888,6 +2006,7 @@
   free_type: 永久免费
   quota: 永久免费：PostgreSQL / MySQL 各 1 GB RAM + 1 GB 存储、Kafka 250 KB/s 出入（3 天保留）、OpenSearch 20 GB / 4 GB，无需信用卡（以官网为准）
   validity: 长期有效
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 需要特殊网络（海外服务）
@@ -1904,6 +2023,7 @@
   free_type: 新用户一次性
   quota: 赠送 $250 起始信用，写入限制约 5 MB / 5 分钟、保留 30 天（以官网为准）
   validity: 起始信用用完或按量计费
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 需要特殊网络（海外服务）
@@ -1920,6 +2040,7 @@
   free_type: 永久免费
   quota: "永久免费：0.25 vCPU、10 GB 存储、每日 1,000 请求、10 QPS（以官网为准）"
   validity: 长期有效
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 需要特殊网络（海外服务）
@@ -1936,6 +2057,7 @@
   free_type: 永久免费
   quota: Free 档 30 MB 数据集、30 连接、5 GB 带宽/月（以官网为准）
   validity: 长期有效
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 需要特殊网络（海外服务）
@@ -1952,6 +2074,7 @@
   free_type: 永久免费
   quota: Starter 免费档：每实例 5 GiB 行存 + 5 GiB 列存 + 50M RU，每组织最多 5 实例（以官网为准）
   validity: 长期有效
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 需要特殊网络（海外服务）
@@ -1968,6 +2091,7 @@
   free_type: 永久免费
   quota: "公共端点免费（限速）：约 1,000 张图/月、60 张/分钟，无需 Key；亦可自托管（AGPLv3）（以官网为准）"
   validity: 长期有效
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 需要特殊网络（海外服务）
@@ -1984,6 +2108,7 @@
   free_type: 永久免费
   quota: 免费、无需 Key、无需鉴权，公平使用限速约数百次/分钟（以官网为准）
   validity: 长期有效
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 需要特殊网络（海外服务）
@@ -2000,6 +2125,7 @@
   free_type: 每月重置
   quota: 免费档每月 100 次请求（日更新），需注册 API Key；超额按量计费（以官网为准）
   validity: 每月重置
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 需要特殊网络（海外服务，APILayer 旗下）
@@ -2016,6 +2142,7 @@
   free_type: 永久免费
   quota: "免费档约 10,000 次/月（IP 地理定位 + 反向地理编码 + ASN 等），无需信用卡（以官网为准）"
   validity: 长期有效
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 需要特殊网络（海外服务）
@@ -2032,6 +2159,7 @@
   free_type: 每月重置
   quota: "免费档每月 3,000 封邮件、每日 100 封上限、3 个验证域名，无需信用卡（以官网为准）"
   validity: 每月重置
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 需要特殊网络（海外服务）
@@ -2048,6 +2176,7 @@
   free_type: 每月重置
   quota: "Legacy 免费档每月 50,000 次（注册 token，无需信用卡），返回国家/地区/城市/ASN/时区（以官网为准）"
   validity: 每月重置
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 需要特殊网络（海外服务）
@@ -2064,6 +2193,7 @@
   free_type: 永久免费
   quota: Free 档最多 3 个项目、每月 300 万 API 请求、100 MB 数据吞吐、10 并发 WebSocket，无需信用卡（以官网为准）
   validity: 长期有效
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 需要特殊网络（海外服务）
@@ -2080,6 +2210,7 @@
   free_type: 每月重置
   quota: 免费档每月含免费工具调用额度（官方页面口径不一，约 2 万~10 万次/月，以官网为准），免信用卡，可连接 1500+ SaaS 应用
   validity: 每月重置
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 需要特殊网络（海外服务）
@@ -2096,6 +2227,7 @@
   free_type: 永久免费
   quota: "免费、无需 Key（非商用），约 10,000 次/天，覆盖全球多模型、最高 16 天预报（以官网为准）"
   validity: 长期有效
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 国内可直连（公开 API，国内可访问）
@@ -2112,6 +2244,7 @@
   free_type: 每日重置
   quota: 免费档每日 50 credits（约 10 首歌），不可商用、无月度下载额度（以官网为准）
   validity: 每日重置
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 需要特殊网络（海外服务）
@@ -2128,6 +2261,7 @@
   free_type: 每日重置
   quota: 免费档每日 66 credits，输出带水印、非商用、单条最长约 5 秒片段（以官网为准）
   validity: 每日重置
+  need_credit_card: "否"
   need_realname: 是
   openai_compatible: 否
   access_note: 国内可直连（快手出品，国内服务器）
@@ -2144,6 +2278,7 @@
   free_type: 新用户一次性
   quota: 经阿里云百炼提供，新人约 90 天免费额度，含约 100 张文生图 + 50 秒视频生成（以官网为准）
   validity: 约 90 天（新人专享，到期清零）
+  need_credit_card: "否"
   need_realname: 是
   openai_compatible: 否
   access_note: 国内可直连（阿里云百炼）
@@ -2160,6 +2295,7 @@
   free_type: 每日重置
   quota: 免费档每日 10 credits + 每月 100 credits 上限，最多 3 首整曲/天，不可商用（以官网为准）
   validity: 每日重置（月度 100 credits 封顶）
+  need_credit_card: "以官网为准"
   need_realname: 否
   openai_compatible: 否
   access_note: 需要特殊网络（海外服务）
@@ -2176,6 +2312,7 @@
   free_type: 每日重置
   quota: 免费档每日 10 slow credits（每 credit 约 4 张变体），图入库公开、不可商用（以官网为准）
   validity: 每日重置
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 需要特殊网络（海外服务）
@@ -2192,6 +2329,7 @@
   free_type: 每日重置
   quota: 免费档每日约 50 credits（部分渠道称 100/月或 30/天，以官网为准），图入库公开、不可商用
   validity: 每日重置
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 需要特殊网络（海外服务）
@@ -2208,6 +2346,7 @@
   free_type: 每日重置
   quota: 免费档每日 150 fast tokens，无需信用卡，输出默认公开（以官网为准）
   validity: 每日重置
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 需要特殊网络（海外服务）
@@ -2224,6 +2363,7 @@
   free_type: 每月重置
   quota: 免费档每月约 30 次生成，输出带水印、单条约 5 秒（以官网为准）
   validity: 每月重置
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 需要特殊网络（海外服务）
@@ -2240,6 +2380,7 @@
   free_type: 每日重置
   quota: 免费档注册赠送 60 credits + 每日 30 credits，输出 540p、带水印（以官网为准）
   validity: 每日重置
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 需要特殊网络（海外服务）
@@ -2256,6 +2397,7 @@
   free_type: 新用户一次性
   quota: 免费档一次性赠送 125 credits（按 Gen-4 Turbo 计），输出带水印（以官网为准）
   validity: 一次性赠送，不每月重置
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 需要特殊网络（海外服务）
@@ -2272,6 +2414,7 @@
   free_type: 每日重置
   quota: 免费档每日 100 compute units，无需信用卡，含图像生成与编辑，不含视频模型与商用授权（以官网为准）
   validity: 每日重置
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 需要特殊网络（海外服务）
@@ -2288,6 +2431,7 @@
   free_type: 每日重置
   quota: 免费档每日 4 首歌（v7.5-all 模型），不可下载、不可商用（以官网为准）
   validity: 每日重置
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 国内可直连（昆仑天工出品，有 mureka.cn 国内站）
@@ -2304,6 +2448,7 @@
   free_type: 每日重置
   quota: 免费档提供每日刷新的有限生成额度（具体数量以官网为准），输出带水印
   validity: 每日重置
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 需要特殊网络（海外服务）
@@ -2320,6 +2465,7 @@
   free_type: 每月重置
   quota: 免费档每月 25 credits（1 credit = 1 GB 存储 或 1 GB 带宽 或 1000 次转换），3 名用户（以官网为准）
   validity: 每月重置
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 需要特殊网络（海外服务）
@@ -2336,6 +2482,7 @@
   free_type: 永久免费
   quota: Forever Free：20 GB 带宽、3 GB 存储、2 用户、500 视频单位（以官网为准）
   validity: 长期有效
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 需要特殊网络（海外服务）
@@ -2352,6 +2499,7 @@
   free_type: 永久免费
   quota: 免费档 1 GB IPFS 存储、500 文件、10 GB 带宽、10K 请求、1 网关（以官网为准）
   validity: 长期有效
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 需要特殊网络（海外服务）
@@ -2368,6 +2516,7 @@
   free_type: 永久免费
   quota: Free Forever：60 存储分钟、每月 100 GB 带宽、60 直播分钟（以官网为准）
   validity: 长期有效
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 需要特殊网络（海外服务）
@@ -2384,6 +2533,7 @@
   free_type: 每月重置
   quota: 每月免费额度：标准存储 10 GB、CDN 回源流量 10 GB、上传不限、PUT/DELETE 10 万次、GET 100 万次（以官网为准）
   validity: 每月重置（需实名认证，当月不结转）
+  need_credit_card: "否"
   need_realname: 是
   openai_compatible: 否
   access_note: 国内可直连（国内老牌云厂商，访问快）
@@ -2401,6 +2551,7 @@
   free_type: 永久免费
   quota: 免费版提供 GPU/TPU（硬件类型随供需动态分配，常见为 T4，高峰可能排队，Google 不公布具体额度）；单次会话最长 12 小时，闲置即断线；CPU 运行时可用；集成 Google Drive（约 15GB 临时存储），无持久化。免费档长期有效，具体以官网实时规则为准。
   validity: 免费档长期有效（GPU 可用量随平台负载波动，非固定上限）
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 需要特殊网络
@@ -2416,6 +2567,7 @@
   free_type: 永久免费
   quota: 免费 Notebook 每周 GPU 配额约 30 小时（P100 或双 T4），TPU v3-8 每周约 20 小时；CPU 会话 4 核 / 30GB RAM，GPU 会话 4 核 / 29GB RAM；单次会话 CPU/GPU 最长 12 小时、TPU 9 小时，/kaggle/working 约 20GB 自动保存盘。具体以官网实时规则为准。
   validity: 免费档长期有效（GPU/TPU 配额按周重置，高峰可能排队）
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 需要特殊网络
@@ -2431,6 +2583,7 @@
   free_type: 每月重置
   quota: 免费版每月赠送 $5 平台额度（无需信用卡，约数千次调用，视具体 Actor 计费；Web Fetch 类约 3333 次），含数千个现成 Actor、云存储、调度与 Webhook；超出按用量计费。具体以官网实时规则为准。
   validity: 每月重置（额度不结转）
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 国内可直连
@@ -2446,6 +2599,7 @@
   free_type: 永久免费
   quota: 免费档每月 100 次 API 请求（含邮箱验证、IP 地理定位、手机号验证等开发者 API 套件），速率限制 1 次/秒，无需信用卡、限非商业用途。具体以官网实时规则为准。
   validity: 免费档长期有效
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 国内可直连
@@ -2461,6 +2615,7 @@
   free_type: 永久免费
   quota: 免费档每月 200 积分（覆盖 300+ API（官网现称 367+），多数调用 1 积分/次、个别如 IP 查询为 10 积分），速率限制 5 次/分钟，无需信用卡、需注明出处且限非商业用途。具体以官网实时规则为准。
   validity: 免费档长期有效（积分按月重置不结转）
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 国内可直连
@@ -2476,6 +2631,7 @@
   free_type: 永久免费
   quota: 免费档每月 50 张图片/PDF 生成额度、3 个模板，无需信用卡；支持 HTML/CSS 或通过可视化编辑器制作模板，REST API 与 Zapier/Make/n8n/Airtable 集成。具体以官网实时规则为准。
   validity: 免费档长期有效
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 否
   access_note: 国内可直连
@@ -2491,6 +2647,7 @@
   free_type: 永久免费
   quota: Always Free 永久免费档：每月 1TB 数据传出至互联网、1000 万次 HTTP/HTTPS 请求、200 万次 CloudFront Functions 调用、200 万次 KeyValueStore 读取、10 个 Distribution Tenant、免费 SSL 证书，全功能可用。具体以官网实时规则为准。
   validity: 永久免费（AWS 账户注册即可用，不限期）
+  need_credit_card: "是"
   need_realname: 否
   openai_compatible: 否
   access_note: 国内可直连
@@ -2509,6 +2666,7 @@
   free_type: 永久免费
   quota: 研究展示型 API，全部 Typhoon 模型 $0；限制 5 请求/秒、200 请求/分钟/模型，无需信用卡，具体数值以官网为准
   validity: 长期（研究展示，无明确到期）
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 是
   access_note: 需要特殊网络（海外服务，大陆不可直连）
@@ -2525,6 +2683,7 @@
   free_type: 永久免费
   quota: 三款 Flash 模型输入/输出均 $0（非试用额度、无到期、无月用量上限、无需信用卡）；限制为并发数（约 1 并发、~1 次/秒），具体数值以官网为准
   validity: 长期（官方 Free 档，非促销）
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 是
   access_note: 需要特殊网络（海外平台 api.z.ai，与国内 open.bigmodel.cn 账号体系独立）
@@ -2541,6 +2700,7 @@
   free_type: 永久免费
   quota: 云端免费档含若干开源模型、无需信用卡；限制为单并发 + 每 5 小时/每周会话额度（官方未公开具体数值），以官网为准
   validity: 长期（Free 档）
+  need_credit_card: "否"
   need_realname: 否
   openai_compatible: 是
   access_note: 需要特殊网络（海外服务，大陆不可直连）

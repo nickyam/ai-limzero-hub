@@ -48,13 +48,14 @@
     fill("f-openai", "OpenAI 兼容", data.map(function (d) { return d.openai_compatible; }));
     fill("f-direct", "国内直连", data.map(function (d) { return (d.access_note || "").indexOf("国内可直连") >= 0 ? "是" : "否"; }));
     fill("f-free", "免费类型", data.map(function (d) { return d.free_type; }));
+    fill("f-credit", "信用卡要求", data.map(function (d) { return d.need_credit_card; }));
 
     // 当前筛选 + 搜索状态
-    var state = { type: "", realname: "", openai: "", direct: "", q: "" };
+    var state = { type: "", realname: "", openai: "", direct: "", q: "", credit: "" };
 
     var fmap = {
       "f-type": "type", "f-realname": "realname",
-      "f-openai": "openai", "f-direct": "direct", "f-free": "free"
+      "f-openai": "openai", "f-direct": "direct", "f-free": "free", "f-credit": "credit"
     };
     Object.keys(fmap).forEach(function (id) {
       el(id).addEventListener("change", function () {
@@ -89,6 +90,7 @@
           if (isDirect !== state.direct) ok = false;
         }
         if (state.free && c.dataset.free !== state.free) ok = false;
+        if (state.credit && c.dataset.credit !== state.credit) ok = false;
         // 与搜索联动：优先用卡片的 data-search（含名称/模型/分类/标签/避坑备注），回退到可见文本
         if (ok && state.q) {
           var text = (c.dataset.search || c.textContent || "").toLowerCase();

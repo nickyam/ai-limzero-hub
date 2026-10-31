@@ -7,7 +7,7 @@
 {{ $tags := .tags | default slice }}
 {{ $search := printf "%s %s %s %s %s" $name $model $type (delimit $tags " ") $remark | replaceRE "[\"&<>]" "" }}
 <article class="card" data-slug="{{ .slug }}" data-type="{{ .type }}"
-  data-realname="{{ .need_realname }}" data-openai="{{ .openai_compatible }}"
+  data-realname="{{ .need_realname }}" data-credit="{{ .need_credit_card }}" data-openai="{{ .openai_compatible }}"
   data-direct="{{ if $direct }}true{{ else }}false{{ end }}" data-free="{{ .free_type }}"
   data-search="{{ $search }}" tabindex="0" role="button"
   aria-label="查看 {{ .name }} 详情">
@@ -24,6 +24,10 @@
     <p class="card-quota">{{ .quota }}</p>
   </div>
   <p class="card-access">🌐 {{ .access_note }}</p>
+  <div class="card-req">
+    {{ if eq .need_realname "否" }}<span class="tag req ok">免实名</span>{{ else if eq .need_realname "是" }}<span class="tag req warn">需实名</span>{{ end }}
+    {{ if eq .need_credit_card "否" }}<span class="tag req ok">免信用卡</span>{{ else if eq .need_credit_card "是" }}<span class="tag req warn">需信用卡</span>{{ end }}
+  </div>
   <div class="card-tags">
     {{ range .tags }}<span class="tag">{{ . }}</span>{{ end }}
   </div>

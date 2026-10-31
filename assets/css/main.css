@@ -184,9 +184,13 @@ main { flex: 1 0 auto; width: 100%; }
 .tag.type a { color: inherit; }
 .tag.type:hover { border-color: var(--accent); color: var(--accent); }
 .tag.free { background: var(--accent-soft); }
+.tag.req { font-size: 11px; padding: 1px 8px; line-height: 1.6; }
+.tag.req.ok { color: #1a7f43; background: rgba(26,127,67,.10); border: 1px solid rgba(26,127,67,.28); }
+.tag.req.warn { color: #c0392b; background: rgba(192,57,43,.10); border: 1px solid rgba(192,57,43,.28); }
 .card-quota-row { display: flex; align-items: flex-end; gap: 8px; }
 .card-quota { flex: 1 1 auto; min-width: 0; font-size: 13px; color: var(--fg); margin: 6px 0; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
-.card-access { font-size: 12px; color: var(--muted); margin: 4px 0 8px; }
+.card-access { font-size: 12px; color: var(--muted); margin: 4px 0 4px; }
+.card-req { display: flex; gap: 6px; flex-wrap: wrap; margin: 0 0 8px; }
 .card-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
 .card-actions { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-top: auto; }
 .btn { font-size: 13px; border-radius: 8px; padding: 6px 12px; border: 1px solid var(--border); cursor: pointer; }

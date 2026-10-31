@@ -38,6 +38,7 @@ REQUIRED = [
 
 FREE_TYPES = {"新用户一次性", "每日重置", "每月重置", "永久免费", "学生专属", "限时免费"}
 YN = {"是", "否"}
+CC_VALUES = {"是", "否", "以官网为准"}
 
 # 已知分类（新增分类会 WARN，提醒你是主动决策而不是手滑写错字）
 KNOWN_TYPES = {
@@ -105,6 +106,9 @@ def check_item(it: dict, idx: int, rep: Report) -> None:
         v = it.get(k)
         if v and v not in YN:
             rep.err(where, f"{k} `{v}` 必须是「是」或「否」")
+    cc = it.get("need_credit_card")
+    if cc and cc not in CC_VALUES:
+        rep.err(where, f"need_credit_card `{cc}` 必须是「是」「否」或「以官网为准」")
 
     # 4) 访问备注必须明确表态（首页「国内直连」筛选依赖这个字符串）
     an = it.get("access_note") or ""
