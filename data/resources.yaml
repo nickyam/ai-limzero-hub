@@ -2692,3 +2692,39 @@
   remark: Ollama 官方云端托管，复用本地 Ollama API 格式（base url api.ollama.com），本地工具可无缝切云端；免费档模型数少、限额未公开、仅单并发，适合尝鲜与轻量调用，不适合高并发生产。
   source_id: vendor-global-llm
   tags: [海外服务, 需科学上网, OpenAI兼容, 本地可平替]
+
+# ============ 新增（脚本追加，来源见 source_id）============
+
+- name: 商汤日日新 SenseNova Token Plan
+  slug: sensenova-token-plan
+  type: 大模型API
+  model_name: SenseNova 6.8 Flash Lite / U1 Fast / U1.5 Lite（原生多模态）
+  free_type: 限时免费
+  quota: "Free 公测档 ¥0/月，每模型每 5 小时 1,500 次调用（特殊模型除外），最多 20 个 API Key；官方标注「限时放量、付费档位即将上线」，具体数值以官网为准"
+  validity: 公测期免费，官方已明示 Lite / Pro 付费档即将上线，政策随时可能调整，以官网为准
+  need_realname: 否
+  need_credit_card: 否
+  openai_compatible: 是
+  access_note: 国内可直连
+  official_url: "https://platform.sensenova.cn/"
+  rule_url: "https://www.sensenova.cn/token-plan"
+  remark: "官方 token-plan 页明写「公测期完全免费开放，付费档位即将上线」，属限时免费而非永久档，别当长期白嫖。注册并完成账号验证后在控制台创建 sk- 开头密钥；兼容 OpenAI 图像接口规范（base https://token.sensenova.cn/v1 ，/v1/images/generations 与 /v1/images/edits），U1.5 Lite 为生图模型、不能直接当 Chat Model 配到 Cursor/Cline，对话可用 sensenova-6.8-flash-lite。公测期 watermark=false 可免费出无水印原图，后续转付费按需调整。"
+  source_id: vendor-cn-llm
+  tags: [国内可访问, OpenAI兼容, 限时免费, 多模态]
+
+- name: 美团 LongCat API 开放平台
+  slug: longcat-api
+  type: 大模型API
+  model_name: LongCat-2.5（1M 上下文 / 最大输出 256K tokens）
+  free_type: 每日重置
+  quota: 官方开放平台提供每日免费 Token 额度、按自然日刷新；官方 ChangeLog 记载额度可经有效反馈提升，且曾批量退役旧模型，具体数值与适用模型以官网用量页为准
+  validity: 每日重置；平台仍处快速迭代期，模型清单与免费额度调整频繁，以官网为准
+  need_realname: 否
+  need_credit_card: 否
+  openai_compatible: 是
+  access_note: 国内可直连
+  official_url: "https://longcat.chat/platform/"
+  rule_url: "https://longcat.chat/platform/docs/zh/"
+  remark: "官方快速开始文档写明同时兼容 OpenAI 与 Anthropic 双协议：OpenAI 格式 base https://api.longcat.chat/openai （/v1/chat/completions）、Anthropic 格式 base https://api.longcat.chat/anthropic （/v1/messages），可直接用 OpenAI / Anthropic SDK。手机号注册后在 API Keys 页手动创建密钥。官方 ChangeLog 显示平台有模型退役与额度调整记录，第三方流传的每日额度数字口径互相矛盾，本站不采信、一律以官网用量页为准。"
+  source_id: vendor-cn-llm
+  tags: [国内可访问, OpenAI兼容, 每日免费, 双协议]
