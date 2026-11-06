@@ -5,8 +5,6 @@
 </section>
 
 <section class="resource-list">
-  {{ range where site.Data.resources "type" .Params.category }}
-    {{ partial "resource-card.html" . }}
-  {{ end }}
+  {{ partial "resource-list.html" (dict "items" (where site.Data.resources "type" .Params.category)) }}
 </section>
 {{ end }}

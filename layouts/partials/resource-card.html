@@ -5,16 +5,21 @@
 {{ $type := .type | default "" }}
 {{ $remark := .remark | default "" }}
 {{ $tags := .tags | default slice }}
+{{ $added := .added_on | default "" }}
+{{ $newDays := int (site.Params.newDays | default 30) }}
+{{ $cutoff := (now.AddDate 0 0 (mul -1 $newDays)).Format "2006-01-02" }}
+{{ $isNew := and $added (ge $added $cutoff) }}
 {{ $search := printf "%s %s %s %s %s" $name $model $type (delimit $tags " ") $remark | replaceRE "[\"&<>]" "" }}
 <article class="card" data-slug="{{ .slug }}" data-type="{{ .type }}"
   data-realname="{{ .need_realname }}" data-credit="{{ .need_credit_card }}" data-openai="{{ .openai_compatible }}"
   data-direct="{{ if $direct }}true{{ else }}false{{ end }}" data-free="{{ .free_type }}"
-  data-search="{{ $search }}" tabindex="0" role="button"
+  data-added="{{ $added }}" data-search="{{ $search }}" tabindex="0" role="button"
   aria-label="查看 {{ .name }} 详情">
   <div class="card-head">
     <h3 class="card-title">
       <a class="card-title-link" href="{{ $href }}">{{ .name }}</a>
     </h3>
+    {{ if $isNew }}<span class="tag new" title="{{ $added }} 收录">NEW</span>{{ end }}
   </div>
   <div class="card-meta">
     <span class="tag type"><a href="/categories/{{ partial "cat-slug.html" .type }}/">{{ .type }}</a></span>

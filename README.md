@@ -182,6 +182,7 @@ rsync -az --delete --delete-excluded \
 | `name` | 平台名称 |
 | `type` | 分类：大模型API / AI编程助手 / AI推理工具 / 云服务器·容器 / 静态托管 / 存储·CDN / 后端·数据库 / 向量数据库 |
 | `slug` | URL 片段，英文小写+中划线，全局唯一（重复会让详情页互相覆盖） |
+| `added_on` | 收录日期 `YYYY-MM-DD`，**可选**；`ingest.py` 自动填当天。带该字段的条目在首页/分类页按日期倒序置顶，并在 `config.toml` 的 `newDays`（默认 30）天内显示 NEW 徽章。老条目不填，保持原顺序 |
 | `model_name` | 模型名称（非大模型留空） |
 | `free_type` | 新用户一次性 / 每日重置 / 每月重置 / 永久免费 / 学生专属 / 限时免费 |
 | `quota` | 额度说明（token 数量、输入/输出是否分开） |

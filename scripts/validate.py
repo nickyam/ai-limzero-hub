@@ -19,6 +19,7 @@
 退出码：0 通过 / 1 有 ERROR（或 --strict 下有 WARN）
 """
 import argparse
+import datetime
 import os
 import re
 import sys
@@ -141,6 +142,15 @@ def check_item(it: dict, idx: int, rep: Report) -> None:
     t = (it.get("type") or "").strip()
     if t and t not in KNOWN_TYPES:
         rep.warn(where, f"新分类 `{t}`（确认是有意新增，否则可能是错别字）")
+
+    # 9) 收录日期（可选字段；老条目没有，新条目由 ingest.py 自动生成）
+    ao = it.get("added_on")
+    if ao:
+        aov = str(ao).strip()
+        try:
+            datetime.date.fromisoformat(aov)
+        except ValueError:
+            rep.err(where, f"added_on `{aov}` 必须是有效的 YYYY-MM-DD 日期（如 2026-11-06）")
 
 
 def main():

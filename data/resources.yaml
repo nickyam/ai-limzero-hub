@@ -2697,6 +2697,7 @@
 
 - name: 商汤日日新 SenseNova Token Plan
   slug: sensenova-token-plan
+  added_on: "2026-11-06"
   type: 大模型API
   model_name: SenseNova 6.8 Flash Lite / U1 Fast / U1.5 Lite（原生多模态）
   free_type: 限时免费
@@ -2714,6 +2715,7 @@
 
 - name: 美团 LongCat API 开放平台
   slug: longcat-api
+  added_on: "2026-11-06"
   type: 大模型API
   model_name: LongCat-2.5（1M 上下文 / 最大输出 256K tokens）
   free_type: 每日重置

@@ -3,21 +3,9 @@
   <h1 class="site-title">{{ .Title }}</h1>
   <p class="slogan">{{ site.Params.slogan }}</p>
 </section>
-<section class="resource-list">
-  {{ range .Pages }}
-    {{ partial "resource-card.html" (dict
-      "slug" .Params.slug
-      "name" .Title
-      "type" .Params.resource_type
-      "model_name" .Params.model_name
-      "free_type" .Params.free_type
-      "quota" .Params.quota
-      "access_note" .Params.access_note
-      "need_realname" .Params.need_realname
-      "openai_compatible" .Params.openai_compatible
-      "tags" .Params.tags
-      "official_url" .Params.official_url
-      "rule_url" .Params.rule_url) }}
-  {{ end }}
+<section class="resource-list" id="resource-list">
+  {{/* 与首页 / 分类页共用同一份排序与卡片渲染，避免三个列表顺序不一致。
+       原先用 .Pages 构造 dict 会漏掉 need_credit_card / validity 等字段，这里直接吃数据源。 */}}
+  {{ partial "resource-list.html" (dict "items" site.Data.resources) }}
 </section>
 {{ end }}

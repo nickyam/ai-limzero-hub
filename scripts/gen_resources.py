@@ -37,6 +37,7 @@ FIELD_MAP = {
     "rule_url": "rule_url",
     "remark": "remark",
     "slug": "slug",
+    "added_on": "added_on",
 }
 
 
@@ -80,6 +81,9 @@ def build_front_matter(item: dict) -> str:
         val = yaml_val(item.get(src))
         if val is None:
             continue
+        if dst == "added_on":
+            # 强制字符串：不加引号时 Hugo front matter 会把它解析成 time.Time
+            val = f'"{val}"'
         lines.append(f"{dst}: {val}")
     lines.append("---")
     lines.append("")

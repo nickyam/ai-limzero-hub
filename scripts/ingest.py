@@ -8,6 +8,11 @@
   任何自动流程碰掉。自动流程能做的只有「校验通过后，把新条目追加到文件末尾」。
   这是本站信任资产（只收官方原生资源）的最后一道程序化闸门。
 
+  新条目的展示顺序不靠「在文件里的位置」决定：ingest 会自动写入
+  `added_on: "YYYY-MM-DD"`（收录日期），由 layouts/partials/resource-list.html
+  按该字段倒序把新卡片置顶，并在窗口期内显示 NEW 徽章。
+  老条目没有这个字段，保持原有顺序不动。批次文件可显式指定 added_on 覆盖。
+
 条目文件规范：
   - inbox/<slug>.yaml，单条：与 resources.yaml 里一个条目完全相同（含 source_id 字段）
   - inbox/<slug>.yaml，批量：顶层是条目列表
@@ -23,6 +28,8 @@ import glob
 import os
 import re
 import sys
+from datetime import date
+
 import yaml
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -48,7 +55,7 @@ def _yaml_quote(v):
 
 def dump_item(it: dict) -> str:
     """把 dict 渲染成与 resources.yaml 现有风格一致的 YAML 块（保持注释可读性）。"""
-    keys = ["name", "slug", "type", "model_name", "free_type", "quota", "validity",
+    keys = ["name", "slug", "added_on", "type", "model_name", "free_type", "quota", "validity",
             "need_realname", "need_credit_card", "openai_compatible", "access_note", "official_url",
             "rule_url", "remark", "source_id", "tags"]
     lines = []
@@ -65,6 +72,9 @@ def dump_item(it: dict) -> str:
             if not v:
                 continue
             lines.append(f"{prefix}tags: [{', '.join(_yaml_quote(x) for x in v)}]")
+        elif k == "added_on":
+            # 强制字符串：不加引号时 YAML 会解析成 date 对象，Hugo 里会变成 time.Time
+            lines.append(f'{prefix}added_on: "{v}"')
         else:
             lines.append(f"{prefix}{k}: {_yaml_quote(v)}")
     return "\n".join(lines)
@@ -112,6 +122,7 @@ def main():
     existing = load_existing_slugs()
     new_blocks, errors = [], []
     stats = {"ok": 0, "dup": 0, "bad": 0}
+    today = date.today().isoformat()
 
     for path in files:
         try:
@@ -129,6 +140,9 @@ def main():
             # slug：显式给 > name 生成
             if not it.get("slug"):
                 it["slug"] = re.sub(r"[^a-z0-9]+", "-", str(it.get("name", "")).lower()).strip("-") or "item"
+            # 收录日期：不传就按今天，用于新卡片置顶 + NEW 徽章
+            if not it.get("added_on"):
+                it["added_on"] = today
             # 必填
             missing = [k for k in REQUIRED if not (it.get(k) and str(it.get(k)).strip())]
             if missing:
@@ -171,7 +185,7 @@ def main():
     with open(RESOURCES, "w", encoding="utf-8") as f:
         f.write(main)
 
-    print(f"[ingest] 已追加 {len(new_blocks)} 条 → data/resources.yaml")
+    print(f"[ingest] 已追加 {len(new_blocks)} 条 → data/resources.yaml（收录日期 {today}）")
     print("下一步：python3 scripts/validate.py && python3 scripts/check_urls.py")
     print("        人工复核后，把 inbox/ 下对应文件删掉（或移走归档）。")
 

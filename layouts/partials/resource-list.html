@@ -1,0 +1,13 @@
+{{/* 资源卡片列表（首页 / 分类页 / resources 汇总页共用）
+     排序规则：带 added_on 的新收录条目按日期倒序置顶；老条目保持 data/resources.yaml 里的原顺序。
+     排序键统一构造成字符串（"1" + 日期 > "0" + 序号），避免 Hugo sort 遇到缺失字段的 nil 值。
+     同一天收录的多条，靠 sub 99999 $i 反转序号，保证 desc 排序下仍是原来的先后。 */}}
+{{ $list := slice }}
+{{ range $i, $r := .items }}
+  {{ $d := index $r "added_on" | default "" }}
+  {{ $key := printf "%s%05d" (cond (ne $d "") (printf "1%s" $d) "0") (sub 99999 $i) }}
+  {{ $list = $list | append (dict "key" $key "r" $r) }}
+{{ end }}
+{{ range sort $list "key" "desc" }}
+  {{ partial "resource-card.html" .r }}
+{{ end }}

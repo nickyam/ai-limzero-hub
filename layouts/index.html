@@ -32,9 +32,7 @@
 </section>
 
 <section class="resource-list" id="resource-list">
-  {{ range site.Data.resources }}
-    {{ partial "resource-card.html" . }}
-  {{ end }}
+  {{ partial "resource-list.html" (dict "items" site.Data.resources) }}
 </section>
 
 <p id="no-results" class="no-results" hidden>没有匹配的资源，试试调整筛选或关键词。</p>
@@ -49,6 +47,7 @@
   {{ $data = $data | append (dict
     "slug" (.slug | default (replace .name " " "-"))
     "name" .name
+    "added_on" (.added_on | default "")
     "type" .type
     "model_name" .model_name
     "free_type" .free_type
