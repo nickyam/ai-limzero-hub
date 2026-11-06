@@ -38,6 +38,8 @@ FIELD_MAP = {
     "remark": "remark",
     "slug": "slug",
     "added_on": "added_on",
+    # 避开 Hugo 原生 tags 分类法，与 type→resource_type 同样的处理
+    "tags": "resource_tags",
 }
 
 

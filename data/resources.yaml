@@ -183,17 +183,17 @@
 - name: "Google AI Studio（Gemini）"
   slug: "google-gemini"
   type: "大模型API"
-  model_name: "Gemini 2.5 Flash / 2.5 Flash-Lite / 3 Flash"
+  model_name: "Gemini 3.8 Flash / 3.5 Flash-Lite / 3.1 Flash-Lite 等（免费层模型清单随版本调整）"
   free_type: "每日重置"
-  quota: "Gemini 2.5 Flash 免费档 30 RPM / 1440 RPD（每天 1440 次）；2.5 Flash-Lite 10 RPM / 20 RPD；Gemini 3 Flash 5 RPM / 20 RPD，具体数值以官网为准"
-  validity: "每日重置（按天）"
+  quota: "官方免费层（Free Tier）仍在：Google AI Studio 全区域免费使用、无需信用卡，部分模型输入/输出 tokens 免费；各模型 RPM/RPD 限速不同且调整频繁，Gemini 4 Argon 等旗舰明确不在免费层，具体数值以官网 rate-limits 页为准"
+  validity: "免费层长期有效，限速按日计（以官网为准）"
   need_credit_card: "否"
   need_realname: "否"
   openai_compatible: "是"
   access_note: "需要特殊网络（Google 服务，大陆不可直连，需自备网络环境）"
   official_url: "https://aistudio.google.com/"
   rule_url: "https://ai.google.dev/gemini-api/docs/rate-limits"
-  remark: "无需信用卡，Google 账号 60 秒领 API Key；多模态能力极强（图/音/视频）；免费档速率受限。OpenAI 兼容需使用专用端点（generativelanguage.googleapis.com/v1beta/openai）。需自备海外网络环境。"
+  remark: "2026-11 复核：官方定价页确认「Start building free of charge」「Google AI Studio usage is free of charge in all available regions」，条目有效；但旧版写死的 2.5 Flash 30 RPM / 1440 RPD 等数字已过时，本站不再写死限速。免费层内容会用于改进 Google 产品，涉密/商用数据请用付费档。OpenAI 兼容需使用专用端点（generativelanguage.googleapis.com/v1beta/openai）。需自备海外网络环境。"
   tags: ["海外服务", "需科学上网", "多模态", "每日免费"]
 
 - name: "OpenRouter"
@@ -759,17 +759,17 @@
   type: AI推理工具
   model_name: Llama / Qwen / Mistral / Whisper / Stable Diffusion 等
   free_type: 每月重置
-  quota: 免费账号每月少量推理额度（约 $0.10 等值 credits）；Inference API 另有速率受限的免费试用，具体以官网为准
-  validity: 每月重置
+  quota: "⚠️ 官方定价文档当前标注 Free Users 月度 credits 为 None：免费账号需购买 credits 或升级 PRO（$2/月）才能使用 Inference Providers，原「每月 $0.10 免费额度」已不成立，具体以官网为准"
+  validity: "免费账号已无月度免费额度；PRO/Team/Enterprise 每月发放 credits"
   need_credit_card: "否"
   need_realname: 否
   openai_compatible: 是
   access_note: 国内可直连（huggingface.co 大陆访问不稳定，镜像站 hf-mirror.com 可下载模型）
   official_url: "https://huggingface.co/"
   rule_url: "https://huggingface.co/docs/inference-providers/pricing"
-  remark: 免费额度很小（$0.10/月级别），真正价值不在免费推理而在「模型 + Space + 数据集」的生态：可以直接跑别人的 Space 做验证，再决定自己部署。模型下载建议用 hf-mirror.com 镜像。
+  remark: "⚠️ 2026-11 复核：官方 Inference Providers 定价文档写明「Free users can use Inference Providers by purchasing credits, or by upgrading to PRO」，表格中 Free Users 的 Monthly Credits 为 None、Extra usage 为 yes (credits purchase required)。按用户拍板保留条目并如实说明。真正免费的部分在别的条目：Hugging Face Spaces（ZeroGPU 每日免费 GPU 分钟）、模型/数据集下载；本条目原先的「免费推理额度」主张已不成立。第三方对 $0.10 与 None 反复改口，一律以官方当前页为准。"
   source_id: vendor-global-llm
-  tags: [国内可访问, 每月免费, 模型社区, 额度很小]
+  tags: [国内可访问, 模型社区, 需购额度, 政策已变更]
 
 - name: Groq Cloud
   slug: groq-cloud
@@ -791,19 +791,19 @@
 - name: Cerebras Cloud
   slug: cerebras-cloud
   type: 大模型API
-  model_name: GPT-OSS-120B、Qwen3-235B、Llama 3.3 70B 等开源模型
-  free_type: 每日重置
-  quota: 免费档每日约 100 万 tokens、并发/速率按模型限制（约 5–30 RPM），具体数值以官网为准
-  validity: 长期（免费档）
-  need_credit_card: "否"
+  model_name: gpt-oss-120b / qwen-3.8-27b 等开源模型
+  free_type: 新用户一次性
+  quota: "添加经验证的有效支付方式后发放一次性 $5 赠金（promotional credit）；Free Trial 限速约 5 RPM、TPD 100 万 tokens（这是速率上限，不是每日重置的免费额度），具体数值以官网为准"
+  validity: "赠金激活后 30 天过期；用完或过期且未另购 PayGo credits，API 与 Playground 会暂停"
+  need_credit_card: "是"
   need_realname: 否
   openai_compatible: 是
   access_note: 需要特殊网络（境外服务，大陆不可直连）
   official_url: "https://cloud.cerebras.ai/"
   rule_url: "https://inference-docs.cerebras.ai/support/rate-limits"
-  remark: 晶圆级芯片推理，速度是免费档里最快的之一；每日 100 万 tokens 对个人实验很够用。无需信用卡。第三方站点报的 RPM 数字不一致（5 与 30 都有），以控制台账单页为准。
+  remark: "⚠️ 2026-11 复核修正：官方定价页与限速文档明确「Add a valid payment method to receive a one-time $5 promotional credit」「Cerebras doesn't currently offer a no-cost tier that renews automatically」，此前标注的每日重置 / 免信用卡 / 长期免费均已失效。官方措辞是 payment method（有效支付方式），本站按「需绑卡」口径标记以便筛选；领取时不扣费、也不会自动转付费（You will not be charged or automatically enrolled in paid usage）。晶圆级芯片推理速度很快，但只适合 30 天内做基准测试。"
   source_id: vendor-global-llm
-  tags: [海外服务, 需科学上网, OpenAI兼容, 每日免费]
+  tags: [海外服务, 需科学上网, OpenAI兼容, 需绑卡, 一次性额度]
 
 - name: Mistral La Plateforme
   slug: mistral-platform
@@ -1623,22 +1623,6 @@
   source_id: free-for-dev
   tags: [模型微调, 注册赠金]
 
-- name: Kluster AI
-  slug: kluster-ai
-  type: 大模型API
-  model_name: DeepSeek R1 / Llama 4 / Qwen3 235B
-  free_type: 新用户一次性
-  quota: 注册赠送约 $5 试用额度，可跑 DeepSeek R1、Llama 4 Maverick/Scout、Qwen3 235B 等（以官网为准）
-  validity: 赠金用完为止
-  need_credit_card: "否"
-  need_realname: 否
-  openai_compatible: 是
-  access_note: 需要特殊网络（海外服务）
-  official_url: "https://kluster.ai/"
-  rule_url: "https://docs.kluster.ai/get-started/quickstart/"
-  remark: 批量推理有折扣，适合跑离线任务（批处理打分、数据集生成）而不是实时对话。
-  source_id: free-for-dev
-  tags: [批量推理, 开源模型]
 
 - name: Morph LLM
   slug: morph-llm
