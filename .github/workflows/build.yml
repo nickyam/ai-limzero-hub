@@ -53,7 +53,9 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: "0.139.0"
+          # 与本地 / deploy.sh 使用的 Hugo 版本保持一致，避免版本差异（例如
+          # 0.139 的 mul 返回 int64、now.AddDate 要求 int）导致 CI 单侧构建失败。
+          hugo-version: "0.166.0"
           extended: true
 
       - name: Generate resource pages from YAML

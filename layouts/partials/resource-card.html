@@ -7,7 +7,9 @@
 {{ $tags := .tags | default slice }}
 {{ $added := .added_on | default "" }}
 {{ $newDays := int (site.Params.newDays | default 30) }}
-{{ $cutoff := (now.AddDate 0 0 (mul -1 $newDays)).Format "2006-01-02" }}
+{{/* Hugo 0.139 的 mul 返回 int64，而 now.AddDate 的第三个参数必须是 Go int；
+     新版 Hugo 放宽了这里的类型检查，故显式用 int 收窄，保证 CI(0.139) 与本地(0.166) 都能构建。 */}}
+{{ $cutoff := (now.AddDate 0 0 (int (mul -1 $newDays))).Format "2006-01-02" }}
 {{ $isNew := and $added (ge $added $cutoff) }}
 {{ $search := printf "%s %s %s %s %s" $name $model $type (delimit $tags " ") $remark | replaceRE "[\"&<>]" "" }}
 <article class="card" data-slug="{{ .slug }}" data-type="{{ .type }}"
