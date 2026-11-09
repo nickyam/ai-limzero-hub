@@ -39,8 +39,18 @@ REPO_TMP="/root/.ai-hub-repo-cache"
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 PUBLIC_DIR="${REPO_ROOT}/public"
 
+# 🔴 必须用 GNU rsync 3.x：macOS 自带 openrsync（/usr/bin/rsync）会静默忽略
+#    --filter 的 protect 规则，导致 --delete-excluded 把子站 index/dsh/ 整个删掉
+#    （2026-11-09 实测：743 个文件会被删，规则形同虚设）。
+RSYNC_BIN="${RSYNC_BIN:-/opt/homebrew/bin/rsync}"
+[ -x "${RSYNC_BIN}" ] || RSYNC_BIN="$(command -v rsync)"
+
 log() { printf '\033[36m[deploy]\033[0m %s\n' "$*"; }
 die() { printf '\033[31m[deploy] ERROR:\033[0m %s\n' "$*" >&2; exit 1; }
+
+if "${RSYNC_BIN}" --version 2>/dev/null | head -1 | grep -qi openrsync; then
+  die "检测到 openrsync，它不支持 --filter protect 规则；请先 brew install rsync 或设置 RSYNC_BIN"
+fi
 
 # ---------- 1. 本地构建 ----------
 if [ "${1:-}" != "--sync-only" ]; then
@@ -64,12 +74,16 @@ log "同步到 ${REMOTE_HOST}:${DEPLOY_DIR}"
 
 # --delete-excluded 必须加：否则被 --exclude 排除的旧文件不会被删除，
 # 开发文件/过期产物会残留在站点目录里。
+# 🔴 --filter='P dsh/' 必须放在所有 --exclude 之前：dsh-plugin-hub 部署在
+#    index/dsh/ 子目录，主站再部署时不能让 --delete 把整个子站清空。
+#    这条规则只在 GNU rsync 下生效，脚本开头有版本自检。
 ssh -i "${SSH_KEY}" -o StrictHostKeyChecking=no "${REMOTE_HOST}" \
   "mkdir -p '${DEPLOY_DIR}'"
 
-rsync -az --delete \
+"${RSYNC_BIN}" -az --delete \
   --delete-excluded \
   -e "ssh -i ${SSH_KEY} -o StrictHostKeyChecking=no" \
+  --filter='P dsh/' \
   --exclude '.git/' \
   --exclude '.github/' \
   --exclude '.workbuddy/' \
