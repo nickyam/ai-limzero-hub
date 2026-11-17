@@ -1,0 +1,16 @@
+- name: 云知声 U Plan
+  slug: unisound-uplan
+  type: 大模型API
+  model_name: U2-Flash（编程 / 办公）、U2-Med（专业医疗），另含 U2-RadiMed / ASR / TTS / OCR 等
+  free_type: 每月重置
+  quota: "Free 档 ¥0/月，每周 2,500 积分（另 5 小时动态窗口 500 积分），覆盖 U2-Flash / U2-Med；需在订阅页手动点「立即领取」，不自动发放。周积分按 7 天周期刷新、不结转；另有语音/文档/医疗影像等赠送额度，具体数值以官网为准"
+  validity: 长期有效（Free 档官方未标注到期）；官方未标注「限时」，积分按周刷新、未用完不结转，以官网为准
+  need_realname: "是"
+  need_credit_card: "否"
+  openai_compatible: "是"
+  access_note: 国内可直连
+  official_url: "https://maas.unisound.com/token-plan"
+  rule_url: "https://maas.unisound.com/docs/token-plan/quickstart"
+  remark: "国产 MaaS 平台（云知声旗下），Free 档 OpenAI 兼容：Base URL 填 https://maas-api.unisound.com/v1 、模型名 u2-flash，可直接用 OpenAI SDK；官方 quickstart 写明支持 Codex / Claude Code / OpenCode / Trae 等工具接入。领取后在「控制台 > 订阅管理 > U Plan」拿套餐专属 API Key（每账户一把、不可自建）。平台注册需实名认证（官方 U2-Decision 页写明「注册、实名认证、获取 API KEY」流程），免费档无需绑卡。官方订阅概要载明当前限时免除忙时加倍消耗、积分按输入/输出 Token 系数抵扣；Free 档官方未标注到期时间，但周积分 7 天刷新、未用完不结转，本站按「每月重置」中性标注、以官网实时页面为准。医疗模型 U2-Med / U2-RadiMed 是云知声强项，做普通对话/编程用 U2-Flash 即可。"
+  source_id: vendor-cn-llm
+  tags: [国内可访问, OpenAI兼容, 每月免费, 实名认证]
