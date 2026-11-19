@@ -1644,19 +1644,19 @@
 - name: Nous Research Portal
   slug: nous-research-portal
   type: 大模型API
-  model_name: Hermes 系列
+  model_name: "Hermes 系列；目录内 FREE 模型（LongCat-2.5:Free / Qwen4 Max / Step 3.7 Flash / Hy4 flash / Solar Mini 4）"
   free_type: 永久免费
-  quota: "免费层 50 RPM / 500,000 TPM，无需信用卡，可调用 Hermes 系列开源模型（以官网为准）"
+  quota: "免费层 50 RPM / 500,000 TPM，无需信用卡；官方模型目录当前另标 5 个 FREE 模型（LongCat-2.5:Free、Qwen4 Max、Step 3.7 Flash、Hy4 flash、Solar Mini 4），免费范围与限速以官网实时页面为准"
   validity: 长期有效
   need_credit_card: "否"
   need_realname: 否
   openai_compatible: 是
   access_note: 需要特殊网络（海外服务）
   official_url: "https://portal.nousresearch.com/"
-  rule_url: "https://docs.nousresearch.com/"
-  remark: 真正「永久免费档」而非试用赠金，50 RPM 在免费档里算宽裕；模型偏研究向，中文能力一般。
+  rule_url: "https://portal.nousresearch.com/api-docs"
+  remark: "真正「永久免费档」而非试用赠金，50 RPM 在免费档里算宽裕；官方 API 文档列出 Hermes-4.3-36B / Hermes-4-70B / Hermes-4-405B，base URL 为 https://inference-api.nousresearch.com/v1 ，OpenAI SDK 可直接接入。官方模型目录还标有 5 个 FREE 模型，但目录里同时混有按 token 计费的付费模型，认准 FREE 标签；免费范围以官网实时页面为准。模型偏研究向，中文能力一般。"
   source_id: free-for-dev
-  tags: [永久免费, 开源模型, 免信用卡]
+  tags: [永久免费, 开源模型, 免信用卡, 多模型目录]
 
 - name: Inference.net
   slug: inference-net
