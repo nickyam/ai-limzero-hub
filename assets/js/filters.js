@@ -12,31 +12,33 @@
     return Array.isArray(data) ? data : [];
   }
 
+  function isDirect(d) {
+    return (d.access_note || "").indexOf("国内可直连") >= 0;
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     var raw = el("resource-data");
     if (!raw) return;
     var data = parseData(raw.textContent);
     if (!data.length) return;
 
-    // 统计面板（页面保留 #stats 时才渲染，否则跳过，避免报错）
-    var stEl = el("stats");
-    if (stEl) {
-      var types = {};
-      var direct = 0;
-      data.forEach(function (d) {
-        types[d.type] = 1;
-        if ((d.access_note || "").indexOf("国内可直连") >= 0) direct++;
-      });
-      stEl.innerHTML =
-        '<div class="stat"><b>' + data.length + '</b><span>有效资源</span></div>' +
-        '<div class="stat"><b>' + Object.keys(types).length + '</b><span>覆盖分类</span></div>' +
-        '<div class="stat"><b>' + direct + '</b><span>国内可直连</span></div>';
-    }
+    // slug → 数据对象。筛选与搜索都走这份 JSON，不再依赖卡片上的 data-search，
+    // 这样 161 张卡不用各自背一份 name+model+tags+remark 的搜索文本（省约 60KB HTML）。
+    var bySlug = {};
+    data.forEach(function (d) {
+      d._direct = isDirect(d);
+      d._hay = [d.name, d.model_name, (d.tags || []).join(" "), d.type, d.remark, d.quota]
+        .join(" ").toLowerCase();
+      bySlug[d.slug] = d;
+    });
 
-    // 填充筛选项
+    // 统计面板已改为 Hugo 构建期静态输出（见 layouts/index.html），
+    // 这里不再注入，避免 JS 执行后布局位移。
+
     function fill(id, label, vals) {
       var sel = el(id);
-      sel.innerHTML = '<option value="">' + label + '</option>';
+      if (!sel) return;
+      sel.innerHTML = '<option value="">' + label + "</option>";
       uniq(vals).forEach(function (v) {
         var o = document.createElement("option");
         o.value = v; o.textContent = v;
@@ -46,20 +48,22 @@
     fill("f-type", "分类", data.map(function (d) { return d.type; }));
     fill("f-realname", "是否实名", data.map(function (d) { return d.need_realname; }));
     fill("f-openai", "OpenAI 兼容", data.map(function (d) { return d.openai_compatible; }));
-    fill("f-direct", "国内直连", data.map(function (d) { return (d.access_note || "").indexOf("国内可直连") >= 0 ? "是" : "否"; }));
+    fill("f-direct", "国内直连", data.map(function (d) { return d._direct ? "是" : "否"; }));
     fill("f-free", "免费类型", data.map(function (d) { return d.free_type; }));
     fill("f-credit", "信用卡要求", data.map(function (d) { return d.need_credit_card; }));
 
-    // 当前筛选 + 搜索状态
-    var state = { type: "", realname: "", openai: "", direct: "", q: "", credit: "" };
+    // free 必须初始化，否则「清空筛选」时既 reset 不到、也判断不出默认值
+    var state = { type: "", realname: "", openai: "", direct: "", free: "", credit: "", q: "" };
 
     var fmap = {
       "f-type": "type", "f-realname": "realname",
       "f-openai": "openai", "f-direct": "direct", "f-free": "free", "f-credit": "credit"
     };
     Object.keys(fmap).forEach(function (id) {
-      el(id).addEventListener("change", function () {
-        state[fmap[id]] = el(id).value;
+      var node = el(id);
+      if (!node) return;
+      node.addEventListener("change", function () {
+        state[fmap[id]] = node.value;
         applyFilter();
       });
     });
@@ -72,33 +76,37 @@
       });
     }
 
-    function matchSearch(d, q) {
-      if (!q) return true;
-      var hay = [d.name, d.model_name, (d.tags || []).join(" "), d.type].join(" ").toLowerCase();
-      return hay.indexOf(q) >= 0;
+    var resetBtn = el("reset-filters");
+    if (resetBtn) {
+      resetBtn.addEventListener("click", function () {
+        Object.keys(state).forEach(function (k) { state[k] = ""; });
+        Object.keys(fmap).forEach(function (id) { var n = el(id); if (n) n.value = ""; });
+        if (searchInput) searchInput.value = "";
+        applyFilter();
+      });
     }
 
     function applyFilter() {
       var shown = 0;
-      document.querySelectorAll("#resource-list .card").forEach(function (c) {
+      var cards = document.querySelectorAll("#resource-list .card");
+      for (var i = 0; i < cards.length; i++) {
+        var c = cards[i];
+        var d = bySlug[c.dataset.slug];
         var ok = true;
-        if (state.type && c.dataset.type !== state.type) ok = false;
-        if (state.realname && c.dataset.realname !== state.realname) ok = false;
-        if (state.openai && c.dataset.openai !== state.openai) ok = false;
-        if (state.direct) {
-          var isDirect = c.dataset.direct === "true" ? "是" : "否";
-          if (isDirect !== state.direct) ok = false;
-        }
-        if (state.free && c.dataset.free !== state.free) ok = false;
-        if (state.credit && c.dataset.credit !== state.credit) ok = false;
-        // 与搜索联动：优先用卡片的 data-search（含名称/模型/分类/标签/避坑备注），回退到可见文本
-        if (ok && state.q) {
-          var text = (c.dataset.search || c.textContent || "").toLowerCase();
-          if (text.indexOf(state.q) < 0) ok = false;
+        if (!d) {
+          ok = false;
+        } else {
+          if (state.type && d.type !== state.type) ok = false;
+          else if (state.realname && d.need_realname !== state.realname) ok = false;
+          else if (state.openai && d.openai_compatible !== state.openai) ok = false;
+          else if (state.direct && (d._direct ? "是" : "否") !== state.direct) ok = false;
+          else if (state.free && d.free_type !== state.free) ok = false;
+          else if (state.credit && d.need_credit_card !== state.credit) ok = false;
+          else if (state.q && d._hay.indexOf(state.q) < 0) ok = false;
         }
         c.style.display = ok ? "" : "none";
         if (ok) shown++;
-      });
+      }
       var nr = el("no-results");
       if (nr) nr.hidden = shown !== 0;
     }

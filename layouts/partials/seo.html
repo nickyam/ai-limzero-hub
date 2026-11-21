@@ -1,0 +1,87 @@
+{{- /* ============================================================
+   SEO 元信息统一出口
+   ------------------------------------------------------------
+   全站所有页面的 title / description / canonical / OpenGraph
+   都在这里生成，避免出现「163 个页面共用同一句 description」
+   这种模板化问题。
+
+   分支优先级：
+     1. 首页           → 站点级描述（含实时条目数、分类数）
+     2. 资源详情页     → 名称 + 免费类型 + 额度片段（来自数据本身，不编造）
+     3. 分类总览页     → 分类名 + 条数 + 该分类下前三个资源名
+     4. 全部资源页     → 与其他页差异化，说明是分组总览
+     5. 其余静态页     → 取正文 summary 前 110 字
+   ============================================================ */ -}}
+
+{{- $site := site -}}
+{{- $name := $site.Params.siteName -}}
+{{- $pageTitle := "" -}}
+{{- $desc := "" -}}
+{{- $ogType := "website" -}}
+
+{{- $isDetail := false -}}
+{{- with .Params.official_url }}{{ $isDetail = true }}{{ end -}}
+
+{{- /* 全站统计（构建期算一次，供首页与各页复用） */ -}}
+{{- $all := hugo.Data.resources -}}
+{{- $types := slice -}}
+{{- range $all -}}
+  {{- if not (in $types .type) }}{{ $types = $types | append .type }}{{ end -}}
+{{- end -}}
+
+{{- if .IsHome -}}
+  {{- $pageTitle = printf "%s | %s" $name $site.Params.siteEn -}}
+  {{- $desc = printf "凌零集（Limzero AI Hub）收录 %d 个官方免费 AI 开发资源，覆盖 %d 个分类：免费大模型 API、Token 额度、云服务器、静态托管、向量数据库与 AI 推理工具。每条均标注免费额度、有效期、是否需实名与信用卡、国内能否直连，可直接跳转厂商官方页面领取。" (len $all) (len $types) -}}
+
+{{- else if $isDetail -}}
+  {{- $pageTitle = printf "%s | %s" .Params.title $name -}}
+  {{- $quota := .Params.quota | default "" | plainify -}}
+  {{- $desc = printf "%s（%s · %s）。额度：%s 访问：%s。使用前请以官网实时规则为准。" .Params.title (.Params.resource_type | default "") (.Params.free_type | default "") ($quota | truncate 96 "…") (.Params.access_note | default "详见官网") -}}
+
+{{- else if eq .Kind "term" -}}
+  {{- $cat := .Title -}}
+  {{- $items := where $all "type" $cat -}}
+  {{- $names := slice -}}
+  {{- range first 3 $items }}{{ $names = $names | append .name }}{{ end -}}
+  {{- $pageTitle = printf "%s免费资源（%d 个）| %s" $cat (len $items) $name -}}
+  {{- $desc = printf "收录 %d 个官方免费%s资源，含 %s 等，逐条标注免费额度、有效期、是否需实名与信用卡、国内是否可直连，可直接跳转官方页面领取。" (len $items) $cat (delimit $names "、") -}}
+
+{{- else if eq .Kind "taxonomy" -}}
+  {{- $pageTitle = printf "资源分类（%d 类）| %s" (len $types) $name -}}
+  {{- $desc = printf "凌零集把 %d 个免费资源按用途分为 %d 类：%s。每类可单独浏览，逐条标注免费额度与领取门槛。" (len $all) (len $types) (delimit $types "、") -}}
+
+{{- else if and (eq .Section "resources") (not $isDetail) -}}
+  {{- $pageTitle = printf "全部资源总览（%d 个）| %s" (len $all) $name -}}
+  {{- $desc = printf "凌零集全部 %d 个免费 AI 开发资源，按 %d 个分类分组列出，便于通读与横向比较。首页提供筛选与搜索，本页按分类汇总。" (len $all) (len $types) -}}
+
+{{- else -}}
+  {{- $pageTitle = printf "%s | %s" .Title $name -}}
+  {{- $raw := "" -}}
+  {{- with .Summary }}{{ $raw = . | plainify }}{{ end -}}
+  {{- if not $raw }}{{ $raw = printf "%s - %s，%s" .Title $name $site.Params.slogan }}{{ end -}}
+  {{- $desc = $raw | truncate 110 "…" -}}
+{{- end -}}
+
+{{- $desc = $desc | replaceRE "\\s+" " " | strings.TrimSpace -}}
+<title>{{ $pageTitle }}</title>
+<meta name="description" content="{{ $desc }}">
+<link rel="canonical" href="{{ .Permalink }}">
+<meta name="robots" content="index,follow,max-image-preview:large">
+
+<meta property="og:site_name" content="{{ $name }}">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:title" content="{{ $pageTitle }}">
+<meta property="og:description" content="{{ $desc }}">
+<meta property="og:type" content="{{ $ogType }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:image" content="{{ "og-image.png" | absURL }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ $pageTitle }}">
+<meta name="twitter:description" content="{{ $desc }}">
+<meta name="twitter:image" content="{{ "og-image.png" | absURL }}">
+
+<meta name="theme-color" content="#fafafa" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f1115" media="(prefers-color-scheme: dark)">
+<meta name="format-detection" content="telephone=no">

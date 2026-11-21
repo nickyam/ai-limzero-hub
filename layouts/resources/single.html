@@ -1,48 +1,122 @@
 {{ define "main" }}
+{{- $p := .Params -}}
+{{- $host := (urls.Parse $p.official_url).Host -}}
+{{- $ruleHost := (urls.Parse $p.rule_url).Host -}}
+{{- $type := $p.resource_type -}}
 <article class="detail">
   <nav class="breadcrumb">
-    <a href="/">首页</a> / <a href="/categories/{{ partial "cat-slug.html" .Params.resource_type }}/">{{ .Params.resource_type }}</a> / <span>{{ .Params.title }}</span>
+    <a href="/">首页</a> / <a href="/categories/{{ partial "cat-slug.html" $type }}/">{{ $type }}</a> / <span>{{ $p.title }}</span>
   </nav>
-  <h1>{{ .Params.title }}{{ with .Params.model_name }}<span class="model"> · {{ . }}</span>{{ end }}</h1>
 
-  <dl class="fields">
-    <dt>分类</dt><dd>{{ .Params.resource_type }}</dd>
-    <dt>模型名称</dt><dd>{{ .Params.model_name | default "—" }}</dd>
-    <dt>免费类型</dt><dd>{{ .Params.free_type }}</dd>
-    <dt>额度说明</dt><dd>{{ .Params.quota }}</dd>
-    <dt>有效期</dt><dd>{{ .Params.validity | default "—" }}</dd>
-    <dt>是否实名</dt><dd>{{ .Params.need_realname }}</dd>
-    <dt>是否需要信用卡</dt><dd>{{ .Params.need_credit_card }}</dd>
-    <dt>OpenAI 兼容</dt><dd>{{ .Params.openai_compatible }}</dd>
-    <dt>访问备注</dt><dd>{{ .Params.access_note }}</dd>
-    <dt>收录日期</dt><dd>{{ .Params.added_on | default "—" }}</dd>
-    <dt>标签</dt><dd>{{ range .Params.resource_tags }}<span class="tag">{{ . }}</span>{{ end }}</dd>
-  </dl>
+  <h1>{{ $p.title }}{{ with $p.model_name }}<span class="model"> · {{ . }}</span>{{ end }}</h1>
 
-  <div class="remark">
-    <h2>避坑备注</h2>
-    <p>{{ .Params.remark | default "暂无" }}</p>
+  {{- /* 速览胶囊：把决策相关的 5 个字段提到最前面，用户不用读完整张表 */}}
+  <div class="detail-facts">
+    <span class="fact"><em>免费类型</em>{{ $p.free_type }}</span>
+    <span class="fact"><em>有效期</em>{{ $p.validity | default "以官网为准" }}</span>
+    <span class="fact {{ if eq $p.need_realname "是" }}warn{{ else }}ok{{ end }}"><em>实名</em>{{ $p.need_realname }}</span>
+    <span class="fact {{ if eq $p.need_credit_card "是" }}warn{{ else if eq $p.need_credit_card "以官网为准" }}mid{{ else }}ok{{ end }}"><em>信用卡</em>{{ $p.need_credit_card }}</span>
+    <span class="fact {{ if in $p.access_note "国内可直连" }}ok{{ else }}warn{{ end }}"><em>网络</em>{{ $p.access_note }}</span>
   </div>
 
   <div class="detail-actions">
-    <a class="btn primary" href="{{ .Params.official_url }}" target="_blank" rel="noopener noreferrer">官方领取 ↗</a>
-    <a class="btn ghost" href="{{ .Params.rule_url }}" target="_blank" rel="noopener noreferrer">官方规则 ↗</a>
+    <a class="btn primary" href="{{ $p.official_url }}" target="_blank" rel="noopener noreferrer nofollow">前往 {{ $host }} 领取 ↗</a>
+    <a class="btn ghost" href="{{ $p.rule_url }}" target="_blank" rel="noopener noreferrer nofollow">官方规则 ↗</a>
   </div>
 
-  {{/* 同类资源：为详情页提供站内横向入口，避免成为孤岛页 */}}
-  {{ $cur := .Params.slug }}
-  {{ $type := .Params.resource_type }}
-  {{ $siblings := slice }}
-  {{ range site.Data.resources }}
-    {{ if and (eq .type $type) (ne .slug $cur) }}
-      {{ $siblings = $siblings | append . }}
-    {{ end }}
-  {{ end }}
-  {{ with $siblings }}
+  {{- /* 额度单独成块：这是用户最关心的信息，不该混在表格里被略过 */}}
+  <section class="quota-box">
+    <h2>免费额度</h2>
+    <p class="quota-text">{{ $p.quota }}</p>
+    {{ with $p.validity }}<p class="quota-validity">有效期：{{ . }}</p>{{ end }}
+  </section>
+
+  {{- /* 领取路径：只用数据里已有的门槛字段推导，不编造具体入口名称与步骤 */}}
+  {{- $prep := slice -}}
+  {{- if eq $p.need_realname "是" }}{{ $prep = $prep | append "完成实名认证（通常需要身份证与人脸核验）" }}{{ end -}}
+  {{- if eq $p.need_credit_card "是" }}{{ $prep = $prep | append "准备一张可用信用卡（部分厂商会做小额预授权，注意是否退回）" }}{{ end -}}
+  {{- if eq $p.need_credit_card "以官网为准" }}{{ $prep = $prep | append "先确认是否需要绑卡（本站未核实到明确口径，请以官网为准）" }}{{ end -}}
+  {{- if not $prep }}{{ $prep = $prep | append "既不需要实名，也不需要绑定信用卡" }}{{ end -}}
+
+  <section class="howto">
+    <h2>怎么领</h2>
+    <ol class="steps">
+      <li>
+        <b>确认门槛</b>
+        <p>{{ delimit $prep "；" }}。</p>
+      </li>
+      <li>
+        <b>到官网开通</b>
+        <p>打开 <a href="{{ $p.official_url }}" target="_blank" rel="noopener noreferrer nofollow">{{ $host }}</a>，注册或登录后在控制台找到免费额度 / 免费套餐 / 试用入口。入口名称各厂商不一，以站内导航为准。</p>
+      </li>
+      <li>
+        <b>核对规则</b>
+        <p>领取后到<a href="{{ $p.rule_url }}" target="_blank" rel="noopener noreferrer nofollow">{{ $ruleHost }}</a>核对可用模型、并发限制与到期时间。额度与有效期随厂商政策变动，本站记录仅供参照。</p>
+      </li>
+    </ol>
+  </section>
+
+  <section class="params">
+    <h2>详细参数</h2>
+    <dl class="fields">
+      <dt>分类</dt><dd>{{ $type }}</dd>
+      <dt>模型 / 产品</dt><dd>{{ $p.model_name | default "—" }}</dd>
+      <dt>OpenAI 兼容</dt><dd>{{ $p.openai_compatible }}</dd>
+      <dt>访问备注</dt><dd>{{ $p.access_note }}</dd>
+      <dt>收录日期</dt><dd>{{ $p.added_on | default "—" }}</dd>
+      <dt>最近更新</dt><dd>{{ .Lastmod.Format "2006-01-02" }}</dd>
+      <dt>标签</dt><dd>{{ range $p.resource_tags }}<span class="tag">{{ . }}</span>{{ end }}</dd>
+    </dl>
+  </section>
+
+  <div class="remark">
+    <h2>避坑备注</h2>
+    <p>{{ $p.remark | default "暂无" }}</p>
+  </div>
+
+  {{- /* 同类对比：把同分类里的条目按统一维度并排放，比逐个点开快得多 */}}
+  {{- $peers := slice -}}
+  {{- range where hugo.Data.resources "type" $type -}}
+    {{- if ne .slug $p.slug }}{{ $peers = $peers | append . }}{{ end -}}
+  {{- end -}}
+  {{- $rows := slice (dict "name" $p.title "slug" $p.slug "self" true "free_type" $p.free_type "quota" $p.quota "need_realname" $p.need_realname "need_credit_card" $p.need_credit_card "access_note" $p.access_note "quota_short" ($p.quota | truncate 48 "…")) -}}
+  {{- range first 7 $peers -}}
+    {{- $rows = $rows | append (dict "name" .name "slug" .slug "self" false "free_type" .free_type "quota" .quota "need_realname" .need_realname "need_credit_card" .need_credit_card "access_note" .access_note "quota_short" (.quota | truncate 48 "…")) -}}
+  {{- end -}}
+  {{- if gt (len $rows) 1 }}
+  <section class="compare">
+    <h2>同类横向对比</h2>
+    <div class="compare-wrap">
+      <table>
+        <thead>
+          <tr><th>资源</th><th>免费类型</th><th>额度</th><th>实名</th><th>信用卡</th><th>网络</th></tr>
+        </thead>
+        <tbody>
+          {{- range $rows }}
+          <tr{{ if .self }} class="is-self"{{ end }}>
+            <td class="c-name">
+              {{- if .self }}<b>{{ .name }}</b>{{ else }}<a href="/resources/{{ .slug }}/">{{ .name }}</a>{{ end -}}
+            </td>
+            <td>{{ .free_type }}</td>
+            <td class="c-quota" title="{{ .quota }}">{{ .quota_short }}</td>
+            <td>{{ .need_realname }}</td>
+            <td>{{ .need_credit_card }}</td>
+            <td>{{ if in .access_note "国内可直连" }}<span class="dot ok"></span>直连{{ else }}<span class="dot warn"></span>需特殊网络{{ end }}</td>
+          </tr>
+          {{- end }}
+        </tbody>
+      </table>
+    </div>
+    <p class="compare-note">仅列出同分类中的 {{ len $rows }} 条，<a href="/categories/{{ partial "cat-slug.html" $type }}/">查看全部「{{ $type }}」→</a></p>
+  </section>
+  {{- end }}
+
+  {{- /* 同类资源：限 8 条，避免 41 条全铺造成内链稀释 */}}
+  {{- with $peers }}
     <section class="related">
-      <h2>同类资源</h2>
+      <h2>同分类其他资源</h2>
       <ul class="related-list">
-        {{ range . }}
+        {{ range first 8 . }}
           <li>
             <a href="/resources/{{ .slug }}/">{{ .name }}</a>
             <span class="related-meta">{{ .free_type }}</span>

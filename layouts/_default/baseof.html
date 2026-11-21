@@ -3,17 +3,23 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ if .IsHome }}{{ site.Params.siteName }} | {{ site.Params.siteEn }}{{ else }}{{ .Title }} | {{ site.Params.siteName }}{{ end }}</title>
-  <meta name="description" content="{{ site.Params.slogan }}">
-  <meta property="og:title" content="{{ site.Params.siteName }}">
-  <meta property="og:description" content="{{ site.Params.slogan }}">
-  <meta property="og:type" content="website">
+  {{- /* title / description / canonical / OG / theme-color 统一在此生成 */}}
+  {{ partial "seo.html" . }}
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   {{ $css := resources.Get "css/main.css" | minify | fingerprint }}
   <link rel="stylesheet" href="{{ $css.RelPermalink }}">
+  {{ if and site.Params.adsense.enabled (or (not .IsHome) site.Params.adsense.homePageAds) }}
+  <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+  {{ end }}
+  {{ partial "schema.html" . }}
 
+  {{- /* Auto Ads 默认不在首页加载：列表页广告密度过高（实测 12 个位），
+         既伤导流也拉长页面；详情/分类/静态页照常投放。开关见 config.toml。 */}}
   {{ if site.Params.adsense.enabled }}
+  {{ if or (not .IsHome) site.Params.adsense.homePageAds }}
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ site.Params.adsense.client }}" crossorigin="anonymous"></script>
+  {{ end }}
   {{ end }}
 </head>
 <body>

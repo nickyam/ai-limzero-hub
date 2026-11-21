@@ -2,8 +2,12 @@
 /public/
 
 # 由 scripts/gen_resources.py 生成，非手工编辑（单一来源是 data/resources.yaml）
-/content/resources/
-/content/categories/
+# 例外：两个 _index.md 是手写的 section 首页（/resources/ 与 /categories/ 的标题与正文），
+# 必须入库 —— 否则 CI 侧构建出来的这两个页面标题会退化成英文目录名。
+/content/resources/*
+!/content/resources/_index.md
+/content/categories/*
+!/content/categories/_index.md
 
 # Hugo 构建锁
 .hugo_build.lock

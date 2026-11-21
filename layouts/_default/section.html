@@ -1,11 +1,35 @@
 {{ define "main" }}
+{{- /* 全部资源总览：与首页刻意差异化 —— 首页是「时间排序 + 筛选搜索」，
+       本页是「按分类分组通读」。避免两页内容 100% 重复被判重复内容。 */ -}}
+{{- $all := hugo.Data.resources -}}
+{{- $groups := slice -}}
+{{- range $t := (slice "大模型API" "AI编程助手" "AI推理工具" "免费API" "云服务器·容器" "静态托管" "存储·CDN" "后端·数据库" "向量数据库") -}}
+  {{- $items := where $all "type" $t -}}
+  {{- if $items }}{{ $groups = $groups | append (dict "type" $t "items" $items) }}{{ end -}}
+{{- end -}}
+
 <section class="hero small">
   <h1 class="site-title">{{ .Title }}</h1>
-  <p class="slogan">{{ site.Params.slogan }}</p>
+  <p class="slogan">共 {{ len $all }} 个资源，按 {{ len $groups }} 个分类分组</p>
 </section>
-<section class="resource-list" id="resource-list">
-  {{/* 与首页 / 分类页共用同一份排序与卡片渲染，避免三个列表顺序不一致。
-       原先用 .Pages 构造 dict 会漏掉 need_credit_card / validity 等字段，这里直接吃数据源。 */}}
-  {{ partial "resource-list.html" (dict "items" site.Data.resources) }}
+
+<nav class="anchor-bar" aria-label="跳转到分类">
+  {{- range $groups }}
+  <a href="#g-{{ partial "cat-slug.html" .type }}">{{ .type }} <em>{{ len .items }}</em></a>
+  {{- end }}
+</nav>
+
+{{- range $groups }}
+<section class="group-block" id="g-{{ partial "cat-slug.html" .type }}">
+  <h2 class="group-title">
+    <a href="/categories/{{ partial "cat-slug.html" .type }}/">{{ .type }}</a>
+    <span class="group-count">{{ len .items }} 个</span>
+  </h2>
+  <div class="resource-list">
+    {{ partial "resource-list.html" (dict "items" .items) }}
+  </div>
 </section>
+{{- end }}
+
+<p class="cat-foot">需要按额度 / 实名 / 信用卡 / 直连条件筛选，请回<a href="/">首页</a>使用筛选器。</p>
 {{ end }}

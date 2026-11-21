@@ -18,8 +18,9 @@
       "<h2>" + esc(d.name) + (d.model_name ? ' <span class="model">· ' + esc(d.model_name) + "</span>" : "") + "</h2>" +
       '<dl class="fields">' +
       row("分类", d.type) + row("免费类型", d.free_type) + row("额度说明", d.quota) +
-      row("有效期", d.validity) +       row("是否实名", d.need_realname) + row("OpenAI 兼容", d.openai_compatible) +
-      row("访问备注", d.access_note) +
+      row("有效期", d.validity) + row("是否实名", d.need_realname) +
+      row("是否需信用卡", d.need_credit_card) + row("OpenAI 兼容", d.openai_compatible) +
+      row("访问备注", d.access_note) + row("收录日期", d.added_on) +
       "</dl>" +
       '<p class="remark"><b>避坑备注：</b>' + esc(d.remark) + "</p>" +
       '<div class="card-tags">' + tags + "</div>" +

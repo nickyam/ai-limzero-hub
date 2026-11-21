@@ -206,8 +206,16 @@ def main():
 
     # 汇总
     n_err, n_warn = len(rep.errors), len(rep.warns)
+    missing_added = sum(1 for it in data if isinstance(it, dict) and not it.get("added_on"))
     if not args.quiet:
         print("-" * 60)
+        if missing_added:
+            # 不逐条报 WARN：存量条目本就没有这个字段，逐条刷屏没有信息量。
+            # 但新条目必须带 added_on —— 否则 NEW 徽章和「新收录置顶」都不生效。
+            print(
+                f"[validate] 提示：{missing_added} 条缺 added_on（存量条目可忽略；"
+                f"新增条目请由 scripts/ingest.py 写入，否则不会出现在置顶与 NEW 徽章里）"
+            )
     print(f"[validate] {len(data)} 条 | ERROR {n_err} | WARN {n_warn}")
 
     failed = n_err > 0 or (args.strict and n_warn > 0)

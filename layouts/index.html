@@ -5,11 +5,24 @@
   <p class="slogan">{{ site.Params.slogan }}</p>
 </section>
 
-<section class="stats" id="stats" aria-live="polite"></section>
+{{- /* 统计数字在构建期算好直接输出：原来靠 filters.js 注入，
+       JS 执行后整块撑开会把下面所有内容往下推（实测移动端 CLS 0.17→0.22）。 */ -}}
+{{- $all := hugo.Data.resources -}}
+{{- $types := slice -}}
+{{- $directN := 0 -}}
+{{- range $all -}}
+  {{- if not (in $types .type) }}{{ $types = $types | append .type }}{{ end -}}
+  {{- if in .access_note "国内可直连" }}{{ $directN = add $directN 1 }}{{ end -}}
+{{- end -}}
+<section class="stats" id="stats">
+  <div class="stat"><b>{{ len $all }}</b><span>有效资源</span></div>
+  <div class="stat"><b>{{ len $types }}</b><span>覆盖分类</span></div>
+  <div class="stat"><b>{{ $directN }}</b><span>国内可直连</span></div>
+</section>
 
 <nav class="cat-bar" aria-label="按分类浏览">
   {{ $seen := slice }}
-  {{ range site.Data.resources }}
+  {{ range hugo.Data.resources }}
     {{ if not (in $seen .type) }}
       {{ $seen = $seen | append .type }}
       <a class="cat-chip" href="/categories/{{ partial "cat-slug.html" .type }}/">{{ .type }}</a>
@@ -32,10 +45,15 @@
 </section>
 
 <section class="resource-list" id="resource-list">
-  {{ partial "resource-list.html" (dict "items" site.Data.resources) }}
+  {{/* heading: h1 -> h2 -> card h3 */}}
+  <h2 class="visually-hidden">全部资源列表</h2>
+  {{ partial "resource-list.html" (dict "items" hugo.Data.resources) }}
 </section>
 
-<p id="no-results" class="no-results" hidden>没有匹配的资源，试试调整筛选或关键词。</p>
+<div id="no-results" class="no-results" hidden>
+  <p>没有匹配的资源，试试调整筛选或关键词。</p>
+  <button type="button" id="reset-filters" class="btn ghost">清空全部筛选</button>
+</div>
 
 <div id="modal" class="modal hidden" aria-hidden="true">
   <div class="modal-backdrop" data-close></div>
@@ -43,7 +61,7 @@
 </div>
 
 {{ $data := slice }}
-{{ range site.Data.resources }}
+{{ range hugo.Data.resources }}
   {{ $data = $data | append (dict
     "slug" (.slug | default (replace .name " " "-"))
     "name" .name

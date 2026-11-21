@@ -1,0 +1,76 @@
+{{- /* ============================================================
+   JSON-LD 结构化数据
+   ------------------------------------------------------------
+   · 详情页 → SoftwareApplication + Offer(price 0)，有机会拿富结果
+   · 列表页 → ItemList（首页/分类/全部资源）
+   · 其他页 → WebPage + BreadcrumbList
+   全部字段取自 data/resources.yaml，不做任何推断或补造。
+   ============================================================ */ -}}
+
+{{- $site := site -}}
+{{- $name := $site.Params.siteName -}}
+{{- $isDetail := false -}}
+{{- with .Params.official_url }}{{ $isDetail = true }}{{ end -}}
+
+{{- if $isDetail -}}
+  {{- $ld := dict
+    "@context" "https://schema.org"
+    "@type" "SoftwareApplication"
+    "name" .Params.title
+    "url" .Permalink
+    "applicationCategory" (.Params.resource_type | default "DeveloperApplication")
+    "operatingSystem" "Web"
+    "description" (.Params.quota | default "" | plainify)
+    "offers" (dict
+      "@type" "Offer"
+      "price" "0"
+      "priceCurrency" "CNY"
+      "description" (printf "%s（%s）" (.Params.free_type | default "") (.Params.validity | default ""))
+      "url" .Params.official_url )
+    "publisher" (dict "@type" "Organization" "name" $name "url" $site.BaseURL) -}}
+  <script type="application/ld+json">{{ $ld | jsonify | safeJS }}</script>
+  {{- $bc := dict
+    "@context" "https://schema.org"
+    "@type" "BreadcrumbList"
+    "itemListElement" (slice
+      (dict "@type" "ListItem" "position" 1 "name" "首页" "item" $site.BaseURL)
+      (dict "@type" "ListItem" "position" 2 "name" .Params.resource_type "item" (printf "%scategories/%s/" $site.BaseURL (urlize .Params.resource_type)))
+      (dict "@type" "ListItem" "position" 3 "name" .Params.title "item" .Permalink) ) -}}
+  <script type="application/ld+json">{{ $bc | jsonify | safeJS }}</script>
+
+{{- else if or .IsHome (eq .Kind "term") (eq .Kind "taxonomy") (and (eq .Section "resources") (not $isDetail)) -}}
+  {{- $items := hugo.Data.resources -}}
+  {{- if eq .Kind "term" }}{{ $items = where hugo.Data.resources "type" .Title }}{{ end -}}
+  {{- $list := slice -}}
+  {{- range $i, $r := first 30 $items -}}
+    {{- $list = $list | append (dict
+      "@type" "ListItem"
+      "position" (add $i 1)
+      "name" $r.name
+      "url" (printf "%sresources/%s/" $site.BaseURL $r.slug)) -}}
+  {{- end -}}
+  {{- $ld := dict
+    "@context" "https://schema.org"
+    "@type" (cond .IsHome "WebSite" "CollectionPage")
+    "name" (cond .IsHome (printf "%s | %s" $name $site.Params.siteEn) .Title)
+    "url" .Permalink
+    "description" $site.Params.slogan
+    "inLanguage" "zh-CN"
+    "publisher" (dict "@type" "Organization" "name" $name "url" $site.BaseURL) -}}
+  {{- if .IsHome -}}
+    {{- $ld = merge $ld (dict "mainEntity" (dict "@type" "ItemList" "numberOfItems" (len $items) "itemListElement" $list)) -}}
+  {{- else -}}
+    {{- $ld = merge $ld (dict "mainEntity" (dict "@type" "ItemList" "numberOfItems" (len $items) "itemListElement" $list)) -}}
+  {{- end -}}
+  <script type="application/ld+json">{{ $ld | jsonify | safeJS }}</script>
+
+{{- else -}}
+  {{- $ld := dict
+    "@context" "https://schema.org"
+    "@type" "WebPage"
+    "name" .Title
+    "url" .Permalink
+    "inLanguage" "zh-CN"
+    "isPartOf" (dict "@type" "WebSite" "name" $name "url" $site.BaseURL) -}}
+  <script type="application/ld+json">{{ $ld | jsonify | safeJS }}</script>
+{{- end -}}

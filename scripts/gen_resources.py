@@ -12,8 +12,10 @@
 注意：Hugo 保留 front matter 中的 `type` 作为内容类型，会干扰模板查找，
 因此本脚本把数据字段 `type` 映射为 front matter 的 `resource_type`。
 """
+import datetime
 import os
 import re
+import subprocess
 import yaml
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -74,9 +76,12 @@ def yaml_val(v):
     return s
 
 
-def build_front_matter(item: dict) -> str:
+def build_front_matter(item: dict, lastmod: str | None = None) -> str:
     lines = ["---"]
     lines.append(f'title: "{item.get("name", "")}"')
+    if lastmod:
+        # 必须带引号：不加引号 Hugo 会解析成 time.Time，模板里做字符串比较会炸
+        lines.append(f'lastmod: "{lastmod}"')
     for src, dst in FIELD_MAP.items():
         if dst == "title":
             continue
@@ -91,6 +96,75 @@ def build_front_matter(item: dict) -> str:
     lines.append("")
     lines.append("> 本页由构建脚本自动生成，请勿直接编辑；数据维护见 data/resources.yaml。")
     return "\n".join(lines)
+
+
+LASTMOD_RE = re.compile(r"^lastmod: .*\n", re.MULTILINE)
+
+
+def strip_lastmod(text: str) -> str:
+    """去掉 front matter 里的 lastmod 行，用于「内容是否变化」的比对。"""
+    return LASTMOD_RE.sub("", text)
+
+
+def read_lastmod(path: str) -> str | None:
+    try:
+        with open(path, encoding="utf-8") as f:
+            m = re.search(r'^lastmod: "?(\d{4}-\d{2}-\d{2})"?$', f.read(), re.MULTILINE)
+            return m.group(1) if m else None
+    except OSError:
+        return None
+
+
+def data_last_modified() -> str:
+    """数据文件的最后真实变更日，用于首次回填 lastmod。
+
+    优先取 git 提交日期（真实且稳定），无 git 记录时回退文件 mtime。
+    绝不使用 now() —— 否则每次构建全站 lastmod 都会被刷成今天，等于骗爬虫。
+    """
+    try:
+        out = subprocess.run(
+            ["git", "log", "-1", "--format=%cs", "--", "data/resources.yaml"],
+            cwd=ROOT, capture_output=True, text=True, timeout=10,
+        )
+        s = out.stdout.strip()
+        if re.fullmatch(r"\d{4}-\d{2}-\d{2}", s or ""):
+            return s
+    except Exception:
+        pass
+    return datetime.date.fromtimestamp(os.path.getmtime(DATA)).isoformat()
+
+
+def sync_page(path: str, item: dict, fallback_lastmod: str) -> tuple[bool, str]:
+    """写入单个资源页，返回 (是否真的写了, 该页当前 lastmod)。
+
+    三档：
+      · 文件不存在          → 新增，lastmod = 今天
+      · 内容有变            → 更新，lastmod = 今天
+      · 内容没变、有 lastmod → 原样保留（不动 mtime）
+      · 内容没变、无 lastmod → 首次回填，lastmod = 数据文件最后变更日
+    """
+    base = strip_lastmod(build_front_matter(item))
+    old_text = None
+    if os.path.isfile(path):
+        try:
+            with open(path, encoding="utf-8") as f:
+                old_text = f.read()
+        except OSError:
+            old_text = None
+
+    if old_text is not None and strip_lastmod(old_text) == base:
+        prev = read_lastmod(path)
+        if prev:
+            return False, prev
+        lm = fallback_lastmod
+    else:
+        lm = datetime.date.today().isoformat()
+
+    content = build_front_matter(item, lm)
+    if old_text != content:
+        write_if_changed(path, content)
+        return True, lm
+    return False, lm
 
 
 def write_if_changed(path: str, content: str) -> bool:
@@ -136,18 +210,26 @@ def main():
 
     types = {}
     written = 0
-    keep_res = set()
+    # _index.md 是手写的 section 首页（/resources/ 与 /categories/ 的标题与正文），
+    # 必须进 keep 集合，否则会被下面的 prune 当成孤儿页删掉。
+    keep_res = {"_index.md"}
+    fallback_lastmod = data_last_modified()
+    type_lastmod = {}
     for it in items:
         slug = it.get("slug") or slugify(it.get("name", "item"))
         it["slug"] = slug
         fname = f"{slug}.md"
         keep_res.add(fname)
-        if write_if_changed(os.path.join(RES_DIR, fname), build_front_matter(it)):
+        changed, lm = sync_page(os.path.join(RES_DIR, fname), it, fallback_lastmod)
+        if changed:
             written += 1
         t = it.get("type", "未分类")
         types[t] = slugify(t)
+        # 分类页 lastmod 取该分类下最新的条目日期（真实数据，不写构建时间）
+        if lm and lm > type_lastmod.get(t, ""):
+            type_lastmod[t] = lm
 
-    keep_cat = set()
+    keep_cat = {"_index.md"}
     for t, tslug in types.items():
         keep_cat.add(tslug)
         body = (
@@ -155,6 +237,7 @@ def main():
             f'title: "{t}"\n'
             "layout: category\n"
             f'category: "{t}"\n'
+            f'lastmod: "{type_lastmod.get(t, fallback_lastmod)}"\n'
             "---\n"
         )
         write_if_changed(os.path.join(CAT_DIR, tslug, "_index.md"), body)

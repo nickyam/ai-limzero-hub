@@ -1,10 +1,17 @@
 {{ define "main" }}
+{{- $cat := .Params.category -}}
+{{- $items := where hugo.Data.resources "type" $cat -}}
+<nav class="breadcrumb">
+  <a href="/">首页</a> / <a href="/categories/">全部分类</a> / <span>{{ $cat }}</span>
+</nav>
+
 <section class="hero small">
   <h1 class="site-title">{{ .Title }}</h1>
-  <p class="slogan">{{ site.Params.slogan }}</p>
+  <p class="slogan">{{ partial "cat-blurb.html" $cat }}</p>
+  <p class="cat-meta">共 {{ len $items }} 个资源 · <a href="/resources/">查看全部 {{ len hugo.Data.resources }} 个</a></p>
 </section>
 
 <section class="resource-list">
-  {{ partial "resource-list.html" (dict "items" (where site.Data.resources "type" .Params.category)) }}
+  {{ partial "resource-list.html" (dict "items" $items) }}
 </section>
 {{ end }}

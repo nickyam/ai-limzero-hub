@@ -1,0 +1,44 @@
+{{ define "main" }}
+{{- /* 分类总览页：把 9 个分类做成卡片入口（原先 /categories/ 是 403 死链） */ -}}
+{{- $all := hugo.Data.resources -}}
+{{- $blurbs := dict
+  "大模型API" "各家开放平台的免费额度、永久免费模型与邀请奖励，多数可直接用 OpenAI SDK 接入"
+  "AI编程助手" "代码补全、Agent 式编程与 IDE 插件，含免费额度或开源方案"
+  "AI推理工具" "本地与云端模型推理、部署与加速工具，含 CPU 可跑的轻量方案"
+  "免费API" "OCR、语音、翻译、地图等通用能力接口的免费调用额度"
+  "云服务器·容器" "免费试用机型、长期免费实例与容器托管，注意续费与到期规则"
+  "静态托管" "零成本部署前端与静态站，多数带免费 HTTPS 与全球 CDN"
+  "存储·CDN" "对象存储与内容分发的免费存储量和流量额度"
+  "后端·数据库" "BaaS 与托管数据库免费层，适合原型和副业项目起步"
+  "向量数据库" "RAG 与语义检索用的向量库，标注免费额度与是否需信用卡"
+-}}
+
+{{- $groups := slice -}}
+{{- range $t := (slice "大模型API" "AI编程助手" "AI推理工具" "免费API" "云服务器·容器" "静态托管" "存储·CDN" "后端·数据库" "向量数据库") -}}
+  {{- $items := where $all "type" $t -}}
+  {{- if $items -}}
+    {{- $groups = $groups | append (dict "type" $t "items" $items "count" (len $items)) -}}
+  {{- end -}}
+{{- end -}}
+
+<section class="hero small">
+  <h1 class="site-title">{{ .Title }}</h1>
+  <p class="slogan">共 {{ len $all }} 个资源，分 {{ len $groups }} 类</p>
+</section>
+
+<div class="cat-grid">
+  {{- range $groups }}
+  <a class="cat-card" href="/categories/{{ partial "cat-slug.html" .type }}/">
+    <div class="cat-card-head">
+      <h2>{{ .type }}</h2>
+      <span class="cat-count">{{ .count }}</span>
+    </div>
+    <p class="cat-blurb">{{ index $blurbs .type }}</p>
+    <p class="cat-sample">{{ range first 3 .items }}{{ .name }} · {{ end }}…</p>
+    <span class="cat-more">查看 {{ .count }} 个 →</span>
+  </a>
+  {{- end }}
+</div>
+
+<p class="cat-foot">找不到想要的？试试<a href="/">首页的筛选与搜索</a>，可按免费类型、是否需实名、是否需信用卡、国内能否直连组合过滤。</p>
+{{ end }}

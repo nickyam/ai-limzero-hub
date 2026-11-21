@@ -1,10 +1,16 @@
 baseURL = "https://ai.limzero.com/"
 locale = "zh-CN"
 title = "凌零集 | Limzero AI Hub"
+# 不用 enableGitInfo：content/resources/ 与 content/categories/ 是脚本产物、
+# 已被 .gitignore 忽略，Hugo 取不到 git 时间会把 date 清零（实测 0001-01-01）。
+# sitemap 的 <lastmod> 改由 scripts/gen_resources.py 写进 front matter，见该脚本。
 enableGitInfo = false
 
-# 本站 tags 仅作数据字段，不使用 Hugo 原生 taxonomy 页面
-disableKinds = ["taxonomy"]
+# 只保留 categories 一个 taxonomy；tags 不作分类法处理（数据里用的是 resource_tags 字段）。
+# 保留 categories 是为了让 /categories/ 总览页能生成（原先被 disableKinds 关掉，
+# 结果 /categories/ 是个 403 死链，而 404 页恰好链向它）。
+[taxonomies]
+  category = "categories"
 
 [params]
   siteName = "凌零集"
@@ -18,6 +24,12 @@ disableKinds = ["taxonomy"]
 [params.adsense]
   enabled = true
   client = "ca-pub-7114121088728794"
+  # 首页是否也加载 Auto Ads。
+  # 实测（2026-11-21，真实移动 UA）首页被自动插入 12 个广告位：首屏 1 个 390px +
+  # 列表里每 3 张卡 1 个 268px，先把首张资源卡推到 797px，整页更是拉到 5 万 px。
+  # 列表页广告单价低、对导流伤害大，默认只在内容页（详情/分类/静态页）投放。
+  # 想恢复首页广告：改成 true，并建议同时到 AdSense 后台把「页内广告」密度调低。
+  homePageAds = false
 
 [markup]
   [markup.goldmark]

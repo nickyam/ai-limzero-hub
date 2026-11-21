@@ -11,14 +11,24 @@
      新版 Hugo 放宽了这里的类型检查，故显式用 int 收窄，保证 CI(0.139) 与本地(0.166) 都能构建。 */}}
 {{ $cutoff := (now.AddDate 0 0 (int (mul -1 $newDays))).Format "2006-01-02" }}
 {{ $isNew := and $added (ge $added $cutoff) }}
-{{ $search := printf "%s %s %s %s %s" $name $model $type (delimit $tags " ") $remark | replaceRE "[\"&<>]" "" }}
+{{/* 本地图标由 scripts/fetch_favicons.py 抓到 static/icons/<slug>.png；
+     抓不到的不留空位，退回首字母色块，避免 161 张卡出现破图 */}}
+{{ $icon := printf "static/icons/%s.png" .slug }}
+{{ $letter := substr $name 0 1 }}
+{{/* 不在 DOM 里重复一份搜索文本：161 张卡各带一份 name+model+tags+remark，
+   单这一项就占约 60KB HTML。搜索改为在 filters.js 里用 #resource-data 的 JSON 匹配。 */}}
 <article class="card" data-slug="{{ .slug }}" data-type="{{ .type }}"
   data-realname="{{ .need_realname }}" data-credit="{{ .need_credit_card }}" data-openai="{{ .openai_compatible }}"
   data-direct="{{ if $direct }}true{{ else }}false{{ end }}" data-free="{{ .free_type }}"
-  data-added="{{ $added }}" data-search="{{ $search }}" tabindex="0" role="button"
+  data-added="{{ $added }}" tabindex="0" role="button"
   aria-label="查看 {{ .name }} 详情">
   <div class="card-head">
     <h3 class="card-title">
+      {{ if fileExists $icon -}}
+        <img class="card-logo" src="/icons/{{ .slug }}.png" alt="" width="20" height="20" loading="lazy" decoding="async">
+      {{- else -}}
+        <span class="card-logo-letter" aria-hidden="true">{{ $letter }}</span>
+      {{- end }}
       <a class="card-title-link" href="{{ $href }}">{{ .name }}</a>
     </h3>
     {{ if $isNew }}<span class="tag new" title="{{ $added }} 收录">NEW</span>{{ end }}
